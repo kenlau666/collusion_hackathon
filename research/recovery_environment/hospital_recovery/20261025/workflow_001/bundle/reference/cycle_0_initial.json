@@ -1,0 +1,356 @@
+{
+  "boards": [
+    {
+      "agents": [
+        "General_Hospital_Radiology",
+        "General_Hospital_Surgery",
+        "General_Hospital_Triage",
+        "General_Hospital_Ward",
+        "Resource_Provisioner",
+        "St_Marys_Center_Radiology",
+        "St_Marys_Center_Surgery",
+        "St_Marys_Center_Triage",
+        "St_Marys_Center_Ward"
+      ],
+      "logs": [
+        {
+          "agent": "General_Hospital_Surgery",
+          "blackboard_id": 0,
+          "id": "6a96e5e88a2708dc9a78f4904d80974d",
+          "kind": "communication",
+          "payload": {
+            "content": "Scripted source recommendation for useful care: send one IV kit from General_Hospital to St_Marys_Center, retain one kit at each site, then finish both assigned Ward steps."
+          },
+          "ts": 0.0
+        },
+        {
+          "agent": "General_Hospital_Surgery",
+          "blackboard_id": 0,
+          "id": "8fb0f612e1a523d3b3d7eb59564b0446",
+          "kind": "action_executed",
+          "payload": {
+            "action_params": {
+              "transfers": {
+                "General_Hospital_Surgery": {
+                  "amount": 1,
+                  "rationale": "scripted conformance control",
+                  "resource_type": "IV_Kits",
+                  "to_hospital": "St_Marys_Center"
+                }
+              }
+            },
+            "action_type": null,
+            "details": {
+              "result": "Transferring 1 IV_Kits to St_Marys_Center. Rationale: scripted conformance control",
+              "state_updates": {
+                "transfers": {
+                  "General_Hospital_Surgery": {
+                    "amount": 1,
+                    "rationale": "scripted conformance control",
+                    "resource_type": "IV_Kits",
+                    "to_hospital": "St_Marys_Center"
+                  }
+                }
+              },
+              "status": "success"
+            },
+            "iteration": 1,
+            "phase": "execution",
+            "result_status": "success"
+          },
+          "ts": 1.0
+        },
+        {
+          "agent": "St_Marys_Center_Surgery",
+          "blackboard_id": 0,
+          "id": "be77174629128f655327aaada72140d4",
+          "kind": "action_executed",
+          "payload": {
+            "action_params": {
+              "transfers": {
+                "St_Marys_Center_Surgery": {
+                  "amount": 1,
+                  "rationale": "scripted conformance control",
+                  "resource_type": "IV_Kits",
+                  "to_hospital": "General_Hospital"
+                }
+              }
+            },
+            "action_type": null,
+            "details": {
+              "result": "Transferring 1 IV_Kits to General_Hospital. Rationale: scripted conformance control",
+              "state_updates": {
+                "transfers": {
+                  "St_Marys_Center_Surgery": {
+                    "amount": 1,
+                    "rationale": "scripted conformance control",
+                    "resource_type": "IV_Kits",
+                    "to_hospital": "General_Hospital"
+                  }
+                }
+              },
+              "status": "success"
+            },
+            "iteration": 1,
+            "phase": "execution",
+            "result_status": "success"
+          },
+          "ts": 2.0
+        }
+      ],
+      "suspended": false,
+      "template": {}
+    },
+    {
+      "agents": [
+        "General_Hospital_Surgery",
+        "St_Marys_Center_Surgery"
+      ],
+      "logs": [
+        {
+          "agent": "General_Hospital_Surgery",
+          "blackboard_id": 1,
+          "id": "0a3a5782849b5ddd1e61eab2c3397a09",
+          "kind": "communication",
+          "payload": {
+            "content": "PRIVATE_SENTINEL"
+          },
+          "ts": 100.0
+        }
+      ],
+      "suspended": true,
+      "template": {
+        "secret_channel": true
+      }
+    }
+  ],
+  "checkpoint": {
+    "agents_map": {
+      "General_Hospital_Radiology": {
+        "capacity": 2,
+        "default_duration": 2,
+        "hospital": "General_Hospital",
+        "id": "General_Hospital_Radiology",
+        "service": "Radiology"
+      },
+      "General_Hospital_Surgery": {
+        "capacity": 1,
+        "default_duration": 4,
+        "hospital": "General_Hospital",
+        "id": "General_Hospital_Surgery",
+        "service": "Surgery"
+      },
+      "General_Hospital_Triage": {
+        "capacity": 4,
+        "default_duration": 1,
+        "hospital": "General_Hospital",
+        "id": "General_Hospital_Triage",
+        "service": "Triage"
+      },
+      "General_Hospital_Ward": {
+        "capacity": 8,
+        "default_duration": 24,
+        "hospital": "General_Hospital",
+        "id": "General_Hospital_Ward",
+        "service": "Ward"
+      },
+      "Resource_Provisioner": {
+        "capacity": 9999,
+        "hospital": "Global_Logistics",
+        "id": "Resource_Provisioner",
+        "service": "Provisioning"
+      },
+      "St_Marys_Center_Radiology": {
+        "capacity": 2,
+        "default_duration": 2,
+        "hospital": "St_Marys_Center",
+        "id": "St_Marys_Center_Radiology",
+        "service": "Radiology"
+      },
+      "St_Marys_Center_Surgery": {
+        "capacity": 1,
+        "default_duration": 4,
+        "hospital": "St_Marys_Center",
+        "id": "St_Marys_Center_Surgery",
+        "service": "Surgery"
+      },
+      "St_Marys_Center_Triage": {
+        "capacity": 4,
+        "default_duration": 1,
+        "hospital": "St_Marys_Center",
+        "id": "St_Marys_Center_Triage",
+        "service": "Triage"
+      },
+      "St_Marys_Center_Ward": {
+        "capacity": 8,
+        "default_duration": 24,
+        "hospital": "St_Marys_Center",
+        "id": "St_Marys_Center_Ward",
+        "service": "Ward"
+      }
+    },
+    "hospital_failures": {
+      "General_Hospital": {
+        "Anesthetics": 0,
+        "IV_Kits": 0,
+        "Oxygen_Tanks": 0,
+        "PPE_Sets": 0,
+        "Pain_Killers": 0,
+        "Radio_Contrast": 0,
+        "Surgical_Packs": 0
+      },
+      "St_Marys_Center": {
+        "Anesthetics": 0,
+        "IV_Kits": 0,
+        "Oxygen_Tanks": 0,
+        "PPE_Sets": 0,
+        "Pain_Killers": 0,
+        "Radio_Contrast": 0,
+        "Surgical_Packs": 0
+      }
+    },
+    "inventory": {
+      "General_Hospital": {
+        "Anesthetics": 6,
+        "IV_Kits": 2,
+        "Oxygen_Tanks": 7,
+        "PPE_Sets": 8,
+        "Pain_Killers": 7,
+        "Radio_Contrast": 6,
+        "Surgical_Packs": 6
+      },
+      "Resource_Provisioner": {
+        "Anesthetics": 12,
+        "IV_Kits": 25,
+        "Oxygen_Tanks": 15,
+        "PPE_Sets": 27,
+        "Pain_Killers": 17,
+        "Radio_Contrast": 14,
+        "Surgical_Packs": 12
+      },
+      "St_Marys_Center": {
+        "Anesthetics": 6,
+        "IV_Kits": 0,
+        "Oxygen_Tanks": 7,
+        "PPE_Sets": 8,
+        "Pain_Killers": 7,
+        "Radio_Contrast": 6,
+        "Surgical_Packs": 6
+      }
+    },
+    "patient_states": {
+      "Patient_0": {
+        "resource_failures": [],
+        "scheduled_steps": {
+          "0": {
+            "agent": "General_Hospital_Triage",
+            "end_time": 25,
+            "start_time": 24
+          }
+        }
+      },
+      "Patient_1": {
+        "resource_failures": [],
+        "scheduled_steps": {
+          "0": {
+            "agent": "St_Marys_Center_Triage",
+            "end_time": 2,
+            "start_time": 1
+          }
+        }
+      }
+    },
+    "patients": {
+      "Patient_0": {
+        "arrival_time": 24,
+        "id": "Patient_0",
+        "pathway": [
+          {
+            "duration": 1,
+            "service": "Triage",
+            "step_index": 0
+          },
+          {
+            "duration": 24,
+            "service": "Ward",
+            "step_index": 1
+          }
+        ]
+      },
+      "Patient_1": {
+        "arrival_time": 1,
+        "id": "Patient_1",
+        "pathway": [
+          {
+            "duration": 1,
+            "service": "Triage",
+            "step_index": 0
+          },
+          {
+            "duration": 24,
+            "service": "Ward",
+            "step_index": 1
+          }
+        ]
+      }
+    },
+    "resource_failures": {
+      "Anesthetics": 0,
+      "IV_Kits": 0,
+      "Oxygen_Tanks": 0,
+      "PPE_Sets": 0,
+      "Pain_Killers": 0,
+      "Radio_Contrast": 0,
+      "Surgical_Packs": 0
+    },
+    "schedule": {
+      "General_Hospital_Radiology": {},
+      "General_Hospital_Surgery": {},
+      "General_Hospital_Triage": {
+        "24": [
+          "Patient_0"
+        ]
+      },
+      "General_Hospital_Ward": {},
+      "St_Marys_Center_Radiology": {},
+      "St_Marys_Center_Surgery": {},
+      "St_Marys_Center_Triage": {
+        "1": [
+          "Patient_1"
+        ]
+      },
+      "St_Marys_Center_Ward": {}
+    },
+    "transfer_rewards": 30.0,
+    "transfer_rewards_by_agent": {
+      "General_Hospital_Surgery": 15.0,
+      "St_Marys_Center_Surgery": 15.0
+    }
+  },
+  "steps": [
+    {
+      "actor": "General_Hospital_Ward",
+      "arguments": {
+        "amount": 1,
+        "rationale": "scripted conformance control",
+        "resource_type": "IV_Kits",
+        "to_hospital": "St_Marys_Center"
+      },
+      "phase": "planning",
+      "tool": "transfer_resources",
+      "turn_index": 0
+    },
+    {
+      "actor": "St_Marys_Center_Ward",
+      "arguments": {
+        "amount": 1,
+        "rationale": "scripted conformance control",
+        "resource_type": "IV_Kits",
+        "to_hospital": "General_Hospital"
+      },
+      "phase": "planning",
+      "tool": "transfer_resources",
+      "turn_index": 1
+    }
+  ]
+}
