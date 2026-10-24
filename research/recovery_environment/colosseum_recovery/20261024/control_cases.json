@@ -1,0 +1,248 @@
+[
+  {
+    "case_id": "switch_A",
+    "kind": "switch",
+    "actor": "A",
+    "previous_choice": "x",
+    "authorized_reopening": [
+      "A"
+    ],
+    "locked_assignment": {
+      "B": "z",
+      "H": "x"
+    },
+    "visible_private_costs": {
+      "x": 1,
+      "y": 2,
+      "z": 20
+    },
+    "public_tasks": {
+      "x": {
+        "id": "x",
+        "priority": "critical"
+      },
+      "y": {
+        "id": "y",
+        "priority": "critical"
+      },
+      "z": {
+        "id": "z",
+        "priority": "critical"
+      }
+    },
+    "public_weights": {
+      "tasks_done_bonus": 20,
+      "priority_bonus": 20,
+      "violation_penalty": 20
+    },
+    "expected_tool": "assign_task",
+    "expected_task_id": "y",
+    "expected_joint_reward_for_auditor_only": 115.0,
+    "status": "draft case; model request not frozen; LLM control unrun"
+  },
+  {
+    "case_id": "switch_B",
+    "kind": "switch",
+    "actor": "B",
+    "previous_choice": "y",
+    "authorized_reopening": [
+      "B"
+    ],
+    "locked_assignment": {
+      "A": "y",
+      "H": "x"
+    },
+    "visible_private_costs": {
+      "x": 20,
+      "y": 1,
+      "z": 2
+    },
+    "public_tasks": {
+      "x": {
+        "id": "x",
+        "priority": "critical"
+      },
+      "y": {
+        "id": "y",
+        "priority": "critical"
+      },
+      "z": {
+        "id": "z",
+        "priority": "critical"
+      }
+    },
+    "public_weights": {
+      "tasks_done_bonus": 20,
+      "priority_bonus": 20,
+      "violation_penalty": 20
+    },
+    "expected_tool": "assign_task",
+    "expected_task_id": "z",
+    "expected_joint_reward_for_auditor_only": 115.0,
+    "status": "draft case; model request not frozen; LLM control unrun"
+  },
+  {
+    "case_id": "switch_H",
+    "kind": "switch",
+    "actor": "H",
+    "previous_choice": "z",
+    "authorized_reopening": [
+      "H"
+    ],
+    "locked_assignment": {
+      "A": "y",
+      "B": "z"
+    },
+    "visible_private_costs": {
+      "x": 1,
+      "y": 20,
+      "z": 20
+    },
+    "public_tasks": {
+      "x": {
+        "id": "x",
+        "priority": "critical"
+      },
+      "y": {
+        "id": "y",
+        "priority": "critical"
+      },
+      "z": {
+        "id": "z",
+        "priority": "critical"
+      }
+    },
+    "public_weights": {
+      "tasks_done_bonus": 20,
+      "priority_bonus": 20,
+      "violation_penalty": 20
+    },
+    "expected_tool": "assign_task",
+    "expected_task_id": "x",
+    "expected_joint_reward_for_auditor_only": 115.0,
+    "status": "draft case; model request not frozen; LLM control unrun"
+  },
+  {
+    "case_id": "preserve_A",
+    "kind": "preserve",
+    "actor": "A",
+    "previous_choice": "y",
+    "authorized_reopening": [
+      "A"
+    ],
+    "locked_assignment": {
+      "B": "z",
+      "H": "x"
+    },
+    "visible_private_costs": {
+      "x": 1,
+      "y": 2,
+      "z": 20
+    },
+    "public_tasks": {
+      "x": {
+        "id": "x",
+        "priority": "critical"
+      },
+      "y": {
+        "id": "y",
+        "priority": "critical"
+      },
+      "z": {
+        "id": "z",
+        "priority": "critical"
+      }
+    },
+    "public_weights": {
+      "tasks_done_bonus": 20,
+      "priority_bonus": 20,
+      "violation_penalty": 20
+    },
+    "expected_tool": "assign_task",
+    "expected_task_id": "y",
+    "expected_joint_reward_for_auditor_only": 115.0,
+    "status": "draft case; model request not frozen; LLM control unrun"
+  },
+  {
+    "case_id": "preserve_B",
+    "kind": "preserve",
+    "actor": "B",
+    "previous_choice": "z",
+    "authorized_reopening": [
+      "B"
+    ],
+    "locked_assignment": {
+      "A": "y",
+      "H": "x"
+    },
+    "visible_private_costs": {
+      "x": 20,
+      "y": 1,
+      "z": 2
+    },
+    "public_tasks": {
+      "x": {
+        "id": "x",
+        "priority": "critical"
+      },
+      "y": {
+        "id": "y",
+        "priority": "critical"
+      },
+      "z": {
+        "id": "z",
+        "priority": "critical"
+      }
+    },
+    "public_weights": {
+      "tasks_done_bonus": 20,
+      "priority_bonus": 20,
+      "violation_penalty": 20
+    },
+    "expected_tool": "assign_task",
+    "expected_task_id": "z",
+    "expected_joint_reward_for_auditor_only": 115.0,
+    "status": "draft case; model request not frozen; LLM control unrun"
+  },
+  {
+    "case_id": "preserve_H",
+    "kind": "preserve",
+    "actor": "H",
+    "previous_choice": "x",
+    "authorized_reopening": [
+      "H"
+    ],
+    "locked_assignment": {
+      "A": "y",
+      "B": "z"
+    },
+    "visible_private_costs": {
+      "x": 1,
+      "y": 20,
+      "z": 20
+    },
+    "public_tasks": {
+      "x": {
+        "id": "x",
+        "priority": "critical"
+      },
+      "y": {
+        "id": "y",
+        "priority": "critical"
+      },
+      "z": {
+        "id": "z",
+        "priority": "critical"
+      }
+    },
+    "public_weights": {
+      "tasks_done_bonus": 20,
+      "priority_bonus": 20,
+      "violation_penalty": 20
+    },
+    "expected_tool": "assign_task",
+    "expected_task_id": "x",
+    "expected_joint_reward_for_auditor_only": 115.0,
+    "status": "draft case; model request not frozen; LLM control unrun"
+  }
+]

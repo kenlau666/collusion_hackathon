@@ -1,30 +1,30 @@
 ---
-title: Parked external proposal — verification recovery
+title: Colosseum recovery scope — audited measurement and unrun behavior
 config:
   theme: neutral
 ---
 flowchart TB
-  TASK["Pinned task inputs and deterministic reference grader"]
-  HISTORY["Native retained state: completed episode messages<br/>task tools, peer exchanges, feedback, reflections"]
-  SNAP["Published episode-5 visible-history snapshot<br/>native restoration verified offline"]
-  BUILD["Native input path: model_visible_messages<br/>provider transformations inspected, not live-verified"]
-  MODEL["LLM: historical calls observed<br/>new diagnostic calls unrun"]
-  VERDICT["ACCEPT or REJECT"]
-  CHANNEL["Native send_message gate<br/>200-character limit or no throttle"]
-  PEER["Delivered peer content<br/>log completeness checked separately"]
-  HISTORY --> SNAP --> BUILD --> MODEL --> VERDICT
-  CHANNEL --> PEER --> BUILD
-  TASK --> PEER
-  subgraph DRAFT["Proposed matched diagnostic — not implemented or run"]
-    FORK["Same current case and rules in all cells"]
-    EVIDENCE["Complete versus incomplete evidence"]
-    RETAIN["Retain versus clear completed history"]
-    SCORE["Incorrect-work acceptance; correct-work acceptance<br/>evidence-policy compliance; reliability and cost"]
-    FORK -.-> EVIDENCE
-    FORK -.-> RETAIN
-    EVIDENCE -.-> SCORE
-    RETAIN -.-> SCORE
+  INSTANCE["Native Jira tasks and private agent costs"]
+  BOARD["Public and coalition blackboards"]
+  INPUT["Fresh system/user context at each native turn"]
+  MODEL["LLM planning and tool actions<br/>new behavioral study unrun"]
+  COMMIT["assign_task commits one choice per agent<br/>native tool forbids revising that agent"]
+  SNAP["Immutable completed assignment"]
+  INSTANCE --> INPUT
+  BOARD --> INPUT --> MODEL --> COMMIT --> SNAP
+  subgraph AUDIT["Implemented deterministic measurement — no inference"]
+    NONE["Keep all assignments fixed"]
+    PAIR["Reopen designated coalition choices only"]
+    ALL["Reopen all choices"]
+    ORACLE["Native reward over every reachable profile<br/>compare exact solver and unique-task counts"]
+    NONE --> ORACLE
+    PAIR --> ORACLE
+    ALL --> ORACLE
+    REPORT["Scope-imposed loss versus all-reopened optimum<br/>source/profile hashes and scripted control"]
+    ORACLE --> REPORT
   end
-  SNAP -.-> FORK
-  TASK -.-> SCORE
-  VERDICT -.-> SCORE
+  SNAP --> NONE
+  SNAP --> PAIR
+  SNAP --> ALL
+  FUTURE["Future matched LLM continuation requires explicit adapter<br/>common coalition termination and passing behavioral controls"]
+  REPORT -.-> FUTURE
