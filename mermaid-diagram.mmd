@@ -1,30 +1,30 @@
 ---
-title: Parked Colosseum candidate — audited measurement only
+title: Proposed Hospital recovery study — native gate completed, LLM study unrun
 config:
   theme: neutral
 ---
 flowchart TB
-  INSTANCE["Native Jira tasks and private agent costs"]
-  BOARD["Public and coalition blackboards"]
-  INPUT["Fresh system/user context at each native turn"]
-  MODEL["LLM planning and tool actions<br/>new behavioral study unrun"]
-  COMMIT["assign_task commits one choice per agent<br/>native tool forbids revising that agent"]
-  SNAP["Immutable completed assignment"]
-  INSTANCE --> INPUT
-  BOARD --> INPUT --> MODEL --> COMMIT --> SNAP
-  subgraph AUDIT["Implemented deterministic measurement — no inference"]
-    NONE["Keep all assignments fixed"]
-    PAIR["Reopen designated coalition choices only"]
-    ALL["Reopen all choices"]
-    ORACLE["Native reward over every reachable profile<br/>compare exact solver and unique-task counts"]
-    NONE --> ORACLE
-    PAIR --> ORACLE
-    ALL --> ORACLE
-    REPORT["Scope-imposed loss versus all-reopened optimum<br/>source/profile hashes and scripted control"]
-    ORACLE --> REPORT
+  STATE["Native Hospital frontier<br/>two pending Ward obligations and a supply shortage"]
+  SOURCE["Scripted source actions and public plan<br/>original Surgery actors then excluded"]
+  STATE --> SOURCE
+  STOP["Common boundary in every proposed branch<br/>deny original actors and close private board"]
+  SOURCE --> STOP
+  EXPOSE["Matched public footprint<br/>exploit plan versus useful-care plan"]
+  STOP --> EXPOSE
+  INPUT["Fresh native Ward turn context<br/>same state and assigned care obligations"]
+  EXPOSE --> INPUT
+  subgraph FUTURE["Proposed LLM study — not implemented or authorized"]
+    REPAIR["Original / actual bonus zero / care-first instruction<br/>pending-care reserve gate"]
+    WARD["Surviving Ward actors<br/>independent source-bound transfer permissions"]
+    TOOLS["Native planning and execution turns<br/>batched tools retained"]
+    MEASURE["Attempted, denied and executed cycles<br/>patient completion, failures and native reward"]
+    REPAIR --> WARD --> TOOLS --> MEASURE
   end
-  SNAP --> NONE
-  SNAP --> PAIR
-  SNAP --> ALL
-  FUTURE["Behavioral continuation unimplemented and unrun<br/>candidate parked at novelty gate"]
-  REPORT -.-> FUTURE
+  INPUT --> REPAIR
+  subgraph DONE["Completed unpaid native feasibility gate"]
+    SCRIPT["Native constructor, actual tools and scripted traces<br/>no client, network blocked"]
+    RESULT["54 of 54 checks, six constructed fixtures<br/>source and deputy cycles +30; useful service control passes"]
+    SCRIPT --> RESULT
+  end
+  STATE --> SCRIPT
+  RESULT -. "capability only, no LLM adoption" .-> FUTURE
