@@ -4,7 +4,7 @@ Last updated: 2026-10-24 (Asia/Hong_Kong).
 
 **Current direction: recovery in Cleanup, within llm-agent-collusion-2.** The user selected this pivot and requested replacement of the old plan. This document is the current project explanation. The detailed [experiment protocol](RECOVERY_PROTOCOL.md), [system map](ARCHITECTURE.md) and editable [Mermaid architecture](mermaid-diagram.mmd) define the proposed study.
 
-**Status:** repository study and software probes completed; experiment designed; research adapter and live recovery experiments not yet implemented or run. The specific novelty claim remains unconfirmed.
+**Status:** recovery harness implemented and validated offline; scripted positive control passed all six seeds. The live dispatcher is being implemented; no recovery model calls have run. The specific novelty claim remains unconfirmed.
 
 ## Reading guide
 
@@ -89,7 +89,7 @@ If the neutral, equal-rules variant produces no eligible coordination, report th
 
 ## Current progress
 
-Repository tracing and offline software probes are complete. The six-arm experiment is specified. The precise literature gap is unconfirmed; the research adapter, snapshot dispatcher and live recovery tests are pending. No behavioral recovery result exists yet.
+The [research harness](research/recovery_environment/harness.py) now implements equal directional zaps, exact phase-level measurements, isolated world RNG streams, context/channel boundaries and JSON-restorable checkpoints. **Results:** [offline validation](research/recovery_environment/offline_runs/20261024T095408Z/results.md) passed eight checks and the scripted positive control on seeds 0–5 (6/6), with a matched nonattacking baseline. These are software findings; the live dispatcher and behavioral positive controls remain pending. No behavioral recovery result exists yet.
 
 ## Next action
 

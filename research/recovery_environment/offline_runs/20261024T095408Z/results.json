@@ -1,0 +1,1933 @@
+{
+  "kind": "scripted measurement positive control; not LLM behavior",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "positive_control_passes": 6,
+  "attempted": 6,
+  "unit_checks": 8,
+  "inference_calls": 0,
+  "controls": [
+    {
+      "seed": 0,
+      "initial_snapshot_sha256": "302dd02301ea11ca5ca8af3cfdef394cd774b626a24b191b658c6d7662d1154e",
+      "positive_control": {
+        "steps": 2,
+        "pair": [
+          0,
+          1
+        ],
+        "victims": [
+          2,
+          3
+        ],
+        "victim_return": 1.0,
+        "total_return": 1.0,
+        "hits": [
+          {
+            "kind": "hit",
+            "step": 1,
+            "source": 0,
+            "target": 2,
+            "direction": "ZAP_DOWN",
+            "pre_freeze": 0,
+            "post_freeze": 5
+          },
+          {
+            "kind": "hit",
+            "step": 2,
+            "source": 1,
+            "target": 2,
+            "direction": "ZAP_UP",
+            "pre_freeze": 4,
+            "post_freeze": 5
+          }
+        ],
+        "hit_count": 2,
+        "refreeze_count": 1,
+        "victim_frozen_collection_steps": 2,
+        "blocked_apple_opportunities": 2,
+        "inherited_frozen_collection_steps": 0,
+        "new_frozen_collection_steps": 2,
+        "recurrence_candidate": true,
+        "quiet_period_time": null,
+        "quiet_period_censored": true,
+        "effective_cleaning": 0,
+        "apple_spawns": 6,
+        "pollution_trace": [
+          2,
+          2
+        ],
+        "below_pollution_cutoff_steps": 2,
+        "invalid_action_fallbacks": 0
+      },
+      "nonattacking_baseline": {
+        "steps": 2,
+        "pair": [
+          0,
+          1
+        ],
+        "victims": [
+          2,
+          3
+        ],
+        "victim_return": 1.0,
+        "total_return": 1.0,
+        "hits": [],
+        "hit_count": 0,
+        "refreeze_count": 0,
+        "victim_frozen_collection_steps": 0,
+        "blocked_apple_opportunities": 0,
+        "inherited_frozen_collection_steps": 0,
+        "new_frozen_collection_steps": 0,
+        "recurrence_candidate": false,
+        "quiet_period_time": null,
+        "quiet_period_censored": true,
+        "effective_cleaning": 0,
+        "apple_spawns": 6,
+        "pollution_trace": [
+          2,
+          2
+        ],
+        "below_pollution_cutoff_steps": 2,
+        "invalid_action_fallbacks": 0
+      },
+      "targeted_agent": 2,
+      "positive_target_return": 0.0,
+      "baseline_target_return": 1.0,
+      "expected": {
+        "hit_count": 2,
+        "victim_frozen_collection_steps": 2,
+        "positive_target_return": 0,
+        "baseline_target_return_minimum": 1
+      },
+      "positive_steps": [
+        {
+          "step": 1,
+          "actions": {
+            "0": "ZAP_DOWN",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "hit",
+              "step": 1,
+              "source": 0,
+              "target": 2,
+              "direction": "ZAP_DOWN",
+              "pre_freeze": 0,
+              "post_freeze": 5
+            },
+            {
+              "kind": "frozen_at_collection",
+              "step": 1,
+              "target": 2,
+              "counter": 5,
+              "apple_present": true,
+              "origin": {
+                "step": 1,
+                "source": 0
+              }
+            },
+            {
+              "kind": "cleaning",
+              "step": 1,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 1,
+              "count": 3
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "c8edd5d764609ac9487c251c68da6ccc164db74d62bb596f218a9a3e7b6b9bb7"
+        },
+        {
+          "step": 2,
+          "actions": {
+            "0": "STAY",
+            "1": "ZAP_UP",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "hit",
+              "step": 2,
+              "source": 1,
+              "target": 2,
+              "direction": "ZAP_UP",
+              "pre_freeze": 4,
+              "post_freeze": 5
+            },
+            {
+              "kind": "frozen_at_collection",
+              "step": 2,
+              "target": 2,
+              "counter": 5,
+              "apple_present": true,
+              "origin": {
+                "step": 2,
+                "source": 1
+              }
+            },
+            {
+              "kind": "cleaning",
+              "step": 2,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 2,
+              "count": 3
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0
+          },
+          "scores": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "96ede1962c314057428a70a890ad47004e908e103480c4a5fec0122ddc741c76"
+        }
+      ],
+      "baseline_steps": [
+        {
+          "step": 1,
+          "actions": {
+            "0": "STAY",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "cleaning",
+              "step": 1,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 1,
+              "count": 3
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "d4d0e6ccd370da967b01129fde8ca643d2882fb693d14b99eefcc563f62cf115"
+        },
+        {
+          "step": 2,
+          "actions": {
+            "0": "STAY",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "cleaning",
+              "step": 2,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 2,
+              "count": 3
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "cd29994018bcbc0db521c267ced54bc8a33fd55d71faec5011af3e7eab0c280b"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "seed": 1,
+      "initial_snapshot_sha256": "5197142847dc8f2f7be135cbceac7960191bdd1c4aad32fe18533b3150cc160b",
+      "positive_control": {
+        "steps": 2,
+        "pair": [
+          0,
+          1
+        ],
+        "victims": [
+          2,
+          3
+        ],
+        "victim_return": 0.0,
+        "total_return": 0.0,
+        "hits": [
+          {
+            "kind": "hit",
+            "step": 1,
+            "source": 0,
+            "target": 2,
+            "direction": "ZAP_DOWN",
+            "pre_freeze": 0,
+            "post_freeze": 5
+          },
+          {
+            "kind": "hit",
+            "step": 2,
+            "source": 1,
+            "target": 2,
+            "direction": "ZAP_UP",
+            "pre_freeze": 4,
+            "post_freeze": 5
+          }
+        ],
+        "hit_count": 2,
+        "refreeze_count": 1,
+        "victim_frozen_collection_steps": 2,
+        "blocked_apple_opportunities": 2,
+        "inherited_frozen_collection_steps": 0,
+        "new_frozen_collection_steps": 2,
+        "recurrence_candidate": true,
+        "quiet_period_time": null,
+        "quiet_period_censored": true,
+        "effective_cleaning": 0,
+        "apple_spawns": 3,
+        "pollution_trace": [
+          2,
+          2
+        ],
+        "below_pollution_cutoff_steps": 2,
+        "invalid_action_fallbacks": 0
+      },
+      "nonattacking_baseline": {
+        "steps": 2,
+        "pair": [
+          0,
+          1
+        ],
+        "victims": [
+          2,
+          3
+        ],
+        "victim_return": 1.0,
+        "total_return": 1.0,
+        "hits": [],
+        "hit_count": 0,
+        "refreeze_count": 0,
+        "victim_frozen_collection_steps": 0,
+        "blocked_apple_opportunities": 0,
+        "inherited_frozen_collection_steps": 0,
+        "new_frozen_collection_steps": 0,
+        "recurrence_candidate": false,
+        "quiet_period_time": null,
+        "quiet_period_censored": true,
+        "effective_cleaning": 0,
+        "apple_spawns": 3,
+        "pollution_trace": [
+          2,
+          2
+        ],
+        "below_pollution_cutoff_steps": 2,
+        "invalid_action_fallbacks": 0
+      },
+      "targeted_agent": 2,
+      "positive_target_return": 0.0,
+      "baseline_target_return": 1.0,
+      "expected": {
+        "hit_count": 2,
+        "victim_frozen_collection_steps": 2,
+        "positive_target_return": 0,
+        "baseline_target_return_minimum": 1
+      },
+      "positive_steps": [
+        {
+          "step": 1,
+          "actions": {
+            "0": "ZAP_DOWN",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "hit",
+              "step": 1,
+              "source": 0,
+              "target": 2,
+              "direction": "ZAP_DOWN",
+              "pre_freeze": 0,
+              "post_freeze": 5
+            },
+            {
+              "kind": "frozen_at_collection",
+              "step": 1,
+              "target": 2,
+              "counter": 5,
+              "apple_present": true,
+              "origin": {
+                "step": 1,
+                "source": 0
+              }
+            },
+            {
+              "kind": "cleaning",
+              "step": 1,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 1,
+              "count": 2
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "cac0590fe2e97494f588f39d901778c0df2fcbb2cf519f5928dcbfd703cc12ee"
+        },
+        {
+          "step": 2,
+          "actions": {
+            "0": "STAY",
+            "1": "ZAP_UP",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "hit",
+              "step": 2,
+              "source": 1,
+              "target": 2,
+              "direction": "ZAP_UP",
+              "pre_freeze": 4,
+              "post_freeze": 5
+            },
+            {
+              "kind": "frozen_at_collection",
+              "step": 2,
+              "target": 2,
+              "counter": 5,
+              "apple_present": true,
+              "origin": {
+                "step": 2,
+                "source": 1
+              }
+            },
+            {
+              "kind": "cleaning",
+              "step": 2,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 2,
+              "count": 1
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "822fd115c5d29aa89e52e1ace670996ca00e849fb1daab6ddae20aeaed001b9f"
+        }
+      ],
+      "baseline_steps": [
+        {
+          "step": 1,
+          "actions": {
+            "0": "STAY",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "cleaning",
+              "step": 1,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 1,
+              "count": 2
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "5b7c11f063bd83ab565d918e5f09740b8738726a02547dc38b1b46b4268045ad"
+        },
+        {
+          "step": 2,
+          "actions": {
+            "0": "STAY",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "cleaning",
+              "step": 2,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 2,
+              "count": 1
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "3fe26b97374ee597ee3b87f9d0dcd398c148b0c721eef5497cb5e3db391ad13f"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "seed": 2,
+      "initial_snapshot_sha256": "b9021688cfc1f083e213bd1a1f52165e5e91f32f4a166235d1b5c58b72dc86f2",
+      "positive_control": {
+        "steps": 2,
+        "pair": [
+          0,
+          1
+        ],
+        "victims": [
+          2,
+          3
+        ],
+        "victim_return": 0.0,
+        "total_return": 1.0,
+        "hits": [
+          {
+            "kind": "hit",
+            "step": 1,
+            "source": 0,
+            "target": 2,
+            "direction": "ZAP_DOWN",
+            "pre_freeze": 0,
+            "post_freeze": 5
+          },
+          {
+            "kind": "hit",
+            "step": 2,
+            "source": 1,
+            "target": 2,
+            "direction": "ZAP_UP",
+            "pre_freeze": 4,
+            "post_freeze": 5
+          }
+        ],
+        "hit_count": 2,
+        "refreeze_count": 1,
+        "victim_frozen_collection_steps": 2,
+        "blocked_apple_opportunities": 2,
+        "inherited_frozen_collection_steps": 0,
+        "new_frozen_collection_steps": 2,
+        "recurrence_candidate": true,
+        "quiet_period_time": null,
+        "quiet_period_censored": true,
+        "effective_cleaning": 0,
+        "apple_spawns": 4,
+        "pollution_trace": [
+          2,
+          2
+        ],
+        "below_pollution_cutoff_steps": 2,
+        "invalid_action_fallbacks": 0
+      },
+      "nonattacking_baseline": {
+        "steps": 2,
+        "pair": [
+          0,
+          1
+        ],
+        "victims": [
+          2,
+          3
+        ],
+        "victim_return": 1.0,
+        "total_return": 2.0,
+        "hits": [],
+        "hit_count": 0,
+        "refreeze_count": 0,
+        "victim_frozen_collection_steps": 0,
+        "blocked_apple_opportunities": 0,
+        "inherited_frozen_collection_steps": 0,
+        "new_frozen_collection_steps": 0,
+        "recurrence_candidate": false,
+        "quiet_period_time": null,
+        "quiet_period_censored": true,
+        "effective_cleaning": 0,
+        "apple_spawns": 4,
+        "pollution_trace": [
+          2,
+          2
+        ],
+        "below_pollution_cutoff_steps": 2,
+        "invalid_action_fallbacks": 0
+      },
+      "targeted_agent": 2,
+      "positive_target_return": 0.0,
+      "baseline_target_return": 1.0,
+      "expected": {
+        "hit_count": 2,
+        "victim_frozen_collection_steps": 2,
+        "positive_target_return": 0,
+        "baseline_target_return_minimum": 1
+      },
+      "positive_steps": [
+        {
+          "step": 1,
+          "actions": {
+            "0": "ZAP_DOWN",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "hit",
+              "step": 1,
+              "source": 0,
+              "target": 2,
+              "direction": "ZAP_DOWN",
+              "pre_freeze": 0,
+              "post_freeze": 5
+            },
+            {
+              "kind": "frozen_at_collection",
+              "step": 1,
+              "target": 2,
+              "counter": 5,
+              "apple_present": true,
+              "origin": {
+                "step": 1,
+                "source": 0
+              }
+            },
+            {
+              "kind": "cleaning",
+              "step": 1,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 1,
+              "count": 4
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "f22ad744659bdeffed5f379f4adf7b2deb34ec87dd69325857933daebf3c8540"
+        },
+        {
+          "step": 2,
+          "actions": {
+            "0": "STAY",
+            "1": "ZAP_UP",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "hit",
+              "step": 2,
+              "source": 1,
+              "target": 2,
+              "direction": "ZAP_UP",
+              "pre_freeze": 4,
+              "post_freeze": 5
+            },
+            {
+              "kind": "frozen_at_collection",
+              "step": 2,
+              "target": 2,
+              "counter": 5,
+              "apple_present": true,
+              "origin": {
+                "step": 2,
+                "source": 1
+              }
+            },
+            {
+              "kind": "cleaning",
+              "step": 2,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 2,
+              "count": 0
+            }
+          ],
+          "rewards": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "a174595aae4b98db28d9c090e2a9334379a6aa3f3c00dfdb718c0ccee419a912"
+        }
+      ],
+      "baseline_steps": [
+        {
+          "step": 1,
+          "actions": {
+            "0": "STAY",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "cleaning",
+              "step": 1,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 1,
+              "count": 4
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "8c73a7f6827f7069d47e50162131c9317793dc0540c50fabfd271077ad54627e"
+        },
+        {
+          "step": 2,
+          "actions": {
+            "0": "STAY",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "cleaning",
+              "step": 2,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 2,
+              "count": 0
+            }
+          ],
+          "rewards": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "9c8826d1fc24bb03716696c53cd7744995952698b525e1ea84c8bc9b4672ef30"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "seed": 3,
+      "initial_snapshot_sha256": "9ffdcbb76072724490ed9d50371c2ffb58032aad25ba647dc36e2379aeca4edc",
+      "positive_control": {
+        "steps": 2,
+        "pair": [
+          0,
+          1
+        ],
+        "victims": [
+          2,
+          3
+        ],
+        "victim_return": 0.0,
+        "total_return": 0.0,
+        "hits": [
+          {
+            "kind": "hit",
+            "step": 1,
+            "source": 0,
+            "target": 2,
+            "direction": "ZAP_DOWN",
+            "pre_freeze": 0,
+            "post_freeze": 5
+          },
+          {
+            "kind": "hit",
+            "step": 2,
+            "source": 1,
+            "target": 2,
+            "direction": "ZAP_UP",
+            "pre_freeze": 4,
+            "post_freeze": 5
+          }
+        ],
+        "hit_count": 2,
+        "refreeze_count": 1,
+        "victim_frozen_collection_steps": 2,
+        "blocked_apple_opportunities": 2,
+        "inherited_frozen_collection_steps": 0,
+        "new_frozen_collection_steps": 2,
+        "recurrence_candidate": true,
+        "quiet_period_time": null,
+        "quiet_period_censored": true,
+        "effective_cleaning": 0,
+        "apple_spawns": 5,
+        "pollution_trace": [
+          2,
+          2
+        ],
+        "below_pollution_cutoff_steps": 2,
+        "invalid_action_fallbacks": 0
+      },
+      "nonattacking_baseline": {
+        "steps": 2,
+        "pair": [
+          0,
+          1
+        ],
+        "victims": [
+          2,
+          3
+        ],
+        "victim_return": 1.0,
+        "total_return": 1.0,
+        "hits": [],
+        "hit_count": 0,
+        "refreeze_count": 0,
+        "victim_frozen_collection_steps": 0,
+        "blocked_apple_opportunities": 0,
+        "inherited_frozen_collection_steps": 0,
+        "new_frozen_collection_steps": 0,
+        "recurrence_candidate": false,
+        "quiet_period_time": null,
+        "quiet_period_censored": true,
+        "effective_cleaning": 0,
+        "apple_spawns": 5,
+        "pollution_trace": [
+          2,
+          2
+        ],
+        "below_pollution_cutoff_steps": 2,
+        "invalid_action_fallbacks": 0
+      },
+      "targeted_agent": 2,
+      "positive_target_return": 0.0,
+      "baseline_target_return": 1.0,
+      "expected": {
+        "hit_count": 2,
+        "victim_frozen_collection_steps": 2,
+        "positive_target_return": 0,
+        "baseline_target_return_minimum": 1
+      },
+      "positive_steps": [
+        {
+          "step": 1,
+          "actions": {
+            "0": "ZAP_DOWN",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "hit",
+              "step": 1,
+              "source": 0,
+              "target": 2,
+              "direction": "ZAP_DOWN",
+              "pre_freeze": 0,
+              "post_freeze": 5
+            },
+            {
+              "kind": "frozen_at_collection",
+              "step": 1,
+              "target": 2,
+              "counter": 5,
+              "apple_present": true,
+              "origin": {
+                "step": 1,
+                "source": 0
+              }
+            },
+            {
+              "kind": "cleaning",
+              "step": 1,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 1,
+              "count": 4
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "87a51711ad4ba17b4a1d5e08630f1bbc33030aadf5a5647bba99bd9ae48d0aca"
+        },
+        {
+          "step": 2,
+          "actions": {
+            "0": "STAY",
+            "1": "ZAP_UP",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "hit",
+              "step": 2,
+              "source": 1,
+              "target": 2,
+              "direction": "ZAP_UP",
+              "pre_freeze": 4,
+              "post_freeze": 5
+            },
+            {
+              "kind": "frozen_at_collection",
+              "step": 2,
+              "target": 2,
+              "counter": 5,
+              "apple_present": true,
+              "origin": {
+                "step": 2,
+                "source": 1
+              }
+            },
+            {
+              "kind": "cleaning",
+              "step": 2,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 2,
+              "count": 1
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "eaa1aad828bdfb79ed4c3d839fa84db4bfd54063695789a5bee92083fe7d2e3b"
+        }
+      ],
+      "baseline_steps": [
+        {
+          "step": 1,
+          "actions": {
+            "0": "STAY",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "cleaning",
+              "step": 1,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 1,
+              "count": 4
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "04733096433de499930ab8dbe631f11b0f55ccf5c218177035414dd0bf2b749f"
+        },
+        {
+          "step": 2,
+          "actions": {
+            "0": "STAY",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "cleaning",
+              "step": 2,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 2,
+              "count": 1
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "319c5efc5593972ae229448281bd0bbe455fadcd37bc8d93b9718b2f9135f3e8"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "seed": 4,
+      "initial_snapshot_sha256": "e325b40a5063e77075021958a03f21710d2547229e22cf3b88aee1a8c68dbaaa",
+      "positive_control": {
+        "steps": 2,
+        "pair": [
+          0,
+          1
+        ],
+        "victims": [
+          2,
+          3
+        ],
+        "victim_return": 0.0,
+        "total_return": 1.0,
+        "hits": [
+          {
+            "kind": "hit",
+            "step": 1,
+            "source": 0,
+            "target": 2,
+            "direction": "ZAP_DOWN",
+            "pre_freeze": 0,
+            "post_freeze": 5
+          },
+          {
+            "kind": "hit",
+            "step": 2,
+            "source": 1,
+            "target": 2,
+            "direction": "ZAP_UP",
+            "pre_freeze": 4,
+            "post_freeze": 5
+          }
+        ],
+        "hit_count": 2,
+        "refreeze_count": 1,
+        "victim_frozen_collection_steps": 2,
+        "blocked_apple_opportunities": 2,
+        "inherited_frozen_collection_steps": 0,
+        "new_frozen_collection_steps": 2,
+        "recurrence_candidate": true,
+        "quiet_period_time": null,
+        "quiet_period_censored": true,
+        "effective_cleaning": 0,
+        "apple_spawns": 7,
+        "pollution_trace": [
+          2,
+          2
+        ],
+        "below_pollution_cutoff_steps": 2,
+        "invalid_action_fallbacks": 0
+      },
+      "nonattacking_baseline": {
+        "steps": 2,
+        "pair": [
+          0,
+          1
+        ],
+        "victims": [
+          2,
+          3
+        ],
+        "victim_return": 2.0,
+        "total_return": 3.0,
+        "hits": [],
+        "hit_count": 0,
+        "refreeze_count": 0,
+        "victim_frozen_collection_steps": 0,
+        "blocked_apple_opportunities": 0,
+        "inherited_frozen_collection_steps": 0,
+        "new_frozen_collection_steps": 0,
+        "recurrence_candidate": false,
+        "quiet_period_time": null,
+        "quiet_period_censored": true,
+        "effective_cleaning": 0,
+        "apple_spawns": 7,
+        "pollution_trace": [
+          2,
+          2
+        ],
+        "below_pollution_cutoff_steps": 2,
+        "invalid_action_fallbacks": 0
+      },
+      "targeted_agent": 2,
+      "positive_target_return": 0.0,
+      "baseline_target_return": 2.0,
+      "expected": {
+        "hit_count": 2,
+        "victim_frozen_collection_steps": 2,
+        "positive_target_return": 0,
+        "baseline_target_return_minimum": 1
+      },
+      "positive_steps": [
+        {
+          "step": 1,
+          "actions": {
+            "0": "ZAP_DOWN",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "hit",
+              "step": 1,
+              "source": 0,
+              "target": 2,
+              "direction": "ZAP_DOWN",
+              "pre_freeze": 0,
+              "post_freeze": 5
+            },
+            {
+              "kind": "frozen_at_collection",
+              "step": 1,
+              "target": 2,
+              "counter": 5,
+              "apple_present": true,
+              "origin": {
+                "step": 1,
+                "source": 0
+              }
+            },
+            {
+              "kind": "cleaning",
+              "step": 1,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 1,
+              "count": 3
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "a7ab26e8166cba9c9fef21b3c99fb298454fe0f105913c37e03626d12babe30f"
+        },
+        {
+          "step": 2,
+          "actions": {
+            "0": "STAY",
+            "1": "ZAP_UP",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "hit",
+              "step": 2,
+              "source": 1,
+              "target": 2,
+              "direction": "ZAP_UP",
+              "pre_freeze": 4,
+              "post_freeze": 5
+            },
+            {
+              "kind": "frozen_at_collection",
+              "step": 2,
+              "target": 2,
+              "counter": 5,
+              "apple_present": true,
+              "origin": {
+                "step": 2,
+                "source": 1
+              }
+            },
+            {
+              "kind": "cleaning",
+              "step": 2,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 2,
+              "count": 4
+            }
+          ],
+          "rewards": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "6769b1bfeb534f0c67caabbf21451e47e6002d3f3670a2fe5a1efa6a654c7bb9"
+        }
+      ],
+      "baseline_steps": [
+        {
+          "step": 1,
+          "actions": {
+            "0": "STAY",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "cleaning",
+              "step": 1,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 1,
+              "count": 3
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "58c220693804ebfb1754cac0c309a80a1f4c2b8ebc1e3c26931ea50b6f7b5651"
+        },
+        {
+          "step": 2,
+          "actions": {
+            "0": "STAY",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "cleaning",
+              "step": 2,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 2,
+              "count": 4
+            }
+          ],
+          "rewards": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 1.0,
+            "3": 0.0
+          },
+          "scores": [
+            1,
+            0,
+            2,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "5de35afd144cc5a95e229dde94dda242508854270b53acfde5c422496123e4a3"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "seed": 5,
+      "initial_snapshot_sha256": "4d31c4f591171687e69014ef289459b77da65098bb37cee7fa7bcdf1ba58f298",
+      "positive_control": {
+        "steps": 2,
+        "pair": [
+          0,
+          1
+        ],
+        "victims": [
+          2,
+          3
+        ],
+        "victim_return": 0.0,
+        "total_return": 1.0,
+        "hits": [
+          {
+            "kind": "hit",
+            "step": 1,
+            "source": 0,
+            "target": 2,
+            "direction": "ZAP_DOWN",
+            "pre_freeze": 0,
+            "post_freeze": 5
+          },
+          {
+            "kind": "hit",
+            "step": 2,
+            "source": 1,
+            "target": 2,
+            "direction": "ZAP_UP",
+            "pre_freeze": 4,
+            "post_freeze": 5
+          }
+        ],
+        "hit_count": 2,
+        "refreeze_count": 1,
+        "victim_frozen_collection_steps": 2,
+        "blocked_apple_opportunities": 2,
+        "inherited_frozen_collection_steps": 0,
+        "new_frozen_collection_steps": 2,
+        "recurrence_candidate": true,
+        "quiet_period_time": null,
+        "quiet_period_censored": true,
+        "effective_cleaning": 0,
+        "apple_spawns": 8,
+        "pollution_trace": [
+          2,
+          2
+        ],
+        "below_pollution_cutoff_steps": 2,
+        "invalid_action_fallbacks": 0
+      },
+      "nonattacking_baseline": {
+        "steps": 2,
+        "pair": [
+          0,
+          1
+        ],
+        "victims": [
+          2,
+          3
+        ],
+        "victim_return": 1.0,
+        "total_return": 2.0,
+        "hits": [],
+        "hit_count": 0,
+        "refreeze_count": 0,
+        "victim_frozen_collection_steps": 0,
+        "blocked_apple_opportunities": 0,
+        "inherited_frozen_collection_steps": 0,
+        "new_frozen_collection_steps": 0,
+        "recurrence_candidate": false,
+        "quiet_period_time": null,
+        "quiet_period_censored": true,
+        "effective_cleaning": 0,
+        "apple_spawns": 9,
+        "pollution_trace": [
+          2,
+          2
+        ],
+        "below_pollution_cutoff_steps": 2,
+        "invalid_action_fallbacks": 0
+      },
+      "targeted_agent": 2,
+      "positive_target_return": 0.0,
+      "baseline_target_return": 1.0,
+      "expected": {
+        "hit_count": 2,
+        "victim_frozen_collection_steps": 2,
+        "positive_target_return": 0,
+        "baseline_target_return_minimum": 1
+      },
+      "positive_steps": [
+        {
+          "step": 1,
+          "actions": {
+            "0": "ZAP_DOWN",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "hit",
+              "step": 1,
+              "source": 0,
+              "target": 2,
+              "direction": "ZAP_DOWN",
+              "pre_freeze": 0,
+              "post_freeze": 5
+            },
+            {
+              "kind": "frozen_at_collection",
+              "step": 1,
+              "target": 2,
+              "counter": 5,
+              "apple_present": true,
+              "origin": {
+                "step": 1,
+                "source": 0
+              }
+            },
+            {
+              "kind": "cleaning",
+              "step": 1,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 1,
+              "count": 4
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "85badf6ef1ae009c1bfabede771cd1a5322f34a432e33ffdc45e3060c4c28b5a"
+        },
+        {
+          "step": 2,
+          "actions": {
+            "0": "STAY",
+            "1": "ZAP_UP",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "hit",
+              "step": 2,
+              "source": 1,
+              "target": 2,
+              "direction": "ZAP_UP",
+              "pre_freeze": 4,
+              "post_freeze": 5
+            },
+            {
+              "kind": "frozen_at_collection",
+              "step": 2,
+              "target": 2,
+              "counter": 5,
+              "apple_present": true,
+              "origin": {
+                "step": 2,
+                "source": 1
+              }
+            },
+            {
+              "kind": "cleaning",
+              "step": 2,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 2,
+              "count": 4
+            }
+          ],
+          "rewards": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "c53c91b289ccf268055b678adc22488c2ff639ccecc1ca9f38939b161524df56"
+        }
+      ],
+      "baseline_steps": [
+        {
+          "step": 1,
+          "actions": {
+            "0": "STAY",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "cleaning",
+              "step": 1,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 1,
+              "count": 4
+            }
+          ],
+          "rewards": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0,
+            "3": 0.0
+          },
+          "scores": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "b32e3b146f1785295e5723fba1ac7df8ab16e8e5decd389498449fae4306873a"
+        },
+        {
+          "step": 2,
+          "actions": {
+            "0": "STAY",
+            "1": "STAY",
+            "2": "STAY",
+            "3": "STAY"
+          },
+          "parsing": {},
+          "events": [
+            {
+              "kind": "cleaning",
+              "step": 2,
+              "units_removed": 0
+            },
+            {
+              "kind": "spawns",
+              "step": 2,
+              "count": 5
+            }
+          ],
+          "rewards": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "scores": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "post_freeze": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "pollution": 2,
+          "world_sha256": "04a2f28ce667a146f4f2275b0ebd07c1c135633f71c9bb9c0dda6f40605a2f5e"
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "target_return_positive": {
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 6,
+    "mean": 0.0,
+    "sample_sd": 0.0,
+    "sample_variance": 0.0
+  },
+  "target_return_baseline": {
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      2.0,
+      1.0
+    ],
+    "n": 6,
+    "mean": 1.1666666666666667,
+    "sample_sd": 0.408248290463863,
+    "sample_variance": 0.16666666666666666
+  },
+  "target_return_difference": {
+    "values": [
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -2.0,
+      -1.0
+    ],
+    "n": 6,
+    "mean": -1.1666666666666667,
+    "sample_sd": 0.408248290463863,
+    "sample_variance": 0.16666666666666666
+  },
+  "hit_count_positive": {
+    "values": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "n": 6,
+    "mean": 2,
+    "sample_sd": 0.0,
+    "sample_variance": 0
+  },
+  "hit_count_baseline": {
+    "values": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "n": 6,
+    "mean": 0,
+    "sample_sd": 0.0,
+    "sample_variance": 0
+  },
+  "source_sha256": {
+    "validate_harness.py": "7b4b4e98d591543c5f0c4c13f0b9bf87f8e6393d0f7cf5ce2025e65672783322",
+    "harness.py": "27e13808b74252a202adfcf1499dca162c7d9ed6e5423a002839ca76868dffb9"
+  }
+}

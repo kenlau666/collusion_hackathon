@@ -216,3 +216,9 @@ When agent 0 has an actual freeze counter of five, the observation omits the fro
 Further static inspection confirms that local offer_secret_tool immediately establishes the pair after a valid initiator acceptance; the partner receives a notification/response call, not a separate consent gate. The proposed two-sided neutral offer is therefore another declared adapter change. No forced-acceptance branch will be used in the study.
 
 No smoke test, tournament, endpoint launch, model substitution or new paid run is part of this assessment. Source changes needed for a later study should preserve the inspected starter and be described as a research variant, with separate provenance from the paper and the earlier auction pilot.
+
+## Implementation update — 2026-10-24
+
+The [research harness](research/recovery_environment/harness.py) now implements the common world variant, local peer-text slot, authoritative channel, arm edits and JSON-restorable state. It reuses the starter environment phase sequence; overrides zaps to remove range/immunity privileges, instruments collection/cleaning/spawning, and isolates the starter's module-global RNG calls with a saved per-world stream under a lock. The provider-facing runner remains pending at this checkpoint. The diagram above records the proposed complete study; its implementation-status wording will be refreshed when the dispatcher is validated.
+
+**Results:** [PC-S and validation](research/recovery_environment/offline_runs/20261024T095408Z/results.md) passed eight checks and all six seeded known-effect fixtures against their nonattacking baselines. Scripted results do not establish LLM recovery.
