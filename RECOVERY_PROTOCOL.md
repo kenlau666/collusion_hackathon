@@ -8,6 +8,14 @@ Last updated: 2026-10-24 (Asia/Hong_Kong).
 
 The readable project question and pivot rationale are in [RESEARCH.md](RESEARCH.md). The code audit and context flow are in [ARCHITECTURE.md](ARCHITECTURE.md), alongside the editable [Mermaid source](mermaid-diagram.mmd).
 
+## Replacement screen: prospective offline checks — 2026-10-24
+
+The user authorized replacing Cleanup and requested honest iterative ratings. Before executing the replacement software audit, specify a **scripted visibility/delivery positive control**: insert distinct task, old peer-plan and reflection canaries into two synthetic completed episodes using the pinned SALT-NLP agent-collusion memory functions. Full-history input must retain all visible canaries; a zero-episode cleanup must remove the old canaries while preserving current rules; internal marker canaries must never reach the visible history. Restoring saved visible snapshots must preserve their visible order/content. This validates software retention/removal, not behavioral influence, collusion or recovery.
+
+Matched scripted baselines: unchanged full-history versus zero-episode retention; throttled versus unthrottled delivery of the exact same >200-character text; accuracy rewards for correct versus incorrect verdicts. Expected observations: only the unthrottled channel delivers the long text; one-message-per-round restrictions remain; correct verdicts receive the configured accuracy reward and incorrect ones do not. Run ten named deterministic checks in one fixture suite. **Pass only if all ten checks pass; retain every failure without calling a model.** The suite has zero model-call attempts, zero new behavioral episodes and no billing. Its fixtures are not independent behavioral samples; behavioral effect mean/variance remain undefined at n=0.
+
+A separate future LLM control must show correct acceptance of complete, correct work, correct rejection of complete, incorrect work, and rejection when required raw evidence is missing. It is **unrun** and cannot be replaced by this software control or the old Cleanup controls. No live model/settings/sample/budget is authorized by this software audit.
+
 ## 1. Question and testable claim
 
 **After withdrawing a private coordination channel, does clearing the participants' retained context further reduce harm to other agents, and what does that cleanup cost useful cooperation?**
