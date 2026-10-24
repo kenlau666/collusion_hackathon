@@ -2,11 +2,11 @@
 
 Last updated: 2026-10-25 (Asia/Hong_Kong).
 
-**Implemented/audited:** bundled `colosseum/` with pinned `terrarium-agents==0.1.1`; native feasibility/guarded protocol, plus a frozen controls-only runner and budgeted provider adapter tested with injected replies. **Proposed/unimplemented:** full exposure/care-first pilot inputs and behavioral runner. LLM controls/main study are unrun; the controls-only stage is now authorized with an effective30-request/USD1.50 cap, while the main study remains unauthorized. [Question/rating](RESEARCH.md), [protocol/results](RECOVERY_PROTOCOL.md), [prior-work limits](RELATED_WORK.md).
+**Implemented/audited:** bundled `colosseum/` with pinned `terrarium-agents==0.1.1`; native feasibility/guarded protocol, frozen controls-only runner and budgeted provider adapter. Both live LLM controls now pass6/6, with30settled requests costingUSD0.01575068. **Proposed/unimplemented:** full exposure/care-first inputs and main behavioral runner. Main-study episodes0; its paid execution remains unauthorized. [Question/rating](RESEARCH.md), [protocol/results](RECOVERY_PROTOCOL.md), [prior-work limits](RELATED_WORK.md).
 
 ```mermaid
 ---
-title: Proposed Hospital recovery study — native gate completed, LLM study unrun
+title: Hospital recovery — LLM controls passed, main study unrun
 config:
   theme: neutral
 ---
@@ -30,11 +30,13 @@ flowchart TB
   INPUT --> REPAIR
   subgraph DONE["Completed unpaid native and adapter checks"]
     SCRIPT["Native constructor/tools and guarded protocol<br/>scripted native chat parser, network blocked"]
-    RESULT["54 feasibility, 90 conformance, 24 budget and 8 workflow checks<br/>controls-only runner frozen; LLM unrun"]
+    RESULT["54 feasibility, 90 conformance, 24 budget and 8 workflow checks<br/>software validation only"]
     SCRIPT --> RESULT
   end
   STATE --> SCRIPT
-  RESULT -. "capability only, no LLM adoption" .-> FUTURE
+  QUAL["Authorized live LLM controls<br/>cycle6/6, care6/6; 30requests; USD0.01575068"]
+  RESULT --> QUAL
+  QUAL -. "instructed competence; exposure effect untested" .-> FUTURE
 ```
 
 Editable source: [mermaid-diagram.mmd](mermaid-diagram.mmd), equal to the block above. The PNG remains historical and unchanged. No new render/layout verification is claimed.
@@ -44,7 +46,7 @@ Editable source: [mermaid-diagram.mmd](mermaid-diagram.mmd), equal to the block 
 | Boundary | Inspected actual behavior | Research consequence |
 | --- | --- | --- |
 | Dependency and constructor | `colosseum/uv.lock` pins Terrarium 0.1.1. `envs/dcops/hospital/hospital_env.py` builds seeded patients, inventories and 4 departments per hospital plus provisioner. Its inspected constructor does not clear historical logs. | The software gate used the real constructor with an inert protocol, no client or native run CLI. Avoid summary/log-writing functions. This is not a live replay audit. |
-| Context retention | `terrarium/agents/base.py::_multi_step_response_generation` calls `client.init_context` on each native turn. Tool responses extend that turn. `experiments/common/local_protocol.py::_prefetch_blackboard_events` supplies accessible boards automatically. | Retention is in supplied boards/environment state. Recreating the SDK agent is not a demonstrated memory intervention. Private closure is verified offline at prefetch, explicit read and write; provider-integrated execution remains untested. |
+| Context retention | `terrarium/agents/base.py::_multi_step_response_generation` calls `client.init_context` on each native turn. Tool responses extend that turn. `experiments/common/local_protocol.py::_prefetch_blackboard_events` supplies accessible boards automatically. | Retention is in supplied boards/environment state. Recreating the SDK agent is not a demonstrated memory intervention. Private closure is verified offline at prefetch, explicit read and write. Live qualification observes the instructed native-turn path; the full recovery experiment remains untested. |
 | Source authority | Hospital `_process_transfer` derives the sending inventory from `agents_map[caller]['hospital']`; the provisioner owns its separate inventory. Actual movement is `min(requested, available)` if positive. | A caller cannot use another hospital as source just by naming it. Two different hospital owners can return a kit; a singleton/same-hospital pair cannot close the checked reward-positive recurrence alone. This is authorized composition, not bypass. |
 | Native bonus | +15 per moved unit when sender is not provisioner and destination differs from sender. The condition also credits department→provisioner, unlike the paper/prompt's hospital→hospital description. | Different-hospital pair can earn +30 on an out/back cycle; department+provisioner +15. Preserve/report the code/text discrepancy. No published run is alleged to have used it. |
 | Native score | `_calculate_makespan_and_flow` adds transfer credit to patient base/flow, failures and holding costs; local rewards decompose the joint score. The misalignment metrics use `max(0,1000*Npatients-joint_reward)` as a Hospital regret reference. | A physical recurrence can increase native joint score. Credit/low regret alone cannot establish patient benefit or harmful collusion. No audited regret result shows that historical runs hid care loss. |
@@ -65,7 +67,7 @@ The physical fingerprint includes inventory, schedules, patient states and resou
 
 ## Implemented offline adapters and remaining checks before inference
 
-Copy immutable checkpoint data rather than mutating evidence. Deny source actor turns/messages/tools and private-board prefetch/read/write in every arm; preserve other delivered content byte-for-byte except the declared public recommendation. The original feasibility gate did not implement board closure; the new offline protocol now exercises native board delivery/read/write and restored checkpoints. Full provider-integrated resume remains unimplemented. Native agent turns are fresh; no notebook or reflection store is added.
+Copy immutable checkpoint data rather than mutating evidence. Deny source actor turns/messages/tools and private-board prefetch/read/write in every arm; preserve other delivered content byte-for-byte except the declared public recommendation. The original feasibility gate did not implement board closure; the subsequent guarded protocol exercises native board delivery/read/write and restored checkpoints. Provider-integrated controls now run from these roots; full main-study resume remains unimplemented. Native agent turns are fresh; no notebook or reflection store is added.
 
 For bonus zero, neutralize only newly accrued transfer credits in both joint and per-agent ledgers and supply an accurate current scoring contract. Retain historical credits. A post-hoc observer score is not an incentive intervention. For the reserve baseline, compute post-transfer stock after native partial movement against explicit remaining assigned obligations; permit both directions when that condition holds. This restriction is implemented research policy, not a native Hospital feature or a novel defense. It need not prevent cycles after care is finished.
 
@@ -95,7 +97,7 @@ The scripted client skips provider construction and retains native TogetherClien
 
 The earlier prototype used control-marker boards. Subsequent controls-only work supplies the allocation contract and request/retry/currency enforcement below. Main exploit/neutral and care-first inputs remain unimplemented. The original six-dimension goal remains incomplete.
 
-## Controls-only provider path — implemented, live behavior untested
+## Controls-only provider path — observed in live qualification
 
 [control_pilot.py](research/recovery_environment/hospital_recovery/control_pilot.py) implements only the12 competence cases/30calls; no automatic path to the main study exists. It rebuilds six frozen roots, uses logical board event IDs/timestamps in new prospective copies, keeps source action traces and exclusions, delivers the explicit allocation/reserve contract, and appends the designated native tool/arguments. Native schemas, fresh contexts, phase restrictions and complete batch execution remain. An observer subclass records every callback before delegating unchanged to BaseAgent, including rejected phase-disallowed/unknown attempts. Extra or erroneous non-board attempts fail qualification; they do not disappear because they failed before protocol dispatch.
 
@@ -106,3 +108,7 @@ The bundle pins42 loaded native Python modules plus research sources, fixtures, 
 One serial ledger durably reserves USD0.049 before every actual transport invocation, capped at30calls/USD1.50; valid known cost settles/releases excess, whereas missing/malformed/excessive accounting, HTTP or transport failure retains the reservation and stops. Existing ledger directories cannot resume. The128KiB actual serialized UTF8 payload guard is separate from reported token bounds. Returned/saved responses are credential-redacted. All these are research controls under a trusted local host; independent ledgers do not coordinate shared-account charges, and metadata-based cost bounds assume published endpoint/billing limits. Mock passes do not certify live provider routing, reasoning or billing compliance.
 
 Budget003 passes24/24 injected checks. Workflow002 passes8/8; workflow001's7/8 failure is retained, including the bad planning-batch fixture that exposed missing callback accounting. A legal execution batch now yields two mutations in one generation, and the phase-disallowed planning counterpart yields one mutation plus two observed callbacks; both fail the one-designated-action control. The narrow independent re-review found the two reported gaps corrected. [Per-seed controls and quantitative limits](RECOVERY_PROTOCOL.md#results-controls-runner-offline-validation).
+
+**Results:** [controls_live_001](research/recovery_environment/hospital_recovery/20261025/controls_live_001/analysis.json) has6/6 instructed cycles and6/6 instructed useful-service cases passing on seeds0–5. Actual native actions, canonical care and inventory recurrence independently match the recorded outcomes. All30requests settled forUSD0.01575068; no retries/errors/exclusions/replacements or extra/rejected non-board callbacks. Responses identify DeepSeekV3.2/DeepInfra, and every request pins the declared route/settings. Version/quantization are endpoint metadata, not immutable-weight attestation. Historical source credits remain unchanged. The saved raw payloads, replies, usage, states, failed exact-float analysis and corrected analysis are retained. [Full Results and limits](RECOVERY_PROTOCOL.md#results-live-llm-qualification-controls).
+
+This qualifies instructed native-tool competence for the chosen configuration; it does not verify main-study matched exposures, unguided planning, live reserve denials, zero-bonus behavior or spontaneous adoption. The main runner and504remaining planned requests (384main+96unilateral+24diagnostic) are not implemented/executed. The completed30controls remain part of the original534-call ceiling and must not be repeated automatically.

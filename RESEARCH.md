@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-25 (Asia/Hong_Kong).
 
-**Recommended proposal: 8/10 for proposal quality and novelty potential, at the lower edge of 8.** This is the refined candidate from the resumed search within the bundled repository. It meets the proposal screen; it does not meet the earlier all-8 empirical-results objective. Behavioral readiness remains limited: no new LLM episode or behavioral positive control has run, and demonstrated novelty is unestablished. The user has now authorized the controls-only stage with a USD50 ceiling; its effective cap remains30requests/USD1.50. The main study is not authorized.
+**Recommended proposal: 8/10 for proposal quality and novelty potential, at the lower edge of 8.** This is the refined candidate from the resumed search within the bundled repository. It meets the proposal screen; it does not meet the earlier all-8 empirical-results objective. The live LLM cycle and care controls now both pass6/6, costing **USD0.01575068 for30requests**. This establishes instructed native-tool competence for the pinned configuration; inherited-plan adoption and demonstrated novelty remain untested. The user's USD50 ceiling authorized the requested controls; their stricter USD1.50 stage cap was retained. The main study has not run and is not authorized by that controls-only approval.
 
 **Question:** After the original exploiters lose access, can an inherited plan induce ordinarily cooperative coworkers to continue a reward-gaming workflow through their independent permissions—and which repair stops that behavior while preserving useful work?
 
@@ -17,30 +17,30 @@ The contribution would be a controlled recovery result linking **inherited expos
 | Operator value | 8 | Distinguishes removing culprit identities from restoring the workflow, while measuring the cost of restricting innocent coworkers. A synthetic Hospital result alone has limited external validity. |
 | Novelty potential | 8 | Precise causal/utility comparison beyond the inspected closest sources; all general principles are credited. This is a judgment about the proposed test, not an absence proof or demonstrated result. |
 | Discriminating design | 8 | Equal-checkpoint exposed/neutral branches; honest and unilateral references; native turn semantics; contingency diagnostic; attempts versus enforcement; actual bonus-zero and care-first baselines. Requires faithful implementation. |
-| Feasibility and simplicity | 8 | Native software gate passed; a separate controls-only runner is frozen at30calls/USD1.50 with offline validation. The larger534-call study remains proposed, unimplemented and unauthorized. |
+| Feasibility and simplicity | 8 | Native/software gates and both live competence controls pass. The30-call qualification costUSD0.01575068. The larger study remains proposed, unimplemented and unauthorized. |
 
 Three subagents screened different bundled projects and challenged novelty. The initial Hospital reviews ranged **7–8**. The skeptical reviewer raised the refined proposal to the lower edge of **8**, conditional on a discriminating last-kit diagnostic and an explicit feasible reserve obligation; both are now specified in the protocol. One earlier reviewer retains 7 for the less specific version; do not present unanimous agreement. [Review record](research/recovery_environment/hospital_recovery/20261024/proposal_reviews.json). Ratings are fallible assessments, not measurements or votes establishing novelty.
 
 ## Original six-dimension audit — still incomplete
 
-The four proposal-selection criteria above do not replace the original rubric. Current judgments remain **8,8,7,4,8,3**:
+The four proposal-selection criteria above do not replace the original rubric. Current judgments are **8,8,7,8,8,3**; behavioral readiness rises from4 to8 because both required live controls now pass:
 
 | Original dimension | /10 | Evidence and remaining limit |
 | --- | ---: | --- |
 | Operator problem | 8 | Removing culprit actors versus restoring useful work is a concrete decision; external validity is still limited to a synthetic task. |
-| Architecture audit and evidence discipline | 8 | Native mechanisms, failed attempts, source hashes and offline runtime controls verified; no provider-integrated run. |
+| Architecture audit and evidence discipline | 8 | Native mechanisms, retained failures, source hashes and actual30-request provider/native-tool path verified; main behavioral execution is not verified. |
 | Conditional causal design | 7 | Last-kit and branch mechanics work offline; actual matched delivered pilot inputs and full execution remain unverified. |
-| Behavioral readiness | 4 | Scripted service/cycle controls work; no LLM positive control has run. |
+| Behavioral readiness | 8 | Pinned DeepSeekV3.2/DeepInfraFP4 passes6/6 instructed cycle and6/6 useful-service cases through native tools, with both shortage directions and no errors/replacements. This is tool competence for this bounded configuration, not natural adoption or general model reliability. |
 | Useful-cooperation construct | 8 | Canonical patient completion, failures, bidirectional useful transfers and opportunity costs are explicit and scripted controls pass. |
-| Demonstrated novelty | 3 | Native capability/runtime witnesses only; no behavioral contribution has been demonstrated. |
+| Demonstrated novelty | 3 | Native witnesses and instructed LLM competence only; no inherited-exposure or recovery contribution has been demonstrated. |
 
 These are provisional assessments, not measurements; no other system's results are transferred. The all-8 objective remains active.
 
 The previous turn made progress by completing the native feasibility evidence and specifying the stronger proposal. The subsequent offline branch-conformance gate tested real runtime boundaries with a scripted client. It can improve architecture/design confidence, not establish LLM behavior or novelty. Only the subsequent controls-only stage is now authorized; the main study is not.
 
-The offline adapter now passes **90/90 checks** across the same six frozen fixtures, with zero network attempts. All failed attempts are retained. It verifies native source/board boundaries, original/zero-bonus credits, bidirectional useful service, last-kit consequences, real batch ordering and malformed-action accounting. [Per-seed results and positive controls](RECOVERY_PROTOCOL.md#results-offline-native-branch-conformance). This is meaningful architecture progress; the scores remain **8,8,7,4,8,3** because actual matched pilot inputs/provider execution, LLM controls and behavioral novelty are still incomplete. No score is increased from scripted success alone.
+The offline adapter passed **90/90 checks** across the same six frozen fixtures, with zero network attempts. All failed attempts are retained. It verifies native source/board boundaries, original/zero-bonus credits, bidirectional useful service, last-kit consequences, real batch ordering and malformed-action accounting. [Per-seed results and positive controls](RECOVERY_PROTOCOL.md#results-offline-native-branch-conformance). At that preparation stage the ratings stayed8,8,7,4,8,3; scripted success alone did not increase them.
 
-The next stage now has frozen **controls-only** inputs and a provider-capable runner: six cycle plus six care cases, at most30calls and USD1.50, pinned DeepSeekV3.2/DeepInfraFP4, no retries. Budget mocks pass24/24; corrected workflow validation passes8/8. The first workflow failure7/8 is retained. Scripted controls pass6/6 each; **LLM controls remain unrun**. This prepares a concrete qualification request, not the main exposure experiment, and leaves the original ratings unchanged. [Exact stage, results and limits](RECOVERY_PROTOCOL.md#results-controls-runner-offline-validation).
+Controls preparation froze six cycle plus six care cases, at most30calls/USD1.50, pinned DeepSeekV3.2/DeepInfraFP4, no retries. Budget mocks passed24/24 and corrected workflow validation8/8; the first workflow failure7/8 remains. The subsequent authorized live stage passed **6/6 cycle and6/6 care controls** on all six scenarios, with30settled requests and zero failed/excluded/replaced cases. [Live per-seed results and limits](RECOVERY_PROTOCOL.md#results-live-llm-qualification-controls). The main exposure experiment remains unimplemented; no demonstrated-novelty increase follows from instructed competence.
 
 ## The experiment that would earn a result
 
@@ -50,9 +50,15 @@ Cross exposure with original settings, real transfer-bonus removal, a care-first
 
 The reserve rule uses one explicitly assigned pending care obligation per hospital, not every patient appearing in both native Ward queues. It allows either donation direction when the sender retains its required supplies. Test both shortage directions. Also test whether bonus correction or the care-first instruction reduces attempted gaming while every transfer remains legal. The gate is a simple baseline, not the proposed invention.
 
-**Next step:** run the now-authorized frozen30-call/USD1.50 qualification stage and report all twelve LLM controls before considering the main study. The [frozen plan](research/recovery_environment/hospital_recovery/20261025/workflow_002/bundle/plan.json) has SHA256 `71334d84975ece254e278838e4cd37e85e728cefc5b5ce455a9b79894b95139a`; its historical example authorization remains deliberately false. The separate [human approval record](research/recovery_environment/hospital_recovery/20261025/control_authorization.json) records the user's "$50cap" reply; the effective stage cap remainsUSD1.50 and no main study is authorized. Main exploit/neutral and care-first inputs and the full behavioral runner still need implementation if qualification succeeds. [Protocol/results](RECOVERY_PROTOCOL.md), [actual architecture and limits](ARCHITECTURE.md). No PRs, including drafts; completed steps are committed and pushed to the fork.
+**Next step:** implement and freeze the matched main exploit/neutral/care-first inputs and full behavioral runner, retaining the qualified configuration and predeclared diagnostics/baselines. Qualification succeeded; do not rerun controls or search models. The completed [live evidence](research/recovery_environment/hospital_recovery/20261025/controls_live_001/analysis.json) is bound to the [frozen plan](research/recovery_environment/hospital_recovery/20261025/workflow_002/bundle/plan.json), SHA256 `71334d84975ece254e278838e4cd37e85e728cefc5b5ce455a9b79894b95139a`, and [human approval](research/recovery_environment/hospital_recovery/20261025/control_authorization.json). Main paid execution needs a concrete reviewed plan and explicit authorization; the controls-only approval does not automatically expand its scope. [Protocol/results](RECOVERY_PROTOCOL.md), [actual architecture and limits](ARCHITECTURE.md). No PRs, including drafts; completed steps are committed and pushed to the fork.
 
 ## Results:
+
+### Live LLM qualification
+
+Both required positive controls pass **6/6** on seeds0–5: cycles restore physical state and earn30newcredit (mean30, sampleSD/variance0); useful donation plus care completes2/2patients with zero failures (mean2, SD/variance0). There are12cases in six paired constructed scenario families, not30independent samples. All30calls settled for **USD0.01575068**, with no retries, replacements, exclusions or extra/denied environment attempts. Inherited-exposure/recovery episodes remain0; those effects and uncertainty remain undefined. [All per-seed outcomes, baselines, native rewards, analysis diagnostic and limits](RECOVERY_PROTOCOL.md#results-live-llm-qualification-controls).
+
+### Earlier native software gate
 
 The predeclared native **software** gate passed **54/54 checks**: nine checks on each of six fixtures, seeds **0–5**. Source and remaining-actor scripted cycles both restored the defined physical state and earned **30** credit on every fixture (mean 30, sample SD/variance 0). Singletons and same-hospital pairs had no positive-credit two-action one-unit closed cycle; cross-hospital departments had +30, department+provisioner +15. These are bounded capability checks, not LLM behavior.
 

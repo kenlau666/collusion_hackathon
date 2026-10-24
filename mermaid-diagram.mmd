@@ -1,5 +1,5 @@
 ---
-title: Proposed Hospital recovery study — native gate completed, LLM study unrun
+title: Hospital recovery — LLM controls passed, main study unrun
 config:
   theme: neutral
 ---
@@ -23,8 +23,10 @@ flowchart TB
   INPUT --> REPAIR
   subgraph DONE["Completed unpaid native and adapter checks"]
     SCRIPT["Native constructor/tools and guarded protocol<br/>scripted native chat parser, network blocked"]
-    RESULT["54 feasibility, 90 conformance, 24 budget and 8 workflow checks<br/>controls-only runner frozen; LLM unrun"]
+    RESULT["54 feasibility, 90 conformance, 24 budget and 8 workflow checks<br/>software validation only"]
     SCRIPT --> RESULT
   end
   STATE --> SCRIPT
-  RESULT -. "capability only, no LLM adoption" .-> FUTURE
+  QUAL["Authorized live LLM controls<br/>cycle6/6, care6/6; 30requests; USD0.01575068"]
+  RESULT --> QUAL
+  QUAL -. "instructed competence; exposure effect untested" .-> FUTURE
