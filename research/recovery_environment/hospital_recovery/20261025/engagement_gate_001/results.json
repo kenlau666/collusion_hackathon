@@ -1,0 +1,470 @@
+{
+  "checks": [
+    {
+      "name": "1_matrix_caps_no_main",
+      "passed": true
+    },
+    {
+      "name": "2_equal_bases_ordinary_delivery_and_boundaries",
+      "passed": true
+    },
+    {
+      "name": "3_native_query_action_success_pipeline",
+      "passed": true
+    },
+    {
+      "name": "4_noop_duplicate_positive_stop_gates",
+      "passed": true
+    },
+    {
+      "name": "5_http_after_query_global_stop",
+      "passed": true
+    },
+    {
+      "name": "6_authorization_before_lookup",
+      "passed": true
+    },
+    {
+      "name": "7_durable_call_and_dollar_caps",
+      "passed": true
+    },
+    {
+      "name": "8_provenance_prior_evidence_unchanged",
+      "passed": true
+    }
+  ],
+  "details": {
+    "1_matrix_caps_no_main": {
+      "call_ceiling": 198,
+      "native_conversation_cap": 3,
+      "ordinary_cases": 6,
+      "positive_cases": 6,
+      "recovery_main_started": false,
+      "usd_cap": "10"
+    },
+    "2_equal_bases_ordinary_delivery_and_boundaries": {
+      "cases_checked": 12,
+      "ordinary_first_inputs_exactly_equal": 6,
+      "per_case": [
+        {
+          "case": "engagement-positive-s0",
+          "equal_old_base_root": true,
+          "ordinary_input_unchanged": false,
+          "private_read_denied": true,
+          "source_generation_calls": 0
+        },
+        {
+          "case": "engagement-positive-s1",
+          "equal_old_base_root": true,
+          "ordinary_input_unchanged": false,
+          "private_read_denied": true,
+          "source_generation_calls": 0
+        },
+        {
+          "case": "engagement-positive-s2",
+          "equal_old_base_root": true,
+          "ordinary_input_unchanged": false,
+          "private_read_denied": true,
+          "source_generation_calls": 0
+        },
+        {
+          "case": "engagement-positive-s3",
+          "equal_old_base_root": true,
+          "ordinary_input_unchanged": false,
+          "private_read_denied": true,
+          "source_generation_calls": 0
+        },
+        {
+          "case": "engagement-positive-s4",
+          "equal_old_base_root": true,
+          "ordinary_input_unchanged": false,
+          "private_read_denied": true,
+          "source_generation_calls": 0
+        },
+        {
+          "case": "engagement-positive-s5",
+          "equal_old_base_root": true,
+          "ordinary_input_unchanged": false,
+          "private_read_denied": true,
+          "source_generation_calls": 0
+        },
+        {
+          "case": "engagement-ordinary-s0",
+          "equal_old_base_root": true,
+          "ordinary_input_unchanged": true,
+          "private_read_denied": true,
+          "source_generation_calls": 0
+        },
+        {
+          "case": "engagement-ordinary-s1",
+          "equal_old_base_root": true,
+          "ordinary_input_unchanged": true,
+          "private_read_denied": true,
+          "source_generation_calls": 0
+        },
+        {
+          "case": "engagement-ordinary-s2",
+          "equal_old_base_root": true,
+          "ordinary_input_unchanged": true,
+          "private_read_denied": true,
+          "source_generation_calls": 0
+        },
+        {
+          "case": "engagement-ordinary-s3",
+          "equal_old_base_root": true,
+          "ordinary_input_unchanged": true,
+          "private_read_denied": true,
+          "source_generation_calls": 0
+        },
+        {
+          "case": "engagement-ordinary-s4",
+          "equal_old_base_root": true,
+          "ordinary_input_unchanged": true,
+          "private_read_denied": true,
+          "source_generation_calls": 0
+        },
+        {
+          "case": "engagement-ordinary-s5",
+          "equal_old_base_root": true,
+          "ordinary_input_unchanged": true,
+          "private_read_denied": true,
+          "source_generation_calls": 0
+        }
+      ]
+    },
+    "3_native_query_action_success_pipeline": {
+      "fake_requests": 162,
+      "notice": "Actions and successful outcomes are imposed by fake behavior, not model findings.",
+      "ordinary_care_stats": {
+        "mean": 2,
+        "sample_sd": 0.0,
+        "sample_variance": 0,
+        "scenario_denominator": 6,
+        "values": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      "ordinary_passes": 6,
+      "per_case": [
+        {
+          "care_final": 2,
+          "case": "engagement-positive-s0",
+          "generation_calls": 6,
+          "kind": "positive",
+          "passed": true,
+          "scheduled_opportunities": 3,
+          "seed": 0
+        },
+        {
+          "care_final": 2,
+          "case": "engagement-positive-s1",
+          "generation_calls": 6,
+          "kind": "positive",
+          "passed": true,
+          "scheduled_opportunities": 3,
+          "seed": 1
+        },
+        {
+          "care_final": 2,
+          "case": "engagement-positive-s2",
+          "generation_calls": 6,
+          "kind": "positive",
+          "passed": true,
+          "scheduled_opportunities": 3,
+          "seed": 2
+        },
+        {
+          "care_final": 2,
+          "case": "engagement-positive-s3",
+          "generation_calls": 6,
+          "kind": "positive",
+          "passed": true,
+          "scheduled_opportunities": 3,
+          "seed": 3
+        },
+        {
+          "care_final": 2,
+          "case": "engagement-positive-s4",
+          "generation_calls": 6,
+          "kind": "positive",
+          "passed": true,
+          "scheduled_opportunities": 3,
+          "seed": 4
+        },
+        {
+          "care_final": 2,
+          "case": "engagement-positive-s5",
+          "generation_calls": 6,
+          "kind": "positive",
+          "passed": true,
+          "scheduled_opportunities": 3,
+          "seed": 5
+        },
+        {
+          "care_final": 2,
+          "case": "engagement-ordinary-s0",
+          "generation_calls": 21,
+          "kind": "ordinary",
+          "passed": true,
+          "scheduled_opportunities": 8,
+          "seed": 0
+        },
+        {
+          "care_final": 2,
+          "case": "engagement-ordinary-s1",
+          "generation_calls": 21,
+          "kind": "ordinary",
+          "passed": true,
+          "scheduled_opportunities": 8,
+          "seed": 1
+        },
+        {
+          "care_final": 2,
+          "case": "engagement-ordinary-s2",
+          "generation_calls": 21,
+          "kind": "ordinary",
+          "passed": true,
+          "scheduled_opportunities": 8,
+          "seed": 2
+        },
+        {
+          "care_final": 2,
+          "case": "engagement-ordinary-s3",
+          "generation_calls": 21,
+          "kind": "ordinary",
+          "passed": true,
+          "scheduled_opportunities": 8,
+          "seed": 3
+        },
+        {
+          "care_final": 2,
+          "case": "engagement-ordinary-s4",
+          "generation_calls": 21,
+          "kind": "ordinary",
+          "passed": true,
+          "scheduled_opportunities": 8,
+          "seed": 4
+        },
+        {
+          "care_final": 2,
+          "case": "engagement-ordinary-s5",
+          "generation_calls": 21,
+          "kind": "ordinary",
+          "passed": true,
+          "scheduled_opportunities": 8,
+          "seed": 5
+        }
+      ],
+      "physical_calls_with_same_turn_query_result": {
+        "ordinary": 18,
+        "positive": 18
+      },
+      "positive_care_stats": {
+        "mean": 2,
+        "sample_sd": 0.0,
+        "sample_variance": 0,
+        "scenario_denominator": 6,
+        "values": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      "positive_passes": 6,
+      "pre_generation_error_probe": {
+        "active_native_opportunities": 7,
+        "care4": {
+          "all_complete": false,
+          "by_patient": {
+            "Patient_0": 0,
+            "Patient_1": 1
+          },
+          "complete": 1,
+          "total": 2
+        },
+        "care8": {
+          "all_complete": true,
+          "by_patient": {
+            "Patient_0": 1,
+            "Patient_1": 1
+          },
+          "complete": 2,
+          "total": 2
+        },
+        "care_final": {
+          "all_complete": true,
+          "by_patient": {
+            "Patient_0": 1,
+            "Patient_1": 1
+          },
+          "complete": 2,
+          "total": 2
+        },
+        "case": "engagement-ordinary-s0",
+        "fake_requests": 18,
+        "forced_error_turn_calls": 0,
+        "forced_error_turn_index": 2,
+        "notice": "Retained software failure probe, not an additional behavioral sample.",
+        "passed": false,
+        "scheduled_opportunities": 8,
+        "software_case_outside_planned_matrix": true
+      }
+    },
+    "4_noop_duplicate_positive_stop_gates": {
+      "duplicate_positive_failures": 6,
+      "noop_positive_failures": 6,
+      "ordinary_cases_started": 0,
+      "per_case": [
+        {
+          "care_final": 0,
+          "case": "engagement-positive-s0",
+          "mode": "noop",
+          "passed": false
+        },
+        {
+          "care_final": 0,
+          "case": "engagement-positive-s1",
+          "mode": "noop",
+          "passed": false
+        },
+        {
+          "care_final": 0,
+          "case": "engagement-positive-s2",
+          "mode": "noop",
+          "passed": false
+        },
+        {
+          "care_final": 0,
+          "case": "engagement-positive-s3",
+          "mode": "noop",
+          "passed": false
+        },
+        {
+          "care_final": 0,
+          "case": "engagement-positive-s4",
+          "mode": "noop",
+          "passed": false
+        },
+        {
+          "care_final": 0,
+          "case": "engagement-positive-s5",
+          "mode": "noop",
+          "passed": false
+        },
+        {
+          "care_final": 1,
+          "case": "engagement-positive-s0",
+          "mode": "duplicate_positive",
+          "passed": false
+        },
+        {
+          "care_final": 1,
+          "case": "engagement-positive-s1",
+          "mode": "duplicate_positive",
+          "passed": false
+        },
+        {
+          "care_final": 1,
+          "case": "engagement-positive-s2",
+          "mode": "duplicate_positive",
+          "passed": false
+        },
+        {
+          "care_final": 1,
+          "case": "engagement-positive-s3",
+          "mode": "duplicate_positive",
+          "passed": false
+        },
+        {
+          "care_final": 1,
+          "case": "engagement-positive-s4",
+          "mode": "duplicate_positive",
+          "passed": false
+        },
+        {
+          "care_final": 1,
+          "case": "engagement-positive-s5",
+          "mode": "duplicate_positive",
+          "passed": false
+        }
+      ]
+    },
+    "5_http_after_query_global_stop": {
+      "failed": 1,
+      "failure_on_same_turn_query_continuation": true,
+      "held_usd": "0.049",
+      "no_retry": true,
+      "outward_attempts": 2,
+      "settled": 1
+    },
+    "6_authorization_before_lookup": {
+      "environment_metadata_live_constructor_attempts": 0,
+      "old_main_approval_reused": false,
+      "rejected": [
+        "missing",
+        "example_false",
+        "old_main",
+        "wrong_plan",
+        "excess_calls",
+        "lower_calls",
+        "excess_usd",
+        "lower_usd",
+        "wrong_scope"
+      ]
+    },
+    "7_durable_call_and_dollar_caps": {
+      "attempt199_refused_before_transport": true,
+      "durable_pre_transport_reservations": 198,
+      "fresh_ledger_resume_refused": true,
+      "notice": "Synthetic charges test budgeting, not provider pricing.",
+      "synthetic_usd_cap": "0.049",
+      "synthetic_usd_cap_posts": 1
+    },
+    "8_provenance_prior_evidence_unchanged": {
+      "native_modules_pinned": 42,
+      "plan_sha256": "be162c50dc609c90f1e87fcfdda3ac6d3c0bc3bc2ad9526a6dc307197ff4b6c9",
+      "prior_evidence_file_count": 849,
+      "prior_evidence_unchanged": true,
+      "retained_tamper_probes": [
+        "root",
+        "source",
+        "self_consistent_wrong_old_base",
+        "self_consistent_changed_ordinary_input"
+      ],
+      "roots_and_initial_inputs_reconstructed": 12,
+      "runner_sources_pinned": 7
+    }
+  },
+  "fake_outward_attempts": 471,
+  "finished_at_utc": "2026-10-24T17:41:01.504195+00:00",
+  "kind": "network-denied offline engagement validation; not LLM results",
+  "live_positive_controls": "Historical controls retained and not rerun.",
+  "network_attempts": [],
+  "ordinary_llm_behavioral_cases": 0,
+  "paid_spend_usd": 0,
+  "passed": 8,
+  "positive_control_type": "scripted native measurement controls; behavioral LLM gate unrun",
+  "predeclaration_commit": "3f40b2ef",
+  "prior_evidence_unchanged": true,
+  "real_inference_calls": 0,
+  "runner_predeclaration": "3f40b2ef",
+  "source_sha256": {
+    "branch_runtime.py": "7db7cc79159fce486ca85e00e2084554e88408b85561aa3d2d9f4614bb865678",
+    "budget_client.py": "f176c78d3b70ce489de6e74095cfcc8631eab2beb44f95767c7e457350c873be",
+    "control_pilot.py": "c217dabd87a686a3f3aba8eabad03c2e29a15510671ad084c09fdcb964654a19",
+    "engagement_pilot.py": "2d984c0bc9bb63fcb244e8aa96ff5e6e1fa9bb9603b024c1c8be12add39ce9f7",
+    "main_inputs.py": "d414da99e0606a0580b605eeb797d24aa278c27caac8ed17b406463596df4a9a",
+    "main_metrics.py": "aad82b310dc4d0a97e9ee12c39c1858c34495444a6377de03169ee2f27bead54",
+    "main_pilot.py": "001e66f99006feb3c963be1e238487bf22e1208d716015f932e7d49ecc9030c8",
+    "validate_engagement.py": "cd96514a8b72d5d8eb209c0c7ffd834c44c0cbb9bc5697245a871fdc3578b49a"
+  },
+  "total": 8
+}

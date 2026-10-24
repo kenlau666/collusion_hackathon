@@ -39,6 +39,8 @@ flowchart TB
   QUAL -. "instructed competence; exposure effect unidentified" .-> FUTURE
   PROBE["Unpaid continuation probe:24scripted cases<br/>cap3permits query→action; always-query still inactive<br/>batchcap1positive6/6; not LLM qualification"]
   SCRIPT --> PROBE
+  ENGAGE["Prepared cap3 qualification:6positive+6ordinary<br/>max198requests/USD10;8offline checks pass<br/>LLM unrun; distinct approval required"]
+  PROBE -. "software witness only" .-> ENGAGE
 ```
 
 Editable source: [mermaid-diagram.mmd](mermaid-diagram.mmd), equal to the block above. The PNG remains historical and unchanged. No new render/layout verification is claimed.
@@ -145,3 +147,14 @@ Every full case has0/2 care at 4/8, zero transfers/cycles/newcredit/failures and
 [probe_turn_budget.py](research/recovery_environment/hospital_recovery/probe_turn_budget.py) adds a separate network-denied harness, leaving the frozen six sources and main artifacts unchanged. It uses native MainAgent/parser/protocol with an injected scripted client on all six neutral/original roots. Four execution opportunities per case are distinct from the original main horizon. Query-then-act under cap1has care0/2, while cap3permits a same-turn query-result-conditioned feasible action and care2/2. Cap3always-query remains at0/2; a query-plus-action batch under cap1also completes2/2. All four groups match expectations6/6;24cases use174scripted generations, zero provider/network calls and zero spend. Both native state effects and generation/query counts are checked. This closes a software coverage gap only. The script's action selection reads constructed branch state; it is not the LLM.
 
 [Full Results, per-seed rewards/timing, variance, positive and negative controls](RECOVERY_PROTOCOL.md#results-unpaid-native-continuation-probe). All29committed public main artifacts match `63f8766f`, and the original private ledger matches its recorded hash. A future ordinary-task engagement gate would still need its own frozen design and authorization. Readiness5and novelty3remain unchanged; no paid run is resumed.
+
+
+## Proposed cap3 engagement stage — frozen, not authorized
+
+[engagement_pilot.py](research/recovery_environment/hospital_recovery/engagement_pilot.py) adds a distinct12-case gate:6instructed useful-care positives then6ordinary neutral/original episodes only if all positives pass. It leaves the prior six sources/data unchanged. Ordinary root/first-input equality to the old main freeze is enforced before spending; no prompt/tool/policy change accompanies cap3. Positive cases allow read-only queries but require exactly the designated three physical actions on their designated turns. Alternative native care assignments are allowed in ordinary cases and recorded. Initial/final and per-event scorer errors, native returned errors, malformed/failed callbacks and resource failures can fail qualification. All6ordinary task cases remain in the sample even after task failures.
+
+Every scheduled turn records0–3actual outbound generations separately from active-turn flags. The unchanged metric's old count is explicitly renamed to native opportunities; actual-generation count sums durable ledger deltas. Care4/8still uses fixed indices3/7. The runner checks for a halted ledger after a native return, catching provider errors swallowed by the native continuation handler. It retains a partial case and globally stops without retry. No main experiment is called.
+
+The [bundle](research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/plan.json) freezes7research sources,42native modules, old evidence,12roots/first inputs, cap3and exact198requests/USD10. Plan SHA256 `be162c50dc609c90f1e87fcfdda3ac6d3c0bc3bc2ad9526a6dc307197ff4b6c9`. Prior approvals are rejected before metadata/key/live construction. Frozen input reconstruction precedes a new public critical-endpoint check and then explicit process-key lookup. Preparation and offline validation perform no credential lookup or provider construction. Later tool-result contexts remain response-dependent and are recorded durably.
+
+**Results:** [validate_engagement.py](research/recovery_environment/hospital_recovery/validate_engagement.py) passes8/8network-denied checks with471fake outward attempts, including successful6+6measurement controls, failed positive gates, second-generation HTTP429, a retained pre-generation error, budget/authorization boundaries and tamper rejection. A separate public metadata GET matches the snapshot. No new LLM qualification or readiness/novelty increase is claimed. [Per-seed Results, positive controls and limits](RECOVERY_PROTOCOL.md#results-ordinary-task-qualification-preparation). New model execution remains unauthorized pending distinct approval; no PR.

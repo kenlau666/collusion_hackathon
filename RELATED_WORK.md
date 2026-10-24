@@ -14,6 +14,8 @@ The bounded original-source overlap below is unchanged: neither instructed contr
 
 The subsequent [unpaid native continuation probe](RECOVERY_PROTOCOL.md#results-unpaid-native-continuation-probe) validates a scripted control-flow contrast and its counterexamples only. It adds no behavioral contribution or literature distinction; demonstrated novelty remains3. The bounded source-overlap assessment below is unchanged.
 
+The distinct cap3ordinary-task qualification is now frozen after8/8offline checks, with no new model execution. It is measurement preparation rather than a new contribution; all six current scores, including demonstrated novelty3, remain unchanged. [Preparation Results](RECOVERY_PROTOCOL.md#results-ordinary-task-qualification-preparation).
+
 ## Closest verified original sources
 
 | Exact primary source and inspected sections | Material overlap | Bounded distinction to test |
