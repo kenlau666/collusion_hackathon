@@ -2,6 +2,8 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
+**Superseded active scope:** the user retired Cleanup and authorized a replacement approach on 2026-10-24. The Cleanup content below is historical pending the replacement screen in [RESEARCH.md](RESEARCH.md). Do not resume its development or inference; old run ceilings do not authorize a new study.
+
 **Current scope:** Cleanup in llm-agent-collusion-2. This replaces the old auction control map. The selected question is whether removing retained participant context improves recovery beyond withdrawing a private channel. [Protocol](RECOVERY_PROTOCOL.md).
 
 The editable source is [mermaid-diagram.mmd](mermaid-diagram.mmd). The embedded diagram below uses the same source. Solid paths represent inspected software responsibilities. Dashed blue paths represent study additions to the starter. The harness/controller and staged dispatcher are implemented and validated offline; live behavior is not established by this diagram. The existing PNG is left unchanged at the user's request. The source [passed parsing and rendering checks](research/recovery_environment/diagram_validation.json) with Mermaid 12.2.0; no nodes fell outside the rendered SVG boundary.

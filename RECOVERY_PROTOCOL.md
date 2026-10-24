@@ -2,6 +2,8 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
+**Superseded active scope:** the user retired Cleanup and authorized a replacement approach on 2026-10-24. The Cleanup content below is historical pending the replacement screen in [RESEARCH.md](RESEARCH.md). Do not resume its development or inference; old run ceilings do not authorize a new study.
+
 **Selected direction:** recovery from harmful coordination in Cleanup, within llm-agent-collusion-2. **Status:** feasibility completed at the no-eligible-prefix stopping gate; the bounded offer diagnostic also completed (A 0/6 acceptances, B 0/6, C 6/6 control passes); R0–R5 unrun. The harness and dispatcher are implemented. Recovery effectiveness and novelty remain unconfirmed.
 
 The readable project question and pivot rationale are in [RESEARCH.md](RESEARCH.md). The code audit and context flow are in [ARCHITECTURE.md](ARCHITECTURE.md), alongside the editable [Mermaid source](mermaid-diagram.mmd).

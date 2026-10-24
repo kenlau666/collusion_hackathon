@@ -2,9 +2,13 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
-**Current direction: recovery in Cleanup, within llm-agent-collusion-2.** The user selected this pivot and requested replacement of the old plan. This document is the current project explanation. The detailed [experiment protocol](RECOVERY_PROTOCOL.md), [system map](ARCHITECTURE.md) and editable [Mermaid architecture](mermaid-diagram.mmd) define the proposed study.
+**Current direction: replacing the Cleanup configuration with a stronger recovery study.** On 2026-10-24 the user explicitly instructed us to change approach, stop work on this configuration, and iterate with honest ratings toward 8/10 in every existing dimension. If no justified next step is available, pause and report the latest status. This supersedes earlier statements below reserving the scope decision for the user: the user has now authorized the change.
 
-**Status:** the feasibility study, bounded offer diagnostic and read-only construct-validity review are complete. Original replay A and clarified presentation B each produced six valid refusals; instructed acceptance-output control C passed 6/6. The clarification did not establish improved uptake in the six reused contexts. Zero eligible recovery cases; R0–R5 remain unrun. Recovery effectiveness and novelty remain unestablished.
+**Status:** Cleanup is retired from active development and inference. Its completed feasibility, diagnostic and audit evidence remain historical; R0–R5 stay unrun and their effect stays unestimated. Active work is a bounded, unpaid screen of replacement questions, existing architectures and existing traces. No replacement has yet passed the contribution/readiness gates. A better written proposal cannot substitute for behavioral evidence or justify raising every score to 8/10.
+
+**Authorization:** research refinement, source/code/trace inspection, offline verification and coherent commits/pushes are authorized by the latest instruction. No additional paid inference is launched under this iteration request. Historical run ceilings are not available budgets for a replacement study.
+
+The sections below describe the retired Cleanup approach until the replacement screen is complete. The four root research documents remain authoritative; immutable evidence stays in its original directories.
 
 ## Reading guide
 

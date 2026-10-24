@@ -2,6 +2,8 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
+**Superseded active scope:** the user retired Cleanup and authorized a replacement approach on 2026-10-24. The Cleanup content below is historical pending the replacement screen in [RESEARCH.md](RESEARCH.md). Do not resume its development or inference; old run ceilings do not authorize a new study.
+
 **Selected direction:** recovery in Cleanup within llm-agent-collusion-2. The user requested replacement of the previous plan; the superseded ideation screen is preserved in [Git history](https://github.com/kenlau666/collusion_hackathon/blob/d799350/research/archive/20261024_before_recovery_pivot/NOVEL_RESEARCH_DIRECTIONS.md). The [current question](RESEARCH.md) and [experiment protocol](RECOVERY_PROTOCOL.md) govern the study.
 
 **Novelty status: unconfirmed.** Choosing recovery, changing a benchmark or comparing several reset scopes does not establish a new contribution.
