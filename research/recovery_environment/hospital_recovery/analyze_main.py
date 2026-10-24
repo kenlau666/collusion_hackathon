@@ -45,6 +45,9 @@ def stats(values):
     complete = len(observed) == len(values)
     return {'scenario_denominator': len(values), 'observed': len(observed), 'values': values,
             'mean': statistics.mean(observed) if observed and complete else None,
+            'observed_complete_cases_only':{'n':len(observed),'mean':statistics.mean(observed) if observed else None,
+                'sample_sd':statistics.stdev(observed) if len(observed)>1 else None,
+                'sample_variance':statistics.variance(observed) if len(observed)>1 else None},
             'sample_sd': statistics.stdev(observed) if len(observed) > 1 and complete else None,
             'sample_variance': statistics.variance(observed) if len(observed) > 1 and complete else None,
             'range': [min(observed), max(observed)] if observed and complete else None}
@@ -52,9 +55,12 @@ def stats(values):
 
 def analyze(run, bundle):
     plan = read(bundle / 'plan.json')
-    ledger = read(run / 'accounting/ledger.json')
+    ledger_path = run / 'accounting/ledger.json'
+    if not ledger_path.exists():
+        ledger_path = run / 'accounting/ledger.redacted.json'
+    ledger = read(ledger_path)
     declared = plan['cases']
-    checks, rows, request_hashes, mismatches = {}, [], [], []
+    checks, rows, request_hashes, mismatches, partial_rows = {}, [], [], [], []
     def check(name, condition):
         checks[name] = bool(condition)
     check('approved_plan_matches_ledger', ledger['plan_sha256'] == sha(bundle / 'plan.json')
@@ -69,7 +75,9 @@ def analyze(run, bundle):
     records = ledger['records']
     check('ledger_count_and_call_ids', ledger['calls'] == len(records) and [r['call_id'] for r in records] == list(range(1, len(records)+1)))
     check('all_attempts_settled_http200', all(r['status'] == 'settled' and r.get('http_status') == 200 for r in records))
-    check('caps_and_no_held_funds', ledger['calls'] <= 504 and Decimal(ledger['spent_usd']) <= 25 and Decimal(ledger['held_usd']) == 0)
+    check('call_and_currency_caps', ledger['calls'] <= 504 and Decimal(ledger['spent_usd']) + Decimal(ledger['held_usd']) <= 25)
+    expected_held = sum((Decimal(r['reservation_usd']) for r in records if r['status'] != 'settled'), Decimal(0))
+    check('held_reservations_reconcile', expected_held == Decimal(ledger['held_usd']))
     known_cost = sum((Decimal(str(r['known_cost_usd'])) for r in records if r.get('known_cost_usd') is not None), Decimal(0))
     check('known_cost_sum_equals_spent', known_cost == Decimal(ledger['spent_usd']))
     check('response_usage_cost_and_id_match_records', all(
@@ -78,10 +86,10 @@ def analyze(run, bundle):
         and r.get('known_cost_usd') is not None
         and Decimal(str(r['known_cost_usd'])) == Decimal(str((r.get('response') or {}).get('usage',{}).get('cost')))
         for r in records if r['status'] == 'settled'))
-    ids = [r.get('response_id') for r in records]
+    ids = [r.get('response_id') for r in records if r['status'] == 'settled']
     check('unique_nonempty_response_ids', all(ids) and len(ids) == len(set(ids)))
     check('returned_model_and_provider', all((r.get('response') or {}).get('model') in {'deepseek/deepseek-v3.2','deepseek/deepseek-v3.2-20251201'}
-          and (r.get('response') or {}).get('provider') == 'DeepInfra' for r in records))
+          and (r.get('response') or {}).get('provider') == 'DeepInfra' for r in records if r['status'] == 'settled'))
     first_inputs = read(bundle / 'initial_inputs.json')
     frozen_roots = read(bundle / 'roots.json')
     callback_counts, observation_counts, finish_reasons = Counter(), Counter(), Counter()
@@ -89,6 +97,39 @@ def analyze(run, bundle):
     for spec in declared:
         case = cases.get(spec['id'])
         if case is None:
+            partial_path = run / (spec['id'] + '-stopped.json')
+            if partial_path.exists():
+                partial = read(partial_path)
+                expected_turns = frozen_roots[spec['id']]['turns']
+                outcomes = partial['outcomes']
+                completed_steps = [t['step'] for t in outcomes if t['actual_generation']]
+                failed_step = expected_turns[len(outcomes)] if len(outcomes) < len(expected_turns) else None
+                failed_records = records[cursor:]
+                steps = completed_steps + ([failed_step] if failed_step else [])
+                valid = (partial['spec'] == spec and canonical_sha(partial['root']) == canonical_sha(frozen_roots[spec['id']])
+                         and [t['step'] for t in outcomes] == expected_turns[:len(outcomes)]
+                         and len(failed_records) == len(steps) and bool(failed_records)
+                         and failed_records[-1]['status'] == 'failed')
+                if not valid:
+                    mismatches.append({'case':spec['id'],'where':'partial_case_sequence_or_failed_call_mapping'})
+                for record, step in zip(failed_records,steps):
+                    if record['payload']['seed'] != step['sampling_seed']:
+                        mismatches.append({'case':spec['id'],'where':'partial_sampling_seed'})
+                    request_hashes.append({'case':spec['id'],'turn_index':step['turn_index'], 'call_id':record['call_id'],
+                        'status':record['status'],'canonical_structured_payload_sha256':canonical_sha(record['payload']),
+                        'exact_message_string_utf8_sha256':[hashlib.sha256(v.get('content','').encode()).hexdigest()
+                           if isinstance(v.get('content'),str) else None for v in record['payload']['messages']]})
+                cursor += len(failed_records)
+                for cb in partial['callbacks']:
+                    callback_counts[str(cb.get('tool'))] += 1
+                for event in partial['observations']:
+                    observation_counts[str(event.get('source')) + '/' + str(event.get('tool'))] += 1
+                partial_rows.append({'spec':spec, 'completed_turn_outcomes':len(outcomes),
+                    'actual_attempts':len(failed_records), 'last_observed_care':care(partial['state']),
+                    'care_turn4':outcomes[3]['care'] if len(outcomes)>3 else None,
+                    'care_turn8':None, 'fixed_horizon_note':'Globally stopped before eighth outcome; do not impute final care endpoint',
+                    'callbacks':len(partial['callbacks']), 'transfer_attempts':sum(c.get('tool')=='transfer_resources' for c in partial['callbacks']),
+                    'observations':len(partial['observations']), 'failed_call_id':failed_records[-1]['call_id'] if failed_records else None})
             continue
         m = case['metrics']
         expected_turns = frozen_roots[spec['id']]['turns']
@@ -162,15 +203,45 @@ def analyze(run, bundle):
     for name, group in groups.items():
         lookup = {r['seed']: r for r in group}
         arms[name] = {key: stats([lookup[s][key] if s in lookup else None for s in range(6)]) for key in endpoint_names}
+    lookup = {(r['kind'],r['seed'],r['exposure'],r['policy'],r['partner_policy']):r for r in rows}
+    partial_lookup = {r['spec']['id']:r for r in partial_rows}
+    def endpoint(seed, exposure, policy, key, kind='main'):
+        row = lookup.get((kind,seed,exposure,policy,None))
+        if row: return row[key]
+        partial = partial_lookup.get(f'{kind}-s{seed}-{exposure}-{policy}')
+        if partial and key == 'care4' and partial['care_turn4'] is not None:
+            return sum(partial['care_turn4'].values())
+        return None
+    paired = {}
+    for policy in ('original','bonus_zero','care_first','reserve'):
+        paired[policy] = {}
+        for key in ('cycles','precompletion_cycles','care4','care8'):
+            values = []
+            for seed in range(6):
+                exposed,neutral = endpoint(seed,'exploit',policy,key),endpoint(seed,'neutral',policy,key)
+                values.append(exposed-neutral if exposed is not None and neutral is not None else None)
+            paired[policy][key] = stats(values)
+    repair_care = {}
+    for exposure in ('exploit','neutral'):
+        for policy in ('bonus_zero','care_first','reserve'):
+            values=[]
+            for seed in range(6):
+                repaired,original=endpoint(seed,exposure,policy,'care8'),endpoint(seed,exposure,'original','care8')
+                values.append(repaired-original if repaired is not None and original is not None else None)
+            repair_care[f'{exposure}/{policy}-original']=stats(values)
     return {'kind':'read-only post-run accounting and canonical-state verification',
             'analyzed_at_utc':datetime.now(timezone.utc).isoformat(), 'script_sha256':sha(Path(__file__)),
             'checks':checks, 'all_checks_passed':all(checks.values()), 'mismatches':mismatches,
+            'evidence_integrity_checks_passed':all(v for k,v in checks.items() if k not in {'all84_declared_cases_complete','all_attempts_settled_http200'}),
+            'partial_cases':partial_rows, 'unstarted_cases':[s['id'] for s in declared if s['id'] not in cases and not (run/(s['id']+'-stopped.json')).exists()],
+            'ledger_file_used':str(ledger_path.relative_to(run)),
             'scenario_families':6, 'all504_opportunities_generated':cursor == 504, 'completed_case_count':len(cases), 'uncompleted_cases':[s['id'] for s in declared if s['id'] not in cases],
             'ledger':{k:ledger[k] for k in ('status','calls','spent_usd','held_usd','halt_reason')},
-            'known_cost_sum_usd':str(known_cost), 'response_models':dict(Counter((r.get('response') or {}).get('model') for r in records)),
-            'response_providers':dict(Counter((r.get('response') or {}).get('provider') for r in records)),
+            'known_cost_sum_usd':str(known_cost), 'response_models':dict(Counter(str((r.get('response') or {}).get('model')) for r in records)),
+            'response_providers':dict(Counter(str((r.get('response') or {}).get('provider')) for r in records)),
             'finish_reasons':dict(finish_reasons), 'callback_tool_counts':dict(callback_counts),
             'observation_source_tool_counts':dict(observation_counts), 'per_case':rows, 'raw_arm_stats':arms,
+            'paired_exposed_minus_neutral':paired, 'repair_minus_original_care8':repair_care,
             'request_hash_definition':'Canonical persisted credential-safe structured JSON payload and saved message-string UTF8; delivered text equality is supported where sanitization made no change. Not raw HTTP envelopes or server tokenization',
             'payload_redaction_marker_count':sum(json.dumps(r['payload']).count('[REDACTED]') for r in records),
             'request_hashes':request_hashes,
@@ -184,7 +255,9 @@ def main():
     parser.add_argument('--bundle',type=Path,required=True)
     parser.add_argument('--out',type=Path,required=True)
     args=parser.parse_args()
-    ledger = read(args.run / 'accounting/ledger.json')
+    ledger_path = args.run/'accounting/ledger.json'
+    if not ledger_path.exists(): ledger_path = args.run/'accounting/ledger.redacted.json'
+    ledger = read(ledger_path)
     if (not (args.run/'results.json').exists() and not (args.run/'stopped.json').exists()) or ledger['status'] == 'in_flight':
         parser.error('Run must finish or stop before persisting an analysis; do not snapshot an active run')
     result=analyze(args.run,args.bundle)
