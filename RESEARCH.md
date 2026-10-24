@@ -27,6 +27,8 @@ The four proposal-selection criteria above do not replace the original rubric. C
 
 The previous turn made progress by completing the native feasibility evidence and specifying the stronger proposal. The next safe action is the predeclared offline branch-conformance gate, testing real runtime boundaries with a scripted client. It can improve architecture/design confidence, not establish LLM behavior or novelty. No paid inference is authorized.
 
+The first conformance attempt is **failed overall**, despite72/72 assertions: the network guard recorded a blocked library IPv6 import probe. Review also found reserve/no-op and care-index/accounting counterexamples outside the initial assertions. Preserve that attempt and fix the gaps under the newly declared supplemental checks; do not raise readiness or demonstrated novelty from the initial result.
+
 ## The experiment that would earn a result
 
 Freeze six constructed native patient frontiers, original source actions and two public footprints: exploit plan versus matched useful-care plan. In every branch genuinely exclude original source actors and close their private board; hold physical state, current scoring information and task obligations fixed. Both remaining Ward actors receive native cooperative objectives. No new long-term memory is added.

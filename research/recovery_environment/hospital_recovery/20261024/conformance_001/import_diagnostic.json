@@ -1,0 +1,21 @@
+{
+  "kind": "single-import debugging trace, not a behavioral experiment",
+  "attempts": [
+    {
+      "event": "socket.bind",
+      "stack": [
+        "  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n",
+        "  File \"/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/urllib3/util/__init__.py\", line 4, in <module>\n    from .connection import is_connection_dropped\n",
+        "  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n",
+        "  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n",
+        "  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n",
+        "  File \"<frozen importlib._bootstrap_external>\", line 1026, in exec_module\n",
+        "  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n",
+        "  File \"/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/urllib3/util/connection.py\", line 137, in <module>\n    HAS_IPV6 = _has_ipv6(\"::1\")\n",
+        "  File \"/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/urllib3/util/connection.py\", line 127, in _has_ipv6\n    sock.bind((host, 0))\n",
+        "  File \"<stdin>\", line 6, in hook\n"
+      ]
+    }
+  ],
+  "external_inference_calls": 0
+}
