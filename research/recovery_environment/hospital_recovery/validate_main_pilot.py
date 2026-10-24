@@ -30,6 +30,7 @@ try:
         BudgetedChatClient, MockMainTransport, MODEL_ID, TransportReply, aggregate, capture_initial,
         canonical_recorded, execute, finish_diagnostic, metric_initial, native_turn, prepare,
         run_case, run_live, save, verify_bundle, verify_initial_inputs, verify_qualification)
+    from main_pilot import reward_endpoint
     from branch_runtime import ScriptedChatClient, care, checkpoint, digest, schedule_args, tool, transfer_args
     from control_pilot import file_hash
     from main_inputs import (CARE_FIRST_ADVISORY, NEUTRAL_ADVISORY, matrix, make_case,
@@ -285,6 +286,11 @@ async def validate(out, snapshot):
         for policy in ("care_first","reserve"):
             assert summary["paired_exposure_contrasts"]["main/"+policy]["exposed_minus_neutral_cycles"]["values"]==[0]*6
         assert summary["diagnostic_source_by_partner_return_interaction"]["values"]==[0]*6
+        raw=summary["raw_arm_summaries"]["main/neutral/original/None"]
+        assert raw["endpoints"]["care_turn8"]["values"]==[2]*6
+        assert raw["endpoints"]["transfer_attempts"]["values"]==[1]*6
+        assert raw["final_native_rewards_by_agent"]
+        assert all(v["values"]==[0]*6 for v in summary["repair_minus_original_care_turn8_within_exposure"].values())
         assert all(c["metrics"]["care_final"]["complete"]==2 for c in cases if c["spec"]["kind"]!="diagnostic")
         for case in cases:
             assert not case["native_episode_errors"]
@@ -345,8 +351,44 @@ async def validate(out, snapshot):
         m=metrics(bad,initial)
         assert m['care_final']['complete']==0 and any(e['scoring_error'] for e in bad.protocol.observations)
         assert any(e['joint_reward'] is None for e in m['care_by_event'])
+        assert reward_endpoint(bad)['joint_reward'] is None and reward_endpoint(bad)['per_agent'] is None
         save(out/'retained_native_failure.json',{'callbacks':native.callback_attempts,'observations':native.protocol.observations,'malformed_index_metrics':m})
-        return {"http_failure_posts":4,"held_reservation_usd":"0.049","cap505_refused":True,"malformed_attempts_retained":2,"native_score_failure_retained":True}
+        before_generation=out/'pregen_failure';before_generation.mkdir()
+        before_client=BudgetedChatClient(ledger=BudgetLedger(before_generation/'accounting',scope='full',max_calls=504,max_usd='25'),transport=MockMainTransport())
+        original_native_turn=native_turn
+        async def fail_before_generation(branch,step,client):
+            if step['turn_index']==1:raise ValueError('scripted pre-generation native failure')
+            return await original_native_turn(branch,step,client)
+        with patch('main_pilot.native_turn',fail_before_generation):
+            retained=await run_case(spec_for(exposure='neutral'),before_client,before_generation)
+        assert before_client.ledger.state['calls']==7 and len(retained['turn_states'])==8
+        assert retained['metrics']['actual_generation_count']==7 and retained['metrics']['scheduled_opportunity_count']==8
+        assert retained['metrics']['care_after_4_turns']['complete']==retained['metrics']['care_after_8_turns']['complete']==2
+        assert [r['turn_index'] for r in retained['metrics']['care_by_scheduled_turn']]==list(range(8))
+        sparse=[r for r in retained['turn_states'] if r['turn_index']!=3]
+        sparse_metric=summarize_episode(retained['initial'],retained['observations'],retained['callback_attempts'],sparse,retained['final'])
+        assert sparse_metric['care_after_4_turns'] is None and sparse_metric['care_after_8_turns']['complete']==2
+        save(out/'sparse_milestone_counterexample.json',sparse_metric)
+        no_tool=out/'no_tool_reward_baseline';no_tool.mkdir()
+        empty_client=BudgetedChatClient(ledger=BudgetLedger(no_tool/'accounting',scope='full',max_calls=504,max_usd='25'),transport=MockMainTransport('noop'))
+        empty=await run_case(spec_for(exposure='neutral'),empty_client,no_tool)
+        assert empty['observations']==[] and empty['initial_native_reward']==empty['final_native_reward']
+        assert empty['final_native_reward']['joint_reward'] is not None and empty['final_native_reward']['per_agent']
+        single=aggregate([empty])['raw_arm_summaries']['main/neutral/original/None']['endpoints']['care_turn8']
+        assert single['scenario_denominator']==6 and single['defined']==1 and single['mean'] is None
+        class MalformedRawTransport(MockMainTransport):
+            def post(self,payload,*,timeout):
+                reply=super().post(payload,timeout=timeout)
+                reply.body['choices'][0]['message']['tool_calls']=['MALFORMED_RAW_CALL']
+                return reply
+        raw_error=out/'malformed_raw_call';raw_error.mkdir()
+        raw_client=BudgetedChatClient(ledger=BudgetLedger(raw_error/'accounting',scope='full',max_calls=504,max_usd='25'),transport=MalformedRawTransport())
+        parsed=await run_case(spec_for(kind='diagnostic',partner='return'),raw_client,raw_error)
+        assert raw_client.ledger.state['calls']==1 and parsed['native_episode_errors']
+        assert parsed['diagnostic']['first_nonboard_label']=='other' and parsed['diagnostic']['first_nonboard_subtype']=='malformed_raw_call'
+        return {"http_failure_posts":4,"held_reservation_usd":"0.049","cap505_refused":True,"malformed_attempts_retained":2,"native_score_failure_retained":True,
+                "pregen_failure_scheduled_opportunities":8,"pregen_actual_requests":7,"milestones_not_shifted":True,
+                "no_tool_reward_endpoint_captured":True,"missing_scenarios_not_dropped":True,"malformed_raw_parser_failure_distinguished":True}
 
     async def provenance():
         value=verify_bundle(out/"bundle");await verify_initial_inputs(out/"bundle")

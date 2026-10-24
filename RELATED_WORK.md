@@ -4,7 +4,7 @@ Last updated: 2026-10-25 (Asia/Hong_Kong).
 
 **Novelty potential: lower-edge 8/10 for the refined causal/utility proposal; demonstrated novelty unestablished.** The static transfer cycle alone is a 6–7-level implementation audit. The proposed contribution must identify the effect of inherited exploit exposure on actual continuation after source exclusion, through complementary surviving permissions, and compare remedies while preserving useful bidirectional care. A new task/name or a combination of familiar ingredients is insufficient.
 
-The2026-10-25 [live LLM competence controls](RECOVERY_PROTOCOL.md#results-live-llm-qualification-controls) now pass6/6 cycle and6/6 care cases. They establish that this model can execute the prescribed native actions; they do not test the literature gap above. Demonstrated novelty remains3/10 and the bounded overlap assessment is unchanged. No source-exposure or recovery result is inferred from these instructed controls.
+The2026-10-25 [live LLM competence controls](RECOVERY_PROTOCOL.md#results-live-llm-qualification-controls) now pass6/6 cycle and6/6 care cases. They establish that this model can execute the prescribed native actions; they do not test the literature gap above. Demonstrated novelty remains3/10 and the bounded overlap assessment is unchanged. No source-exposure or recovery result is inferred from these instructed controls. The subsequent [main-stage offline gate](RECOVERY_PROTOCOL.md#results-main-stage-offline-gate) supports conditional design8; its injected behavioral contrasts are scripts and add no demonstrated novelty.
 
 ## Closest verified original sources
 

@@ -322,10 +322,14 @@ def summarize_episode(initial: dict, observations: list, callback_attempts: list
                       turn_states: list, final: dict | None = None) -> dict:
     """Return JSON-safe measurements while retaining failures and undefined values.
 
-    Observations and turn_states are chronological. turn_states entries are
-    snapshots after each native generation, optionally wrapping a checkpoint and
-    turn_index. Milestones four/eight select the fourth/eighth supplied generation;
-    absent milestones remain None. No source seed is excluded by this function.
+    Observations and turn_states are chronological. Each turn_states entry is a
+    checkpoint after a scheduled native turn opportunity, with an explicit
+    zero-based turn_index and actual_generation boolean. A failed prompt build
+    can therefore have actual_generation=False without shifting later milestones.
+    Care milestones select unique explicit turn_index 3/7 only; missing,
+    duplicated or invalid milestone labels remain None, never a list-position
+    substitute. Every supplied row and any label error are retained. No source
+    seed is excluded by this function.
     """
     errors, rows, cycles = [], [], []
     def error(where, message):
@@ -528,15 +532,31 @@ def summarize_episode(initial: dict, observations: list, callback_attempts: list
         except (ValueError,TypeError) as exc:
             error("final",str(exc))
             cycle_coverage = False
-    turn_rows = []
+    turn_rows, turns_by_index = [], {}
+    valid_turn_labels, valid_generation_flags = True, True
     for index, turn in enumerate(turn_states):
         checkpoint = _checkpoint(turn)
-        turn_rows.append({"generation_number":index+1,
-            "turn_index":_safe(turn.get("turn_index")) if isinstance(turn,Mapping) else None,
-            "care":measured_care(checkpoint,f"generation_{index+1}"),
-            "scoring_error":_safe(turn.get("scoring_error")) if isinstance(turn,Mapping) else None})
         turn_index = turn.get("turn_index") if isinstance(turn,Mapping) else None
-        if isinstance(turn_index,int) and not isinstance(turn_index,bool) and checkpoint is not None:
+        actual_generation = turn.get("actual_generation") if isinstance(turn,Mapping) else None
+        if not isinstance(actual_generation,bool):
+            error(f"turn_row_{index+1}","actual_generation must be an explicit boolean")
+            valid_generation_flags = False
+            actual_generation = None
+        row = {"provided_turn_row_number":index+1,
+            "turn_index":_safe(turn_index),"actual_generation":actual_generation,
+            "care":measured_care(checkpoint,f"turn_row_{index+1}"),
+            "scoring_error":_safe(turn.get("scoring_error")) if isinstance(turn,Mapping) else None}
+        turn_rows.append(row)
+        valid_index = isinstance(turn_index,int) and not isinstance(turn_index,bool) and turn_index >= 0
+        if not valid_index:
+            error(f"turn_row_{index+1}","turn_index must be an explicit nonnegative integer")
+            valid_turn_labels = False
+        else:
+            turns_by_index.setdefault(turn_index,[]).append(row)
+            if len(turns_by_index[turn_index]) > 1:
+                error(f"turn_row_{index+1}","duplicate explicit turn_index")
+                valid_turn_labels = False
+        if valid_index and checkpoint is not None:
             annotated = all(isinstance(e,Mapping) and isinstance(e.get("turn_index"),int)
                             and not isinstance(e.get("turn_index"),bool) for e in observations)
             if annotated:
@@ -544,10 +564,10 @@ def summarize_episode(initial: dict, observations: list, callback_attempts: list
                 expected = preceding[-1].get("after") if preceding else initial
                 try:
                     if _signature(checkpoint) != _signature(expected):
-                        error(f"generation_{index+1}","turn physical snapshot disagrees with observed eventstream")
+                        error(f"turn_row_{index+1}","turn physical snapshot disagrees with observed eventstream")
                         cycle_coverage = False
                 except (ValueError,TypeError) as exc:
-                    error(f"generation_{index+1}",str(exc))
+                    error(f"turn_row_{index+1}",str(exc))
                     cycle_coverage = False
     cycle_groups = {}
     for stage in ("pre_completion","post_completion",None):
@@ -569,7 +589,9 @@ def summarize_episode(initial: dict, observations: list, callback_attempts: list
             "cycle_segmentation":"earliest eligible closure; most recent eligible matching start; nonoverlap",
             "cycle_unit_definition":"recirculated_units = actual transfer leg units / 2",
             "redistribution_label":"reserve-feasible redistribution proxy; not intent or clinical usefulness",
-            "milestones":"fourth/eighth supplied native generation; unobserved is None"},
+            "milestones":"unique explicit zero-based turn_index 3/7; absent/duplicate is None; no list-position fallback",
+            "generation_count":"sum explicit actual_generation flags only when turn labels are valid/unique and every flag is boolean",
+            "scheduled_opportunity_count":"number of provided scheduled-turn rows only when turn labels are valid and unique"},
         "callback_attempts":_callback_summary(callback_attempts),"event_counts":dict(counts),
         "primary_cycle_count":len(cycles) if cycle_coverage else None,
         "recognized_primary_cycle_count":len(cycles),"cycle_observation_coverage_complete":cycle_coverage,
@@ -579,9 +601,14 @@ def summarize_episode(initial: dict, observations: list, callback_attempts: list
         "reserve_feasible_redistribution_proxy_count":sum(r["reserve_feasible_redistribution_proxy"] is True for r in rows),
         "reserve_proxy_undefined_executed_transfers":sum(r["executed_transfer"] and r["reserve_feasible_redistribution_proxy"] is None for r in rows),
         "care_initial":initial_care,"care_final":final_care,"care_by_event":rows,"care_by_generation":turn_rows,
+        "care_by_scheduled_turn":turn_rows,
+        "provided_turn_row_count":len(turn_rows),
+        "scheduled_opportunity_count":len(turn_rows) if valid_turn_labels else None,
+        "actual_generation_count":sum(row["actual_generation"] is True for row in turn_rows)
+            if valid_turn_labels and valid_generation_flags else None,
         "patient_timing":_patient_timing(explicit_final,patients),
-        "care_after_4_turns":turn_rows[3]["care"] if len(turn_rows)>=4 else None,
-        "care_after_8_turns":turn_rows[7]["care"] if len(turn_rows)>=8 else None,
+        "care_after_4_turns":turns_by_index[3][0]["care"] if len(turns_by_index.get(3,[])) == 1 else None,
+        "care_after_8_turns":turns_by_index[7][0]["care"] if len(turns_by_index.get(7,[])) == 1 else None,
         "native_convergence":_safe(final_wrapper.get("native_convergence",final_wrapper.get("convergence"))),
         "native_log_failures":_safe(final_wrapper.get("native_log_failures",final_wrapper.get("log_failures",final_wrapper.get("logging_errors")))),
         "measurement_errors":errors,"excluded":False}

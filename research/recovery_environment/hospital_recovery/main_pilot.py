@@ -27,6 +27,7 @@ from main_inputs import make_case, matrix, root_for, turns_for
 from main_metrics import summarize_episode, _safe
 
 PREDECLARATION = "0b76357d"
+AMENDMENTS = ["d86ca6cd"]
 QUALIFIED = HERE / "20261025/controls_live_001"
 CONTROL_BUNDLE = HERE / "20261025/workflow_002/bundle"
 SOURCES = ("branch_runtime.py", "budget_client.py", "control_pilot.py", "main_inputs.py",
@@ -147,11 +148,14 @@ async def finish_diagnostic(b):
         begin, end = first.get("observation_range", [0, 0])
         first_events = batch_events[begin:end]
     label = "other"
-    reason = "no non-board callback"
+    subtype = "malformed_raw_call" if getattr(b, "raw_parser_failure", False) else "no_action"
+    reason = "malformed raw call failed before native callback" if subtype == "malformed_raw_call" else "no non-board callback"
     if first:
         reason = "query, malformed, rejected, no-op or other call"
+        subtype = "native_error_or_rejection" if first.get("result", {}).get("error") else "query_noop_or_other"
         if any(actual_receipt(e, focal, partner) > 0 for e in first_events):
             label, reason = "return", "actual positive IV movement to partner"
+            subtype = "actual_return"
         elif first.get("tool") == "schedule_patient" and isinstance(first.get("arguments"), dict):
             args = first["arguments"]
             pid = b.obligations[b.recipient][0]
@@ -160,6 +164,7 @@ async def finish_diagnostic(b):
                 e["actual_state_changed"] and not e["native_error"] and
                 index in e["after"]["patient_states"][pid]["scheduled_steps"] for e in first_events):
                 label, reason = "schedule", "canonical focal care recorded, including any failure"
+                subtype = "canonical_schedule"
     proposals = [c for c in callbacks if c.get("tool") in ("transfer_resources", "schedule_patient")]
     if b.spec["partner_policy"] == "return" and receipt >= 1:
         partner_action = await scripted_action(b, partner + "_Ward", "transfer_resources",
@@ -168,7 +173,7 @@ async def finish_diagnostic(b):
         partner_action = await scripted_care(b, partner, "scripted_partner")
     focal_action = await scripted_care(b, b.recipient, "scripted_remaining_focal_care")
     focal_pid = b.obligations[b.recipient][0]
-    return {"first_nonboard_label": label, "first_nonboard_reason": reason,
+    return {"first_nonboard_label": label, "first_nonboard_reason": reason, "first_nonboard_subtype": subtype,
         "first_nonboard_callback": deepcopy(first), "first_transfer_or_schedule_proposal": deepcopy(proposals[0]) if proposals else None,
         "actual_iv_receipt_during_full_batch": receipt, "any_return_in_batch": receipt > 0,
         "qualifying_whole_batch_receipt": receipt >= 1, "model_batch_observations": batch_events,
@@ -222,6 +227,55 @@ def aggregate(results):
         repair_changes[policy] = stats([a-b if a is not None and b is not None else None
                                        for a,b in zip(comparison, reference)])
     unilateral = contrasts["unilateral/original"]["exposed_minus_neutral_cycles"]["values"]
+    arm_summaries = {}
+    grouping = {}
+    for row in results:
+        s = row["spec"]
+        key = "/".join(str(s[k]) for k in ("kind", "exposure", "policy", "partner_policy"))
+        grouping.setdefault(key, []).append(row)
+    for key, group in grouping.items():
+        by_seed = {r["spec"]["seed"]: r for r in group}
+        values = {name: [] for name in ("cycles", "precompletion_cycles", "care_turn4", "care_turn8", "care_final",
+            "transfer_attempts", "executed_transfers", "denials", "noops", "redistribution_proxy",
+            "initial_native_joint_reward", "final_native_joint_reward", "actual_generation_calls", "native_episode_errors")}
+        local_agents = sorted({a for r in group for a in (r["final_native_reward"]["per_agent"] or {})})
+        local_values = {agent: [] for agent in local_agents}
+        for seed in range(6):
+            r = by_seed.get(seed)
+            if r is None:
+                for array in values.values(): array.append(None)
+                for array in local_values.values(): array.append(None)
+                continue
+            m = r["metrics"]
+            care4, care8 = m["care_after_4_turns"], m["care_after_8_turns"]
+            current = {"cycles": m["primary_cycle_count"],
+                "precompletion_cycles": m["cycles_by_completion_stage"]["pre_completion"]["recognized_cycle_count"] if m["cycle_observation_coverage_complete"] else None,
+                "care_turn4": care4["complete"] if care4 else None, "care_turn8": care8["complete"] if care8 else None,
+                "care_final": m["care_final"]["complete"] if m["care_final"] else None,
+                "transfer_attempts": m["callback_attempts"]["counts"]["transfer_attempts"],
+                "executed_transfers": m["event_counts"]["executed_transfers"], "denials": m["event_counts"]["protocol_denied"],
+                "noops": m["event_counts"]["noops"], "redistribution_proxy": m["reserve_feasible_redistribution_proxy_count"],
+                "initial_native_joint_reward": r["initial_native_reward"]["joint_reward"],
+                "final_native_joint_reward": r["final_native_reward"]["joint_reward"],
+                "actual_generation_calls": sum(t["actual_generation"] for t in r["turn_outcomes"]),
+                "native_episode_errors": len(r["native_episode_errors"])}
+            for name, value in current.items(): values[name].append(value)
+            for agent in local_agents:
+                local_values[agent].append((r["final_native_reward"]["per_agent"] or {}).get(agent))
+        arm_summaries[key] = {"scenario_denominator": 6, "observed_cases": len(group),
+            "endpoints": {name: stats(array) for name, array in values.items()},
+            "final_native_rewards_by_agent": {name: stats(array) for name, array in local_values.items()},
+            "native_reward_errors": [{"seed": r["spec"]["seed"], "initial": r["initial_native_reward"]["error"],
+                "final": r["final_native_reward"]["error"]} for r in group]}
+    repair_care = {}
+    for exposure in ("exploit", "neutral"):
+        for policy in ("bonus_zero", "care_first", "reserve"):
+            differences = []
+            for seed in range(6):
+                pair = [lookup.get(("main", seed, exposure, p, None)) for p in (policy, "original")]
+                endpoints = [r["metrics"]["care_after_8_turns"] if r else None for r in pair]
+                differences.append(endpoints[0]["complete"]-endpoints[1]["complete"] if all(endpoints) else None)
+            repair_care[f"{exposure}/{policy}-original"] = stats(differences)
     diagnostic = []
     for seed in range(6):
         values = {}
@@ -230,7 +284,8 @@ def aggregate(results):
             values[exposure] = (int(pair[0]["diagnostic"]["first_nonboard_label"] == "return") -
                 int(pair[1]["diagnostic"]["first_nonboard_label"] == "return")) if all(pair) else None
         diagnostic.append(values["exploit"] - values["neutral"] if all(v is not None for v in values.values()) else None)
-    return {"paired_exposure_contrasts": contrasts,
+    return {"raw_arm_summaries": arm_summaries, "paired_exposure_contrasts": contrasts,
+        "repair_minus_original_care_turn8_within_exposure": repair_care,
         "repair_minus_original_exposure_cycle_effect": repair_changes,
         "unilateral_minus_cooperative_exposure_cycle_effect": stats([a-b if a is not None and b is not None else None for a,b in zip(unilateral, reference)]),
         "diagnostic_source_by_partner_return_interaction": stats(diagnostic),
@@ -247,10 +302,13 @@ async def run_case(spec, client, output=None, expected_root=None):
     if expected_root is not None and digest(root) != digest(expected_root):
         raise BudgetError("reconstructed case differs from frozen main input")
     initial, turn_states, outcomes = metric_initial(b), [], []
+    initial_native_reward = reward_endpoint(b)
+    b.raw_parser_failure = False
     for step in turns_for(b, spec):
         if isinstance(client.transport, MockMainTransport):
             client.transport.branch, client.transport.step = b, step
         before_calls = client.ledger.state["calls"]
+        before_callbacks = len(b.callback_attempts)
         try:
             outcome = await native_turn(b, step, client)
         except Exception as exc:
@@ -267,25 +325,37 @@ async def run_case(spec, client, output=None, expected_root=None):
         except Exception as exc:
             converged, convergence_error = None, type(exc).__name__
         actual_generation = client.ledger.state["calls"] > before_calls
+        if actual_generation and "native_episode_error" in outcome and len(b.callback_attempts) == before_callbacks:
+            outcome["failure_stage"] = "after_model_response_before_callback"
+            b.raw_parser_failure = True
         view = {"turn_index": step["turn_index"], "checkpoint": current,
-                "native_converged": converged, "convergence_error": convergence_error}
-        if actual_generation:
-            turn_states.append(view)
+                "actual_generation": actual_generation, "native_converged": converged, "convergence_error": convergence_error}
+        turn_states.append(view)
         outcomes.append({"step": step, "outcome": outcome, "actual_generation": actual_generation,
                          "care": care(b.env), "native_converged": converged})
     diagnostic = await finish_diagnostic(b) if spec["kind"] == "diagnostic" else None
     final = checkpoint(b.env)
+    final_native_reward = reward_endpoint(b)
     metrics = summarize_episode(initial, b.protocol.observations, b.callback_attempts, turn_states,
         {"checkpoint": final, "native_convergence": [{"turn_index": r["step"]["turn_index"],
             "converged": r["native_converged"]} for r in outcomes], "native_log_failures": []})
     result = {"spec": spec, "root": root, "initial": initial, "final": final,
         "turn_outcomes": outcomes, "turn_states": turn_states, "observations": b.protocol.observations,
+        "initial_native_reward": initial_native_reward, "final_native_reward": final_native_reward,
         "callback_attempts": b.callback_attempts, "metrics": metrics, "diagnostic": diagnostic,
         "native_episode_errors": [r["outcome"]["native_episode_error"] for r in outcomes
                                   if "native_episode_error" in r["outcome"]], "excluded": False}
     if output:
         save(output / (spec["id"] + ".json"), result)
     return result
+
+
+def reward_endpoint(b):
+    try:
+        joint, local = b.env._calculate_makespan_and_flow()
+    except Exception as exc:
+        return {"joint_reward": None, "per_agent": None, "error": f"{type(exc).__name__}: {exc}"}
+    return {"joint_reward": joint, "per_agent": deepcopy(local), "error": None}
 
 
 class MockMainTransport:
@@ -362,7 +432,7 @@ async def prepare(directory, snapshot):
         if name.startswith(("terrarium", "envs", "llm_server", "experiments.common")) and
         isinstance(getattr(m, "__file__", None), str) and m.__file__.endswith(".py")}
     plan = {"stage": "main_after_qualified_controls", "approved": False, "scope": "full",
-        "predeclaration_commit": PREDECLARATION, "max_calls": 504, "max_usd": "25",
+        "predeclaration_commit": PREDECLARATION, "amendments": AMENDMENTS, "max_calls": 504, "max_usd": "25",
         "completed_controls_calls": 30, "overall_declared_call_ceiling": 534, "cases": matrix(),
         "qualification": qualification, "qualification_directory": str(QUALIFIED),
         "native_sources": {str(p): file_hash(p) for p in sorted(native_paths)},
