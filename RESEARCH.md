@@ -2,11 +2,17 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
+**Latest user instruction — proposal search resumed:** keep finding an 8/10 proposal within the bundled repository, with subagents permitted. Three independent searches screened Colosseum, market and trust/communication alternatives. The leading refinement concerns post-containment continuation through complementary Hospital transfer permissions; it is a proposal for review, not an authorized behavioral run.
+
+**Rating correction:** assess *novelty potential* when selecting a proposal. Do not lower originality merely because experiments are unrun, or label demonstrated novelty 8 without results. A proposal-stage 8 requires an important operator decision, a precise prediction/estimand beyond the closest verified work, native implementation support, fair simple references and positive controls, a feasible bounded pilot, and an informative null/kill criterion. Empirical evidence and the historical six-dimension results rubric remain separate; its all-8 objective is not retroactively satisfied by a proposal score.
+
+The prior candidate and ratings below remain a record of the parked allocation-only approach. A new native feasibility check is predeclared at the end of RECOVERY_PROTOCOL.md; no paid inference is authorized.
+
 **Audited repository-based candidate — now parked:** use the bundled `colosseum/` Jira allocation environment to ask: **after a coalition is stopped, can repairing only its members restore the cooperative outcome, or must decisions made by other agents also be reopened?** The user authorized changing the approach and required using bundled projects. The unsuccessful Cleanup configuration remains stopped; the external SALT-NLP proposal is parked.
 
 The proposed contribution is an empirical boundary of actor-targeted recovery, not a new memory mechanism or rollback algorithm. The parked proposal would distinguish loss that is unavoidable under a fixed repair scope from loss caused by poor replanning. Removing a private channel or replacing an agent does not itself revise the committed task assignments in this implementation.
 
-**Current status:** candidate parked after the predeclared specificity check. All 4,374 finite profiles are explained by the nonmember choice left fixed; the headline state-space rate contains no coalition-source information. The software remains a valid measurement core, but the audit does not meet the novelty requirement. No new LLM calls or behavioral episodes; LLM control unrun. No paid inference authorized. **The all-8 target remains unmet.**
+**Prior allocation-candidate status:** candidate parked after the predeclared specificity check. All 4,374 finite profiles are explained by the nonmember choice left fixed; the headline state-space rate contains no coalition-source information. The software remains a valid measurement core, but the audit does not meet the novelty requirement. No new LLM calls or behavioral episodes; LLM control unrun. No paid inference authorized. **The all-8 target remains unmet.**
 
 **Stopping decision:** the strongest generic principles are already covered by state/dependency repair work, and the new audit supplies no distinct behavioral finding. I do not currently have a sufficiently different, evidence-backed revision within the repo that justifies another configuration or paid runs. Follow the user's conditional instruction to pause and report the latest status. This is not completion of the all-8 objective. A later resumption needs a concrete discriminating contribution or new behavioral evidence, not more enumeration or a renamed rollback procedure.
 
