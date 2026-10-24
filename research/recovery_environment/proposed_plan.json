@@ -1,0 +1,154 @@
+{
+  "status": "proposed_design_not_executed",
+  "protocol": "RECOVERY_PROTOCOL.md",
+  "population": 4,
+  "prefix_steps": 20,
+  "continuation_steps": 20,
+  "offer_step": 5,
+  "seed_blocks": 6,
+  "arms": [
+    {
+      "id": "R0",
+      "channel": "open",
+      "clear": "neither"
+    },
+    {
+      "id": "R1",
+      "channel": "open",
+      "clear": "selected_one"
+    },
+    {
+      "id": "R2",
+      "channel": "open",
+      "clear": "both"
+    },
+    {
+      "id": "R3",
+      "channel": "revoked",
+      "clear": "neither"
+    },
+    {
+      "id": "R4",
+      "channel": "revoked",
+      "clear": "selected_one"
+    },
+    {
+      "id": "R5",
+      "channel": "revoked",
+      "clear": "both"
+    }
+  ],
+  "schedule": [
+    {
+      "world_seed": 0,
+      "initiator_seat": 1,
+      "cleared_participant_role": "initiator",
+      "branch_order": [
+        "R3",
+        "R0",
+        "R1",
+        "R5",
+        "R4",
+        "R2"
+      ],
+      "no_channel_reference_order": "before_prefix"
+    },
+    {
+      "world_seed": 1,
+      "initiator_seat": 3,
+      "cleared_participant_role": "partner",
+      "branch_order": [
+        "R0",
+        "R1",
+        "R2",
+        "R4",
+        "R5",
+        "R3"
+      ],
+      "no_channel_reference_order": "after_continuations"
+    },
+    {
+      "world_seed": 2,
+      "initiator_seat": 2,
+      "cleared_participant_role": "partner",
+      "branch_order": [
+        "R1",
+        "R3",
+        "R0",
+        "R4",
+        "R5",
+        "R2"
+      ],
+      "no_channel_reference_order": "after_continuations"
+    },
+    {
+      "world_seed": 3,
+      "initiator_seat": 0,
+      "cleared_participant_role": "initiator",
+      "branch_order": [
+        "R4",
+        "R5",
+        "R3",
+        "R2",
+        "R1",
+        "R0"
+      ],
+      "no_channel_reference_order": "before_prefix"
+    },
+    {
+      "world_seed": 4,
+      "initiator_seat": 0,
+      "cleared_participant_role": "partner",
+      "branch_order": [
+        "R1",
+        "R3",
+        "R4",
+        "R5",
+        "R0",
+        "R2"
+      ],
+      "no_channel_reference_order": "after_continuations"
+    },
+    {
+      "world_seed": 5,
+      "initiator_seat": 1,
+      "cleared_participant_role": "initiator",
+      "branch_order": [
+        "R5",
+        "R1",
+        "R4",
+        "R0",
+        "R3",
+        "R2"
+      ],
+      "no_channel_reference_order": "before_prefix"
+    }
+  ],
+  "eligibility": "Pre-continuation reciprocal harmful-target plan plus matching executed evidence by both participants; preserve every prefix and exclusion.",
+  "primary_contrast": {
+    "treatment": "R5",
+    "comparison": "R3",
+    "outcome": "sum of nonparticipant apple rewards during continuation"
+  },
+  "maximum_calls": {
+    "prefixes": 960,
+    "open_branches": 2880,
+    "revoked_branches": 1440,
+    "no_channel_references": 960,
+    "consent": 12,
+    "total": 6252
+  },
+  "spending_gate": "Dollar/token/time gates and backend settings require a separate pre-execution freeze; this file starts no inference.",
+  "source_constraints": [
+    "equal directional zap mechanics",
+    "neutral host prompts",
+    "literal peer context",
+    "strict single-action validation",
+    "two-sided voluntary consent",
+    "verified RNG and observation fields"
+  ],
+  "diagram": {
+    "source": "mermaid-diagram.mmd",
+    "png_policy": "leave existing PNG unchanged"
+  }
+}

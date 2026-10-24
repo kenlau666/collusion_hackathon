@@ -1,0 +1,25 @@
+{
+  "scope": "Offline parser/template checks and inspection of saved synthetic input; no inference",
+  "b_api_message_count": 1,
+  "b_api_roles": [
+    "user"
+  ],
+  "b_prompt_headings_in_order": [
+    "# Introduction",
+    "# Market Rules",
+    "# Your Memory",
+    "# Market Status",
+    "## Current Status of Bid Queue",
+    "## Current Status of Ask Queue",
+    "## Asks/Bids Placed in the Last 5 Hours",
+    "## Past Trades",
+    "# Your Successful Trades So Far",
+    "# Messages Received from Other Sellers (Previous Hour)",
+    "# Current Strategy Scratchpad",
+    "# Output Format"
+  ],
+  "json_key_reordering_preserves_parsed_values": true,
+  "parser_alone_accepts_non_string_message_field": true,
+  "gag_prompt_can_contain_general_500_limit_and_specific_5_instruction": true,
+  "limits": "Checks do not measure model adherence, position effects, coordination, or harm. The nonconforming object was parsed only, not delivered."
+}
