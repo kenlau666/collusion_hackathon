@@ -39,7 +39,7 @@ flowchart TB
   QUAL -. "instructed competence; exposure effect unidentified" .-> FUTURE
   PROBE["Unpaid continuation probe:24scripted cases<br/>cap3permits query→action; always-query still inactive<br/>batchcap1positive6/6; not LLM qualification"]
   SCRIPT --> PROBE
-  ENGAGE["Prepared cap3 qualification:6positive+6ordinary<br/>max198requests/USD10;8offline checks pass<br/>LLM unrun; distinct approval required"]
+  ENGAGE["Authorized cap3 qualification:6positive+6ordinary<br/>max198requests/USD10;8offline checks pass<br/>LLM unrun; no main study"]
   PROBE -. "software witness only" .-> ENGAGE
 ```
 
@@ -149,7 +149,7 @@ Every full case has0/2 care at 4/8, zero transfers/cycles/newcredit/failures and
 [Full Results, per-seed rewards/timing, variance, positive and negative controls](RECOVERY_PROTOCOL.md#results-unpaid-native-continuation-probe). All29committed public main artifacts match `63f8766f`, and the original private ledger matches its recorded hash. A future ordinary-task engagement gate would still need its own frozen design and authorization. Readiness5and novelty3remain unchanged; no paid run is resumed.
 
 
-## Proposed cap3 engagement stage — frozen, not authorized
+## Cap3 engagement stage — frozen, authorized and unrun
 
 [engagement_pilot.py](research/recovery_environment/hospital_recovery/engagement_pilot.py) adds a distinct12-case gate:6instructed useful-care positives then6ordinary neutral/original episodes only if all positives pass. It leaves the prior six sources/data unchanged. Ordinary root/first-input equality to the old main freeze is enforced before spending; no prompt/tool/policy change accompanies cap3. Positive cases allow read-only queries but require exactly the designated three physical actions on their designated turns. Alternative native care assignments are allowed in ordinary cases and recorded. Initial/final and per-event scorer errors, native returned errors, malformed/failed callbacks and resource failures can fail qualification. All6ordinary task cases remain in the sample even after task failures.
 
@@ -157,4 +157,4 @@ Every scheduled turn records0–3actual outbound generations separately from act
 
 The [bundle](research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/plan.json) freezes7research sources,42native modules, old evidence,12roots/first inputs, cap3and exact198requests/USD10. Plan SHA256 `be162c50dc609c90f1e87fcfdda3ac6d3c0bc3bc2ad9526a6dc307197ff4b6c9`. Prior approvals are rejected before metadata/key/live construction. Frozen input reconstruction precedes a new public critical-endpoint check and then explicit process-key lookup. Preparation and offline validation perform no credential lookup or provider construction. Later tool-result contexts remain response-dependent and are recorded durably.
 
-**Results:** [validate_engagement.py](research/recovery_environment/hospital_recovery/validate_engagement.py) passes8/8network-denied checks with471fake outward attempts, including successful6+6measurement controls, failed positive gates, second-generation HTTP429, a retained pre-generation error, budget/authorization boundaries and tamper rejection. A separate public metadata GET matches the snapshot. No new LLM qualification or readiness/novelty increase is claimed. [Per-seed Results, positive controls and limits](RECOVERY_PROTOCOL.md#results-ordinary-task-qualification-preparation). New model execution remains unauthorized pending distinct approval; no PR.
+**Results:** [validate_engagement.py](research/recovery_environment/hospital_recovery/validate_engagement.py) passes8/8network-denied checks with471fake outward attempts, including successful6+6measurement controls, failed positive gates, second-generation HTTP429, a retained pre-generation error, budget/authorization boundaries and tamper rejection. A separate public metadata GET matches the snapshot. No new LLM qualification or readiness/novelty increase is claimed. [Per-seed Results, positive controls and limits](RECOVERY_PROTOCOL.md#results-ordinary-task-qualification-preparation). The user has now explicitly approved only this12-case qualification: "Authorize qualification: US$10 cap". The [authorization](research/recovery_environment/hospital_recovery/20261025/engagement_authorization.json) binds the exact frozen plan and198/USD10limits; it is recorded before launch. The frozen bundle/example remain unchanged. Verify inputs/metadata before explicit key lookup; run all six positive controls first and ordinary cases only on6/6positive success. No main study or PR.
