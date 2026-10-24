@@ -13,6 +13,7 @@ import json
 import logging
 from pathlib import Path
 import shutil
+import socket
 import statistics
 import sys
 import traceback
@@ -22,15 +23,22 @@ NETWORK = []
 
 def no_network(event, args):
     if event in {"socket.connect", "socket.getaddrinfo", "socket.bind"}:
-        NETWORK.append(event)
+        NETWORK.append({"event": event, "stack": traceback.format_stack(limit=10)})
         raise RuntimeError("Network denied in offline branch validation")
 
 
 sys.addaudithook(no_network)
-from branch_runtime import (ROOT, FROZEN, PHYSICAL_FIELDS, BaseAgent, BranchProtocol,
-    GuardedBoards, HospitalEnvironment, LocalCommunicationProtocol, Megaboard,
-    ScriptedChatClient, TogetherClient, actor, care, checkpoint, digest, make_branch,
-    physical, schedule_args, score, tool, transfer_args)
+_native_ipv6_flag = socket.has_ipv6
+try:
+    # The native parser imports requests/urllib3. Suppress only its unused
+    # import-time IPv6 bind probe; the no-network hook remains fully enforced.
+    socket.has_ipv6 = False
+    from branch_runtime import (ROOT, FROZEN, PHYSICAL_FIELDS, BaseAgent, BranchProtocol,
+        GuardedBoards, HospitalEnvironment, LocalCommunicationProtocol, Megaboard,
+        ScriptedChatClient, TogetherClient, actor, care, checkpoint, digest, make_branch,
+        physical, schedule_args, score, tool, transfer_args)
+finally:
+    socket.has_ipv6 = _native_ipv6_flag
 
 logging.disable(logging.CRITICAL)
 
@@ -298,9 +306,54 @@ async def checks_for(template, seed):
                 "provider_constructed": False, "retry_requirement": "TOGETHER_MAX_RETRIES=0 before live use",
                 "requests": client.requests}
 
+    async def reserve_noop_destinations():
+        rows = []
+        for dst in [template.donor, "General" if "General" in template.donor else "Mary", "INVALID_DESTINATION"]:
+            b = select(deepcopy(template), "reserve")
+            before = digest(checkpoint(b.env))
+            r = await tool(b.protocol, b.wards[0], "transfer_resources", transfer_args(dst, 100))
+            assert r.get("status") != "denied" and digest(checkpoint(b.env)) == before
+            rows.append({"destination": dst, "native_noop_allowed": True})
+        return {"counterexamples": rows, "false_reserve_denials": 0}
+
+    async def canonical_care_endpoint():
+        b = deepcopy(template)
+        args = schedule_args(b.env, b.donor)
+        pid = args["patient_id"]
+        args["step_index"] = -1
+        await tool(b.protocol, b.wards[0], "schedule_patient", args)
+        native_count_success = int(len(b.env.patient_states[pid]["scheduled_steps"]) == len(b.env.patients[pid]["pathway"]))
+        assert native_count_success == 1 and care(b.env)[pid] == 0
+        assert "noncanonical_step_index" in b.protocol.observations[-1]["argument_flags"]
+        proper = deepcopy(template)
+        await serve(proper, proper.donor)
+        assert care(proper.env)[pid] == 1
+        return {"count_only_false_success": 1, "canonical_endpoint_false_success": 0,
+                "proper_completion_success": 1, "invalid_step_observed": -1}
+
+    async def malformed_attempt_accounting():
+        b = select(deepcopy(template), "reserve")
+        before = digest(checkpoint(b.env))
+        args = transfer_args(b.recipient)
+        args["amount"] = "INVALID_AMOUNT"
+        client = ScriptedChatClient([[("transfer_resources", args), ("transfer_resources", {})]])
+        a = actor(b.wards[0], client)
+        r = await b.protocol.agent_execution_turn(a, a.name,
+            b.env.build_agent_context(a.name, "execution", 1), b.env, iteration=1)
+        assert r["tools_executed"] == 2 and len(client.requests) == 1
+        assert len(b.protocol.observations) == len(b.protocol.tool_events) == 2
+        assert digest(checkpoint(b.env)) == before
+        first, second = b.protocol.observations
+        assert "invalid_amount_type" in first["argument_flags"]
+        assert not first["actual_state_changed"] and not second["actual_state_changed"]
+        assert second["status"] == "error" and "KeyError" in second["native_error"]
+        return {"attempts_recorded": 2, "pipeline_errors_recorded": 1,
+                "native_optimistic_noop_recorded": 1, "events": b.protocol.observations}
+
     functions = [checkpoint_copy, excluded_paths, private_closure, public_preserved, bonus_zero,
                  reserve_transfer, useful_service_control, reserve_release_partial, last_kit_control,
-                 native_batch, native_phase, fresh_turn_budget]
+                 native_batch, native_phase, fresh_turn_budget, reserve_noop_destinations,
+                 canonical_care_endpoint, malformed_attempt_accounting]
     for fn in functions:
         try:
             detail = await fn()
@@ -315,6 +368,8 @@ async def checks_for(template, seed):
 async def run(outdir):
     frozen_hash = hashlib.sha256(FROZEN.read_bytes()).hexdigest()
     report = {"predeclaration_commit": "1443f11e", "started_at_utc": datetime.now(timezone.utc).isoformat(),
+              "supplement_predeclaration_commit": "f0d13f2c",
+              "offline_import_stub": "socket.has_ipv6=False only during requests/native parser import; restored afterward",
               "kind": "offline native branch conformance; scripted, not LLM behavior", "per_seed": [],
               "external_inference_calls": 0, "paid_spend": 0, "llm_positive_controls": "unrun"}
     source_paths = [Path(__file__).resolve(), Path(__file__).with_name("branch_runtime.py"),
@@ -331,9 +386,11 @@ async def run(outdir):
             report["per_seed"].append(await checks_for(branch, seed))
         report["checks_total"] = sum(len(s["checks"]) for s in report["per_seed"])
         report["checks_passed"] = sum(c["passed"] for s in report["per_seed"] for c in s["checks"].values())
-        assert report["checks_total"] == 72
+        report["primary_checks_total"] = 72
+        report["supplemental_checks_total"] = 18
+        assert report["checks_total"] == 90
         assert hashlib.sha256(FROZEN.read_bytes()).hexdigest() == frozen_hash
-        report["status"] = "passed" if report["checks_passed"] == 72 and not NETWORK else "failed"
+        report["status"] = "passed" if report["checks_passed"] == 90 and not NETWORK else "failed"
         if report["status"] == "passed":
             def details(name):
                 return [s["checks"][name]["detail"] for s in report["per_seed"]]

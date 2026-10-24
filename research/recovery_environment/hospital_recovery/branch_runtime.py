@@ -40,7 +40,7 @@ def checkpoint(env):
 
 
 def care(env):
-    return {pid: int(len(env.patient_states[pid]["scheduled_steps"]) == len(p["pathway"])
+    return {pid: int(set(env.patient_states[pid]["scheduled_steps"]) == set(range(len(p["pathway"])))
                      and not env.patient_states[pid]["resource_failures"])
             for pid, p in env.patients.items()}
 
@@ -150,30 +150,63 @@ class BranchProtocol(LocalCommunicationProtocol):
                                            *, phase=None, iteration=None):
         env = self.environment
         before = checkpoint(env)
-        reason = "actor excluded" if self._denied(agent_name) else None
-        if reason is None and self.policy == "reserve" and tool_name == "transfer_resources":
-            h = env.agents_map[agent_name]["hospital"]
-            resource = arguments.get("resource_type")
-            stock = env.inventory[h].get(resource, 0)
-            requested = arguments.get("amount", 0)
-            actual = min(requested, stock)
-            if actual > 0 and stock - actual < self.reserve(h, resource):
-                reason = "pending-care reserve"
-        if reason:
-            result = self._record_denial(tool_name, agent_name, arguments, phase, iteration, reason)
-        else:
-            # Native tools, state application, logging and secret-board scrubbing.
-            result = await super().environment_handle_tool_call(
-                tool_name, agent_name, arguments, phase=phase, iteration=iteration)
-            if self.policy == "bonus_zero":
-                env.transfer_rewards = before["transfer_rewards"]
-                env.transfer_rewards_by_agent = deepcopy(before["transfer_rewards_by_agent"])
+        record_args = arguments if isinstance(arguments, dict) else {"malformed_arguments": deepcopy(arguments)}
+        flags = []
+        if tool_name == "transfer_resources":
+            if not isinstance(arguments, dict) or not isinstance(arguments.get("amount"), (int, float)):
+                flags.append("invalid_amount_type")
+            if not isinstance(arguments, dict) or not {"to_hospital", "resource_type", "amount", "rationale"} <= arguments.keys():
+                flags.append("missing_required_transfer_arguments")
+        if tool_name == "schedule_patient" and isinstance(arguments, dict):
+            pid, idx = arguments.get("patient_id"), arguments.get("step_index")
+            if pid in env.patients and (not isinstance(idx, int) or not 0 <= idx < len(env.patients[pid]["pathway"])):
+                flags.append("noncanonical_step_index")
+        native_error = None
+        try:
+            reason = "actor excluded" if self._denied(agent_name) else None
+            if reason is None and self.policy == "reserve" and tool_name == "transfer_resources" and isinstance(arguments, dict):
+                h = env.agents_map[agent_name]["hospital"]
+                resource = arguments.get("resource_type")
+                stock = env.inventory[h].get(resource, 0)
+                requested = arguments.get("amount", 0)
+                dst = str(arguments.get("to_hospital")) if arguments.get("to_hospital") is not None else ""
+                # Match the pinned native destination resolution before judging net debit.
+                if dst not in env.inventory:
+                    if "General" in dst:
+                        dst = "General_Hospital"
+                    elif "Mary" in dst:
+                        dst = "St_Marys_Center"
+                    elif "Provisioner" in dst:
+                        dst = "Resource_Provisioner"
+                if (dst in env.inventory and dst != h and resource in env.resource_types
+                        and isinstance(requested, (int, float))):
+                    actual = min(requested, stock)
+                    if actual > 0 and stock - actual < self.reserve(h, resource):
+                        reason = "pending-care reserve"
+            if reason:
+                result = self._record_denial(tool_name, agent_name, record_args, phase, iteration, reason)
+            else:
+                # Native tools, state application, logging and secret-board scrubbing.
+                result = await super().environment_handle_tool_call(
+                    tool_name, agent_name, arguments, phase=phase, iteration=iteration)
+                if self.policy == "bonus_zero":
+                    env.transfer_rewards = before["transfer_rewards"]
+                    env.transfer_rewards_by_agent = deepcopy(before["transfer_rewards_by_agent"])
+        except Exception as exc:
+            native_error = exc
+            result = {"status": "error", "error": f"{type(exc).__name__}: {exc}"}
+            self._record_tool_event(tool_name=tool_name, agent_name=agent_name, arguments=record_args,
+                                    result=result, phase=phase, iteration=iteration)
         after = checkpoint(env)
         joint, local = env._calculate_makespan_and_flow()
         self.observations.append({"actor": agent_name, "tool": tool_name, "arguments": deepcopy(arguments),
             "phase": phase, "status": result.get("status", "native"),
+            "argument_flags": flags, "native_error": result.get("error"),
+            "actual_state_changed": digest(before) != digest(after),
             "before": before, "after": after, "joint_reward": joint,
             "local_sum": sum(local.values()), "care": care(env)})
+        if native_error is not None:
+            raise native_error  # retain BaseAgent's native exception-to-tool-error behavior
         return result
 
     async def blackboard_handle_tool_call(self, tool_name, agent_name, arguments,
