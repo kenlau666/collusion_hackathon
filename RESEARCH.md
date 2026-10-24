@@ -23,11 +23,22 @@ Three subagents screened different bundled projects and challenged novelty. The 
 
 ## Original six-dimension audit — still incomplete
 
-The four proposal-selection criteria above do not replace the original rubric. Current empirical-stage judgments are **8,8,7,4,8,3**: operator problem8; architecture audit/evidence discipline8; conditional causal design7 (live branch semantics still unverified); behavioral readiness4 (native scripts pass, no LLM control); useful-cooperation construct8; demonstrated novelty3 (a native capability witness only, no behavioral contribution). These are provisional assessments, not measurements; no other system's results are transferred. The all-8 objective remains active.
+The four proposal-selection criteria above do not replace the original rubric. Current judgments remain **8,8,7,4,8,3**:
 
-The previous turn made progress by completing the native feasibility evidence and specifying the stronger proposal. The next safe action is the predeclared offline branch-conformance gate, testing real runtime boundaries with a scripted client. It can improve architecture/design confidence, not establish LLM behavior or novelty. No paid inference is authorized.
+| Original dimension | /10 | Evidence and remaining limit |
+| --- | ---: | --- |
+| Operator problem | 8 | Removing culprit actors versus restoring useful work is a concrete decision; external validity is still limited to a synthetic task. |
+| Architecture audit and evidence discipline | 8 | Native mechanisms, failed attempts, source hashes and offline runtime controls verified; no provider-integrated run. |
+| Conditional causal design | 7 | Last-kit and branch mechanics work offline; actual matched delivered pilot inputs and full execution remain unverified. |
+| Behavioral readiness | 4 | Scripted service/cycle controls work; no LLM positive control has run. |
+| Useful-cooperation construct | 8 | Canonical patient completion, failures, bidirectional useful transfers and opportunity costs are explicit and scripted controls pass. |
+| Demonstrated novelty | 3 | Native capability/runtime witnesses only; no behavioral contribution has been demonstrated. |
 
-The first conformance attempt is **failed overall**, despite72/72 assertions: the network guard recorded a blocked library IPv6 import probe. Review also found reserve/no-op and care-index/accounting counterexamples outside the initial assertions. Preserve that attempt and fix the gaps under the newly declared supplemental checks; do not raise readiness or demonstrated novelty from the initial result.
+These are provisional assessments, not measurements; no other system's results are transferred. The all-8 objective remains active.
+
+The previous turn made progress by completing the native feasibility evidence and specifying the stronger proposal. The subsequent offline branch-conformance gate tested real runtime boundaries with a scripted client. It can improve architecture/design confidence, not establish LLM behavior or novelty. No paid inference is authorized.
+
+The offline adapter now passes **90/90 checks** across the same six frozen fixtures, with zero network attempts. All failed attempts are retained. It verifies native source/board boundaries, original/zero-bonus credits, bidirectional useful service, last-kit consequences, real batch ordering and malformed-action accounting. [Per-seed results and positive controls](RECOVERY_PROTOCOL.md#results-offline-native-branch-conformance). This is meaningful architecture progress; the scores remain **8,8,7,4,8,3** because actual matched pilot inputs/provider execution, LLM controls and behavioral novelty are still incomplete. No score is increased from scripted success alone.
 
 ## The experiment that would earn a result
 
@@ -37,7 +48,7 @@ Cross exposure with original settings, real transfer-bonus removal, a care-first
 
 The reserve rule uses one explicitly assigned pending care obligation per hospital, not every patient appearing in both native Ward queues. It allows either donation direction when the sender retains its required supplies. Test both shortage directions. Also test whether bonus correction or the care-first instruction reduces attempted gaming while every transfer remains legal. The gate is a simple baseline, not the proposed invention.
 
-**Next step:** prepare the exact branch inputs, adapter conformance checks and provider/token/currency budget for review. The fully specified design and positive-control gate are in [RECOVERY_PROTOCOL.md](RECOVERY_PROTOCOL.md); the actual native paths, proposed adapters and limits are in [ARCHITECTURE.md](ARCHITECTURE.md). Passing a proposal screen does not authorize a paid run or select a model.
+**Next step:** prepare and compare the exact exploit/neutral, assigned-obligation and care-first inputs, then a provider-integrated runner and explicit request/token/currency budget for review. The completed offline adapter does not yet execute the proposed behavioral pilot. The fully specified design and positive-control gate are in [RECOVERY_PROTOCOL.md](RECOVERY_PROTOCOL.md); the actual native paths, proposed adapters and limits are in [ARCHITECTURE.md](ARCHITECTURE.md). Passing a proposal screen does not authorize a paid run or select a model.
 
 ## Results:
 

@@ -159,7 +159,9 @@ class BranchProtocol(LocalCommunicationProtocol):
                 flags.append("missing_required_transfer_arguments")
         if tool_name == "schedule_patient" and isinstance(arguments, dict):
             pid, idx = arguments.get("patient_id"), arguments.get("step_index")
-            if pid in env.patients and (not isinstance(idx, int) or not 0 <= idx < len(env.patients[pid]["pathway"])):
+            if not isinstance(pid, str):
+                flags.append("invalid_patient_id_type")
+            elif pid in env.patients and (not isinstance(idx, int) or not 0 <= idx < len(env.patients[pid]["pathway"])):
                 flags.append("noncanonical_step_index")
         native_error = None
         try:

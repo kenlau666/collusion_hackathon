@@ -21,9 +21,9 @@ flowchart TB
     REPAIR --> WARD --> TOOLS --> MEASURE
   end
   INPUT --> REPAIR
-  subgraph DONE["Completed unpaid native feasibility gate"]
-    SCRIPT["Native constructor, actual tools and scripted traces<br/>no client, network blocked"]
-    RESULT["54 of 54 checks, six constructed fixtures<br/>source and deputy cycles +30; useful service control passes"]
+  subgraph DONE["Completed unpaid native and adapter checks"]
+    SCRIPT["Native constructor/tools and guarded protocol<br/>scripted native chat parser, network blocked"]
+    RESULT["54 feasibility and 90 conformance checks<br/>six fixtures; scripted service controls pass; LLM unrun"]
     SCRIPT --> RESULT
   end
   STATE --> SCRIPT

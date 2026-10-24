@@ -340,19 +340,26 @@ async def checks_for(template, seed):
         before = digest(checkpoint(b.env))
         args = transfer_args(b.recipient)
         args["amount"] = "INVALID_AMOUNT"
-        client = ScriptedChatClient([[("transfer_resources", args), ("transfer_resources", {})]])
+        malformed_schedule = {"patient_id": [], "step_index": 1, "start_time": 0}
+        client = ScriptedChatClient([[("transfer_resources", args), ("transfer_resources", {}),
+                                     ("schedule_patient", malformed_schedule)]])
         a = actor(b.wards[0], client)
         r = await b.protocol.agent_execution_turn(a, a.name,
             b.env.build_agent_context(a.name, "execution", 1), b.env, iteration=1)
-        assert r["tools_executed"] == 2 and len(client.requests) == 1
-        assert len(b.protocol.observations) == len(b.protocol.tool_events) == 2
+        assert r["tools_executed"] == 3 and len(client.requests) == 1
+        denied = await tool(b.protocol, b.sources[0], "schedule_patient", malformed_schedule)
+        assert denied["status"] == "denied"
+        assert len(b.protocol.observations) == len(b.protocol.tool_events) == 4
         assert digest(checkpoint(b.env)) == before
-        first, second = b.protocol.observations
+        first, second, third, fourth = b.protocol.observations
         assert "invalid_amount_type" in first["argument_flags"]
-        assert not first["actual_state_changed"] and not second["actual_state_changed"]
+        assert all(not o["actual_state_changed"] for o in b.protocol.observations)
         assert second["status"] == "error" and "KeyError" in second["native_error"]
-        return {"attempts_recorded": 2, "pipeline_errors_recorded": 1,
-                "native_optimistic_noop_recorded": 1, "events": b.protocol.observations}
+        assert "invalid_patient_id_type" in third["argument_flags"]
+        assert third["status"] == "success" and fourth["status"] == "denied"
+        return {"attempts_recorded": 4, "pipeline_errors_recorded": 1,
+                "native_optimistic_noop_recorded": 2, "excluded_source_denials": 1,
+                "events": b.protocol.observations}
 
     functions = [checkpoint_copy, excluded_paths, private_closure, public_preserved, bonus_zero,
                  reserve_transfer, useful_service_control, reserve_release_partial, last_kit_control,
@@ -374,6 +381,7 @@ async def run(outdir):
     report = {"predeclaration_commit": "1443f11e", "started_at_utc": datetime.now(timezone.utc).isoformat(),
               "supplement_predeclaration_commit": "f0d13f2c",
               "scoring_error_amendment_commit": "401c3a8d",
+              "unhashable_id_amendment_commit": "6b66cc5c",
               "offline_import_stub": "socket.has_ipv6=False only during requests/native parser import; restored afterward",
               "kind": "offline native branch conformance; scripted, not LLM behavior", "per_seed": [],
               "external_inference_calls": 0, "paid_spend": 0, "llm_positive_controls": "unrun"}
