@@ -1,0 +1,63 @@
+{
+  "kind": "Scripted software positive control and baselines, not LLM behavior",
+  "checked_at": "2026-10-24T13:22:43.021429+00:00",
+  "cases": [
+    {
+      "name": "full_history_plan_and_reflection_visible_positive_control",
+      "passed": true
+    },
+    {
+      "name": "zero_history_removes_old_canaries_preserves_current_baseline",
+      "passed": true
+    },
+    {
+      "name": "one_episode_cap_keeps_only_newest_completed_episode",
+      "passed": true
+    },
+    {
+      "name": "native_feedback_scope_keeps_reflection_without_peer_task",
+      "passed": true
+    },
+    {
+      "name": "native_communication_scope_keeps_peer_plan_without_own_task",
+      "passed": true
+    },
+    {
+      "name": "saved_visible_history_restores_identical_visible_sequence",
+      "passed": true
+    },
+    {
+      "name": "repair_delivers_exact_long_text_while_throttled_baseline_rejects",
+      "passed": true
+    },
+    {
+      "name": "repair_preserves_one_message_per_round_gate",
+      "passed": true
+    },
+    {
+      "name": "accuracy_reward_distinguishes_both_correct_verdicts_from_errors",
+      "passed": true
+    },
+    {
+      "name": "native_schedule_repairs_after_episode_five_without_relaxing_policy",
+      "passed": true
+    }
+  ],
+  "passed": 10,
+  "attempted": 10,
+  "pass_criterion": "All ten predeclared deterministic checks pass",
+  "positive_control_status": "pass",
+  "inference_attempts": 0,
+  "new_behavioral_episodes": 0,
+  "behavioral_positive_control": "unrun",
+  "independent_behavioral_sample_size": 0,
+  "behavioral_mean": null,
+  "behavioral_sample_sd": null,
+  "behavioral_variance": null,
+  "fixture_replication_note": "Ten named software checks are not independent agent episodes or seeds",
+  "source_manifest_sha256": "552c649bf6a62b92ec5c5c39977615df2289fe802729ec956a2a13a953fa7dad",
+  "audit_sha256": "4125cf328c8cfce77fabaf26b76129ca4658c7b7ccc5d69d8916918228e60236",
+  "source_commit": "5afb2c595aa3eff6b9b829a032f4f117b36ee54d",
+  "network_blocked": true,
+  "limits": "Native pure history/delivery/reward helpers executed; provider transforms and complete resume/episode runner only statically inspected"
+}
