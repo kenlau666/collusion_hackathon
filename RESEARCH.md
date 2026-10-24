@@ -2,9 +2,19 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
-**Active approach:** study whether restoring compliant evidence delivery is enough to recover reliable peer verification after a history of reciprocal protocol violations, or whether clearing retained history adds benefit. Use the existing full-history architecture from **SALT-NLP/agent-collusion**, not Cleanup. This is an empirical recovery question; no new defense algorithm is claimed.
+**Current scope — user correction:** use projects already bundled in this repository. The external SALT-NLP/agent-collusion proposal is parked and is not the selected next experiment. Changing the unsuccessful Cleanup configuration did not require moving to an external project.
 
-**Latest status: paused at an evidence gate, not complete.** Cleanup is retired. Two replacement formulations were rejected/refined and the current formulation was audited against native code and published trajectories. The current scores are **8, 8, 8, 6, 8, 6** across the original six dimensions. There is no evidence-backed basis to raise behavioral readiness or demonstrated novelty to 8/10 through more rewriting. The prospective LLM controls and matched recovery comparison have not run. No paid inference has been authorized for the replacement.
+**Current status:** no repository-based replacement experiment has been selected or implemented. The previous Cleanup configuration remains stopped; its code, adapter and evidence are preserved. Next action: reassess supported changes within the bundled implementations, using existing audits and failures rather than repeating them. No new inference budget is authorized.
+
+The external proposal's 8,8,8,6,8,6 scores do not rate an unselected repository-based experiment. The all-8 objective remains unmet.
+
+## Historical external screen — superseded as the active plan
+
+The remaining sections preserve the prior external proposal and completed audits. Their selection, ratings, next-action and stopping language applies only to that parked proposal.
+
+**Previously proposed approach:** study whether restoring compliant evidence delivery is enough to recover reliable peer verification after a history of reciprocal protocol violations, or whether clearing retained history adds benefit. Use the existing full-history architecture from **SALT-NLP/agent-collusion**, not Cleanup. This is an empirical recovery question; no new defense algorithm is claimed.
+
+**Prior external-screen status: paused at an evidence gate, not complete.** Cleanup is retired. Two replacement formulations were rejected/refined and the current formulation was audited against native code and published trajectories. The current scores are **8, 8, 8, 6, 8, 6** across the original six dimensions. There is no evidence-backed basis to raise behavioral readiness or demonstrated novelty to 8/10 through more rewriting. The prospective LLM controls and matched recovery comparison have not run. No paid inference has been authorized for the replacement.
 
 The user instructed us to change approach, stop investing in Cleanup, keep refining toward 8/10 in every dimension, and pause with the latest status if no justified next step was available. That instruction authorizes this replacement screen and supersedes the old plan's scope restrictions. It does not authorize inventing results or recycling an old inference budget.
 

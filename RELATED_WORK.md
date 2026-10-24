@@ -2,7 +2,11 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
-**Active approach:** [repair-first verification diagnostic](RESEARCH.md) using the existing full-history SALT-NLP/agent-collusion architecture. Cleanup is retired. **Novelty is not established; current judgment 6/10.** The proposal is a possible empirical boundary study, not a new recovery algorithm, new memory mechanism, or newly invented causal evaluation method.
+**Current scope:** the next experiment must use a project already bundled in this repository. The external verification-repair proposal below is parked. Its literature findings remain reference material; its distinction and novelty score do not establish a contribution for an unselected repository-based study. No new novelty claim is made here.
+
+## Historical external proposal review
+
+**Previously proposed approach:** [repair-first verification diagnostic](RESEARCH.md) using the existing full-history SALT-NLP/agent-collusion architecture. Cleanup is retired. **Novelty is not established; current judgment 6/10.** The proposal is a possible empirical boundary study, not a new recovery algorithm, new memory mechanism, or newly invented causal evaluation method.
 
 ## Closest sources, exact versions and checked overlap
 

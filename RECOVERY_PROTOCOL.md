@@ -2,6 +2,12 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
+**Current scope:** use projects already bundled in this repository. The external SALT-NLP diagnostic below is parked. Its proposed 48 diagnostic plus eight control calls are not the next experiment or an authorized budget. No repository-based replacement protocol has been selected.
+
+The previous Cleanup configuration remains stopped. A revised experiment must specify its own supported intervention, positive controls and budget; do not transfer another system's controls or scores.
+
+## Historical external protocol — not active
+
 **Status:** replacement research design and unpaid source/software/trace audits only. The prospective LLM control and recovery diagnostic are **unrun**. No replacement inference budget or exact model is authorized. Cleanup is retired; its previous protocol and ceilings do not apply.
 
 [Question, iteration ratings and pause status](RESEARCH.md); [actual architecture and verification limits](ARCHITECTURE.md); [prior-work distinction](RELATED_WORK.md).

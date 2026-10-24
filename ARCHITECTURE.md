@@ -2,13 +2,17 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
-**Active system:** SALT-NLP/agent-collusion, pinned code commit `5afb2c595aa3eff6b9b829a032f4f117b36ee54d`. Cleanup is retired. The current question and ratings are in [RESEARCH.md](RESEARCH.md). This document separates native behavior, executed offline checks, published historical behavior and the unrun diagnostic.
+**Current scope:** use projects already bundled in this repository. No replacement architecture within them has been selected or changed. The external SALT-NLP system below is parked; its checks do not validate the bundled implementations. The diagram depicts only that parked proposal; the PNG remains unchanged.
+
+## Historical external architecture audit
+
+**Previously audited external system:** SALT-NLP/agent-collusion, pinned code commit `5afb2c595aa3eff6b9b829a032f4f117b36ee54d`. Cleanup is retired. The current question and ratings are in [RESEARCH.md](RESEARCH.md). This document separates native behavior, executed offline checks, published historical behavior and the unrun diagnostic.
 
 [Source URLs and hashes](research/recovery_environment/replacement_screen/20261024/sources.json); [data release revision and hashes](research/recovery_environment/replacement_screen/20261024/trace_sources.json). Downloaded source/data remain in ignored caches. The editable diagram below is identical to [mermaid-diagram.mmd](mermaid-diagram.mmd). The existing PNG is historical and unchanged. The replacement Mermaid source was checked for equality with this embedded source; no new rendered-layout validation is claimed.
 
 ```mermaid
 ---
-title: Verification recovery — inspected state and proposed diagnostic
+title: Parked external proposal — verification recovery
 config:
   theme: neutral
 ---
