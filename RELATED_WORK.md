@@ -50,3 +50,5 @@ The bounded feasibility contribution being tested is whether, in the equal-rules
 ## Offer diagnostic scope — 2026-10-24
 
 The user authorized the bounded [A/B/C presentation diagnostic](RECOVERY_PROTOCOL.md#bounded-offer-diagnostic--frozen-before-inference-2026-10-24) on six saved decision contexts. It tests an operational prerequisite after six neutral refusals; it supplies no new recovery method or novelty claim. The selected Cleanup recovery question and overlap assessment above are unchanged. No formation/recovery expansion is implied by an instructed acceptance-output control.
+
+**Observed evidence:** [the completed diagnostic](research/recovery_environment/offer_diagnostics/20261024T123500Z/results.md) returned A 0/6 and B 0/6 neutral acceptances, with C 6/6 instructed acceptance-output control passes. All 18 responses were complete. The clarification did not establish uptake in these six reused situations. This operational result does not test a recovery method, resolve the literature gap or establish novelty; the prior overlap assessment remains unchanged. No follow-up inference was launched.
