@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-25 (Asia/Hong_Kong).
 
-**Implemented/audited:** bundled `colosseum/` with pinned `terrarium-agents==0.1.1`; native feasibility/guarded protocol, plus a frozen controls-only runner and budgeted provider adapter tested with injected replies. **Proposed/unimplemented:** full exposure/care-first pilot inputs and behavioral runner. LLM controls/main study are unrun and unauthorized. [Question/rating](RESEARCH.md), [protocol/results](RECOVERY_PROTOCOL.md), [prior-work limits](RELATED_WORK.md).
+**Implemented/audited:** bundled `colosseum/` with pinned `terrarium-agents==0.1.1`; native feasibility/guarded protocol, plus a frozen controls-only runner and budgeted provider adapter tested with injected replies. **Proposed/unimplemented:** full exposure/care-first pilot inputs and behavioral runner. LLM controls/main study are unrun; the controls-only stage is now authorized with an effective30-request/USD1.50 cap, while the main study remains unauthorized. [Question/rating](RESEARCH.md), [protocol/results](RECOVERY_PROTOCOL.md), [prior-work limits](RELATED_WORK.md).
 
 ```mermaid
 ---

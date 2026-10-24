@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-25 (Asia/Hong_Kong).
 
-**Recommended proposal: 8/10 for proposal quality and novelty potential, at the lower edge of 8.** This is the refined candidate from the resumed search within the bundled repository. It meets the proposal screen; it does not meet the earlier all-8 empirical-results objective. Behavioral readiness remains limited: no new LLM episode or behavioral positive control has run, and demonstrated novelty is unestablished. No inference spending is authorized.
+**Recommended proposal: 8/10 for proposal quality and novelty potential, at the lower edge of 8.** This is the refined candidate from the resumed search within the bundled repository. It meets the proposal screen; it does not meet the earlier all-8 empirical-results objective. Behavioral readiness remains limited: no new LLM episode or behavioral positive control has run, and demonstrated novelty is unestablished. The user has now authorized the controls-only stage with a USD50 ceiling; its effective cap remains30requests/USD1.50. The main study is not authorized.
 
 **Question:** After the original exploiters lose access, can an inherited plan induce ordinarily cooperative coworkers to continue a reward-gaming workflow through their independent permissions—and which repair stops that behavior while preserving useful work?
 
@@ -36,7 +36,7 @@ The four proposal-selection criteria above do not replace the original rubric. C
 
 These are provisional assessments, not measurements; no other system's results are transferred. The all-8 objective remains active.
 
-The previous turn made progress by completing the native feasibility evidence and specifying the stronger proposal. The subsequent offline branch-conformance gate tested real runtime boundaries with a scripted client. It can improve architecture/design confidence, not establish LLM behavior or novelty. No paid inference is authorized.
+The previous turn made progress by completing the native feasibility evidence and specifying the stronger proposal. The subsequent offline branch-conformance gate tested real runtime boundaries with a scripted client. It can improve architecture/design confidence, not establish LLM behavior or novelty. Only the subsequent controls-only stage is now authorized; the main study is not.
 
 The offline adapter now passes **90/90 checks** across the same six frozen fixtures, with zero network attempts. All failed attempts are retained. It verifies native source/board boundaries, original/zero-bonus credits, bidirectional useful service, last-kit consequences, real batch ordering and malformed-action accounting. [Per-seed results and positive controls](RECOVERY_PROTOCOL.md#results-offline-native-branch-conformance). This is meaningful architecture progress; the scores remain **8,8,7,4,8,3** because actual matched pilot inputs/provider execution, LLM controls and behavioral novelty are still incomplete. No score is increased from scripted success alone.
 
@@ -50,7 +50,7 @@ Cross exposure with original settings, real transfer-bonus removal, a care-first
 
 The reserve rule uses one explicitly assigned pending care obligation per hospital, not every patient appearing in both native Ward queues. It allows either donation direction when the sender retains its required supplies. Test both shortage directions. Also test whether bonus correction or the care-first instruction reduces attempted gaming while every transfer remains legal. The gate is a simple baseline, not the proposed invention.
 
-**Next step:** obtain explicit authorization for the frozen30-call/USD1.50 qualification stage, then run all twelve LLM controls and report them before considering the main study. The [frozen plan](research/recovery_environment/hospital_recovery/20261025/workflow_002/bundle/plan.json) has SHA256 `71334d84975ece254e278838e4cd37e85e728cefc5b5ce455a9b79894b95139a`; its example authorization is deliberately false. No inference is authorized. Main exploit/neutral and care-first inputs and the full behavioral runner still need implementation if qualification succeeds. [Protocol/results](RECOVERY_PROTOCOL.md), [actual architecture and limits](ARCHITECTURE.md). No PRs, including drafts; completed steps are committed and pushed to the fork.
+**Next step:** run the now-authorized frozen30-call/USD1.50 qualification stage and report all twelve LLM controls before considering the main study. The [frozen plan](research/recovery_environment/hospital_recovery/20261025/workflow_002/bundle/plan.json) has SHA256 `71334d84975ece254e278838e4cd37e85e728cefc5b5ce455a9b79894b95139a`; its historical example authorization remains deliberately false. The separate [human approval record](research/recovery_environment/hospital_recovery/20261025/control_authorization.json) records the user's "$50cap" reply; the effective stage cap remainsUSD1.50 and no main study is authorized. Main exploit/neutral and care-first inputs and the full behavioral runner still need implementation if qualification succeeds. [Protocol/results](RECOVERY_PROTOCOL.md), [actual architecture and limits](ARCHITECTURE.md). No PRs, including drafts; completed steps are committed and pushed to the fork.
 
 ## Results:
 
