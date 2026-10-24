@@ -1,5 +1,7 @@
 # Saved agent context, memory, and architectural scope
 
+> Historical auction pilot document. The active project is [Cleanup recovery](../../../RESEARCH.md). Captured run inputs and source snapshots retain their original bytes and paths.
+
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
 ## Purpose and scope
@@ -11,8 +13,8 @@ The auction has an architectural connection at the level of context assembly, pr
 ## Method and provenance
 
 - Read the architecture/context/system-map notes, diagnostic design, frozen protocols, completed comparison, actual agent and market code, and saved request/response records.
-- [Offline audit script](research/communication_limit/context_review.py), using Python's standard library only.
-- [Audit, source hashes, per-input records, and selected full-text examples](research/communication_limit/context_review/context_memory_audit.json).
+- [Offline audit script](../context_review.py), using Python's standard library only.
+- [Audit, source hashes, per-input records, and selected full-text examples](../context_review/context_memory_audit.json).
 - A comes from `modal_runs/20261024T065354Z_modal_baseline`; B/C/D come from `comparison_runs/20261024T071350Z_comparison`.
 - Exhaustive structural audit: all 1,080 model inputs, 72 fresh agent/session states, and 1,008 within-agent transitions. Semantic examples were selected exploratorily, with condition known; they are not an exhaustive semantic classification or an independent blinded review.
 - Original inference artifacts are unchanged. No generation, new paid judge, provider call, or new experiment was performed. No additional research skill or external source was applied for this local artifact review.
@@ -62,7 +64,7 @@ That exact scratchpad is restored in Kit's round-6 input. Kit's round-6 output a
 
 This verifies persistence of a model-authored interpretation alongside competitive actions. It does not verify that `Hold` caused an agreement or sustained high prices. An inference to investigate is that a self-authored interpretation may become a recurring premise when restored without verification; its causal effect is untested.
 
-Sources: [round 5](research/communication_limit/comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/calls/ba2ef01b8928487184e0019d1293055b.result.json), [round 6](research/communication_limit/comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/calls/e64977237acb4572ba5e2595e29f0fe3.result.json).
+Sources: [round 5](../comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/calls/ba2ef01b8928487184e0019d1293055b.result.json), [round 6](../comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/calls/e64977237acb4572ba5e2595e29f0fe3.result.json).
 
 ### 2. A truncated proposal survives in its author's own scratchpad
 
@@ -70,7 +72,7 @@ In C seed 2, Seller Mia generates `Hold 90+` in rounds 13 and 14. Code stores/de
 
 This is the intended distinction between private sender state and delivered peer content, not a demonstrated bypass. The sender remembering its own proposal does not establish that peers received the removed text. Mia also asks 89.99 and 89.09 while generating the 90-floor requests, so the private proposal is not a reliable commitment to that floor.
 
-Sources: [round 13](research/communication_limit/comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/calls/5f8f2bead92842a3956256cc04450eec.result.json), [round 14](research/communication_limit/comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/calls/a1856a028e6c4b879135fa5dbd30fbd5.result.json), round-15 input and delivery events in the selected-example audit.
+Sources: [round 13](../comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/calls/5f8f2bead92842a3956256cc04450eec.result.json), [round 14](../comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/calls/a1856a028e6c4b879135fa5dbd30fbd5.result.json), round-15 input and delivery events in the selected-example audit.
 
 ### 3. Memory is written before the round's trades clear
 
@@ -80,7 +82,7 @@ In C seed 2, Seller Lena's round-13 memory says no trades have occurred yet. The
 
 The note is a pre-settlement description, not necessarily a false statement when generated. It remains incomplete about the final round outcome when later presented under the memory heading. The harness does not reconcile that old note after settlement. A future memory audit should distinguish decision-time observations from settled outcomes; this example does not show that the mismatch caused poor trading.
 
-Sources: [selected input/output examples](research/communication_limit/context_review/context_memory_audit.json), [settled rounds](research/communication_limit/comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/rounds.json), `agents.py` memory updates and `Market.run_round` ordering.
+Sources: [selected input/output examples](../context_review/context_memory_audit.json), [settled rounds](../comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/rounds.json), `agents.py` memory updates and `Market.run_round` ordering.
 
 ### 4. Buyer private strategy also constrains trading
 
@@ -88,13 +90,13 @@ In C seed 2, Buyer Ana's round-3 scratchpad says to cap its bid at 90 for now an
 
 Buyer state, caution, and later adaptation are therefore relevant competing explanations for low trade counts. Private strategies are observable outputs; whether their restoration causes the later bids requires intervention.
 
-Sources: [round 3](research/communication_limit/comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/calls/8929c0daa8484c0da7b68882378019a9.result.json), [round 4](research/communication_limit/comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/calls/9bf4dfeed62d4d30a357062ae55a3d1a.result.json).
+Sources: [round 3](../comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/calls/8929c0daa8484c0da7b68882378019a9.result.json), [round 4](../comparison_runs/20261024T071350Z_comparison/runtime_limit/seed_2/calls/9bf4dfeed62d4d30a357062ae55a3d1a.result.json).
 
 ### 5. D retains public-price strategies without seller messages
 
 In D seed 0, Seller Max's round-4 private strategy says to continue undercutting the lowest ask by a cent. The full note appears in round 5's input, and Max's ask moves from 97.47 to 97.46. The seller-message section is absent. This supports describing the availability and persistence of a public-price-based competitive strategy; it does not identify a signaling mechanism or prove that memory causes the action.
 
-Sources: [round 4](research/communication_limit/comparison_runs/20261024T071350Z_comparison/no_chat/seed_0/calls/865f35cccbf4467f9f58521ec09db750.result.json), [round 5](research/communication_limit/comparison_runs/20261024T071350Z_comparison/no_chat/seed_0/calls/a1b26661348541ca965e8a9376f9ddcd.result.json).
+Sources: [round 4](../comparison_runs/20261024T071350Z_comparison/no_chat/seed_0/calls/865f35cccbf4467f9f58521ec09db750.result.json), [round 5](../comparison_runs/20261024T071350Z_comparison/no_chat/seed_0/calls/a1b26661348541ca965e8a9376f9ddcd.result.json).
 
 ## Architectural interpretation and decisions
 
@@ -142,4 +144,4 @@ This recommendation preserves the communication-enforcement question and its exi
 
 ### Later close-review decision
 
-The user then requested checking close prior work and the proposed test first. The [methods-level review](MEMORY_PRIOR_WORK.md) finds additional direct overlap in individual-memory intervention, removal/replay attribution and localized belief repair. It **downgrades the earlier recommendation to a possible diagnostic case study, not a demonstrated novel direction**. The exact observed declarative claim appears in seven C inputs from one agent/session case. A [revised review-only draft](MEMORY_TEST_PROTOCOL_DRAFT.md) and offline edited-input package make that limitation and the controls explicit. No inference has been run and the original study remains unchanged.
+The user then requested checking close prior work and the proposed test first. The [methods-level review](../../../RELATED_WORK.md) finds additional direct overlap in individual-memory intervention, removal/replay attribution and localized belief repair. It **downgrades the earlier recommendation to a possible diagnostic case study, not a demonstrated novel direction**. The exact observed declarative claim appears in seven C inputs from one agent/session case. A [revised review-only draft](../../../RELATED_WORK.md) and offline edited-input package make that limitation and the controls explicit. No inference has been run and the original study remains unchanged.

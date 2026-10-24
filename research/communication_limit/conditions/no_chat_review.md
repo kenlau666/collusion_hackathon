@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong)
 
-Status: routing review and network-blocked fixture passed. The parent froze [COMPARISON_PROTOCOL.md](../../../COMPARISON_PROTOCOL.md), added the disabled-chat notice, verified unchanged A/B/C rendering, and completed D's three planned sessions through the shared dispatcher. All 270 D calls and three session audits passed. The complete 45-round review is in [no_chat_results.md](no_chat_results.md). No model calls were made by this reviewer.
+Status: routing review and network-blocked fixture passed. The parent froze [COMPARISON_PROTOCOL.md](../docs/COMPARISON_PROTOCOL.md), added the disabled-chat notice, verified unchanged A/B/C rendering, and completed D's three planned sessions through the shared dispatcher. All 270 D calls and three session audits passed. The complete 45-round review is in [no_chat_results.md](no_chat_results.md). No model calls were made by this reviewer.
 
 ## Treatment and matched settings
 

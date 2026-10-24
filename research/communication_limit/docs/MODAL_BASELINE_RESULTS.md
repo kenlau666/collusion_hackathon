@@ -1,5 +1,7 @@
 # Ordinary-chat baseline on Modal: completed exploratory runs
 
+> Historical auction pilot document. The active project is [Cleanup recovery](../../../RESEARCH.md). Captured run inputs and source snapshots retain their original bytes and paths.
+
 Last updated: 2026-10-24 (Asia/Hong_Kong)
 
 **Three planned 15-round sessions completed. All 270 baseline generation calls succeeded, and all three saved-context/action/delivery audits passed.** This establishes an executable ordinary-chat baseline with candidate coordination episodes. It does not establish that chat caused harmful coordination, that any restriction works, or that results generalize beyond this model and setup.
@@ -38,7 +40,7 @@ Across the three sessions: 33 trades, seller profit 248.23, buyer surplus 411.77
 
 The 90 line in the figure is the starter's midpoint reference, not a unique competitive equilibrium price. High asks, delayed trades, or similar actions alone do not establish collusion. Buyers' own holdout behavior and the initial wide spread are alternative contributors to low trading volume.
 
-![Ordinary-chat baseline: actions and realized outcomes by seed](research/communication_limit/modal_runs/20261024T065354Z_modal_baseline/baseline_overview.png)
+![Ordinary-chat baseline: actions and realized outcomes by seed](../modal_runs/20261024T065354Z_modal_baseline/baseline_overview.png)
 
 ## Transcript/action review using the predeclared rubric
 
@@ -56,15 +58,15 @@ One particularly useful warning against correlation-based conclusions: in seed 2
 
 ## Integrity and provenance
 
-Baseline batch: [20261024T065354Z_modal_baseline](research/communication_limit/modal_runs/20261024T065354Z_modal_baseline/).
+Baseline batch: [20261024T065354Z_modal_baseline](../modal_runs/20261024T065354Z_modal_baseline).
 
-- [Seed 0 audit](research/communication_limit/modal_runs/20261024T065354Z_modal_baseline/seed_0/audit.json): 90 calls, 126 sender/recipient next-round message checks.
-- [Seed 1 audit](research/communication_limit/modal_runs/20261024T065354Z_modal_baseline/seed_1/audit.json): 90 calls, 123 checks; optional absent messages explain the smaller count.
-- [Seed 2 audit](research/communication_limit/modal_runs/20261024T065354Z_modal_baseline/seed_2/audit.json): 90 calls, 126 checks.
+- [Seed 0 audit](../modal_runs/20261024T065354Z_modal_baseline/seed_0/audit.json): 90 calls, 126 sender/recipient next-round message checks.
+- [Seed 1 audit](../modal_runs/20261024T065354Z_modal_baseline/seed_1/audit.json): 90 calls, 123 checks; optional absent messages explain the smaller count.
+- [Seed 2 audit](../modal_runs/20261024T065354Z_modal_baseline/seed_2/audit.json): 90 calls, 126 checks.
 
 Across baseline sessions, 375 checks verified that each actual previous-round delivered message appeared in the next applicable seller inputs, including sender self-context. Final-round messages have no subsequent recipient inside the session. All 135 seller-message events respect the common 500-code-point delivery ceiling; none of the raw messages exceeded it. Audits also checked matching public queue snapshots within each round and generated actions against logged actions. They establish software/data integrity, not behavioral causation.
 
-Each batch contains exact credential-free request/response bodies, structured round logs, agent transcripts, a source copy/hash manifest, HEAD and dirty patch. The [aggregate summary](research/communication_limit/modal_runs/20261024T065354Z_modal_baseline/aggregate_summary.json) is derived from structured trades with recorded buyer values and seller costs. Analysis source copies/hashes are saved separately; the inference snapshot is unchanged.
+Each batch contains exact credential-free request/response bodies, structured round logs, agent transcripts, a source copy/hash manifest, HEAD and dirty patch. The [aggregate summary](../modal_runs/20261024T065354Z_modal_baseline/aggregate_summary.json) is derived from structured trades with recorded buyer values and seller costs. Analysis source copies/hashes are saved separately; the inference snapshot is unchanged.
 
 The separate seed-999 three-round smoke passed with 18 generation calls. It is excluded from all baseline outcomes above. Seventeen offline tests cover the preexisting intervention controls, baseline accounting/integration, Modal credential/discovery handling, and Modal adapter integration/request limits.
 
@@ -77,7 +79,7 @@ The user explicitly authorized using the available Modal credit. No model was de
 | Baseline only | 270 | 416,403 | 151,111 | US$0.3062541 |
 | Smoke plus baseline | 288 | 433,968 | 160,344 | US$0.3226032 |
 
-These use public [Modal Shared Endpoint reference prices](https://modal.com/library/deepseek/deepseek-v4-1-flash) of US$0.30/M input and US$1.20/M output, without cache discounts. They are **not verified charges for this endpoint** and do not estimate Dedicated Endpoint GPU billing. The [usage ledger](research/communication_limit/modal_runs/usage_ledger.json) explicitly records the uncertainty, token counts, and zero outstanding reservations. The earlier OpenRouter charge remains separately recorded as US$0.0574696. Request/time/output caps bounded this run; the launcher does not impose an account-wide compute spending limit.
+These use public [Modal Shared Endpoint reference prices](https://modal.com/library/deepseek/deepseek-v4-1-flash) of US$0.30/M input and US$1.20/M output, without cache discounts. They are **not verified charges for this endpoint** and do not estimate Dedicated Endpoint GPU billing. The [usage ledger](../modal_runs/usage_ledger.json) explicitly records the uncertainty, token counts, and zero outstanding reservations. The earlier OpenRouter charge remains separately recorded as US$0.0574696. Request/time/output caps bounded this run; the launcher does not impose an account-wide compute spending limit.
 
 ## Subsequent comparison and next decision
 

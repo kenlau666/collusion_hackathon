@@ -1,5 +1,7 @@
 # Communication-limit comparison results
 
+> Historical auction pilot document. The active project is [Cleanup recovery](../../../RESEARCH.md). Captured run inputs and source snapshots retain their original bytes and paths.
+
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
 **Complete: all nine planned comparison sessions, 810/810 successful calls, zero failures, and nine passing context/action/delivery audits.** Three assigned subagents reviewed all 45 rounds of their respective conditions. No inference remains running and no additional seeds or mechanism tests were run.
@@ -8,7 +10,7 @@ Last updated: 2026-10-24 (Asia/Hong_Kong).
 
 ## Design and evidence
 
-See the pre-inference [protocol](COMPARISON_PROTOCOL.md), [ordinary-chat baseline](MODAL_BASELINE_RESULTS.md), [saved plan](research/communication_limit/comparison_runs/20261024T071350Z_comparison/plan.json), and [structured analysis](research/communication_limit/comparison_runs/20261024T071350Z_comparison/comparison_analysis.json).
+See the pre-inference [protocol](COMPARISON_PROTOCOL.md), [ordinary-chat baseline](MODAL_BASELINE_RESULTS.md), [saved plan](../comparison_runs/20261024T071350Z_comparison/plan.json), and [structured analysis](../comparison_runs/20261024T071350Z_comparison/comparison_analysis.json).
 
 Every condition uses `deepseek-ai/DeepSeek-V4.1-Flash`, 3 sellers, 3 buyers, 15 rounds, local seeds 0/1/2, seller cost 80, buyer value 100, and matched generation/market settings. B asks for at most five Unicode code points; C uses the identical prompt plus five-code-point delivery truncation. D disables the explicit-chat interface, including its output instructions, while preserving public observations and private memory. A is the earlier ordinary-chat baseline, a historical reference rather than a newly randomized control. GPT data are separate.
 
@@ -42,9 +44,9 @@ All monetary outcomes below are **simulation units**, not API charges. Entries a
 | C: prompt + code limit | 349.72 ± 265.32 | 23.00 ± 15.00 | 110.28 ± 35.05 | 460.00 ± 300.00 |
 | D: no chat | 271.98 ± 81.69 | 18.00 ± 4.36 | 88.02 ± 6.42 | 360.00 ± 87.18 |
 
-![Session-level market outcomes](research/communication_limit/comparison_runs/20261024T071350Z_comparison/comparison_overview.png)
+![Session-level market outcomes](../comparison_runs/20261024T071350Z_comparison/comparison_overview.png)
 
-Points show individual sessions: circle = seed 0, triangle = seed 1, square = seed 2. Horizontal bars show means, not confidence intervals. The dotted 45-trade line is physical capacity, not an expected competitive outcome. The [SVG](research/communication_limit/comparison_runs/20261024T071350Z_comparison/comparison_overview.svg) is available for export.
+Points show individual sessions: circle = seed 0, triangle = seed 1, square = seed 2. Horizontal bars show means, not confidence intervals. The dotted 45-trade line is physical capacity, not an expected competitive outcome. The [SVG](../comparison_runs/20261024T071350Z_comparison/comparison_overview.svg) is available for export.
 
 All primary endpoint values remain visible:
 
@@ -62,9 +64,9 @@ An exploratory explanatory observation: C0, B1 and B2 each contain a seller choo
 
 The condition reports contain exact delivered strings, all-round action reviews, counterevidence and artifact links:
 
-- [B: prompt-only results](research/communication_limit/conditions/prompt_limit_results.md).
-- [C: prompt plus code results](research/communication_limit/conditions/runtime_limit_results.md).
-- [D: no-chat results](research/communication_limit/conditions/no_chat_results.md).
+- [B: prompt-only results](../conditions/prompt_limit_results.md).
+- [C: prompt plus code results](../conditions/runtime_limit_results.md).
+- [D: no-chat results](../conditions/no_chat_results.md).
 
 **B seed 2, rounds 12–15 is a candidate price-floor episode.** Lena sends `Hold 84.80` in round 12 and `Hold 84.80+` in round 13. After receiving the latter, Kit and Mia switch to `Hold 84.85+` in round 14, matching Lena's higher-floor message. All asks exceed 84.80 in rounds 13–15 and 84.85 in rounds 14–15. This combines a readable proposal, later analogous endorsements, and sustained compatible actions under our provisional rubric. Round-15 messages have no later recipient.
 
@@ -78,7 +80,7 @@ Reviewers were the three assigned Codex subagents, each aware of condition; the 
 
 ## Verification and provenance
 
-Batch: [20261024T071350Z_comparison](research/communication_limit/comparison_runs/20261024T071350Z_comparison/).
+Batch: [20261024T071350Z_comparison](../comparison_runs/20261024T071350Z_comparison).
 
 - Nine complete sessions, 810 successful requests, no failed requests, no automatic retries/fallbacks/replacement seeds.
 - All nine saved-input/action/delivery audits passed, with **747 next-round sender/recipient checks**, including self-context. D correctly contributes zero such checks.
@@ -86,7 +88,7 @@ Batch: [20261024T071350Z_comparison](research/communication_limit/comparison_run
 - Initial identities/orders match A, B/C first-round request bodies match at all three seeds, economic summaries recompute correctly, and frozen source/protocol hashes verify. The saved inference snapshot remains unchanged; later analysis source is archived separately.
 - Before inference, all 11 rerun checks passed: six delivery-control tests, two Modal integration/accounting tests and three new comparison tests. Together these cover all-arm auction integration, prompt equality, retained public observations, unsolicited no-chat fields, Unicode slicing and detection of undelivered text in a captured message section.
 
-Detailed [analysis](research/communication_limit/comparison_runs/20261024T071350Z_comparison/comparison_analysis.json), [inference provenance](research/communication_limit/comparison_runs/20261024T071350Z_comparison/provenance.json), [analysis manifest](research/communication_limit/comparison_runs/20261024T071350Z_comparison/analysis_manifest.json) and [usage ledger](research/communication_limit/comparison_runs/usage_ledger.json) preserve the audit trail. Requested/returned model IDs match; a fixed underlying weight revision and account-wide spending are not verified.
+Detailed [analysis](../comparison_runs/20261024T071350Z_comparison/comparison_analysis.json), [inference provenance](../comparison_runs/20261024T071350Z_comparison/provenance.json), [analysis manifest](../comparison_runs/20261024T071350Z_comparison/analysis_manifest.json) and [usage ledger](../comparison_runs/usage_ledger.json) preserve the audit trail. Requested/returned model IDs match; a fixed underlying weight revision and account-wide spending are not verified.
 
 ## Usage and credit
 

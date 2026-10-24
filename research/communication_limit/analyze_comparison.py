@@ -165,10 +165,10 @@ def analyze(batch):
     sources=batch/"analysis_source"
     sources.mkdir(exist_ok=True)
     hashes={}
-    paths=[Path(__file__),Path(__file__).with_name("audit_session.py"),REPO/"COMPARISON_PROTOCOL.md"]
+    paths=[Path(__file__),Path(__file__).with_name("audit_session.py"),REPO/"research/communication_limit/docs/COMPARISON_PROTOCOL.md"]
     paths+=list((Path(__file__).parent/"conditions").glob("*_results.md"))
-    if (REPO/"COMPARISON_RESULTS.md").exists():
-        paths.append(REPO/"COMPARISON_RESULTS.md")
+    if (REPO/"research/communication_limit/docs/COMPARISON_RESULTS.md").exists():
+        paths.append(REPO/"research/communication_limit/docs/COMPARISON_RESULTS.md")
     for source in paths:
         target=sources/source.name
         shutil.copyfile(source,target)

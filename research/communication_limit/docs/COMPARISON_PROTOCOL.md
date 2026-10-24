@@ -1,5 +1,7 @@
 # Communication-limit comparison
 
+> Historical auction pilot document. The active project is [Cleanup recovery](../../../RESEARCH.md). Captured run inputs and source snapshots retain their original bytes and paths.
+
 Frozen before comparative inference: 2026-10-24 (Asia/Hong_Kong).
 
 ## Question and scope

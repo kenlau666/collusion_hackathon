@@ -1,5 +1,11 @@
 # Hackathon NY starter repo
 
+## Current research: recovery from harmful coordination
+
+Start with [RESEARCH.md](RESEARCH.md) for the pivot, question and progress. The [protocol](RECOVERY_PROTOCOL.md), [architecture](ARCHITECTURE.md) and [related work](RELATED_WORK.md) hold the detailed design. Edit the visual in [mermaid-diagram.mmd](mermaid-diagram.mmd). The design is documented; the recovery adapter and live experiments are pending.
+
+This fork is [kenlau666/collusion_hackathon](https://github.com/kenlau666/collusion_hackathon); the original starter is [poseidon-research/collusion_hackathon](https://github.com/poseidon-research/collusion_hackathon). Research work is on `codex/recovery-research`. Historical auction protocols and reports are under [research/communication_limit/docs](research/communication_limit/docs/COMPARISON_RESULTS.md); superseded drafts remain in Git history.
+
 Ten research codebases on LLM agents, collusion and multi-agent coordination, bundled so a
 team can clone once and start hacking. Every project runs on a normal laptop with **no GPU**,
 calling models **through a hosted inference provider** (Nebius or OpenRouter), configured once at the repo root. Some have other local

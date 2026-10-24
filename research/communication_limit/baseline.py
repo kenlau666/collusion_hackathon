@@ -280,7 +280,7 @@ def provenance(batch_dir):
     files = list((REPO/"llm-agent-collusion/src").rglob("*.py"))
     files += list((REPO/"llm-agent-collusion/src").rglob("*.jinja2"))
     files += list(Path(__file__).parent.glob("*.py"))
-    files += [REPO/"BASELINE_PROTOCOL.md", REPO/"AGENTS.md"]
+    files += [REPO/"research/communication_limit/docs/BASELINE_PROTOCOL.md", REPO/"AGENTS.md"]
     manifest = {}
     for path in sorted(files):
         relative = path.relative_to(REPO)

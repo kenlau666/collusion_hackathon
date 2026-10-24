@@ -4,7 +4,7 @@ Last updated: 2026-10-24 (Asia/Hong_Kong).
 
 **Selected direction:** recovery from harmful coordination in Cleanup, within llm-agent-collusion-2. **Status:** design, not an implemented or executed live experiment. Existing offline probes establish software behavior only. Novelty remains to be confirmed against the closest recovery methods before expanding inference.
 
-The readable project question and pivot rationale are in [DIAGNOSTIC_QUESTION.md](DIAGNOSTIC_QUESTION.md). The architecture is in [SYSTEM_MAP.md](SYSTEM_MAP.md) and the editable [Mermaid source](mermaid-diagram.mmd).
+The readable project question and pivot rationale are in [RESEARCH.md](RESEARCH.md). The code audit and context flow are in [ARCHITECTURE.md](ARCHITECTURE.md), alongside the editable [Mermaid source](mermaid-diagram.mmd).
 
 ## 1. Question and testable claim
 

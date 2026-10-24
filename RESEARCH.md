@@ -2,9 +2,16 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
-**Current direction: recovery in Cleanup, within llm-agent-collusion-2.** The user selected this pivot and requested replacement of the old plan. This document is the current project explanation. The detailed [experiment protocol](RECOVERY_PROTOCOL.md), [system map](SYSTEM_MAP.md) and editable [Mermaid architecture](mermaid-diagram.mmd) define the proposed study.
+**Current direction: recovery in Cleanup, within llm-agent-collusion-2.** The user selected this pivot and requested replacement of the old plan. This document is the current project explanation. The detailed [experiment protocol](RECOVERY_PROTOCOL.md), [system map](ARCHITECTURE.md) and editable [Mermaid architecture](mermaid-diagram.mmd) define the proposed study.
 
 **Status:** repository study and software probes completed; experiment designed; research adapter and live recovery experiments not yet implemented or run. The specific novelty claim remains unconfirmed.
+
+## Reading guide
+
+- **This file:** question, pivot rationale, progress and next action.
+- [Experiment protocol](RECOVERY_PROTOCOL.md): conditions, checkpoint, measures, analysis and execution limits.
+- [Architecture](ARCHITECTURE.md): actual code paths, software audit and recovery boundaries. Edit the visual in [mermaid-diagram.mmd](mermaid-diagram.mmd).
+- [Related work](RELATED_WORK.md): exact paper versions, overlap and novelty gate.
 
 ## Why we pivoted
 
@@ -14,7 +21,7 @@ We now investigate an operator problem: after identifying harmful coordination, 
 
 Cleanup makes those boundaries concrete through private channels, agent-local context, host-held membership and shared world consequences. It also provides productive cleaning and apple collection to measure alongside adverse targeting. This is a reason for choosing the setting, not proof that our research question is new.
 
-The former active plan has been replaced, rather than extended with another follow-up. Earlier planning versions are in [the archive](research/archive/20261024_before_recovery_pivot/manifest.json); completed auction protocols, data and results remain historical evidence.
+The former plan has been replaced. Completed auction protocols, data and results remain [historical evidence](research/communication_limit/docs/COMPARISON_RESULTS.md). Superseded planning notes are recoverable in [Git history](https://github.com/kenlau666/collusion_hackathon/tree/d799350).
 
 ## Our open question
 
@@ -26,7 +33,7 @@ The architectural components under investigation are **channel access, context a
 
 ## What the repository actually contains
 
-The [code assessment](RECOVERY_ENVIRONMENT_ASSESSMENT.md) and [reproducible offline audit](research/recovery_environment/offline_audit.json) establish the following software facts:
+The [code assessment](ARCHITECTURE.md) and [reproducible offline audit](research/recovery_environment/offline_audit.json) establish the following software facts:
 
 - Agent-local alliance flags/context, the external private channel and world-level membership are separate objects. Local reset does not clear all of them.
 - The starter supplies strong alliance-attack instructions and gives members guaranteed distant zap hits. These can generate apparent persistence or harm mechanically.
@@ -74,9 +81,13 @@ An allowed zap or a score gap alone does not prove harmful coordination. Less ac
 
 The first feasibility plan uses six independent seed/prefix blocks, at most 36 recovery continuations, plus six no-channel reference episodes. Its proposed upper bound is 6,252 model-call attempts, with no retries or judge calls. This is a design ceiling, not permission to spend or a completed run. Six blocks provide feasibility evidence, not a strong general effectiveness claim.
 
-[Closest prior work](NOVEL_RESEARCH_DIRECTIONS.md) already covers persistence, targeted purification, dependency rollback, communication-edge selection and fresh recipients influenced by retained agents. Our possible contribution must identify an unresolved recovery boundary and a useful safety/performance tradeoff beyond those results. A simple adequate cleanup is a valid finding; it does not require an invented defense.
+[Closest prior work](RELATED_WORK.md) already covers persistence, targeted purification, dependency rollback, communication-edge selection and fresh recipients influenced by retained agents. Our possible contribution must identify an unresolved recovery boundary and a useful safety/performance tradeoff beyond those results. A simple adequate cleanup is a valid finding; it does not require an invented defense.
 
 If the neutral, equal-rules variant produces no eligible coordination, report that result and stop the recovery test. If residual effects come from changed world mechanics, invalid actions or existing incentives, narrow the claim. Do not force collusion or add a memory module just to obtain a positive result.
+
+## Current progress
+
+Repository tracing and offline software probes are complete. The six-arm experiment is specified. The precise literature gap is unconfirmed; the research adapter, snapshot dispatcher and live recovery tests are pending. No behavioral recovery result exists yet.
 
 ## Next action
 

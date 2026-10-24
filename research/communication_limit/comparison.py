@@ -125,7 +125,7 @@ def main():
         batch=directory/(datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")+"_comparison")
         batch.mkdir(exist_ok=False)
         provenance(batch)
-        protocol=REPO/"COMPARISON_PROTOCOL.md"
+        protocol=REPO/"research/communication_limit/docs/COMPARISON_PROTOCOL.md"
         shutil.copyfile(protocol,batch/"source/COMPARISON_PROTOCOL.md")
         saved_provenance=json.loads((batch/"provenance.json").read_text())
         saved_provenance["sha256"]["COMPARISON_PROTOCOL.md"]=hashlib.sha256(protocol.read_bytes()).hexdigest()

@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
-**Selected direction:** recovery in Cleanup within llm-agent-collusion-2. The user requested replacement of the previous plan; the earlier sixteen-candidate ideation screen is [archived](research/archive/20261024_before_recovery_pivot/manifest.json). The [current question](DIAGNOSTIC_QUESTION.md) and [experiment protocol](RECOVERY_PROTOCOL.md) govern the study.
+**Selected direction:** recovery in Cleanup within llm-agent-collusion-2. The user requested replacement of the previous plan; the superseded ideation screen is preserved in [Git history](https://github.com/kenlau666/collusion_hackathon/blob/d799350/research/archive/20261024_before_recovery_pivot/NOVEL_RESEARCH_DIRECTIONS.md). The [current question](RESEARCH.md) and [experiment protocol](RECOVERY_PROTOCOL.md) govern the study.
 
 **Novelty status: unconfirmed.** Choosing recovery, changing a benchmark or comparing several reset scopes does not establish a new contribution.
 
@@ -29,7 +29,7 @@ The broader [MAS security SoK, 2609.00595v1](https://arxiv.org/abs/2609.00595v1)
 
 ## Evidence and review limits
 
-The prior focused review inspected the relevant methods, threat models and selected appendices, not every source end to end. [Cached source manifests](research/novelty_directions/sources/manifest.json) and [memory/history sources](research/memory_prior_work/sources/manifest.json) preserve pinned PDFs and hashes. The local [environment audit](research/recovery_environment/offline_audit.json) is software evidence, not a replication of these papers.
+The prior focused review inspected the relevant methods, threat models and selected appendices, not every source end to end. [Cached source manifests](research/novelty_directions/sources/manifest.json) and [memory/history sources](research/memory_prior_work/sources/manifest.json) record pinned source URLs and hashes. Downloaded PDF/text caches remain local and are excluded from Git. The local [environment audit](research/recovery_environment/offline_audit.json) is software evidence, not a replication of these papers.
 
 Before expanding paid inference, write the one-paragraph contribution relative to the strongest applicable prior method and check its implementation/evaluation coverage. Include a serious simple baseline. The first six-arm feasibility study is a diagnostic design, not an innovation claim by itself.
 

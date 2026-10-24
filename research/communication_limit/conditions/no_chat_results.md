@@ -4,7 +4,7 @@ Last updated: 2026-10-24 (Asia/Hong_Kong)
 
 **Coverage: all 3 planned sessions reviewed (seeds 0, 1 and 2; all 45 rounds).** The no-chat condition completed with 270/270 successful calls and all three saved-context/action/delivery audits passing. No raw seller messages were generated or delivered; all 135 seller-message events were disabled. This report describes D alone and makes no cross-condition treatment-effect claim. Reviewer: Codex subagent, aware of condition, without blinded/external review or a paid judge. No inference was run by this reviewer.
 
-Frozen design: [comparison protocol](../../../COMPARISON_PROTOCOL.md). Batch: `research/communication_limit/comparison_runs/20261024T071350Z_comparison/no_chat/`. The [implementation review](no_chat_review.md) explains routing checks and interpretation limits.
+Frozen design: [comparison protocol](../docs/COMPARISON_PROTOCOL.md). Batch: `research/communication_limit/comparison_runs/20261024T071350Z_comparison/no_chat/`. The [implementation review](no_chat_review.md) explains routing checks and interpretation limits.
 
 ## Setup and integrity
 
