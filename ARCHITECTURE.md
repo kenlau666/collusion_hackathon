@@ -235,7 +235,7 @@ The [separate offer diagnostic](research/recovery_environment/offer_diagnostics/
 
 ## Construct-validity review — 2026-10-24
 
-[Offline audit and exact saved-input evidence](research/recovery_environment/construct_audits/20261024T124951Z/results.md): zero model calls or game steps; six seeded input/state fixtures and a scripted starter fixture passed. This section distinguishes the implemented adapter from the original starter. The source trace is `harness.py:127–158,190–250`, `run_study.py:72–90,143–232,301–340`, and starter `agents/llm_agent.py:32–70,197–305`, `agents/llm_client.py:54–83`, `games/secret_channel.py:24–50,430–476`.
+[Offline audit and exact saved-input evidence](research/recovery_environment/construct_audits/20261024T124951Z/results.md): zero model calls or game steps; six seeded input/state fixtures and a scripted starter fixture passed. This section distinguishes the implemented adapter from the original starter. The source trace is `harness.py:127–158,190–250`, `run_study.py:65–149,175–232,301–340`, and starter `agents/llm_agent.py:32–70,197–278`, `agents/llm_client.py:54–83`, `games/secret_channel.py:24–50,430–476`.
 
 ### State paths supplied to the model
 
@@ -313,3 +313,7 @@ The [census](research/recovery_environment/construct_audits/20261024T124951Z/sav
 control_target is retained by R5. The envelope condition `self.control_target is not None and aid in self.pair()` does not depend on active channel status, so the instructed control's target directive remains after closure/clearing (with partner rendered None). Six offline fixtures verify that counterexample. This does not change production behavior or reinterpret targeting controls as spontaneous coordination.
 
 The four historically cited initial agreement messages are overwritten before the saved action inputs read a retained record with those IDs. Later messages can carry the same plan. Agreement somewhere in the prefix does not guarantee the final retained record still represents that agreement. The existing eligibility rubric does not check final-slot relevance. Any additional relevance criterion is a proposed review issue, not an adopted eligibility change.
+
+**Decision implication:** [recommendation C](RESEARCH.md#construct-validity-decision--2026-10-24) concerns the current evidence and contribution case, not a production change. A retained-message intervention is valid in principle; adopting a broader persistent-state architecture or a different setting remains the user's decision.
+
+[Final offline verification](research/recovery_environment/construct_audits/20261024T124951Z/review_verification.json) checked all 18 offer-diagnostic supporting requests, the 2,033-call census, six literal record-visibility canary controls, available primary-source cache hashes, local document links, and 2,220 unchanged historical files. Zero model calls or game steps. [Verifier source](research/recovery_environment/verify_construct.py).
