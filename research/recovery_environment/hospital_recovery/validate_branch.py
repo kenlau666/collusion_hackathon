@@ -325,11 +325,15 @@ async def checks_for(template, seed):
         native_count_success = int(len(b.env.patient_states[pid]["scheduled_steps"]) == len(b.env.patients[pid]["pathway"]))
         assert native_count_success == 1 and care(b.env)[pid] == 0
         assert "noncanonical_step_index" in b.protocol.observations[-1]["argument_flags"]
+        observed = b.protocol.observations[-1]
+        assert observed["joint_reward"] is None and observed["local_sum"] is None
+        assert "KeyError" in observed["scoring_error"]
         proper = deepcopy(template)
         await serve(proper, proper.donor)
         assert care(proper.env)[pid] == 1
         return {"count_only_false_success": 1, "canonical_endpoint_false_success": 0,
-                "proper_completion_success": 1, "invalid_step_observed": -1}
+                "proper_completion_success": 1, "invalid_step_observed": -1,
+                "native_reward": None, "scoring_error": observed["scoring_error"]}
 
     async def malformed_attempt_accounting():
         b = select(deepcopy(template), "reserve")
@@ -369,6 +373,7 @@ async def run(outdir):
     frozen_hash = hashlib.sha256(FROZEN.read_bytes()).hexdigest()
     report = {"predeclaration_commit": "1443f11e", "started_at_utc": datetime.now(timezone.utc).isoformat(),
               "supplement_predeclaration_commit": "f0d13f2c",
+              "scoring_error_amendment_commit": "401c3a8d",
               "offline_import_stub": "socket.has_ipv6=False only during requests/native parser import; restored afterward",
               "kind": "offline native branch conformance; scripted, not LLM behavior", "per_seed": [],
               "external_inference_calls": 0, "paid_spend": 0, "llm_positive_controls": "unrun"}

@@ -198,13 +198,21 @@ class BranchProtocol(LocalCommunicationProtocol):
             self._record_tool_event(tool_name=tool_name, agent_name=agent_name, arguments=record_args,
                                     result=result, phase=phase, iteration=iteration)
         after = checkpoint(env)
-        joint, local = env._calculate_makespan_and_flow()
+        scoring_error = None
+        try:
+            joint, local = env._calculate_makespan_and_flow()
+            local_sum = sum(local.values())
+        except Exception as exc:
+            # Instrumentation must not change the native tool outcome or invent
+            # rewards when the native grader rejects a malformed resulting state.
+            joint = local_sum = None
+            scoring_error = f"{type(exc).__name__}: {exc}"
         self.observations.append({"actor": agent_name, "tool": tool_name, "arguments": deepcopy(arguments),
             "phase": phase, "status": result.get("status", "native"),
             "argument_flags": flags, "native_error": result.get("error"),
             "actual_state_changed": digest(before) != digest(after),
             "before": before, "after": after, "joint_reward": joint,
-            "local_sum": sum(local.values()), "care": care(env)})
+            "local_sum": local_sum, "scoring_error": scoring_error, "care": care(env)})
         if native_error is not None:
             raise native_error  # retain BaseAgent's native exception-to-tool-error behavior
         return result
