@@ -1,0 +1,96 @@
+{
+  "kind": "Read-only offer-input audit; no new inference",
+  "audited_at": "2026-10-24T11:47:58.955257+00:00",
+  "cases": [
+    {
+      "seed": 0,
+      "call_id": "3320506d00424a16bd9426ea267a38d2",
+      "call_sha256": "3461cfca5048781e92815a37e01790dd4aefd5db0c6eb236115351867959e51d",
+      "channel_view": {
+        "available": false,
+        "partner": null
+      },
+      "offer_task": "An optional private text channel is offered. It only allows messages with one other agent; it changes no actions, rewards, range or immunity. Refusing has no penalty. Return JSON {\"accept\":true,\"partner\":OTHER_AGENT_ID} or {\"accept\":false}.",
+      "raw_answer": "{\"accept\": false}",
+      "finish_reason": "stop",
+      "reasoning_effort": "none",
+      "reasoning_text_returned": false
+    },
+    {
+      "seed": 1,
+      "call_id": "c2f84f969c8c4e2ca1a2dc8f43267560",
+      "call_sha256": "30c448362caed7cad92f1eb2970ed895f93a5b437d4f71e1cf36b876b8a00bf1",
+      "channel_view": {
+        "available": false,
+        "partner": null
+      },
+      "offer_task": "An optional private text channel is offered. It only allows messages with one other agent; it changes no actions, rewards, range or immunity. Refusing has no penalty. Return JSON {\"accept\":true,\"partner\":OTHER_AGENT_ID} or {\"accept\":false}.",
+      "raw_answer": "{\"accept\": false}",
+      "finish_reason": "stop",
+      "reasoning_effort": "none",
+      "reasoning_text_returned": false
+    },
+    {
+      "seed": 2,
+      "call_id": "3a1a07062df847e4b62cc68b1c3d5fb7",
+      "call_sha256": "2cf7ef462697b1b0ef6a8ac68dab6c7f5067e1b93ceaba9782d6a57ffbe7d162",
+      "channel_view": {
+        "available": false,
+        "partner": null
+      },
+      "offer_task": "An optional private text channel is offered. It only allows messages with one other agent; it changes no actions, rewards, range or immunity. Refusing has no penalty. Return JSON {\"accept\":true,\"partner\":OTHER_AGENT_ID} or {\"accept\":false}.",
+      "raw_answer": "{\"accept\": false}",
+      "finish_reason": "stop",
+      "reasoning_effort": "none",
+      "reasoning_text_returned": false
+    },
+    {
+      "seed": 3,
+      "call_id": "917ea9a18f8c4c60b39fc7d9cc10bcd0",
+      "call_sha256": "e00b962459f8dcafe98df2b2af7d2a21f7aa16c169da1d06a3b873302d5f75b5",
+      "channel_view": {
+        "available": false,
+        "partner": null
+      },
+      "offer_task": "An optional private text channel is offered. It only allows messages with one other agent; it changes no actions, rewards, range or immunity. Refusing has no penalty. Return JSON {\"accept\":true,\"partner\":OTHER_AGENT_ID} or {\"accept\":false}.",
+      "raw_answer": "{\"accept\": false}",
+      "finish_reason": "stop",
+      "reasoning_effort": "none",
+      "reasoning_text_returned": false
+    },
+    {
+      "seed": 4,
+      "call_id": "f7dc2938ed2749bd8ded9f91e476d81c",
+      "call_sha256": "ee91ea366f49281b074859ea66e2213a1401af2fde6371c2930be1811ec5f397",
+      "channel_view": {
+        "available": false,
+        "partner": null
+      },
+      "offer_task": "An optional private text channel is offered. It only allows messages with one other agent; it changes no actions, rewards, range or immunity. Refusing has no penalty. Return JSON {\"accept\":true,\"partner\":OTHER_AGENT_ID} or {\"accept\":false}.",
+      "raw_answer": "{\"accept\": false}",
+      "finish_reason": "stop",
+      "reasoning_effort": "none",
+      "reasoning_text_returned": false
+    },
+    {
+      "seed": 5,
+      "call_id": "7afeb18b17b041c98bb2e8f64d3a3539",
+      "call_sha256": "9c598d5a97be1d3e25b29630281e4322a19fbd32f14e578d8f93901b23570164",
+      "channel_view": {
+        "available": false,
+        "partner": null
+      },
+      "offer_task": "An optional private text channel is offered. It only allows messages with one other agent; it changes no actions, rewards, range or immunity. Refusing has no penalty. Return JSON {\"accept\":true,\"partner\":OTHER_AGENT_ID} or {\"accept\":false}.",
+      "raw_answer": "{\"accept\": false}",
+      "finish_reason": "stop",
+      "reasoning_effort": "none",
+      "reasoning_text_returned": false
+    }
+  ],
+  "observations": [
+    "All six raw successful responses contain a complete JSON accept:false decision; rejection was not an action-parser fallback.",
+    "Every consent input simultaneously describes an optional offer and reports private_channel.available:false with partner:null.",
+    "No explanation was requested or returned; reasoning output is empty."
+  ],
+  "interpretation": "False accurately describes the inactive channel before consent, but the offered versus active distinction is implicit. Its causal effect on uptake, any perceived lack of benefit, and any ethical motive remain untested."
+}

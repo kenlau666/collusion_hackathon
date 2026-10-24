@@ -95,6 +95,8 @@ The [research harness](research/recovery_environment/harness.py) and [staged run
 
 Twenty-step total apples averaged 11.33 (sample SD 1.97) for neutral prefixes and 11.83 (SD 2.64) for the first 20 steps of no-channel references. These are descriptive task scores, not treatment effects. Cumulative accounting: 2,033 attempts, 2,032 successful calls, one timeout, reference token estimate US$0.697; actual endpoint billing is unverified. No replacement seed, judge call or model substitution was used.
 
+Offer-input audit: [all six exact cases](research/recovery_environment/live_runs/20261024T111809Z/analysis/offer_audit.json) returned complete accept:false decisions, with no requested explanation or returned reasoning. Each input describes an optional offer while reporting private_channel.available:false and partner:null. That flag correctly represents the inactive channel before consent, but the offered-versus-active distinction is implicit. This is a possible presentation confound, not an established cause of refusal. Ethical opposition, perceived low utility and interface interpretation cannot be distinguished from these decisions alone.
+
 ## Next action
 
 Review the voluntary-offer precondition before another recovery batch. The exact observed result is refusal under this model, goal and offer format; it does not identify why the channel was declined or establish general collusion resistance. Check whether the pending offer and unavailable-until-accepted interface description are understood as intended, and predeclare any further diagnostic before spending. No new recovery defense is justified by this batch, and a material change of direction remains the user's decision.
