@@ -4,7 +4,7 @@ Last updated: 2026-10-24 (Asia/Hong_Kong).
 
 **Current direction: recovery in Cleanup, within llm-agent-collusion-2.** The user selected this pivot and requested replacement of the old plan. This document is the current project explanation. The detailed [experiment protocol](RECOVERY_PROTOCOL.md), [system map](ARCHITECTURE.md) and editable [Mermaid architecture](mermaid-diagram.mmd) define the proposed study.
 
-**Status:** recovery harness implemented and validated offline; scripted positive control passed all six seeds. The live dispatcher is being implemented; no recovery model calls have run. The specific novelty claim remains unconfirmed.
+**Status:** recovery harness implemented and validated offline; scripted positive control passed all six seeds. The staged live dispatcher and accounting gates are implemented and validated; behavioral positive controls are next. No recovery model calls have run at this pre-dispatch checkpoint. The specific novelty claim remains unconfirmed.
 
 ## Reading guide
 
@@ -89,10 +89,10 @@ If the neutral, equal-rules variant produces no eligible coordination, report th
 
 ## Current progress
 
-The [research harness](research/recovery_environment/harness.py) now implements equal directional zaps, exact phase-level measurements, isolated world RNG streams, context/channel boundaries and JSON-restorable checkpoints. **Results:** [offline validation](research/recovery_environment/offline_runs/20261024T095408Z/results.md) passed eight checks and the scripted positive control on seeds 0–5 (6/6), with a matched nonattacking baseline. These are software findings; the live dispatcher and behavioral positive controls remain pending. No behavioral recovery result exists yet.
+The [research harness](research/recovery_environment/harness.py) now implements equal directional zaps, exact phase-level measurements, isolated world RNG streams, context/channel boundaries and JSON-restorable checkpoints. **Results:** [offline validation](research/recovery_environment/offline_runs/20261024T095635Z/results.md) passed eight checks and the scripted positive control on seeds 0–5 (6/6), with a matched nonattacking baseline. These are software findings; the dispatcher passed five additional network-blocked checks, and behavioral positive controls are next. No behavioral recovery result exists yet.
 
 ## Next action
 
-Implement and validate the research adapter described in [RECOVERY_PROTOCOL.md](RECOVERY_PROTOCOL.md), including snapshots, actual input logging, revocation, event metrics and the scripted positive control. Complete the exact novelty overlap check and freeze the instructed behavioral control, model, sample and spending limits before any live feasibility run. The main recovery continuations also depend on demonstrated behavioral-control sensitivity.
+Run the six instructed behavioral positive controls under the frozen [protocol](RECOVERY_PROTOCOL.md). Review all control outcomes before the six neutral prefixes/no-channel references; determine eligibility from prefixes before any recovery continuations. Preserve every attempted seed and any failed control. The specific novelty claim remains unconfirmed after the pre-execution overlap review.
 
 Question refinement uses the pinned [Orchestra Research Idea Brainstorming skill, v1.0.0](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md), through its problem-first, failure-analysis and simplicity lenses. The skill does not establish experimental validity or novelty.

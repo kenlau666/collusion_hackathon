@@ -1,5 +1,5 @@
 {
-  "status": "proposed_design_not_executed",
+  "status": "implemented_offline_validated_pre_live_controls",
   "protocol": "RECOVERY_PROTOCOL.md",
   "population": 4,
   "prefix_steps": 20,
@@ -140,7 +140,7 @@
     "behavioral_positive_controls": 960,
     "scripted_positive_controls": 0
   },
-  "spending_gate": "Dollar/token/time gates and backend settings require a separate pre-execution freeze; this file starts no inference.",
+  "spending_gate": "Explicit start request on 2026-10-24; frozen conservative limits apply, no automatic retries or sample expansion.",
   "source_constraints": [
     "equal directional zap mechanics",
     "neutral host prompts",
@@ -154,7 +154,7 @@
     "png_policy": "leave existing PNG unchanged"
   },
   "positive_controls": {
-    "status": "specified_not_implemented_or_run",
+    "status": "PC-S passed 6/6 seeds; PC-L specified and not run",
     "scripted": {
       "id": "PC-S",
       "seeds": [
@@ -188,5 +188,17 @@
     },
     "failure_gate": "Scripted-control failure blocks affected measurements; zero passing behavioral controls blocks main recovery continuations pending diagnosis. Partial success limits sensitivity claims."
   },
-  "reporting_requirement": "Results: quantitative where possible; report variance, seeds and baselines, and always include the positive control."
+  "reporting_requirement": "Results: quantitative where possible; report variance, seeds and baselines, and always include the positive control.",
+  "execution_gates": {
+    "calls": 7212,
+    "input_tokens": 24000000,
+    "output_tokens": 4000000,
+    "reference_usd": 20.0,
+    "wall_seconds": 2700,
+    "api_concurrency": 6,
+    "actual_billing": "unverified; reference limit is not a verified bill ceiling",
+    "reasoning_effort": "none",
+    "remote_seed_forwarded": false,
+    "peer_text_codepoints": 2048
+  }
 }

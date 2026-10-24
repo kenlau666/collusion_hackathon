@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
-**Selected direction:** recovery from harmful coordination in Cleanup, within llm-agent-collusion-2. **Status:** design, not an implemented or executed live experiment. Existing offline probes establish software behavior only. Novelty remains to be confirmed against the closest recovery methods before expanding inference.
+**Selected direction:** recovery from harmful coordination in Cleanup, within llm-agent-collusion-2. **Status:** harness and staged dispatcher implemented; offline validation passed; live positive controls are the next phase. Existing completed probes establish software behavior only. Novelty remains to be confirmed against the closest recovery methods before expanding inference.
 
 The readable project question and pivot rationale are in [RESEARCH.md](RESEARCH.md). The code audit and context flow are in [ARCHITECTURE.md](ARCHITECTURE.md), alongside the editable [Mermaid source](mermaid-diagram.mmd).
 
@@ -32,7 +32,7 @@ Use the local Cleanup code at starter Git revision d585a7b3be50366cc2bdf5789bf8a
 
 These settings are a proposed initial configuration, not a completed endpoint test. If the backend cannot support the stated interface, revise the protocol before dispatching inference.
 
-## 3. Common research variant: required before comparing arms
+## 3. Common research variant: implemented before comparing arms
 
 All arms use the same variant from the first step. Apply these changes once, rather than making them part of one recovery treatment:
 
@@ -160,7 +160,9 @@ Each active-channel step has at most four action calls plus four private exchang
 | Scripted positive controls | 0 |
 | **Revised proposed ceiling, including positive controls** | **7,212** |
 
-The previous 6,252-call design omitted positive controls. The user's reporting requirement adds at most 960 calls for PC-L; those episodes initialize the instructed pair directly and make no separate consent calls. This is a proposed accounting change, not authorization to spend. The ceiling includes no retries, judge calls, model comparisons or expansion. A dollar ceiling and wall-clock limit must be fixed from the adapter's verified usage/cost information before execution; none is assumed from the old auction authorization. Log every attempted call and stop on a violated budget/accounting gate. A task to update documentation does not start these runs.
+The user explicitly requested starting the experiment on 2026-10-24. The dispatcher is frozen with these conservative gates: **7,212 total attempts, 24 million input tokens, 4 million output tokens, US$20 reference token estimate, 2,700 seconds for the entire live study including phase review, and API concurrency six**. The rates (US$0.30/million input and US$1.20/million output) are reference assumptions from the earlier deployment, not verified current endpoint charges. Actual billing remains unverified and is reported separately; the US$20 gate must not be represented as a verified dollar-bill ceiling. Missing usage, transport failures, model mismatch or any exceeded reservation stops dispatch; no retries or automatic replacements. Requests use reasoning_effort none, with no remote seed forwarding. Latest peer text is capped at 2,048 Unicode code points, with raw versus delivered values logged.
+
+The previous 6,252-call design omitted positive controls. The user's reporting requirement adds at most 960 calls for PC-L; those episodes initialize the instructed pair directly and make no separate consent calls. This accounting change is included in the bounded execution requested by the user; it does not authorize expanding the sample or replacing failures. The ceiling includes no retries, judge calls, model comparisons or expansion. The frozen token/reference-cost/time limits above apply to this run; no old auction budget is silently reused. Log every attempted call and stop on a violated budget/accounting gate. A task to update documentation does not start these runs.
 
 ## 9. Readiness and stopping rules
 
@@ -168,4 +170,4 @@ Required before live inference: neutral prompt review; equal-transition fixture;
 
 Stop or narrow the claim if the controlled variant produces no eligible coordination, apparent benefit is explained by changed transition rules or invalid-output fallbacks, useful cooperation collapses, the local retained context is too thin to support the hypothesis, or existing simple cleanup already addresses the proposed contribution. Preserve null, contradictory and failed runs.
 
-Current completed evidence is [the offline starter audit](research/recovery_environment/offline_audit.json). No live recovery results exist. The next action is implementing and validating this research adapter, not launching the native tournament.
+Current completed evidence includes [the starter audit](research/recovery_environment/offline_audit.json), [eight harness checks and six seeded PC-S fixtures](research/recovery_environment/offline_runs/20261024T095635Z/results.md), and five network-blocked dispatcher checks. The [staged runner](research/recovery_environment/run_study.py) is implemented. PC-L and the main live study remain unrun at this pre-dispatch checkpoint. Controls run first; prefix eligibility is reviewed before any recovery branch. The source/configuration freeze and exact requests are saved with each live batch.

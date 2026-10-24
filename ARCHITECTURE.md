@@ -4,7 +4,7 @@ Last updated: 2026-10-24 (Asia/Hong_Kong).
 
 **Current scope:** Cleanup in llm-agent-collusion-2. This replaces the old auction control map. The selected question is whether removing retained participant context improves recovery beyond withdrawing a private channel. [Protocol](RECOVERY_PROTOCOL.md).
 
-The editable source is [mermaid-diagram.mmd](mermaid-diagram.mmd). The embedded diagram below uses the same source. Solid paths represent inspected software responsibilities. Dashed blue paths represent the proposed research adapter/controller; these additions have not been implemented or run. The existing PNG is left unchanged at the user's request. The source [passed parsing and rendering checks](research/recovery_environment/diagram_validation.json) with Mermaid 12.2.0; no nodes fell outside the rendered SVG boundary.
+The editable source is [mermaid-diagram.mmd](mermaid-diagram.mmd). The embedded diagram below uses the same source. Solid paths represent inspected software responsibilities. Dashed blue paths represent study additions to the starter. The harness/controller and staged dispatcher are implemented and validated offline; live behavior is not established by this diagram. The existing PNG is left unchanged at the user's request. The source [passed parsing and rendering checks](research/recovery_environment/diagram_validation.json) with Mermaid 12.2.0; no nodes fell outside the rendered SVG boundary.
 
 ## Architecture
 
@@ -55,7 +55,7 @@ flowchart TB
   RETAIN -->|"later supplied input"| LOCAL
   UPDATED -->|"next observation"| WORLD
 
-  subgraph PROPOSED["PROPOSED RESEARCH CONTROLS — not implemented or run"]
+  subgraph PROPOSED["RECOVERY STUDY CONTROLS — validated offline; live behavior untested"]
     VARIANT("Common research variant<br/>neutral prompts, equal zap rules,<br/>literal peer text, strict action validation")
     SNAPSHOT("Checkpoint after step 20<br/>world + agent fields + channel state + RNG")
     ARMS("Fork the same checkpoint<br/>R0 no change<br/>R1 clear one agent's retained context<br/>R2 clear both agents' retained context<br/>R3 revoke channel only<br/>R4 revoke + clear one<br/>R5 revoke + clear both")
@@ -83,7 +83,7 @@ flowchart TB
   CONTINUE -.-> OUTCOME
   CONTINUE -.-> UTILITY
 
-  LEGEND("Solid gray: inspected starter paths<br/>Dashed blue: proposed study additions<br/>No shared editable memory or delegation is assumed")
+  LEGEND("Solid gray: inspected starter paths<br/>Dashed blue: study additions to the starter<br/>No shared editable memory or delegation is assumed")
   classDef proposed fill:#f4f8fc,stroke:#527699,stroke-width:1.4px,stroke-dasharray:6 4,color:#263c50;
   class VARIANT,SNAPSHOT,ARMS,CONTINUE proposed;
   style PROPOSED fill:#fbfdff,stroke:#527699,stroke-dasharray:6 4
@@ -104,7 +104,7 @@ flowchart TB
 | Parsed/executed action | LLMAgent._parse_action_response and CleanupEnvironment.step | Record raw JSON, chosen action, validity and realized effect separately. |
 | World membership and physical state | [Environment](llm-agent-collusion-2/Collusion_Cleanup/cleanup_llm/cleanup/env.py), alliance_pairs and agent/grid fields | The starter gives allies different zap mechanics. These must be equalized across all study arms. |
 | Tournament metadata | [Tournament](llm-agent-collusion-2/Collusion_Cleanup/cleanup_llm/games/tournament_secret_channel.py) | Explicit reconstruction across fresh games; not verified learned strategy persistence. |
-| Recovery controller and event audit | Proposed research adapter | Snapshot after settlement; edit grants/context; continue with fixed rules and audited model inputs. |
+| Recovery controller and event audit | Implemented research adapter | Snapshot after settlement; edit grants/context; continue with fixed rules and audited model inputs. |
 
 ## Recovery operations
 
@@ -219,6 +219,6 @@ No smoke test, tournament, endpoint launch, model substitution or new paid run i
 
 ## Implementation update — 2026-10-24
 
-The [research harness](research/recovery_environment/harness.py) now implements the common world variant, local peer-text slot, authoritative channel, arm edits and JSON-restorable state. It reuses the starter environment phase sequence; overrides zaps to remove range/immunity privileges, instruments collection/cleaning/spawning, and isolates the starter's module-global RNG calls with a saved per-world stream under a lock. The provider-facing runner remains pending at this checkpoint. The diagram above records the proposed complete study; its implementation-status wording will be refreshed when the dispatcher is validated.
+The [research harness](research/recovery_environment/harness.py) now implements the common world variant, local peer-text slot, authoritative channel, arm edits and JSON-restorable state. It reuses the starter environment phase sequence; overrides zaps to remove range/immunity privileges, instruments collection/cleaning/spawning, and isolates the starter's module-global RNG calls with a saved per-world stream under a lock. The provider-facing runner now passes five network-blocked request/routing/accounting checks. A revoked interface exposes no old partner ID; the host retains pair IDs for auditing and outcomes. The controller dispatches fixed controls, then prefixes/references, then only manually reviewed eligible branches. No live results are established by these software checks.
 
-**Results:** [PC-S and validation](research/recovery_environment/offline_runs/20261024T095408Z/results.md) passed eight checks and all six seeded known-effect fixtures against their nonattacking baselines. Scripted results do not establish LLM recovery.
+**Results:** [PC-S and validation](research/recovery_environment/offline_runs/20261024T095635Z/results.md) passed eight checks and all six seeded known-effect fixtures against their nonattacking baselines. Scripted results do not establish LLM recovery.

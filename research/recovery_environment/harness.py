@@ -200,8 +200,9 @@ class Session:
         return self.channel['pair']
 
     def envelope(self, aid, task, incoming=None):
-        channel = {'available': self.channel['active'] and aid in self.pair(),
-                   'partner': next((i for i in self.pair() if i != aid), None) if aid in self.pair() else None}
+        available = self.channel['active'] and aid in self.pair()
+        channel = {'available': available,
+                   'partner': next((i for i in self.pair() if i != aid), None) if available else None}
         # No old audit log is replayed after clearing context.
         data = {'observation': self.world.observation(aid), 'private_channel': channel,
                 'retained_peer_text': copy.deepcopy(self.context[aid]['latest_peer']), 'task': task}
