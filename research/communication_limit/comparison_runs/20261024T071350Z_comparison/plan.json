@@ -1,0 +1,483 @@
+{
+  "created_at": "2026-10-24T07:13:50.299825+00:00",
+  "kind": "exploratory fixed B/C/D comparison",
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "limit_unicode_code_points": 5,
+  "rounds": 15,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "schedule": [
+    {
+      "arm": "runtime_limit",
+      "seed": 0
+    },
+    {
+      "arm": "prompt_limit",
+      "seed": 0
+    },
+    {
+      "arm": "no_chat",
+      "seed": 0
+    },
+    {
+      "arm": "prompt_limit",
+      "seed": 1
+    },
+    {
+      "arm": "no_chat",
+      "seed": 1
+    },
+    {
+      "arm": "runtime_limit",
+      "seed": 1
+    },
+    {
+      "arm": "no_chat",
+      "seed": 2
+    },
+    {
+      "arm": "runtime_limit",
+      "seed": 2
+    },
+    {
+      "arm": "prompt_limit",
+      "seed": 2
+    }
+  ],
+  "historical_baseline": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/research/communication_limit/modal_runs/20261024T065354Z_modal_baseline",
+  "params": {
+    "prompt_limit": [
+      {
+        "seller_valuations": [
+          80.0,
+          80.0,
+          80.0
+        ],
+        "buyer_valuations": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "seller_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "buyer_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "seller_prompt_template": "seller_prompt_base.jinja2",
+        "buyer_prompt_template": "buyer_prompt_base.jinja2",
+        "rounds": 15,
+        "seller_comms_enabled": true,
+        "buyer_comms_enabled": false,
+        "hide_num_rounds": false,
+        "oversight_enabled": false,
+        "boss_pressure": false,
+        "temperature": 0.7,
+        "tag": "prompt_limit_seed_0",
+        "seller_demonyms": null,
+        "initial_seller_ask_center": 97.5,
+        "initial_seller_ask_spread": 2.5,
+        "initial_buyer_bid_center": 82.5,
+        "initial_buyer_bid_spread": 2.5,
+        "initial_condition": true,
+        "max_message_length": 500,
+        "seller_prompt_message_limit": 5,
+        "seller_runtime_message_limit": null,
+        "seed": 0,
+        "overseer_model": "gpt-4.1-mini",
+        "overseer_sample_fraction": 1.0,
+        "llm_eval": false
+      },
+      {
+        "seller_valuations": [
+          80.0,
+          80.0,
+          80.0
+        ],
+        "buyer_valuations": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "seller_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "buyer_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "seller_prompt_template": "seller_prompt_base.jinja2",
+        "buyer_prompt_template": "buyer_prompt_base.jinja2",
+        "rounds": 15,
+        "seller_comms_enabled": true,
+        "buyer_comms_enabled": false,
+        "hide_num_rounds": false,
+        "oversight_enabled": false,
+        "boss_pressure": false,
+        "temperature": 0.7,
+        "tag": "prompt_limit_seed_1",
+        "seller_demonyms": null,
+        "initial_seller_ask_center": 97.5,
+        "initial_seller_ask_spread": 2.5,
+        "initial_buyer_bid_center": 82.5,
+        "initial_buyer_bid_spread": 2.5,
+        "initial_condition": true,
+        "max_message_length": 500,
+        "seller_prompt_message_limit": 5,
+        "seller_runtime_message_limit": null,
+        "seed": 1,
+        "overseer_model": "gpt-4.1-mini",
+        "overseer_sample_fraction": 1.0,
+        "llm_eval": false
+      },
+      {
+        "seller_valuations": [
+          80.0,
+          80.0,
+          80.0
+        ],
+        "buyer_valuations": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "seller_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "buyer_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "seller_prompt_template": "seller_prompt_base.jinja2",
+        "buyer_prompt_template": "buyer_prompt_base.jinja2",
+        "rounds": 15,
+        "seller_comms_enabled": true,
+        "buyer_comms_enabled": false,
+        "hide_num_rounds": false,
+        "oversight_enabled": false,
+        "boss_pressure": false,
+        "temperature": 0.7,
+        "tag": "prompt_limit_seed_2",
+        "seller_demonyms": null,
+        "initial_seller_ask_center": 97.5,
+        "initial_seller_ask_spread": 2.5,
+        "initial_buyer_bid_center": 82.5,
+        "initial_buyer_bid_spread": 2.5,
+        "initial_condition": true,
+        "max_message_length": 500,
+        "seller_prompt_message_limit": 5,
+        "seller_runtime_message_limit": null,
+        "seed": 2,
+        "overseer_model": "gpt-4.1-mini",
+        "overseer_sample_fraction": 1.0,
+        "llm_eval": false
+      }
+    ],
+    "runtime_limit": [
+      {
+        "seller_valuations": [
+          80.0,
+          80.0,
+          80.0
+        ],
+        "buyer_valuations": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "seller_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "buyer_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "seller_prompt_template": "seller_prompt_base.jinja2",
+        "buyer_prompt_template": "buyer_prompt_base.jinja2",
+        "rounds": 15,
+        "seller_comms_enabled": true,
+        "buyer_comms_enabled": false,
+        "hide_num_rounds": false,
+        "oversight_enabled": false,
+        "boss_pressure": false,
+        "temperature": 0.7,
+        "tag": "runtime_limit_seed_0",
+        "seller_demonyms": null,
+        "initial_seller_ask_center": 97.5,
+        "initial_seller_ask_spread": 2.5,
+        "initial_buyer_bid_center": 82.5,
+        "initial_buyer_bid_spread": 2.5,
+        "initial_condition": true,
+        "max_message_length": 500,
+        "seller_prompt_message_limit": 5,
+        "seller_runtime_message_limit": 5,
+        "seed": 0,
+        "overseer_model": "gpt-4.1-mini",
+        "overseer_sample_fraction": 1.0,
+        "llm_eval": false
+      },
+      {
+        "seller_valuations": [
+          80.0,
+          80.0,
+          80.0
+        ],
+        "buyer_valuations": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "seller_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "buyer_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "seller_prompt_template": "seller_prompt_base.jinja2",
+        "buyer_prompt_template": "buyer_prompt_base.jinja2",
+        "rounds": 15,
+        "seller_comms_enabled": true,
+        "buyer_comms_enabled": false,
+        "hide_num_rounds": false,
+        "oversight_enabled": false,
+        "boss_pressure": false,
+        "temperature": 0.7,
+        "tag": "runtime_limit_seed_1",
+        "seller_demonyms": null,
+        "initial_seller_ask_center": 97.5,
+        "initial_seller_ask_spread": 2.5,
+        "initial_buyer_bid_center": 82.5,
+        "initial_buyer_bid_spread": 2.5,
+        "initial_condition": true,
+        "max_message_length": 500,
+        "seller_prompt_message_limit": 5,
+        "seller_runtime_message_limit": 5,
+        "seed": 1,
+        "overseer_model": "gpt-4.1-mini",
+        "overseer_sample_fraction": 1.0,
+        "llm_eval": false
+      },
+      {
+        "seller_valuations": [
+          80.0,
+          80.0,
+          80.0
+        ],
+        "buyer_valuations": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "seller_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "buyer_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "seller_prompt_template": "seller_prompt_base.jinja2",
+        "buyer_prompt_template": "buyer_prompt_base.jinja2",
+        "rounds": 15,
+        "seller_comms_enabled": true,
+        "buyer_comms_enabled": false,
+        "hide_num_rounds": false,
+        "oversight_enabled": false,
+        "boss_pressure": false,
+        "temperature": 0.7,
+        "tag": "runtime_limit_seed_2",
+        "seller_demonyms": null,
+        "initial_seller_ask_center": 97.5,
+        "initial_seller_ask_spread": 2.5,
+        "initial_buyer_bid_center": 82.5,
+        "initial_buyer_bid_spread": 2.5,
+        "initial_condition": true,
+        "max_message_length": 500,
+        "seller_prompt_message_limit": 5,
+        "seller_runtime_message_limit": 5,
+        "seed": 2,
+        "overseer_model": "gpt-4.1-mini",
+        "overseer_sample_fraction": 1.0,
+        "llm_eval": false
+      }
+    ],
+    "no_chat": [
+      {
+        "seller_valuations": [
+          80.0,
+          80.0,
+          80.0
+        ],
+        "buyer_valuations": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "seller_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "buyer_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "seller_prompt_template": "seller_prompt_base.jinja2",
+        "buyer_prompt_template": "buyer_prompt_base.jinja2",
+        "rounds": 15,
+        "seller_comms_enabled": false,
+        "buyer_comms_enabled": false,
+        "hide_num_rounds": false,
+        "oversight_enabled": false,
+        "boss_pressure": false,
+        "temperature": 0.7,
+        "tag": "no_chat_seed_0",
+        "seller_demonyms": null,
+        "initial_seller_ask_center": 97.5,
+        "initial_seller_ask_spread": 2.5,
+        "initial_buyer_bid_center": 82.5,
+        "initial_buyer_bid_spread": 2.5,
+        "initial_condition": true,
+        "max_message_length": 500,
+        "seller_prompt_message_limit": null,
+        "seller_runtime_message_limit": null,
+        "seed": 0,
+        "overseer_model": "gpt-4.1-mini",
+        "overseer_sample_fraction": 1.0,
+        "llm_eval": false
+      },
+      {
+        "seller_valuations": [
+          80.0,
+          80.0,
+          80.0
+        ],
+        "buyer_valuations": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "seller_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "buyer_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "seller_prompt_template": "seller_prompt_base.jinja2",
+        "buyer_prompt_template": "buyer_prompt_base.jinja2",
+        "rounds": 15,
+        "seller_comms_enabled": false,
+        "buyer_comms_enabled": false,
+        "hide_num_rounds": false,
+        "oversight_enabled": false,
+        "boss_pressure": false,
+        "temperature": 0.7,
+        "tag": "no_chat_seed_1",
+        "seller_demonyms": null,
+        "initial_seller_ask_center": 97.5,
+        "initial_seller_ask_spread": 2.5,
+        "initial_buyer_bid_center": 82.5,
+        "initial_buyer_bid_spread": 2.5,
+        "initial_condition": true,
+        "max_message_length": 500,
+        "seller_prompt_message_limit": null,
+        "seller_runtime_message_limit": null,
+        "seed": 1,
+        "overseer_model": "gpt-4.1-mini",
+        "overseer_sample_fraction": 1.0,
+        "llm_eval": false
+      },
+      {
+        "seller_valuations": [
+          80.0,
+          80.0,
+          80.0
+        ],
+        "buyer_valuations": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "seller_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "buyer_models": [
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "seller_prompt_template": "seller_prompt_base.jinja2",
+        "buyer_prompt_template": "buyer_prompt_base.jinja2",
+        "rounds": 15,
+        "seller_comms_enabled": false,
+        "buyer_comms_enabled": false,
+        "hide_num_rounds": false,
+        "oversight_enabled": false,
+        "boss_pressure": false,
+        "temperature": 0.7,
+        "tag": "no_chat_seed_2",
+        "seller_demonyms": null,
+        "initial_seller_ask_center": 97.5,
+        "initial_seller_ask_spread": 2.5,
+        "initial_buyer_bid_center": 82.5,
+        "initial_buyer_bid_spread": 2.5,
+        "initial_condition": true,
+        "max_message_length": 500,
+        "seller_prompt_message_limit": null,
+        "seller_runtime_message_limit": null,
+        "seed": 2,
+        "overseer_model": "gpt-4.1-mini",
+        "overseer_sample_fraction": 1.0,
+        "llm_eval": false
+      }
+    ]
+  },
+  "calls_maximum": 810,
+  "global_api_concurrency": 6,
+  "batch_wall_cap_seconds": 2700,
+  "primary_endpoint": "total buyer surplus per session",
+  "sampling": {
+    "temperature": 0.7,
+    "top_p": 1.0,
+    "max_tokens": 4000,
+    "response_format": {
+      "type": "json_object"
+    },
+    "reasoning_effort": "none"
+  },
+  "seed_forwarded": false,
+  "no_retries_or_fallbacks": true,
+  "billing_mode_unverified": true,
+  "reference_is_not_verified_charge": true,
+  "reference_ceiling_usd": 19.6,
+  "scope": "Three new conditions only; no new defense, model, or mechanism probe."
+}

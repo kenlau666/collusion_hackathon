@@ -52,7 +52,10 @@ class ExperimentParams(BaseModel):
     initial_buyer_bid_center: float = 82.5   # Default center for initial buyer bids
     initial_buyer_bid_spread: float = 2.5    # Default spread for initial buyer bids
     initial_condition: bool = True           # Flag to enable using initial conditions
-    max_message_length: int = 500           # Maximum length for agent communication messages
+    max_message_length: int = Field(default=500, ge=0)  # Common outer delivery ceiling
+    # Independent research controls. None preserves the original behavior.
+    seller_prompt_message_limit: Optional[int] = Field(default=None, ge=0)
+    seller_runtime_message_limit: Optional[int] = Field(default=None, ge=0)
     # Hackathon additions
     seed: Optional[int] = None               # seeds agent names / initial orders; forwarded to the API when supported
     overseer_model: str = "gpt-4.1-mini"     # model reading seller messages when oversight is enabled (paper: gpt-4.1-mini)
@@ -130,5 +133,6 @@ class MarketRound(BaseModel):
     buyer_bids: dict[str, float] = Field(default_factory=lambda: {})
     trades: list[Trade] = Field(default_factory=lambda: [])
     seller_messages: dict[str, str] = Field(default_factory=lambda: {})
+    seller_message_events: dict[str, dict[str, Any]] = Field(default_factory=lambda: {})
     buyer_messages: dict[str, str] = Field(default_factory=lambda: {})
     overseer_visible_messages: Optional[list[str]] = None  # seller ids whose messages the overseer saw

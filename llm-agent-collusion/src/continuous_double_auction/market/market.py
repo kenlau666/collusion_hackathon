@@ -113,8 +113,15 @@ class Market(BaseModel):
             prev_seller_msgs = {}
             prev_buyer_msgs = {}
             if len(self.rounds) > 0:
-                prev_seller_msgs = self.rounds[-1].seller_messages
-                prev_buyer_msgs = self.rounds[-1].buyer_messages
+                prev_seller_msgs = dict(self.rounds[-1].seller_messages)
+                prev_buyer_msgs = dict(self.rounds[-1].buyer_messages)
+
+            # Every agent in this round sees the same starting public snapshot.
+            # Live queues are changed as completed futures are processed below.
+            bid_queue_snapshot = list(self.buyer_bid_queue)
+            ask_queue_snapshot = list(self.seller_ask_queue)
+            past_orders_snapshot = self.formatted_past_bids_and_asks
+            past_trades_snapshot = self.formatted_past_trades
 
             def get_agent_bid_response(agent: Agent, **kwargs) -> tuple[Agent, AgentBidResponse]:
                 # Pass previous round's messages relevant to the agent type
@@ -134,10 +141,10 @@ class Market(BaseModel):
                     executor.submit(get_agent_bid_response,
                                     agent=agent,
                                     round_num=self.current_round.round_number,
-                                    bid_queue=self.buyer_bid_queue,
-                                    ask_queue=self.seller_ask_queue,
-                                    past_bids_and_asks=self.formatted_past_bids_and_asks,
-                                    past_trades=self.formatted_past_trades,
+                                    bid_queue=list(bid_queue_snapshot),
+                                    ask_queue=list(ask_queue_snapshot),
+                                    past_bids_and_asks=past_orders_snapshot,
+                                    past_trades=past_trades_snapshot,
                                     agent_successful_trades=self.get_agent_successful_trades(agent.id),
                                     ): agent
                     for agent in agents
@@ -154,13 +161,7 @@ class Market(BaseModel):
                             else:
                                 # Add ask if provided and not null
                                 self.add_seller_ask(agent, agent_bid_response["ask"])
-                        # Collect message if comms enabled and message provided
-                        if agent.expt_params.seller_comms_enabled and agent_bid_response.get("message_to_sellers"):
-                           message = agent_bid_response["message_to_sellers"]
-                           # Truncate message if it exceeds max_message_length
-                           if len(message) > agent.expt_params.max_message_length:
-                               message = message[:agent.expt_params.max_message_length]
-                           self.current_round.seller_messages[agent.id] = message
+                        self.record_seller_message(agent, agent_bid_response.get("message_to_sellers"))
 
                     elif agent in self.buyers:
                         # Handle bid based on response
@@ -196,6 +197,34 @@ class Market(BaseModel):
                         self.is_gag_order_active = True
 
             self.start_new_round()
+
+
+    def record_seller_message(self, agent: Agent, raw_message: Optional[str]):
+        """Apply delivery policy and preserve the generated/delivered distinction."""
+        if raw_message is not None and not isinstance(raw_message, str):
+            raise ValueError(f"Seller message from {agent.id} must be a string or null")
+        params = agent.expt_params
+        delivery_limit = params.max_message_length
+        if params.seller_runtime_message_limit is not None:
+            delivery_limit = min(delivery_limit, params.seller_runtime_message_limit)
+        delivered = None
+        status = "disabled"
+        if params.seller_comms_enabled:
+            status = "absent" if raw_message is None else "empty"
+            if raw_message:
+                delivered = raw_message[:delivery_limit]
+                status = "truncated" if delivered != raw_message else "delivered"
+                self.current_round.seller_messages[agent.id] = delivered
+        self.current_round.seller_message_events[agent.id] = {
+            "round": self.current_round.round_number,
+            "raw_message": raw_message,
+            "delivered_message": delivered,
+            "raw_length": len(raw_message) if raw_message is not None else None,
+            "delivered_length": len(delivered) if delivered is not None else None,
+            "prompt_limit": params.seller_prompt_message_limit,
+            "effective_delivery_limit": delivery_limit,
+            "status": status,
+        }
 
 
     def sample_messages_for_overseer(self, messages: dict[str, str]) -> dict[str, str]:

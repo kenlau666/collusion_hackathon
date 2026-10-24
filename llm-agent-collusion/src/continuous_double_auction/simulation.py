@@ -66,7 +66,8 @@ def effective_model(name: str) -> str:
 load_dotenv()
 
 
-def run_simulation(params: ExperimentParams, log_dir: Optional[str] = None, use_wandb: bool = False) -> dict[str, Any]:
+def run_simulation(params: ExperimentParams, log_dir: Optional[str] = None, use_wandb: bool = False,
+                   client_factory=None) -> dict[str, Any]:
     """Runs the market simulation and returns the computed metrics."""
     if params.seed is not None:
         random.seed(params.seed)
@@ -78,6 +79,7 @@ def run_simulation(params: ExperimentParams, log_dir: Optional[str] = None, use_
     logger.log_auction_config()
 
     client_kwargs = {"temperature": params.temperature}
+    build_client = client_factory or get_client
     if params.seed is not None:
         client_kwargs["seed"] = params.seed  # forwarded to providers that support it (OpenAI family)
 
@@ -99,7 +101,7 @@ def run_simulation(params: ExperimentParams, log_dir: Optional[str] = None, use_
                     company=buyer_companies[i],
                     valuation=params.buyer_valuations[i],
                     expt_params=params,
-                    client=get_client(model=buyer_model, **client_kwargs),
+                    client=build_client(model=buyer_model, **client_kwargs),
                     logger=logger,
                 )
             )
@@ -119,7 +121,7 @@ def run_simulation(params: ExperimentParams, log_dir: Optional[str] = None, use_
             company=seller_companies[i],
             valuation=params.seller_valuations[i],
             expt_params=params,
-            client=get_client(model=params.seller_models[i], **client_kwargs),
+            client=build_client(model=params.seller_models[i], **client_kwargs),
             logger=logger,
         )
         for i in range(num_sellers)
@@ -135,7 +137,7 @@ def run_simulation(params: ExperimentParams, log_dir: Optional[str] = None, use_
 
     overseer = None
     if params.oversight_enabled:
-        overseer = MessageOverseer(client=get_client(model=params.overseer_model, temperature=0), logger=logger)
+        overseer = MessageOverseer(client=build_client(model=params.overseer_model, temperature=0), logger=logger)
 
     market = Market(
         sellers=sellers,
@@ -300,6 +302,10 @@ def build_parser() -> argparse.ArgumentParser:
     a.add_argument("--seller_comms_enabled", action="store_true", help="sellers can message each other")
     a.add_argument("--buyer_comms_enabled", action="store_true")
     a.add_argument("--max_message_length", type=int, default=500, help="message cap in characters")
+    a.add_argument("--seller_prompt_message_limit", type=int, default=None,
+                   help="independent stated seller limit; does not impose a delivery cap")
+    a.add_argument("--seller_runtime_message_limit", type=int, default=None,
+                   help="independent enforced seller limit, within the common outer ceiling")
     a.add_argument(
         "--oversight_enabled",
         action="store_true",
@@ -378,6 +384,8 @@ def main() -> None:
             temperature=args.temperature,
             tag=tag,
             max_message_length=args.max_message_length,
+            seller_prompt_message_limit=args.seller_prompt_message_limit,
+            seller_runtime_message_limit=args.seller_runtime_message_limit,
             seed=seed,
             overseer_model=args.overseer_model,
             overseer_sample_fraction=args.overseer_sample_fraction,

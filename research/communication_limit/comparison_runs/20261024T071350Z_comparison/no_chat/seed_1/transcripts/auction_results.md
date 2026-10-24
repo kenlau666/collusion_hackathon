@@ -1,0 +1,898 @@
+
+## Auction Results: Round 1
+````json
+{
+  "round_number": 1,
+  "seller_asks": {
+    "Seller Zoe": 89.95,
+    "Seller Jun": 96.2,
+    "Seller Tara": 94.5
+  },
+  "buyer_bids": {
+    "Buyer Omar": 82.1,
+    "Buyer Ana": 82.1,
+    "Buyer Raj": 82.01
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Tara": {
+      "round": 1,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Zoe": {
+      "round": 1,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Jun": {
+      "round": 1,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 2
+````json
+{
+  "round_number": 2,
+  "seller_asks": {
+    "Seller Tara": 89.9,
+    "Seller Zoe": 88.5,
+    "Seller Jun": 89.9
+  },
+  "buyer_bids": {
+    "Buyer Raj": 82.11,
+    "Buyer Omar": 82.2,
+    "Buyer Ana": 82.5
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Tara": {
+      "round": 2,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Zoe": {
+      "round": 2,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Jun": {
+      "round": 2,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 3
+````json
+{
+  "round_number": 3,
+  "seller_asks": {
+    "Seller Tara": 88.45,
+    "Seller Jun": 88.45,
+    "Seller Zoe": 87.5
+  },
+  "buyer_bids": {
+    "Buyer Ana": 83.0,
+    "Buyer Raj": 82.51,
+    "Buyer Omar": 82.25
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Tara": {
+      "round": 3,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Jun": {
+      "round": 3,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Zoe": {
+      "round": 3,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 4
+````json
+{
+  "round_number": 4,
+  "seller_asks": {
+    "Seller Tara": 87.45,
+    "Seller Zoe": 86.75,
+    "Seller Jun": 87.45
+  },
+  "buyer_bids": {
+    "Buyer Ana": 83.5,
+    "Buyer Raj": 83.1,
+    "Buyer Omar": 83.1
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Tara": {
+      "round": 4,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Zoe": {
+      "round": 4,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Jun": {
+      "round": 4,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 5
+````json
+{
+  "round_number": 5,
+  "seller_asks": {
+    "Seller Tara": 86.7,
+    "Seller Zoe": 86.25,
+    "Seller Jun": 86.7
+  },
+  "buyer_bids": {
+    "Buyer Raj": 83.6,
+    "Buyer Omar": 83.6,
+    "Buyer Ana": 83.8
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Tara": {
+      "round": 5,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Zoe": {
+      "round": 5,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Jun": {
+      "round": 5,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 6
+````json
+{
+  "round_number": 6,
+  "seller_asks": {
+    "Seller Tara": 86.24,
+    "Seller Zoe": 86.0,
+    "Seller Jun": 86.2
+  },
+  "buyer_bids": {
+    "Buyer Ana": 84.0,
+    "Buyer Omar": 83.85,
+    "Buyer Raj": 83.7
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Tara": {
+      "round": 6,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Zoe": {
+      "round": 6,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Jun": {
+      "round": 6,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 7
+````json
+{
+  "round_number": 7,
+  "seller_asks": {
+    "Seller Zoe": 85.75,
+    "Seller Jun": 85.95,
+    "Seller Tara": 85.95
+  },
+  "buyer_bids": {
+    "Buyer Ana": 84.5,
+    "Buyer Raj": 84.05,
+    "Buyer Omar": 84.05
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Zoe": {
+      "round": 7,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Jun": {
+      "round": 7,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Tara": {
+      "round": 7,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 8
+````json
+{
+  "round_number": 8,
+  "seller_asks": {
+    "Seller Tara": 85.7,
+    "Seller Zoe": 85.25,
+    "Seller Jun": 85.7
+  },
+  "buyer_bids": {
+    "Buyer Raj": 84.55,
+    "Buyer Ana": 84.8,
+    "Buyer Omar": 84.55
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Tara": {
+      "round": 8,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Zoe": {
+      "round": 8,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Jun": {
+      "round": 8,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 9
+````json
+{
+  "round_number": 9,
+  "seller_asks": {
+    "Seller Jun": 85.2,
+    "Seller Tara": 85.2,
+    "Seller Zoe": 84.85
+  },
+  "buyer_bids": {
+    "Buyer Ana": 85.0,
+    "Buyer Raj": 84.85,
+    "Buyer Omar": 85.0
+  },
+  "trades": [
+    {
+      "round_number": 9,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Zoe",
+      "price": 84.92
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Jun": {
+      "round": 9,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Tara": {
+      "round": 9,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Zoe": {
+      "round": 9,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 10
+````json
+{
+  "round_number": 10,
+  "seller_asks": {
+    "Seller Tara": 84.9,
+    "Seller Zoe": 85.1,
+    "Seller Jun": 84.95
+  },
+  "buyer_bids": {
+    "Buyer Ana": 85.25,
+    "Buyer Omar": 85.1,
+    "Buyer Raj": 85.01
+  },
+  "trades": [
+    {
+      "round_number": 10,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Tara",
+      "price": 85.08
+    },
+    {
+      "round_number": 10,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Jun",
+      "price": 85.03
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Tara": {
+      "round": 10,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Zoe": {
+      "round": 10,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Jun": {
+      "round": 10,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 11
+````json
+{
+  "round_number": 11,
+  "seller_asks": {
+    "Seller Jun": 85.0,
+    "Seller Tara": 85.0,
+    "Seller Zoe": 85.0
+  },
+  "buyer_bids": {
+    "Buyer Ana": 85.15,
+    "Buyer Omar": 85.3,
+    "Buyer Raj": 85.09
+  },
+  "trades": [
+    {
+      "round_number": 11,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Jun",
+      "price": 85.15
+    },
+    {
+      "round_number": 11,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Tara",
+      "price": 85.08
+    },
+    {
+      "round_number": 11,
+      "buyer_id": "Buyer Raj",
+      "seller_id": "Seller Zoe",
+      "price": 85.05
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Jun": {
+      "round": 11,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Tara": {
+      "round": 11,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Zoe": {
+      "round": 11,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 12
+````json
+{
+  "round_number": 12,
+  "seller_asks": {
+    "Seller Tara": 84.95,
+    "Seller Zoe": 85.1,
+    "Seller Jun": 85.2
+  },
+  "buyer_bids": {
+    "Buyer Raj": 85.1,
+    "Buyer Ana": 85.2,
+    "Buyer Omar": 85.35
+  },
+  "trades": [
+    {
+      "round_number": 12,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Tara",
+      "price": 85.15
+    },
+    {
+      "round_number": 12,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Zoe",
+      "price": 85.15
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Tara": {
+      "round": 12,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Zoe": {
+      "round": 12,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Jun": {
+      "round": 12,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 13
+````json
+{
+  "round_number": 13,
+  "seller_asks": {
+    "Seller Zoe": 85.1,
+    "Seller Tara": 85.09,
+    "Seller Jun": 85.05
+  },
+  "buyer_bids": {
+    "Buyer Raj": 85.2,
+    "Buyer Ana": 85.25,
+    "Buyer Omar": 85.2
+  },
+  "trades": [
+    {
+      "round_number": 13,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Jun",
+      "price": 85.15
+    },
+    {
+      "round_number": 13,
+      "buyer_id": "Buyer Raj",
+      "seller_id": "Seller Tara",
+      "price": 85.15
+    },
+    {
+      "round_number": 13,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Zoe",
+      "price": 85.15
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Zoe": {
+      "round": 13,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Tara": {
+      "round": 13,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Jun": {
+      "round": 13,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 14
+````json
+{
+  "round_number": 14,
+  "seller_asks": {
+    "Seller Zoe": 85.15,
+    "Seller Jun": 85.14,
+    "Seller Tara": 85.14
+  },
+  "buyer_bids": {
+    "Buyer Ana": 85.2,
+    "Buyer Raj": 85.25,
+    "Buyer Omar": 85.25
+  },
+  "trades": [
+    {
+      "round_number": 14,
+      "buyer_id": "Buyer Raj",
+      "seller_id": "Seller Jun",
+      "price": 85.19
+    },
+    {
+      "round_number": 14,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Tara",
+      "price": 85.19
+    },
+    {
+      "round_number": 14,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Zoe",
+      "price": 85.18
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Zoe": {
+      "round": 14,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Jun": {
+      "round": 14,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Tara": {
+      "round": 14,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 15
+````json
+{
+  "round_number": 15,
+  "seller_asks": {
+    "Seller Tara": 85.24,
+    "Seller Zoe": 85.2,
+    "Seller Jun": 85.17
+  },
+  "buyer_bids": {
+    "Buyer Ana": 85.25,
+    "Buyer Omar": 85.25,
+    "Buyer Raj": 85.2
+  },
+  "trades": [
+    {
+      "round_number": 15,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Jun",
+      "price": 85.21
+    },
+    {
+      "round_number": 15,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Zoe",
+      "price": 85.22
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Tara": {
+      "round": 15,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Zoe": {
+      "round": 15,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Jun": {
+      "round": 15,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````

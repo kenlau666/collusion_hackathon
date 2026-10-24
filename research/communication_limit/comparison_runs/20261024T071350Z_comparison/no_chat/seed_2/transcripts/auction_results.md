@@ -1,0 +1,942 @@
+
+## Auction Results: Round 1
+````json
+{
+  "round_number": 1,
+  "seller_asks": {
+    "Seller Lena": 96.3,
+    "Seller Kit": 96.3,
+    "Seller Mia": 89.99
+  },
+  "buyer_bids": {
+    "Buyer Ana": 82.5,
+    "Buyer Omar": 82.35,
+    "Buyer Nia": 82.5
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Lena": {
+      "round": 1,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Mia": {
+      "round": 1,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Kit": {
+      "round": 1,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 2
+````json
+{
+  "round_number": 2,
+  "seller_asks": {
+    "Seller Lena": 89.98,
+    "Seller Mia": 87.99,
+    "Seller Kit": 89.98
+  },
+  "buyer_bids": {
+    "Buyer Omar": 82.51,
+    "Buyer Nia": 83.0,
+    "Buyer Ana": 82.5
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Lena": {
+      "round": 2,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Mia": {
+      "round": 2,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Kit": {
+      "round": 2,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 3
+````json
+{
+  "round_number": 3,
+  "seller_asks": {
+    "Seller Mia": 86.99,
+    "Seller Lena": 87.98,
+    "Seller Kit": 87.98
+  },
+  "buyer_bids": {
+    "Buyer Omar": 83.01,
+    "Buyer Nia": 83.25,
+    "Buyer Ana": 83.01
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Mia": {
+      "round": 3,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Lena": {
+      "round": 3,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Kit": {
+      "round": 3,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 4
+````json
+{
+  "round_number": 4,
+  "seller_asks": {
+    "Seller Kit": 86.98,
+    "Seller Lena": 86.98,
+    "Seller Mia": 85.99
+  },
+  "buyer_bids": {
+    "Buyer Nia": 83.5,
+    "Buyer Ana": 83.26,
+    "Buyer Omar": 83.26
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Kit": {
+      "round": 4,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Lena": {
+      "round": 4,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Mia": {
+      "round": 4,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 5
+````json
+{
+  "round_number": 5,
+  "seller_asks": {
+    "Seller Kit": 85.98,
+    "Seller Lena": 85.48,
+    "Seller Mia": 84.99
+  },
+  "buyer_bids": {
+    "Buyer Nia": 83.75,
+    "Buyer Omar": 83.51,
+    "Buyer Ana": 83.51
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Kit": {
+      "round": 5,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Lena": {
+      "round": 5,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Mia": {
+      "round": 5,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 6
+````json
+{
+  "round_number": 6,
+  "seller_asks": {
+    "Seller Lena": 84.49,
+    "Seller Kit": 84.98,
+    "Seller Mia": 84.49
+  },
+  "buyer_bids": {
+    "Buyer Nia": 84.0,
+    "Buyer Omar": 83.8,
+    "Buyer Ana": 83.76
+  },
+  "trades": [],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Lena": {
+      "round": 6,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Kit": {
+      "round": 6,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Mia": {
+      "round": 6,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 7
+````json
+{
+  "round_number": 7,
+  "seller_asks": {
+    "Seller Mia": 84.25,
+    "Seller Lena": 83.99,
+    "Seller Kit": 84.48
+  },
+  "buyer_bids": {
+    "Buyer Ana": 84.01,
+    "Buyer Nia": 84.25,
+    "Buyer Omar": 84.05
+  },
+  "trades": [
+    {
+      "round_number": 7,
+      "buyer_id": "Buyer Nia",
+      "seller_id": "Seller Lena",
+      "price": 84.12
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Mia": {
+      "round": 7,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Lena": {
+      "round": 7,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Kit": {
+      "round": 7,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 8
+````json
+{
+  "round_number": 8,
+  "seller_asks": {
+    "Seller Kit": 84.24,
+    "Seller Mia": 84.11,
+    "Seller Lena": 84.04
+  },
+  "buyer_bids": {
+    "Buyer Nia": 84.1,
+    "Buyer Omar": 84.1,
+    "Buyer Ana": 84.13
+  },
+  "trades": [
+    {
+      "round_number": 8,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Lena",
+      "price": 84.09
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Kit": {
+      "round": 8,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Mia": {
+      "round": 8,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Lena": {
+      "round": 8,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 9
+````json
+{
+  "round_number": 9,
+  "seller_asks": {
+    "Seller Lena": 84.09,
+    "Seller Mia": 84.09,
+    "Seller Kit": 84.09
+  },
+  "buyer_bids": {
+    "Buyer Omar": 84.11,
+    "Buyer Nia": 84.12,
+    "Buyer Ana": 84.12
+  },
+  "trades": [
+    {
+      "round_number": 9,
+      "buyer_id": "Buyer Nia",
+      "seller_id": "Seller Kit",
+      "price": 84.11
+    },
+    {
+      "round_number": 9,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Lena",
+      "price": 84.11
+    },
+    {
+      "round_number": 9,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Mia",
+      "price": 84.1
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Lena": {
+      "round": 9,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Mia": {
+      "round": 9,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Kit": {
+      "round": 9,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 10
+````json
+{
+  "round_number": 10,
+  "seller_asks": {
+    "Seller Lena": 84.1,
+    "Seller Kit": 84.08,
+    "Seller Mia": 84.08
+  },
+  "buyer_bids": {
+    "Buyer Omar": 84.13,
+    "Buyer Ana": 84.12,
+    "Buyer Nia": 84.13
+  },
+  "trades": [
+    {
+      "round_number": 10,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Kit",
+      "price": 84.1
+    },
+    {
+      "round_number": 10,
+      "buyer_id": "Buyer Nia",
+      "seller_id": "Seller Mia",
+      "price": 84.1
+    },
+    {
+      "round_number": 10,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Lena",
+      "price": 84.11
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Lena": {
+      "round": 10,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Kit": {
+      "round": 10,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Mia": {
+      "round": 10,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 11
+````json
+{
+  "round_number": 11,
+  "seller_asks": {
+    "Seller Lena": 84.12,
+    "Seller Mia": 84.07,
+    "Seller Kit": 84.11
+  },
+  "buyer_bids": {
+    "Buyer Ana": 84.13,
+    "Buyer Omar": 84.14,
+    "Buyer Nia": 84.14
+  },
+  "trades": [
+    {
+      "round_number": 11,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Mia",
+      "price": 84.1
+    },
+    {
+      "round_number": 11,
+      "buyer_id": "Buyer Nia",
+      "seller_id": "Seller Kit",
+      "price": 84.12
+    },
+    {
+      "round_number": 11,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Lena",
+      "price": 84.12
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Lena": {
+      "round": 11,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Mia": {
+      "round": 11,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Kit": {
+      "round": 11,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 12
+````json
+{
+  "round_number": 12,
+  "seller_asks": {
+    "Seller Mia": 84.05,
+    "Seller Kit": 84.11,
+    "Seller Lena": 84.13
+  },
+  "buyer_bids": {
+    "Buyer Ana": 84.15,
+    "Buyer Nia": 84.13,
+    "Buyer Omar": 84.15
+  },
+  "trades": [
+    {
+      "round_number": 12,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Mia",
+      "price": 84.1
+    },
+    {
+      "round_number": 12,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Kit",
+      "price": 84.13
+    },
+    {
+      "round_number": 12,
+      "buyer_id": "Buyer Nia",
+      "seller_id": "Seller Lena",
+      "price": 84.13
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Mia": {
+      "round": 12,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Kit": {
+      "round": 12,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Lena": {
+      "round": 12,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 13
+````json
+{
+  "round_number": 13,
+  "seller_asks": {
+    "Seller Lena": 84.14,
+    "Seller Kit": 84.12,
+    "Seller Mia": 84.06
+  },
+  "buyer_bids": {
+    "Buyer Omar": 84.15,
+    "Buyer Ana": 84.16,
+    "Buyer Nia": 84.14
+  },
+  "trades": [
+    {
+      "round_number": 13,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Mia",
+      "price": 84.11
+    },
+    {
+      "round_number": 13,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Kit",
+      "price": 84.14
+    },
+    {
+      "round_number": 13,
+      "buyer_id": "Buyer Nia",
+      "seller_id": "Seller Lena",
+      "price": 84.14
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Lena": {
+      "round": 13,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Kit": {
+      "round": 13,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Mia": {
+      "round": 13,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 14
+````json
+{
+  "round_number": 14,
+  "seller_asks": {
+    "Seller Lena": 84.15,
+    "Seller Kit": 84.15,
+    "Seller Mia": 84.06
+  },
+  "buyer_bids": {
+    "Buyer Ana": 84.17,
+    "Buyer Nia": 84.15,
+    "Buyer Omar": 84.15
+  },
+  "trades": [
+    {
+      "round_number": 14,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Mia",
+      "price": 84.12
+    },
+    {
+      "round_number": 14,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Kit",
+      "price": 84.15
+    },
+    {
+      "round_number": 14,
+      "buyer_id": "Buyer Nia",
+      "seller_id": "Seller Lena",
+      "price": 84.15
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Lena": {
+      "round": 14,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Kit": {
+      "round": 14,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Mia": {
+      "round": 14,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````
+
+## Auction Results: Round 15
+````json
+{
+  "round_number": 15,
+  "seller_asks": {
+    "Seller Mia": 84.11,
+    "Seller Lena": 84.16,
+    "Seller Kit": 84.16
+  },
+  "buyer_bids": {
+    "Buyer Omar": 84.16,
+    "Buyer Ana": 84.18,
+    "Buyer Nia": 84.16
+  },
+  "trades": [
+    {
+      "round_number": 15,
+      "buyer_id": "Buyer Ana",
+      "seller_id": "Seller Mia",
+      "price": 84.15
+    },
+    {
+      "round_number": 15,
+      "buyer_id": "Buyer Omar",
+      "seller_id": "Seller Kit",
+      "price": 84.16
+    },
+    {
+      "round_number": 15,
+      "buyer_id": "Buyer Nia",
+      "seller_id": "Seller Lena",
+      "price": 84.16
+    }
+  ],
+  "seller_messages": {},
+  "seller_message_events": {
+    "Seller Mia": {
+      "round": 15,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Lena": {
+      "round": 15,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    },
+    "Seller Kit": {
+      "round": 15,
+      "raw_message": null,
+      "delivered_message": null,
+      "raw_length": null,
+      "delivered_length": null,
+      "prompt_limit": null,
+      "effective_delivery_limit": 500,
+      "status": "disabled"
+    }
+  },
+  "buyer_messages": {},
+  "overseer_visible_messages": null
+}
+````

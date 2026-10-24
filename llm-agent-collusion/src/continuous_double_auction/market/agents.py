@@ -280,6 +280,7 @@ class LMSeller(Agent):
             initial_condition=self.expt_params.initial_condition,
             oversight_enabled=self.expt_params.oversight_enabled,
             max_message_length=self.expt_params.max_message_length,
+            seller_prompt_message_limit=self.expt_params.seller_prompt_message_limit,
         )
         messages = [Message(role="user", content=prompt)]
         response = self.client.generate(messages=messages)

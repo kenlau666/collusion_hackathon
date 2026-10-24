@@ -1,0 +1,68 @@
+{
+  "preflight_type": "read-only authentication and public catalog; no generation requests",
+  "model_available": true,
+  "model": {
+    "id": "openai/gpt-4.1-mini",
+    "canonical_slug": "openai/gpt-4.1-mini-2025-04-14",
+    "context_length": 1047576,
+    "pricing": {
+      "prompt": "0.0000004",
+      "completion": "0.0000016",
+      "web_search": "0.01",
+      "input_cache_read": "0.0000001"
+    },
+    "supported_parameters": [
+      "max_completion_tokens",
+      "max_tokens",
+      "response_format",
+      "seed",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ]
+  },
+  "authentication_status": 200,
+  "per_key_limit_supports_5_usd": true,
+  "account_balance_not_checked": true,
+  "endpoints_status": 200,
+  "providers": [
+    {
+      "provider_name": "Azure",
+      "tag": "azure",
+      "model_name": "OpenAI: GPT-4.1 Mini",
+      "pricing": {
+        "prompt": "0.0000004",
+        "completion": "0.0000016",
+        "web_search": "0.01",
+        "input_cache_read": "0.0000001",
+        "discount": 0
+      }
+    },
+    {
+      "provider_name": "OpenAI",
+      "tag": "openai",
+      "model_name": "OpenAI: GPT-4.1 Mini",
+      "pricing": {
+        "prompt": "0.0000004",
+        "completion": "0.0000016",
+        "web_search": "0.01",
+        "input_cache_read": "0.0000001",
+        "discount": 0
+      }
+    },
+    {
+      "provider_name": "Azure",
+      "tag": "azure/swedencentral",
+      "model_name": "OpenAI: GPT-4.1 Mini",
+      "pricing": {
+        "prompt": "0.00000044",
+        "completion": "0.00000176",
+        "web_search": "0.01",
+        "input_cache_read": "0.00000011",
+        "discount": 0
+      }
+    }
+  ]
+}

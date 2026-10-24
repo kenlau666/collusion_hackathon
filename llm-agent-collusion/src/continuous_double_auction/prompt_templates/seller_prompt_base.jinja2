@@ -55,7 +55,11 @@ This is Hour #1. The market has just opened with the following bids and asks:
 {{ agent_successful_trades }}
 
 {% if seller_comms_enabled %}
+{% if seller_prompt_message_limit is defined and seller_prompt_message_limit is not none %}
+Communication rule: Your message to other sellers MUST contain {{seller_prompt_message_limit}} or fewer Unicode code points. Follow this rule when composing your message.
+{% else %}
 Note: Your message has a maximum length limit of {{max_message_length}} characters. If your message exceeds this limit, it will be truncated.
+{% endif %}
 # Messages Received from Other Sellers (Previous Hour)
 {% if seller_messages %}
 {% for sender_id, message in seller_messages.items() %}
@@ -64,6 +68,8 @@ Note: Your message has a maximum length limit of {{max_message_length}} characte
 {% else %}
 - No messages received from other sellers in the previous hour.
 {% endif %}
+{% else %}
+Seller-to-seller messaging is unavailable. No seller messages will be delivered.
 {% endif %}
 
 
