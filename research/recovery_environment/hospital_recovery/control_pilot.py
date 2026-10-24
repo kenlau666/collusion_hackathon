@@ -31,6 +31,7 @@ from budget_client import (MODEL_ID, CANONICAL_MODEL, PROVIDER_SLUG, BudgetError
 HERE = Path(__file__).resolve().parent
 ENDPOINT_URL = "https://openrouter.ai/api/v1/models/deepseek/deepseek-v3.2/endpoints"
 PREDECLARATION = "12cd5634"
+AMENDMENTS = ["031b2651"]
 SOURCE_FILES = ("branch_runtime.py", "budget_client.py", "control_pilot.py")
 
 
@@ -109,6 +110,7 @@ async def control_branch(seed, kind):
     b.boards = b.protocol.megaboard = boards
     b.protocol._env_tools = None
     b.env.prompts = ControlPrompts(b.env.prompts, b)
+    b.callback_attempts = []
     return b
 
 
@@ -129,12 +131,24 @@ def select_step(b, step):
                                json.dumps(step["arguments"], sort_keys=True) + ".")
 
 
+class ObservedControlAgent(BaseAgent):
+    async def _execute_tool_call(self, tool_name, tool_arguments):
+        attempt = {"actor": self.current_agent_name, "phase": self.current_phase,
+            "tool": tool_name, "arguments": deepcopy(tool_arguments),
+            "is_board_tool": tool_name in self.toolset_discovery.get_blackboard_tool_names()}
+        self.control_branch.callback_attempts.append(attempt)
+        result = await super()._execute_tool_call(tool_name, tool_arguments)
+        attempt["result"] = deepcopy(result)
+        return result
+
+
 async def native_turn(b, step, client, seed):
     select_step(b, step)
-    a = BaseAgent(client=client, name=step["actor"], model_name=MODEL_ID,
+    a = ObservedControlAgent(client=client, name=step["actor"], model_name=MODEL_ID,
         max_conversation_steps=1, environment_name="HospitalEnvironment",
         generation_params={"seed": 100 * seed + step["turn_index"], "max_tokens": 1024,
                            "temperature": 0, "reasoning": {"enabled": False}})
+    a.control_branch = b
     context = b.env.build_agent_context(step["actor"], step["phase"], 1)
     if step["phase"] == "planning":
         return await b.protocol.agent_planning_turn(a, step["actor"], context, b.env, 1, 1)
@@ -143,8 +157,13 @@ async def native_turn(b, step, client, seed):
 
 def result_for(b, kind, initial, steps, observations):
     events = b.protocol.observations
+    non_board = [a for a in b.callback_attempts if not a["is_board_tool"]]
     # One real environment attempt per designated turn; malformed/extra calls fail.
-    sequence = len(events) == len(steps)
+    sequence = len(events) == len(steps) == len(non_board)
+    sequence &= all(not a["result"].get("error") for a in b.callback_attempts)
+    for attempt, step in zip(non_board, steps):
+        sequence &= (attempt["actor"] == step["actor"] and attempt["tool"] == step["tool"] and
+                     attempt["arguments"] == step["arguments"])
     for event, step in zip(events, steps):
         sequence &= (event["actor"] == step["actor"] and event["tool"] == step["tool"] and
             event["arguments"] == step["arguments"] and event["actual_state_changed"] and
@@ -161,7 +180,8 @@ def result_for(b, kind, initial, steps, observations):
         "physical_recurrence": recurrence, "new_transfer_credit": credit,
         "patients_complete_without_failure": complete, "patients_total": 2,
         "resource_failures": failures, "environment_attempts": len(events),
-        "observations": deepcopy(events), "turn_outcomes": observations, "final": final}
+        "observations": deepcopy(events), "callback_attempts": deepcopy(b.callback_attempts),
+        "turn_outcomes": observations, "final": final}
 
 
 class MockControlTransport:
@@ -184,12 +204,16 @@ class MockControlTransport:
                 "completion_tokens_details": {"reasoning_tokens": 0}}})
 
 
-async def execute_controls(client, *, output=None):
+async def execute_controls(client, *, output=None, expected_bundle=None):
     results = []
     for kind in ("cycle", "service"):
         for seed in range(6):
             b = await control_branch(seed, kind)
             initial, steps, outcomes = checkpoint(b.env), steps_for(b, kind), []
+            if expected_bundle:
+                expected = json.loads((expected_bundle / f"{kind}_{seed}_root.json").read_text())
+                if digest(root_for(b, kind, seed)) != digest(expected):
+                    raise BudgetError("reconstructed root differs from authorized input")
             if output:
                 write_json(output / f"{kind}_{seed}_initial.json",
                            {"checkpoint": initial, "boards": board_state(b.boards), "steps": steps})
@@ -201,7 +225,8 @@ async def execute_controls(client, *, output=None):
                 if output:
                     write_json(output / f"{kind}_{seed}_turn_{step['turn_index']}.json",
                         {"outcome": outcome, "state": checkpoint(b.env),
-                         "observations": deepcopy(b.protocol.observations)})
+                         "observations": deepcopy(b.protocol.observations),
+                         "callback_attempts": deepcopy(b.callback_attempts)})
             result = {"seed": seed, **result_for(b, kind, initial, steps, outcomes)}
             results.append(result)
             if output:
@@ -233,6 +258,41 @@ def fetch_endpoint():
     return raw, critical_endpoint(json.loads(raw))
 
 
+def root_for(b, kind, seed):
+    return {"kind": kind, "seed": seed, "checkpoint": checkpoint(b.env),
+        "boards": board_state(b.boards), "steps": steps_for(b, kind),
+        "obligations": b.obligations, "source_actors": b.sources,
+        "closed_board_ids": sorted(b.boards.closed)}
+
+
+class InitialInputCapture(TogetherClient):
+    def __init__(self):
+        self.input, self.params = None, None
+
+    def generate_response(self, input, params):
+        self.input, self.params = deepcopy(input), deepcopy(params)
+        return {"choices": [{"message": {"role": "assistant", "content": ""}}], "usage": {}}, ""
+
+
+async def verify_initial_inputs(bundle):
+    from llm_server.clients.together_client import _convert_tools
+    call = 1
+    for kind in ("cycle", "service"):
+        for seed in range(6):
+            b = await control_branch(seed, kind)
+            frozen = json.loads((bundle / f"{kind}_{seed}_root.json").read_text())
+            if digest(root_for(b, kind, seed)) != digest(frozen):
+                raise BudgetError("reconstructed root differs from authorized input")
+            capture = InitialInputCapture()
+            await native_turn(b, steps_for(b, kind)[0], capture, seed)
+            expected = json.loads((bundle / "reference" / f"payload_{call:02}.json").read_text())
+            if (capture.input != expected["messages"] or
+                    _convert_tools(capture.params["tools"]) != expected["tools"] or
+                    capture.params["seed"] != expected["seed"]):
+                raise BudgetError("reconstructed initial model input differs from frozen input")
+            call += 2 if kind == "cycle" else 3
+
+
 async def prepare(directory, snapshot):
     directory.mkdir(parents=True, exist_ok=False)
     sources = directory / "sources"
@@ -247,10 +307,7 @@ async def prepare(directory, snapshot):
     for kind in ("cycle", "service"):
         for seed in range(6):
             b = await control_branch(seed, kind)
-            root = {"kind": kind, "seed": seed, "checkpoint": checkpoint(b.env),
-                    "boards": board_state(b.boards), "steps": steps_for(b, kind),
-                    "obligations": b.obligations, "source_actors": b.sources,
-                    "closed_board_ids": sorted(b.boards.closed)}
+            root = root_for(b, kind, seed)
             write_json(directory / f"{kind}_{seed}_root.json", root)
             roots.append(root)
     ledger = BudgetLedger(references / "mock_ledger", scope="controls")
@@ -265,7 +322,8 @@ async def prepare(directory, snapshot):
                     and module.__file__.endswith(".py")}
     native_hashes = {str(path): file_hash(path) for path in sorted(native_paths)}
     plan = {"schema_version": 1, "stage": "controls_only", "approved": False,
-        "predeclaration_commit": PREDECLARATION, "model": MODEL_ID, "version_label": CANONICAL_MODEL,
+        "predeclaration_commit": PREDECLARATION, "amendment_commits": AMENDMENTS,
+        "model": MODEL_ID, "version_label": CANONICAL_MODEL,
         "provider": PROVIDER_SLUG, "max_calls": 30, "max_usd": "1.50", "cases": 12,
         "scenario_seeds": list(range(6)), "main_runner_implemented": False,
         "native_sources": native_hashes,
@@ -311,6 +369,7 @@ def validated_authorization(bundle, authorization_file):
 
 async def run_live(bundle, authorization_file, output):
     authorization, plan_hash = validated_authorization(bundle, authorization_file)
+    await verify_initial_inputs(bundle)
     frozen = json.loads((bundle / "pricing_snapshot.json").read_text())["critical_endpoint"]
     raw, current = fetch_endpoint()
     if current != frozen:
@@ -327,7 +386,7 @@ async def run_live(bundle, authorization_file, output):
                                         expected_plan_sha256=plan_hash)
     client = BudgetedChatClient(ledger=ledger, transport=transport)
     try:
-        result = await execute_controls(client, output=output)
+        result = await execute_controls(client, output=output, expected_bundle=bundle)
     except Exception:
         write_json(output / "stopped.json", {"status": "failed_and_stopped", "ledger": ledger.summary(),
             "main_study_started": False, "detail": "See sanitized ledger and retained turn artifacts"})

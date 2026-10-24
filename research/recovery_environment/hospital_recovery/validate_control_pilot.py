@@ -29,7 +29,7 @@ try:
     from control_pilot import (HERE, PREDECLARATION, BudgetLedger, BudgetedChatClient,
         MockControlTransport, board_state, checkpoint, control_branch, digest,
         execute_controls, file_hash, native_turn, prepare, result_for, steps_for,
-        summary_stats, validated_authorization, verify_bundle, write_json)
+        summary_stats, validated_authorization, verify_bundle, verify_initial_inputs, write_json)
     from budget_client import BudgetError, MAX_PAYLOAD_BYTES
 finally:
     socket.has_ipv6 = _ipv6
@@ -68,6 +68,7 @@ async def validate(out, snapshot):
         return {"cases": 12, "scenario_families": 6, "mock_calls": 30}
 
     async def deterministic_inputs():
+        await verify_initial_inputs(bundle)
         second = out / "determinism_replay"
         await prepare(second, snapshot)
         compared = 0
@@ -137,6 +138,7 @@ async def validate(out, snapshot):
     async def batch():
         b = await control_branch(0, "service")
         initial, steps = checkpoint(b.env), steps_for(b, "service")
+        steps[0]["phase"] = "execution"  # Both tools advertised/legal in this probe.
         transport = MockControlTransport("batch")
         transport.branch, transport.step = b, steps[0]
         client = BudgetedChatClient(ledger=BudgetLedger(out / "batch_ledger"), transport=transport)
@@ -146,7 +148,20 @@ async def validate(out, snapshot):
         assert client.ledger.state["calls"] == 1 and len(b.protocol.observations) == 2
         assert all(r["actual_state_changed"] for r in b.protocol.observations)
         assert not result["passed"]
-        return {"generation_calls": 1, "native_environment_attempts": 2, "control_passed": False}
+        other = await control_branch(0, "service")
+        original, other_steps = checkpoint(other.env), steps_for(other, "service")
+        planning = MockControlTransport("batch")
+        planning.branch, planning.step = other, other_steps[0]
+        second = BudgetedChatClient(ledger=BudgetLedger(out / "rejected_batch_ledger"), transport=planning)
+        outcome = await native_turn(other, other_steps[0], second, 0)
+        rejected = result_for(other, "service", original, other_steps[:1], [outcome])
+        write_json(out / "rejected_batch_result.json", rejected)
+        assert second.ledger.state["calls"] == 1 and len(other.protocol.observations) == 1
+        assert len(other.callback_attempts) == 2 and not rejected["passed"]
+        assert "error" in other.callback_attempts[1]["result"]
+        return {"legal_batch_generations": 1, "legal_batch_environment_mutations": 2,
+                "rejected_batch_generations": 1, "rejected_batch_callbacks": 2,
+                "rejected_batch_environment_mutations": 1, "both_controls_failed": True}
 
     async def authorization():
         attempted = []

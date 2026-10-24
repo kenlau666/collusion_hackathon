@@ -1,8 +1,8 @@
 # Architecture — Hospital continuation and recovery proposal
 
-Last updated: 2026-10-24 (Asia/Hong_Kong).
+Last updated: 2026-10-25 (Asia/Hong_Kong).
 
-**Implemented/audited:** bundled `colosseum/` with pinned `terrarium-agents==0.1.1`; native feasibility gate and an offline guarded protocol tested through actual BaseAgent/TogetherClient parsing. **Proposed/unimplemented:** provider-integrated pilot runner, exact exposure/allocation/care-first inputs, spending configuration and LLM controls/main study. No inference ran. [Question/rating](RESEARCH.md), [protocol/results](RECOVERY_PROTOCOL.md), [prior-work limits](RELATED_WORK.md).
+**Implemented/audited:** bundled `colosseum/` with pinned `terrarium-agents==0.1.1`; native feasibility/guarded protocol, plus a frozen controls-only runner and budgeted provider adapter tested with injected replies. **Proposed/unimplemented:** full exposure/care-first pilot inputs and behavioral runner. LLM controls/main study are unrun and unauthorized. [Question/rating](RESEARCH.md), [protocol/results](RECOVERY_PROTOCOL.md), [prior-work limits](RELATED_WORK.md).
 
 ```mermaid
 ---
@@ -30,7 +30,7 @@ flowchart TB
   INPUT --> REPAIR
   subgraph DONE["Completed unpaid native and adapter checks"]
     SCRIPT["Native constructor/tools and guarded protocol<br/>scripted native chat parser, network blocked"]
-    RESULT["54 feasibility and 90 conformance checks<br/>six fixtures; scripted service controls pass; LLM unrun"]
+    RESULT["54 feasibility, 90 conformance, 24 budget and 8 workflow checks<br/>controls-only runner frozen; LLM unrun"]
     SCRIPT --> RESULT
   end
   STATE --> SCRIPT
@@ -71,7 +71,7 @@ For bonus zero, neutralize only newly accrued transfer credits in both joint and
 
 The last-kit diagnostic branches at a separate shared checkpoint after the useful donation, holding focal state fixed and varying a truthful scripted partner return/serve policy. Verify the subsequent native resource/care consequences before inference. Log full model batches rather than assuming the focal performs only one action.
 
-Before spending, conformance must check equal branch transitions, denial boundaries, delivered content, local/joint credit identities, useful transfers in both directions, care state after each event, native batch execution order, conservation and declared call caps. Complete exact payload/model/token/currency configuration and review before asking for run authorization. No live-run implementation, end-to-end provider replay or behavioral success is claimed by this architecture audit.
+Before the main study, conformance must check equal branch transitions, denial boundaries, delivered content, local/joint credit identities, useful transfers in both directions, care state after each event, native batch execution order, conservation and declared call caps. The controls stage now freezes its inputs/model/token/currency configuration, but no end-to-end live provider replay or behavioral success is claimed.
 
 Historical [Jira](https://github.com/kenlau666/collusion_hackathon/blob/90783fd4/ARCHITECTURE.md), [external](https://github.com/kenlau666/collusion_hackathon/blob/8fb1665d/ARCHITECTURE.md) and [Cleanup](https://github.com/kenlau666/collusion_hackathon/blob/4580fdf3/ARCHITECTURE.md) audits remain in Git; immutable captured evidence is unchanged.
 
@@ -93,4 +93,16 @@ The scripted client skips provider construction and retains native TogetherClien
 
 **Results:** [attempt004](research/recovery_environment/hospital_recovery/20261024/conformance_004/results.json) passes90/90 (72 original +18 supplemental) on seeds0–5, with zero network attempts and no inference. Scripted useful-service and last-kit positive controls pass6/6; full per-seed observations, baselines/variance, intentional failures and prior failed attempts are in [RECOVERY_PROTOCOL.md](RECOVERY_PROTOCOL.md#results-offline-native-branch-conformance). Attempt001 remains failed overall; attempt002 retains six native grader exceptions. The 90 passing checks do not claim general input fuzzing, concurrency/transport safety or LLM competence.
 
-The prototype uses control-marker boards and scripted actions; exact exploit/neutral public recommendations, the supplied care-allocation contract and care-first instructions are not implemented/frozen. No live request/retry/token/currency enforcement exists yet. Native client defaults to six retries, so the future paid path must explicitly disable/test retries. Prepare these missing inputs and runner before asking for inference authorization. The original six-dimension goal remains incomplete.
+The earlier prototype used control-marker boards. Subsequent controls-only work supplies the allocation contract and request/retry/currency enforcement below. Main exploit/neutral and care-first inputs remain unimplemented. The original six-dimension goal remains incomplete.
+
+## Controls-only provider path — implemented, live behavior untested
+
+[control_pilot.py](research/recovery_environment/hospital_recovery/control_pilot.py) implements only the12 competence cases/30calls; no automatic path to the main study exists. It rebuilds six frozen roots, uses logical board event IDs/timestamps in new prospective copies, keeps source action traces and exclusions, delivers the explicit allocation/reserve contract, and appends the designated native tool/arguments. Native schemas, fresh contexts, phase restrictions and complete batch execution remain. An observer subclass records every callback before delegating unchanged to BaseAgent, including rejected phase-disallowed/unknown attempts. Extra or erroneous non-board attempts fail qualification; they do not disappear because they failed before protocol dispatch.
+
+The bundle pins42 loaded native Python modules plus research sources, fixtures, board roots, pricing snapshot and30 scripted reference payloads. Before public metadata lookup, credential lookup or live construction, the runner verifies authorization/bundle hashes and reconstructs every initial root, message, tool schema and seed against that bundle. Each case root is checked again. Later contexts depend on actual replies; the durable ledger records the actual payload before each outward request. Reference trajectories are not falsely presented as exact future model trajectories.
+
+[budget_client.py](research/recovery_environment/hospital_recovery/budget_client.py) preserves native Together message/tool formatting, context, usage and batch parsing, skips its credential-loading constructor, and overrides retries to zero. The authorized transport alone owns headers/key, pins OpenRouter `deepseek/deepseek-v3.2` to `deepinfra/fp4` with no fallback, disables optional reasoning and requests1024output tokens. Verified TLS uses the installed certifi CA bundle. A preflight public GET must match the frozen endpoint's critical prices/limits/parameters. Only after those checks does the runner read `OPENROUTER_API_KEY` from the environment; it does not load credential files or use the shared automatic key selector.
+
+One serial ledger durably reserves USD0.049 before every actual transport invocation, capped at30calls/USD1.50; valid known cost settles/releases excess, whereas missing/malformed/excessive accounting, HTTP or transport failure retains the reservation and stops. Existing ledger directories cannot resume. The128KiB actual serialized UTF8 payload guard is separate from reported token bounds. Returned/saved responses are credential-redacted. All these are research controls under a trusted local host; independent ledgers do not coordinate shared-account charges, and metadata-based cost bounds assume published endpoint/billing limits. Mock passes do not certify live provider routing, reasoning or billing compliance.
+
+Budget003 passes24/24 injected checks. Workflow002 passes8/8; workflow001's7/8 failure is retained, including the bad planning-batch fixture that exposed missing callback accounting. A legal execution batch now yields two mutations in one generation, and the phase-disallowed planning counterpart yields one mutation plus two observed callbacks; both fail the one-designated-action control. The narrow independent re-review found the two reported gaps corrected. [Per-seed controls and quantitative limits](RECOVERY_PROTOCOL.md#results-controls-runner-offline-validation).

@@ -1,6 +1,6 @@
 # Hospital recovery through surviving peers
 
-Last updated: 2026-10-24 (Asia/Hong_Kong).
+Last updated: 2026-10-25 (Asia/Hong_Kong).
 
 **Recommended proposal: 8/10 for proposal quality and novelty potential, at the lower edge of 8.** This is the refined candidate from the resumed search within the bundled repository. It meets the proposal screen; it does not meet the earlier all-8 empirical-results objective. Behavioral readiness remains limited: no new LLM episode or behavioral positive control has run, and demonstrated novelty is unestablished. No inference spending is authorized.
 
@@ -17,7 +17,7 @@ The contribution would be a controlled recovery result linking **inherited expos
 | Operator value | 8 | Distinguishes removing culprit identities from restoring the workflow, while measuring the cost of restricting innocent coworkers. A synthetic Hospital result alone has limited external validity. |
 | Novelty potential | 8 | Precise causal/utility comparison beyond the inspected closest sources; all general principles are credited. This is a judgment about the proposed test, not an absence proof or demonstrated result. |
 | Discriminating design | 8 | Equal-checkpoint exposed/neutral branches; honest and unilateral references; native turn semantics; contingency diagnostic; attempts versus enforcement; actual bonus-zero and care-first baselines. Requires faithful implementation. |
-| Feasibility and simplicity | 8 | Native software gate passed, fixed six-scenario pilot capped at 534 generation calls including controls, simple repairs and explicit stop rules. Provider/token/currency settings and the live branch adapter are still unresolved. |
+| Feasibility and simplicity | 8 | Native software gate passed; a separate controls-only runner is frozen at30calls/USD1.50 with offline validation. The larger534-call study remains proposed, unimplemented and unauthorized. |
 
 Three subagents screened different bundled projects and challenged novelty. The initial Hospital reviews ranged **7–8**. The skeptical reviewer raised the refined proposal to the lower edge of **8**, conditional on a discriminating last-kit diagnostic and an explicit feasible reserve obligation; both are now specified in the protocol. One earlier reviewer retains 7 for the less specific version; do not present unanimous agreement. [Review record](research/recovery_environment/hospital_recovery/20261024/proposal_reviews.json). Ratings are fallible assessments, not measurements or votes establishing novelty.
 
@@ -40,6 +40,8 @@ The previous turn made progress by completing the native feasibility evidence an
 
 The offline adapter now passes **90/90 checks** across the same six frozen fixtures, with zero network attempts. All failed attempts are retained. It verifies native source/board boundaries, original/zero-bonus credits, bidirectional useful service, last-kit consequences, real batch ordering and malformed-action accounting. [Per-seed results and positive controls](RECOVERY_PROTOCOL.md#results-offline-native-branch-conformance). This is meaningful architecture progress; the scores remain **8,8,7,4,8,3** because actual matched pilot inputs/provider execution, LLM controls and behavioral novelty are still incomplete. No score is increased from scripted success alone.
 
+The next stage now has frozen **controls-only** inputs and a provider-capable runner: six cycle plus six care cases, at most30calls and USD1.50, pinned DeepSeekV3.2/DeepInfraFP4, no retries. Budget mocks pass24/24; corrected workflow validation passes8/8. The first workflow failure7/8 is retained. Scripted controls pass6/6 each; **LLM controls remain unrun**. This prepares a concrete qualification request, not the main exposure experiment, and leaves the original ratings unchanged. [Exact stage, results and limits](RECOVERY_PROTOCOL.md#results-controls-runner-offline-validation).
+
 ## The experiment that would earn a result
 
 Freeze six constructed native patient frontiers, original source actions and two public footprints: exploit plan versus matched useful-care plan. In every branch genuinely exclude original source actors and close their private board; hold physical state, current scoring information and task obligations fixed. Both remaining Ward actors receive native cooperative objectives. No new long-term memory is added.
@@ -48,7 +50,7 @@ Cross exposure with original settings, real transfer-bonus removal, a care-first
 
 The reserve rule uses one explicitly assigned pending care obligation per hospital, not every patient appearing in both native Ward queues. It allows either donation direction when the sender retains its required supplies. Test both shortage directions. Also test whether bonus correction or the care-first instruction reduces attempted gaming while every transfer remains legal. The gate is a simple baseline, not the proposed invention.
 
-**Next step:** prepare and compare the exact exploit/neutral, assigned-obligation and care-first inputs, then a provider-integrated runner and explicit request/token/currency budget for review. The completed offline adapter does not yet execute the proposed behavioral pilot. The fully specified design and positive-control gate are in [RECOVERY_PROTOCOL.md](RECOVERY_PROTOCOL.md); the actual native paths, proposed adapters and limits are in [ARCHITECTURE.md](ARCHITECTURE.md). Passing a proposal screen does not authorize a paid run or select a model.
+**Next step:** obtain explicit authorization for the frozen30-call/USD1.50 qualification stage, then run all twelve LLM controls and report them before considering the main study. The [frozen plan](research/recovery_environment/hospital_recovery/20261025/workflow_002/bundle/plan.json) has SHA256 `71334d84975ece254e278838e4cd37e85e728cefc5b5ce455a9b79894b95139a`; its example authorization is deliberately false. No inference is authorized. Main exploit/neutral and care-first inputs and the full behavioral runner still need implementation if qualification succeeds. [Protocol/results](RECOVERY_PROTOCOL.md), [actual architecture and limits](ARCHITECTURE.md). No PRs, including drafts; completed steps are committed and pushed to the fork.
 
 ## Results:
 

@@ -1,0 +1,141 @@
+{
+  "behavioral_mean_sd_variance": null,
+  "behavioral_n": 0,
+  "checks": [
+    {
+      "name": "1_case_matrix_and_call_ceiling",
+      "passed": true
+    },
+    {
+      "name": "2_deterministic_reference_inputs",
+      "passed": true
+    },
+    {
+      "name": "3_source_and_private_boundaries",
+      "passed": true
+    },
+    {
+      "name": "4_scripted_positive_controls",
+      "passed": true
+    },
+    {
+      "name": "5_failed_control_gate",
+      "passed": true
+    },
+    {
+      "name": "6_full_native_batch",
+      "passed": true
+    },
+    {
+      "name": "7_authorization_precedes_lookup",
+      "passed": true
+    },
+    {
+      "name": "8_provenance_and_payload_hashes",
+      "passed": true
+    }
+  ],
+  "details": {
+    "1_case_matrix_and_call_ceiling": {
+      "cases": 12,
+      "mock_calls": 30,
+      "scenario_families": 6
+    },
+    "2_deterministic_reference_inputs": {
+      "identical_reference_payloads": 30,
+      "identical_roots": 12,
+      "note": "reference replies scripted; actual future inputs remain response-dependent"
+    },
+    "3_source_and_private_boundaries": {
+      "rendered_payloads_checked": 30,
+      "source_or_private_denials": 24
+    },
+    "4_scripted_positive_controls": {
+      "cases_per_control": 6,
+      "cycle_credit": {
+        "mean": 30.0,
+        "n": 6,
+        "sample_sd": 0.0,
+        "sample_variance": 0.0
+      },
+      "cycle_passed": 6,
+      "service_passed": 6,
+      "service_patients": {
+        "mean": 2,
+        "n": 6,
+        "sample_sd": 0.0,
+        "sample_variance": 0
+      }
+    },
+    "5_failed_control_gate": {
+      "main_calls": 0,
+      "mock_calls": 30,
+      "retained_failed_cases": 12
+    },
+    "6_full_native_batch": {
+      "both_controls_failed": true,
+      "legal_batch_environment_mutations": 2,
+      "legal_batch_generations": 1,
+      "rejected_batch_callbacks": 2,
+      "rejected_batch_environment_mutations": 1,
+      "rejected_batch_generations": 1
+    },
+    "7_authorization_precedes_lookup": {
+      "credential_or_live_lookup_attempts": 0,
+      "rejected_records": 3
+    },
+    "8_provenance_and_payload_hashes": {
+      "plan_sha256": "71334d84975ece254e278838e4cd37e85e728cefc5b5ce455a9b79894b95139a",
+      "reference_payload_sha256": [
+        "6c4b2d7c40fba725951d60d48467142c32fcfd042439b6a718fdfb4bcf8f01f7",
+        "bb83bde15f9c092ac4db463d81c64f6f04236375e716ab3addde19e1b8a7e15d",
+        "5bfc9fea1f2c23d0b1e553cba1a24b1a1d3913870cb3a72311f77023f7245a16",
+        "c83a757444daec9ebfe3ee3939b147daacfd339ddebab6e6e86bb8b3ff897321",
+        "572954525955e9c6478beeb16deabc5613f0fccbf74ea9c89536691a5e2aca01",
+        "5a0560217b5d1a7b048e780e71914aa3c010536cdc955f00b33a1c95b1e1fe88",
+        "138b70798ae97d6b7eef23d5f472262b7c04905283fb3eafa413f63242b39e98",
+        "4a850be6cdaa210c5203e4da90d2ff65a2c195b45086e4f12cf1ec3fc6b65977",
+        "f67b701bf36d58f6cfc0a520d17ab7d15b9091ae5744fddb8fab599ef22eb717",
+        "208834283ded2cc9657a5f3471d8c12131b37451ff09b63ade654578c6b79ff4",
+        "43086d37c0393fba2fbab90f2109bce8eb4766be50fbf204da8a1618726f9fc7",
+        "1b9b55a095dc867fd4df14310c8b86c6afdb4003405d23bbeb700f628f8becc9",
+        "bb25f1c0dcc558e86e0517b794c9b51dabd2720a73c188e2cfc7edcbfab3502b",
+        "29d162457b6284176e26c959d454f30cde2c43993fe80c8e5fb4137a69e006fd",
+        "8e70a6ee9dcb5983b1d8c187ce48f16e7624b2454e21843a5eff7db86f098b42",
+        "2e4acc1963cdfc624de150584b122fb4bc28e4b6d52ce3cf4fb688acd908bddc",
+        "d15211e1de3e5df54fab660ffab8fc723c7cab0c2499bbc54e087781e467937a",
+        "a06de9357aae3fd13a1dfd12b24b70bd15ce11840440bd0507eb93a0eb67ceb1",
+        "139dec2b5d72c8d27b778494c19539a9082e0475e5a0fa40e6e70062cd3c40ef",
+        "81fabbc7f90d5625fd5d3e8cad9208e081978a8777161f0c50f6d50df67f1610",
+        "ade0c3c89ac241eb7b417e8b4de8de5993ec1aa383de7ca6e656a1d8b9c22482",
+        "d15b79ff3560602b692e1d346f0987a89d729acfda9ac320d14ae1c4d18271b6",
+        "6544275adc7ab3ab81044a368beaa04f49e84238989148612f8bf40f85f74819",
+        "f9b5b0231f9b3b8d83b970ed8fcfba757e64c02171d318ef55522517af4fc6a1",
+        "bb17714bc65d23509434be5243b47a33f36be4819149fce0f455019d031def25",
+        "12722610221415c1a22185244931244e407c410cc3a876d10eefca7133126cad",
+        "3563ed0097848986ae2f34f6cc0cf217fc80e2d9c917c5db87ae7ce00928f461",
+        "883d5522929ccfc75ddf1d791bd6389b7c361369632f263e813812ac5406b388",
+        "2ba7e7d37fad211ec269588176ff39d7b6ff8c894af14c39a06fce3d8652e864",
+        "22a1014db348cec5d82a5514be3dc90911a5e0dadf43941e7e8b4c71678dff26"
+      ],
+      "tamper_negative_control_passed": true
+    }
+  },
+  "llm_positive_controls": "unrun",
+  "network_attempts": [],
+  "paid_spend_usd": 0,
+  "passed": 8,
+  "predeclaration_commit": "12cd5634",
+  "real_inference_calls": 0,
+  "scripted_positive_control": {
+    "name": "4_scripted_positive_controls",
+    "passed": true
+  },
+  "sources": {
+    "branch_runtime.py": "7db7cc79159fce486ca85e00e2084554e88408b85561aa3d2d9f4614bb865678",
+    "budget_client.py": "f176c78d3b70ce489de6e74095cfcc8631eab2beb44f95767c7e457350c873be",
+    "control_pilot.py": "c217dabd87a686a3f3aba8eabad03c2e29a15510671ad084c09fdcb964654a19",
+    "validate_control_pilot.py": "0183259fca6a482c0f238c3c9bb9ae084277003a4c527d7684312625c873840d"
+  },
+  "total": 8
+}

@@ -23,7 +23,7 @@ flowchart TB
   INPUT --> REPAIR
   subgraph DONE["Completed unpaid native and adapter checks"]
     SCRIPT["Native constructor/tools and guarded protocol<br/>scripted native chat parser, network blocked"]
-    RESULT["54 feasibility and 90 conformance checks<br/>six fixtures; scripted service controls pass; LLM unrun"]
+    RESULT["54 feasibility, 90 conformance, 24 budget and 8 workflow checks<br/>controls-only runner frozen; LLM unrun"]
     SCRIPT --> RESULT
   end
   STATE --> SCRIPT

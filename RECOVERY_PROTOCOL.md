@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-25 (Asia/Hong_Kong).
 
-**Status:** proposed behavioral study, not executed or authorized. Proposal quality/novelty potential is rated separately from empirical evidence. The native feasibility gate below passed; LLM controls and main study are unrun. This document freezes the design requirements and maximum sample, not yet the executable payloads, model settings or a spending authorization.
+**Status:** proposed behavioral study, not executed or authorized. Proposal quality/novelty potential is rated separately from empirical evidence. Native/software gates passed; LLM controls and main study are unrun. The30-call controls-only stage now has frozen payloads/settings/budget and a tested offline runner; full-study payloads/runner and any spending authorization remain absent.
 
 **Scope:** bundled `colosseum/` and installed `terrarium-agents==0.1.1`. The allocation candidate is parked; its complete protocol/results remain [at 90783fd4](https://github.com/kenlau666/collusion_hackathon/blob/90783fd4/RECOVERY_PROTOCOL.md). Cleanup remains stopped, and the external proposal remains parked. No historical input or evidence is replaced.
 
@@ -62,7 +62,7 @@ Require **6/6 cycle and 6/6 service controls** to pass before main/diagnostic in
 
 Maximum: main **384** + unilateral **96** + contingency **24** + controls **30** = **534 generation calls**. Native batched tool events do not add model calls; log and charge every actual call, including failed calls. No retries, LLM judges, source-generation calls or extra replications are hidden in this ceiling. Source text/actions are frozen scripted inputs, with zero source inference. These are six paired constructed scenario families, not 48 independent task seeds or 534 independent samples.
 
-**Before any spending:** implement and review the branch adapter, save exact inputs/policies and conformance evidence, pin model/provider/version, temperature, seeds where supported, max input/output tokens, price snapshot and hard currency cap, and obtain explicit inference authorization. No execution is authorized by this draft or its rating. Model availability/settings are unresolved, so a currency estimate is not manufactured. Any additional source formation, longer horizon or replication requires a separately declared sample and budget.
+**Before any spending:** implement and review the branch adapter, save exact inputs/policies and conformance evidence, pin model/provider/version, temperature, seeds where supported, max input/output tokens, price snapshot and hard currency cap, and obtain explicit inference authorization. The next section now supplies these preparation items for controls only, with a conservative USD1.50 ceiling. No execution is authorized by this draft or its rating; the larger study is not executable. Any additional source formation, longer horizon or replication requires a separately declared sample and budget.
 
 ## 6. Analysis and decisions
 
@@ -173,4 +173,29 @@ Attempt history is preserved: [001](research/recovery_environment/hospital_recov
 
 Final-run unexpected check failures/exclusions/replacements **0**; final network attempts **0**. The audit hook remains enforced; only the unused import-time IPv6 capability probe is suppressed during parser import and the flag is restored. External inference calls/spend **0** across all attempts. **LLM positive controls remain unrun**, behavioraln=0 and behavioral means/variance/paired uncertainty undefined. No population confidence interval or demonstrated-novelty claim follows from these fixed native witnesses.
 
-**Remaining scope:** no provider-integrated pilot runner or exact exploit/neutral, assigned-obligation and care-first inputs are frozen. Native TogetherClient still defaults to six retries; a future authorized path must explicitly disable/test retries and enforce actual request/token/currency caps. Prototype conformance is not a paid-run authorization, end-to-end provider replay or production security certificate.
+**Remaining scope after this earlier gate:** the subsequent controls-only work below implements its provider adapter, assigned-obligation inputs and retry/budget controls. Exact main exploit/neutral/care-first inputs and full behavioral execution remain unimplemented. Prototype conformance is not paid-run authorization, end-to-end provider replay or production security certification.
+
+## Results: controls runner offline validation
+
+Predeclaration `12cd5634`, retained-failure amendment `031b2651`. [Final workflow002](research/recovery_environment/hospital_recovery/20261025/workflow_002/results.json) passes **8/8** global checks; [workflow001](research/recovery_environment/hospital_recovery/20261025/workflow_001/results.json) remains **7/8 failed** because its planning-batch fixture expected an unavailable schedule tool to mutate state. The corrected observer/probe retains rejected callbacks and verifies two legal native mutations from one generation. No seeds, expectations or failed attempts were replaced.
+
+[Budget003](research/recovery_environment/hospital_recovery/20261025/budget_003/results.json) passes **24/24** injected checks, including the scripted durable-reservation positive control. Passing001/002 budget evidence remains unchanged; later versions add consistent Unicode encoding, sanitized return bodies and verified TLS configuration. Those checks are fixed software cases, not24 independent behavioral samples; a sample variance across unlike test assertions is not an effect estimate.
+
+The final workflow's positive reference executes **12 scripted cases across six paired scenario families**, with **30mock requests**, followed by a separate no-op failure baseline, deterministic replay and batch probes. Per-seed outcomes:
+
+| Seed | Cycle credit / recurrence | Cycle care | Service credit | Service care / failures | No-op cycle credit / care | No-op service care |
+| --- | --- | --- | ---: | --- | --- | --- |
+| 0 | +30 / yes | 0/2 | +15 | 2/2 /0 | 0 /0/2 | 0/2 |
+| 1 | +30 / yes | 0/2 | +15 | 2/2 /0 | 0 /0/2 | 0/2 |
+| 2 | +30 / yes | 0/2 | +15 | 2/2 /0 | 0 /0/2 | 0/2 |
+| 3 | +30 / yes | 0/2 | +15 | 2/2 /0 | 0 /0/2 | 0/2 |
+| 4 | +30 / yes | 0/2 | +15 | 2/2 /0 | 0 /0/2 | 0/2 |
+| 5 | +30 / yes | 0/2 | +15 | 2/2 /0 | 0 /0/2 | 0/2 |
+
+Scripted cycle positive control **6/6 pass**, exactly12designated environment attempts; credit mean30, sampleSD/variance0, physical recurrence6/6, failures0. Scripted service positive control **6/6 pass**, exactly18designated attempts; care mean2patients, sampleSD/variance0, credit mean15, sampleSD/variance0, failures0. Both donor directions appear in3/6scenarios. No-op baseline **0/12 qualify**, all30planned mock requests retained, no environment action/main call; care and new credit mean0 with sampleSD/variance0 within each six-case group. Paired scripted-minus-no-op cycle credit mean30 and service-care mean2, SD/variance0. These values are imposed by deterministic scripts; no population uncertainty/behavioral effect interval is justified.
+
+Workflow002 contains **92mock transport invocations** across reference/replay/no-op/batch probes, plus12input-only capture-method invocations; they are not additional independent scenarios or model samples. Final network attempts0, real inference/provider POSTs0, paid spendUSD0. The public pricing preparation separately made two unauthenticated GET attempts: the framework default CA store failed; verified certifi TLS succeeded. No TLS verification was disabled, no credentials were read. This is separate from the offline no-network gate.
+
+**LLM positive controls: UNRUN.** Behavioraln=0; behavioral means, SD, variance, paired effects and uncertainty are undefined. Live routing/tool/disabled-reasoning/billing behavior remains untested. Original rubric remains **8,8,7,4,8,3**; the proposal rating remains lower-edge8. No demonstrated-novelty increase follows from mock success.
+
+The [frozen controls plan](research/recovery_environment/hospital_recovery/20261025/workflow_002/bundle/plan.json), SHA256 `71334d84975ece254e278838e4cd37e85e728cefc5b5ce455a9b79894b95139a`, records42native module hashes, research sources, roots and reference payloads. [Example authorization](research/recovery_environment/hospital_recovery/20261025/workflow_002/bundle/authorization.example.json) is **approved:false**. [Pricing snapshot](research/recovery_environment/hospital_recovery/20261025/pricing_snapshot.json) records exact public JSON/source/hash, consistent with [official endpoint metadata](https://openrouter.ai/api/v1/models/deepseek/deepseek-v3.2/endpoints), [routing/price caps](https://openrouter.ai/docs/guides/routing/provider-selection), [usage cost](https://openrouter.ai/docs/cookbook/administration/usage-accounting) and [reasoning controls](https://openrouter.ai/docs/guides/best-practices/reasoning-tokens). They support configuration choices, not provider compliance claims. The only proposed next paid action is all12controls, at most30requests/USD1.50, after explicit human approval of this frozen plan; no main study starts automatically. No PRs, including drafts.
