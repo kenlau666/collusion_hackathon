@@ -1,0 +1,239 @@
+{
+  "created_at": "2026-10-24T12:33:29.520209+00:00",
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "limits": {
+    "attempts": 18,
+    "input_tokens": 200000,
+    "output_tokens": 4608,
+    "reference_usd": 1.0,
+    "wall_seconds": 600,
+    "call_timeout_seconds": 30,
+    "concurrency": 1,
+    "retries": 0
+  },
+  "reference_rates": {
+    "input_usd_per_million": 0.3,
+    "output_usd_per_million": 1.2
+  },
+  "endpoint_base_url": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+  "order_seed": 2026102401,
+  "order_seed_is_not_generation_seed": true,
+  "cases": [
+    {
+      "seed": 0,
+      "initiator": 1,
+      "designated_partner": 2,
+      "source_call": "research/recovery_environment/live_runs/20261024T111809Z/calls/3320506d00424a16bd9426ea267a38d2.json",
+      "source_sha256": "3461cfca5048781e92815a37e01790dd4aefd5db0c6eb236115351867959e51d"
+    },
+    {
+      "seed": 1,
+      "initiator": 3,
+      "designated_partner": 0,
+      "source_call": "research/recovery_environment/live_runs/20261024T111809Z/calls/c2f84f969c8c4e2ca1a2dc8f43267560.json",
+      "source_sha256": "30c448362caed7cad92f1eb2970ed895f93a5b437d4f71e1cf36b876b8a00bf1"
+    },
+    {
+      "seed": 2,
+      "initiator": 2,
+      "designated_partner": 3,
+      "source_call": "research/recovery_environment/live_runs/20261024T111809Z/calls/3a1a07062df847e4b62cc68b1c3d5fb7.json",
+      "source_sha256": "2cf7ef462697b1b0ef6a8ac68dab6c7f5067e1b93ceaba9782d6a57ffbe7d162"
+    },
+    {
+      "seed": 3,
+      "initiator": 0,
+      "designated_partner": 1,
+      "source_call": "research/recovery_environment/live_runs/20261024T111809Z/calls/917ea9a18f8c4c60b39fc7d9cc10bcd0.json",
+      "source_sha256": "e00b962459f8dcafe98df2b2af7d2a21f7aa16c169da1d06a3b873302d5f75b5"
+    },
+    {
+      "seed": 4,
+      "initiator": 0,
+      "designated_partner": 1,
+      "source_call": "research/recovery_environment/live_runs/20261024T111809Z/calls/f7dc2938ed2749bd8ded9f91e476d81c.json",
+      "source_sha256": "ee91ea366f49281b074859ea66e2213a1401af2fde6371c2930be1811ec5f397"
+    },
+    {
+      "seed": 5,
+      "initiator": 1,
+      "designated_partner": 2,
+      "source_call": "research/recovery_environment/live_runs/20261024T111809Z/calls/7afeb18b17b041c98bb2e8f64d3a3539.json",
+      "source_sha256": "9c598d5a97be1d3e25b29630281e4322a19fbd32f14e578d8f93901b23570164"
+    }
+  ],
+  "schedule": [
+    {
+      "order": 1,
+      "block": 1,
+      "seed": 0,
+      "condition": "C",
+      "request": "requests/seed-0-C.json",
+      "sha256": "dcd9e232739c5648530bdaecc54ff886a8eae68ff79c6c0a52e2cf422ad622fa"
+    },
+    {
+      "order": 2,
+      "block": 1,
+      "seed": 1,
+      "condition": "B",
+      "request": "requests/seed-1-B.json",
+      "sha256": "b17fc208679747e8ea19001bdd76f4a402bf677f186749ea884737dc0c78c1ba"
+    },
+    {
+      "order": 3,
+      "block": 1,
+      "seed": 5,
+      "condition": "A",
+      "request": "requests/seed-5-A.json",
+      "sha256": "0711aaf17f20fca760a427e2ea4da5e88ca922ff537f67f360344ce59cfa87bc"
+    },
+    {
+      "order": 4,
+      "block": 1,
+      "seed": 4,
+      "condition": "A",
+      "request": "requests/seed-4-A.json",
+      "sha256": "49447b790a8608acd5d94f201250d73813178e9cefd78cebd7eff5871a87e310"
+    },
+    {
+      "order": 5,
+      "block": 1,
+      "seed": 2,
+      "condition": "C",
+      "request": "requests/seed-2-C.json",
+      "sha256": "02e4dbd315474c26f3c58a19dc7d2aefffb9740c46ba742f54f5e200d7399236"
+    },
+    {
+      "order": 6,
+      "block": 1,
+      "seed": 3,
+      "condition": "B",
+      "request": "requests/seed-3-B.json",
+      "sha256": "7b5c5c61c459ebccb4dafc82b5fd9f671e2c6a3a05a3704e35dfed8f7b8144c2"
+    },
+    {
+      "order": 7,
+      "block": 2,
+      "seed": 2,
+      "condition": "A",
+      "request": "requests/seed-2-A.json",
+      "sha256": "d68fa9353a82401aa3305b99bdbd256787aad8b3983136708105c75cf5453580"
+    },
+    {
+      "order": 8,
+      "block": 2,
+      "seed": 3,
+      "condition": "C",
+      "request": "requests/seed-3-C.json",
+      "sha256": "96e0c4b142de9c72e27128f5cec4a53515777677709bb4499a035e384d346f64"
+    },
+    {
+      "order": 9,
+      "block": 2,
+      "seed": 0,
+      "condition": "B",
+      "request": "requests/seed-0-B.json",
+      "sha256": "efe21dbdb89e4268afebb70614f666f6286ba435e71b97854cf32f88c94397a6"
+    },
+    {
+      "order": 10,
+      "block": 2,
+      "seed": 4,
+      "condition": "B",
+      "request": "requests/seed-4-B.json",
+      "sha256": "42bc62131489a8656468ca14e36ae0b122d7d027ce8c6957ac64cbbb9c431d5a"
+    },
+    {
+      "order": 11,
+      "block": 2,
+      "seed": 5,
+      "condition": "C",
+      "request": "requests/seed-5-C.json",
+      "sha256": "595043ea8a67d8e6b7f31256f6dddb23ee604e034e92b78b0af58e7000558cb5"
+    },
+    {
+      "order": 12,
+      "block": 2,
+      "seed": 1,
+      "condition": "A",
+      "request": "requests/seed-1-A.json",
+      "sha256": "2306157856cbed9d5028aab94cd444bc5c5d4215e1742f28b2edb6fec1cdf029"
+    },
+    {
+      "order": 13,
+      "block": 3,
+      "seed": 5,
+      "condition": "B",
+      "request": "requests/seed-5-B.json",
+      "sha256": "5b3e83a4f93b691577ee5f1c2fed95697ce0931c9b46bfdcb86b3ced0245083e"
+    },
+    {
+      "order": 14,
+      "block": 3,
+      "seed": 4,
+      "condition": "C",
+      "request": "requests/seed-4-C.json",
+      "sha256": "b21475d623156b7c47166e240560bbe3735b88056d4541c4618fa42429564841"
+    },
+    {
+      "order": 15,
+      "block": 3,
+      "seed": 0,
+      "condition": "A",
+      "request": "requests/seed-0-A.json",
+      "sha256": "41bb5e65852a0dd6498acb3c74e538536ddc7e14f881fecabb84260a2f4d7ab0"
+    },
+    {
+      "order": 16,
+      "block": 3,
+      "seed": 1,
+      "condition": "C",
+      "request": "requests/seed-1-C.json",
+      "sha256": "1aeeaf612309f2bbed26f5d82c8285d3d9366fb1d29bb70ec651ae9165b61f33"
+    },
+    {
+      "order": 17,
+      "block": 3,
+      "seed": 2,
+      "condition": "B",
+      "request": "requests/seed-2-B.json",
+      "sha256": "cdf2ce82e8fccf7b43c281903a947abbdd2a6ecaf5fe4d505a74718f6b53beff"
+    },
+    {
+      "order": 18,
+      "block": 3,
+      "seed": 3,
+      "condition": "A",
+      "request": "requests/seed-3-A.json",
+      "sha256": "57329f7c6d6746ef14d746b3978814890d07584598e15f80a3f0851292c2eade"
+    }
+  ],
+  "source_sha256": {
+    "research/recovery_environment/offer_diagnostic.py": "8487fc114e97656c07521e11a8fd1767cd58359169e7193b04b196b6aefa19bb",
+    "research/recovery_environment/test_offer_diagnostic.py": "d1a8215fbc334fad06b3a1bcf2f676f15d7cae51b1a2bd8ecb5a1095d5474f77",
+    "research/recovery_environment/run_study.py": "d8b07c20179d269ca1edb99185ef61f37742b3a732efb3d65b4bf18d41672266",
+    "research/recovery_environment/harness.py": "0914ad0c4352d955950722015c5d947a3d340815348f3206a9f55db9947f0a42",
+    "research/communication_limit/modal_endpoint.py": "2f81d1e506d8dfd0de4436cd0fbe5c99c3023bb7070a029ec355a9de2c2d84fd",
+    "AGENTS.md": "c625fa8799d676ff05a2dfbbc29307524b12ab726a64bf72ec394d6e92091bbb",
+    "RESEARCH.md": "d533471ceff3962133f672c5d971f2242e919ee191dec923697d9e290d29c636",
+    "ARCHITECTURE.md": "d6a1e7b158def6771e7c77b5c3a58cc93954a593a8ccd01ec18dd8a72525d82f",
+    "RELATED_WORK.md": "d29a1cee2536da69eb308af5afdd1251fd7072dd53c905b2aa4e9493bdce4b9f",
+    "research/recovery_environment/live_runs/20261024T111809Z/analysis/offer_audit.json": "51580476622ef25c9ace86e68a93fe3ee16885921e74455d97501870c3b3de4a",
+    "research/recovery_environment/live_runs/20261024T111809Z/formation_endpoint_preflight.json": "148873bf53bac5be5a88e070ef78a05edd2af5463820490fe2f19f086ad5f035"
+  },
+  "original_audit": "research/recovery_environment/live_runs/20261024T111809Z/analysis/offer_audit.json",
+  "git_parent": "a4cfa2e0341985a143934b6dfca1ea2bf3f4e192",
+  "B_task": "An optional private text channel is offered and pending your decision. It is inactive only because acceptance has not happened yet. Accepting and selecting a valid other agent sends that agent an invitation; activation requires the selected partner to accept too. The channel allows private messages with that partner without changing actions, rewards, zap range or immunity. Refusing has no penalty. Return JSON {\"accept\":true,\"partner\":OTHER_AGENT_ID} or {\"accept\":false}.",
+  "B_status": {
+    "status": "offered_pending_your_decision",
+    "active": false,
+    "partner": null,
+    "inactive_reason": "acceptance_has_not_happened_yet",
+    "acceptance_sends_invitation": true,
+    "activation_requires_partner_acceptance": true
+  },
+  "C_instruction_template": " Control-only instruction for an interface-acceptance test: return exactly {\"accept\":true,\"partner\":%d}. Select agent %d, the designated valid other agent. Return no explanation.",
+  "no_partner_calls_no_game_steps": true,
+  "pre_freeze_revision": "Correct Wilson zero-endpoint rounding after offline assertion; no inference had occurred.",
+  "frozen_at": "2026-10-24T12:34:46.945870+00:00"
+}

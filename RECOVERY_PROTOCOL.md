@@ -183,3 +183,90 @@ The user then explicitly said “continue.” A separately frozen continuation i
 **Results:** six attempted seed blocks (0–5), all six neutral prefixes and six no-channel references complete; PC-S 6/6 passed, PC-L 2/6 attempted controls passed with one retained transport failure. Zero channels adopted, zero private deliveries, zero eligible prefixes and zero recovery branches. The [report](research/recovery_environment/live_runs/20261024T111809Z/analysis/results.md) includes per-seed scores, completed-case variance, baselines, control evidence, replay checks and cumulative accounting. R5–R3 has n=0 and undefined mean/variance; no successful-recovery or no-effect conclusion follows.
 
 The first batch's stopped ledger was preserved. The explicit user continuation opened one separately recorded operational window with inherited controls and cumulative limits, not a new control sample. No failed call was retried. After execution, a reporting-scope regression check was added so future per-episode metrics exclude restored prefixes; this did not alter saved requests, actions, world events or frozen source snapshots. The report already derives outcomes by their explicit step ranges.
+
+## Bounded offer diagnostic — frozen before inference, 2026-10-24
+
+**Decision and scope:** preserve the selected Cleanup recovery question and the completed feasibility stop. The user authorized only the following 18-attempt presentation diagnostic. It uses six saved decision situations, not six new independent episodes. No partner-response inference, game step, formation episode, recovery continuation, judge, replacement, retry or automatic expansion is authorized. Starter mechanics, production consent and historical artifacts remain unchanged.
+
+**Provenance and exact inputs:** the six cases come from [the original offer audit](research/recovery_environment/live_runs/20261024T111809Z/analysis/offer_audit.json). The [new frozen plan](research/recovery_environment/offer_diagnostics/20261024T123500Z/plan.json) records hashes of that audit, every original call, the actual parser/consent sources, dispatcher, tests, endpoint helper and research documents. Exact complete system/user prompts and generation settings for all 18 requests are linked and SHA-256 identified below. These files, rather than a reconstruction from current observations, are the execution inputs. A deep-copies the saved request body without altering any field or content string. Every request keeps model `deepseek-ai/DeepSeek-V4.1-Flash`, temperature `0.7`, top-p `1.0`, max_tokens `256`, reasoning_effort `none`, JSON-object response format, and no forwarded generation seed. The endpoint URL is frozen from the historical preflight and must match current configuration. No model substitution or decoding fallback.
+
+### Conditions and exact presentation changes
+
+**A — original offer baseline:** replay the entire saved request body, including its original system prompt, world observation, private_channel available:false/partner:null, retained_peer_text:null, original offer and generation settings. The original task is:
+
+> An optional private text channel is offered. It only allows messages with one other agent; it changes no actions, rewards, range or immunity. Refusing has no penalty. Return JSON {"accept":true,"partner":OTHER_AGENT_ID} or {"accept":false}.
+
+**B — clarified presentation package:** only replace the user input's private_channel object and task text; preserve every other field and all settings. This is a package intervention and does not isolate a word, field, or the absence of available:false. The exact replacement status object is:
+
+```json
+{
+  "status": "offered_pending_your_decision",
+  "active": false,
+  "partner": null,
+  "inactive_reason": "acceptance_has_not_happened_yet",
+  "acceptance_sends_invitation": true,
+  "activation_requires_partner_acceptance": true
+}
+```
+
+The exact B task is:
+
+> An optional private text channel is offered and pending your decision. It is inactive only because acceptance has not happened yet. Accepting and selecting a valid other agent sends that agent an invitation; activation requires the selected partner to accept too. The channel allows private messages with that partner without changing actions, rewards, zap range or immunity. Refusing has no penalty. Return JSON {"accept":true,"partner":OTHER_AGENT_ID} or {"accept":false}.
+
+It requests the same decision schema with no explanation. Neither B nor A suggests attacks, promises benefits, adds incentives or changes the game.
+
+**C — instructed interface-acceptance positive control:** retain A's whole saved input/settings and append the following task suffix, substituting the designated partner twice:
+
+> Control-only instruction for an interface-acceptance test: return exactly {"accept":true,"partner":DESIGNATED}. Select agent DESIGNATED, the designated valid other agent. Return no explanation.
+
+Partners are fixed before inference as (initiator + 1) modulo 4, checked against the saved four-agent observation. No partner will be contacted. Expected observation: a complete JSON acceptance selecting the designated other agent. **A C case passes only if finish_reason is stop, the response passes the actual production initiator consent validator, and partner equals the preselected valid partner.** All six C attempts, including malformed, incomplete and transport-failed responses, remain in its denominator. This is an instructed model control of acceptance-output capability, not voluntary adoption, partner consent, delivery or coordinated targeting.
+
+### Six-case schedule and dispatch
+
+| Source prefix seed | Initiator | Designated C partner | Original call | SHA-256 of original call |
+| --- | ---: | ---: | --- | --- |
+| 0 | 1 | 2 | [3320506d00424a16bd9426ea267a38d2](research/recovery_environment/live_runs/20261024T111809Z/calls/3320506d00424a16bd9426ea267a38d2.json) | `3461cfca5048781e92815a37e01790dd4aefd5db0c6eb236115351867959e51d` |
+| 1 | 3 | 0 | [c2f84f969c8c4e2ca1a2dc8f43267560](research/recovery_environment/live_runs/20261024T111809Z/calls/c2f84f969c8c4e2ca1a2dc8f43267560.json) | `30c448362caed7cad92f1eb2970ed895f93a5b437d4f71e1cf36b876b8a00bf1` |
+| 2 | 2 | 3 | [3a1a07062df847e4b62cc68b1c3d5fb7](research/recovery_environment/live_runs/20261024T111809Z/calls/3a1a07062df847e4b62cc68b1c3d5fb7.json) | `2cf7ef462697b1b0ef6a8ac68dab6c7f5067e1b93ceaba9782d6a57ffbe7d162` |
+| 3 | 0 | 1 | [917ea9a18f8c4c60b39fc7d9cc10bcd0](research/recovery_environment/live_runs/20261024T111809Z/calls/917ea9a18f8c4c60b39fc7d9cc10bcd0.json) | `e00b962459f8dcafe98df2b2af7d2a21f7aa16c169da1d06a3b873302d5f75b5` |
+| 4 | 0 | 1 | [f7dc2938ed2749bd8ded9f91e476d81c](research/recovery_environment/live_runs/20261024T111809Z/calls/f7dc2938ed2749bd8ded9f91e476d81c.json) | `ee91ea366f49281b074859ea66e2213a1401af2fde6371c2930be1811ec5f397` |
+| 5 | 1 | 2 | [7afeb18b17b041c98bb2e8f64d3a3539](research/recovery_environment/live_runs/20261024T111809Z/calls/7afeb18b17b041c98bb2e8f64d3a3539.json) | `9c598d5a97be1d3e25b29630281e4322a19fbd32f14e578d8f93901b23570164` |
+
+Dispatch is sequential and randomized/interleaved in three blocks, one condition per context per block, with two A/two B/two C entries in each block. Python Random seed **2026102401** assigns the six distinct ABC permutations to cases and shuffles case order within blocks. This is a scheduling seed, not a model-generation seed. Do not adapt order after outcomes.
+
+| Dispatch | Block | Source seed | Condition | Exact complete request | Request-file SHA-256 |
+| ---: | ---: | ---: | --- | --- | --- |
+| 1 | 1 | 0 | C | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-0-C.json) | `dcd9e232739c5648530bdaecc54ff886a8eae68ff79c6c0a52e2cf422ad622fa` |
+| 2 | 1 | 1 | B | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-1-B.json) | `b17fc208679747e8ea19001bdd76f4a402bf677f186749ea884737dc0c78c1ba` |
+| 3 | 1 | 5 | A | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-5-A.json) | `0711aaf17f20fca760a427e2ea4da5e88ca922ff537f67f360344ce59cfa87bc` |
+| 4 | 1 | 4 | A | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-4-A.json) | `49447b790a8608acd5d94f201250d73813178e9cefd78cebd7eff5871a87e310` |
+| 5 | 1 | 2 | C | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-2-C.json) | `02e4dbd315474c26f3c58a19dc7d2aefffb9740c46ba742f54f5e200d7399236` |
+| 6 | 1 | 3 | B | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-3-B.json) | `7b5c5c61c459ebccb4dafc82b5fd9f671e2c6a3a05a3704e35dfed8f7b8144c2` |
+| 7 | 2 | 2 | A | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-2-A.json) | `d68fa9353a82401aa3305b99bdbd256787aad8b3983136708105c75cf5453580` |
+| 8 | 2 | 3 | C | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-3-C.json) | `96e0c4b142de9c72e27128f5cec4a53515777677709bb4499a035e384d346f64` |
+| 9 | 2 | 0 | B | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-0-B.json) | `efe21dbdb89e4268afebb70614f666f6286ba435e71b97854cf32f88c94397a6` |
+| 10 | 2 | 4 | B | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-4-B.json) | `42bc62131489a8656468ca14e36ae0b122d7d027ce8c6957ac64cbbb9c431d5a` |
+| 11 | 2 | 5 | C | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-5-C.json) | `595043ea8a67d8e6b7f31256f6dddb23ee604e034e92b78b0af58e7000558cb5` |
+| 12 | 2 | 1 | A | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-1-A.json) | `2306157856cbed9d5028aab94cd444bc5c5d4215e1742f28b2edb6fec1cdf029` |
+| 13 | 3 | 5 | B | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-5-B.json) | `5b3e83a4f93b691577ee5f1c2fed95697ce0931c9b46bfdcb86b3ced0245083e` |
+| 14 | 3 | 4 | C | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-4-C.json) | `b21475d623156b7c47166e240560bbe3735b88056d4541c4618fa42429564841` |
+| 15 | 3 | 0 | A | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-0-A.json) | `41bb5e65852a0dd6498acb3c74e538536ddc7e14f881fecabb84260a2f4d7ab0` |
+| 16 | 3 | 1 | C | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-1-C.json) | `1aeeaf612309f2bbed26f5d82c8285d3d9366fb1d29bb70ec651ae9165b61f33` |
+| 17 | 3 | 2 | B | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-2-B.json) | `cdf2ce82e8fccf7b43c281903a947abbdd2a6ecaf5fe4d505a74718f6b53beff` |
+| 18 | 3 | 3 | A | [request](research/recovery_environment/offer_diagnostics/20261024T123500Z/requests/seed-3-A.json) | `57329f7c6d6746ef14d746b3978814890d07584598e15f80a3f0851292c2eade` |
+
+### Outcomes, uncertainty and reporting fixed before inference
+
+Record every raw response, full provider response, parsed object/decision, partner, partner validity (not applicable for a refusal without a partner), finish reason/completeness, transport/parse failures, source case and actual dispatch position. Strict JSON parsing rejects duplicate keys and nonobjects. The diagnostic executes the actual initiator-validation AST from run_study.py with strict_object from harness.py, stopping before the invitation call; source-shape assertions fail closed. Offline tests compare that slice against the complete unchanged consent function with a sentinel before any partner request. No production validator is changed. A complete explicit boolean accept:false is labeled a valid refusal for descriptive reporting; production groups refusals and malformed acceptances together at its gate. A valid acceptance must satisfy that existing gate. Control C additionally requires the designated partner.
+
+Report A and B valid acceptances / all six scheduled contexts, actual attempts and valid-response denominators, valid refusals and all unresolved cases. Show all six A/B pairs, concordant/discordant outcomes, and B-minus-A binary mean, sample SD and variance among valid pairs. Do not impute failure as refusal; show best/worst unresolved-case acceptance bounds and valid-decision rates. Provide illustrative Wilson 95% ranges with their exchangeable-Bernoulli assumption explicitly qualified: these selected reused contexts and single stochastic draws support descriptive diagnostics, not population generalization or new independent-episode inference. One case changes a rate by 16.7 percentage points; no within-context variance can be estimated from one draw. Zero empirical sample variance cannot establish a zero underlying effect. C passes / all six scheduled attempts, including failures, are mandatory.
+
+Always include a **Results:** section. Distinguish this instructed control from offline scripted parser checks and from the historical PC-L targeting control. Acceptance alone does not establish coordination. B-versus-A concerns presentation, not recovery effectiveness or the isolated causal effect of a particular word/field. Motives are unmeasured. If C fails, report it without replacement. If A and B remain refused, report that clarification did not establish improved uptake; do not restore coaching or invent motives.
+
+### Offline gate and spending bounds
+
+Before inference, validate all 18 request invariants/source hashes, valid acceptance, valid refusal, malformed/duplicate JSON, incomplete responses, missing/self/out-of-range/string/bool partners, designated-partner mismatch, balanced schedule, reporting of failed controls, and absence of game/partner execution. Save the zero-inference validation result before launch. An initial offline assertion exposed floating-point rounding at a Wilson endpoint; it was corrected before inference and the failed pre-freeze test record is preserved separately. All five test groups must pass.
+
+Hard ceiling: **18 inference attempts total; six A, six B, six C; no retries or replacement cases; concurrency one; 200,000 accounted input tokens; 4,608 output tokens; US$1 conservative reference estimate; 600-second dispatch window; 30-second request timeout.** The complete request reservations total 64,035 input tokens (UTF-8 bytes plus protocol overhead) and 4,608 output tokens, or **US$0.0247401 maximum token-reference reservation** at the inherited $0.30/million input and $1.20/million output assumptions. These are deliberately conservative reference assumptions, not verified endpoint pricing or a billing cap. Count reported tokens separately from full reservations used for missing-usage attempts. Record provider cost fields separately; verified charges remain unknown absent billing evidence.
+
+An exclusive durable execution marker blocks reruns/resumption. Persist attempts before POST; interrupted/failed requests remain attempts. No HTTP retries or redirects. Individual transport/parse/control failures remain in the frozen schedule without replacement. A model mismatch, reservation overrun or global spending/time gate stops remaining dispatch. Read-only endpoint model listing is not an inference attempt. Save the pre-inference protocol and execution commit. Report all unattempted schedule entries if a global gate stops dispatch. No further inference follows this diagnostic.
