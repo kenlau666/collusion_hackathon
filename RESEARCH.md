@@ -79,7 +79,9 @@ An allowed zap or a score gap alone does not prove harmful coordination. Less ac
 
 ## Evidence, novelty and stopping rules
 
-The first feasibility plan uses six independent seed/prefix blocks, at most 36 recovery continuations, plus six no-channel reference episodes. Its proposed upper bound is 6,252 model-call attempts, with no retries or judge calls. This is a design ceiling, not permission to spend or a completed run. Six blocks provide feasibility evidence, not a strong general effectiveness claim.
+The first feasibility plan uses six independent seed/prefix blocks, at most 36 recovery continuations, plus six no-channel reference episodes. Every experiment will include positive controls: a scripted known-effect measurement check and, for this study, six separately labeled instructed LLM targeting episodes. Controls remain unrun and do not count as spontaneous coordination. The [protocol](RECOVERY_PROTOCOL.md) defines their criteria and interpretation limits.
+
+Including the new LLM controls revises the proposed upper bound from 6,252 to **7,212 model-call attempts**, with no retries or judge calls. This is a design ceiling, not permission to spend or a completed run. Six blocks provide feasibility evidence, not a strong general effectiveness claim. Every experiment report must include **Results:** quantitative where possible; report variance, seeds and baselines, and always include the positive control.
 
 [Closest prior work](RELATED_WORK.md) already covers persistence, targeted purification, dependency rollback, communication-edge selection and fresh recipients influenced by retained agents. Our possible contribution must identify an unresolved recovery boundary and a useful safety/performance tradeoff beyond those results. A simple adequate cleanup is a valid finding; it does not require an invented defense.
 
@@ -91,6 +93,6 @@ Repository tracing and offline software probes are complete. The six-arm experim
 
 ## Next action
 
-Implement and validate the research adapter described in [RECOVERY_PROTOCOL.md](RECOVERY_PROTOCOL.md), including snapshots, actual input logging, revocation and event metrics. Finish the exact novelty overlap check and freeze model, sample and spending limits before any live feasibility run.
+Implement and validate the research adapter described in [RECOVERY_PROTOCOL.md](RECOVERY_PROTOCOL.md), including snapshots, actual input logging, revocation, event metrics and the scripted positive control. Complete the exact novelty overlap check and freeze the instructed behavioral control, model, sample and spending limits before any live feasibility run. The main recovery continuations also depend on demonstrated behavioral-control sensitivity.
 
 Question refinement uses the pinned [Orchestra Research Idea Brainstorming skill, v1.0.0](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md), through its problem-first, failure-analysis and simplicity lenses. The skill does not establish experimental validity or novelty.

@@ -19,6 +19,15 @@ Keep these four active research documents authoritative. Update dates when conte
 - Preserve source/data provenance and completed evidence before deleting obsolete notes. Use Git history for replaced drafts instead of duplicate archive copies.
 - Keep credentials, environments and downloaded paper caches out of commits. Record paper URLs and hashes. Do not alter immutable run inputs, source snapshots or manifests merely to match current documentation paths.
 
+## Every experiment: results and positive control
+
+The user requires: **Results:** quantitative where possible; report variance, seeds and baselines, and always include the positive control.
+
+- Before execution, specify the positive control, what it validates, its expected observable result and pass/fail criterion. Include its attempts in the sample and spending plan. A no-intervention baseline is not automatically a positive control.
+- Every experiment report must have a **Results:** section with per-seed observations, independent sample size and denominators, means and sample standard deviations/variances where defined, relevant paired differences and uncertainty, baseline results, and the positive control's observed result and pass/fail status. Report failures, exclusions and null results; never manufacture missing values or treat a single seed as an estimate of variance.
+- Distinguish a scripted measurement control from an LLM behavioral positive control. A scripted success does not establish that the chosen model can express and execute the behavior. Report a failed or unrun control explicitly and restrict conclusions accordingly; do not replace failed seeds until the control passes.
+- This rule applies prospectively. Preserve historical reports and immutable run evidence; do not retrofit a positive-control success into old experiments that did not include one.
+
 ## Research mindset and scope
 
 **Be bold in forming hypotheses; be rigorous in testing them.** Treat assumptions, interpretations and proposals as provisional. Distinguish software observations, literature findings, hypotheses and live experimental results. Correct or abandon explanations when evidence warrants it; report null, contradictory and failed runs.
