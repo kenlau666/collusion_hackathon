@@ -14,6 +14,7 @@ Keep these four active research documents authoritative. Update dates when conte
 
 ## Git workflow
 
+- Do not open pull requests, including draft pull requests.
 - The user requested a fork and a commit at each completed logical step. Work on `codex/` branches; `origin` is the user's fork and `upstream` is the starter repository.
 - Inspect changes, complete relevant checks, then commit each coherent completed step with a clear message and push it to the fork. Do not wait until several unrelated steps accumulate.
 - Preserve source/data provenance and completed evidence before deleting obsolete notes. Use Git history for replaced drafts instead of duplicate archive copies.
