@@ -71,3 +71,15 @@ Across six instance summaries, mean no-reopening loss is **42.081** (sample SD *
 Behavioral recovery sample **n=0**: mean, sample SD, variance and paired-effect uncertainty **undefined**. All failures/exclusions: none in this fixed software screen; no seeds or profiles replaced. No behavioral success or positive control is attributed to these checks.
 
 [Machine-readable results](research/recovery_environment/colosseum_recovery/20261024/results.json), [all generated inputs](research/recovery_environment/colosseum_recovery/20261024/instances.json), [per-profile scores and ceilings](research/recovery_environment/colosseum_recovery/20261024/profiles.jsonl), [draft competence cases](research/recovery_environment/colosseum_recovery/20261024/control_cases.json), [auditor](research/recovery_environment/colosseum_recovery/20261024/audit.py). Source hashes, the pinned dependency version and script hash are in results.json. Predeclaration: commit `e150525b`.
+
+## Follow-up specificity audit — declared before execution
+
+The previous finite-state result may be entirely explained by leaving one choice fixed, with no collusion-specific information. Before running the follow-up, freeze the existing six instances and 4,374 profiles by their recorded hashes. Do not regenerate, add seeds, construct a client or alter earlier results.
+
+For each seed, group all profiles by the third agent's task/skip choice. There must be nine groups of 81 profiles. Check whether coalition-only ceiling and scope loss are constant within each group despite all 81 changes to the two reopened agents' starting choices. Derive the fraction with positive scope loss from the number k of third-agent choices admitted by a global optimum: expected fraction (9-k)/9. Compare that formula with every saved profile label, not just the aggregate.
+
+A source-label placebo interprets the identical saved assignment as an ordinary-error reference rather than a coalition outcome. Keep tasks, costs, assignment and reopening scope identical; do not fabricate a behavioral history. Expected numeric difference is zero because the oracle never receives behavioral source information. This is a test of identification limits, not a finding that real coalition and benign trajectories have the same distribution.
+
+**Scripted positive control:** independently enumerate the previously declared three-task cost fixture from its native scoring formula: expected original 98, coalition-only ceiling 98, all-reopened 115, gap 17. **Optimal baseline:** (A:y,B:z,H:x) must have zero scope gap. Both must pass before interpreting the specificity checks. No LLM control is substituted. Report per-seed exact counts, paired placebo differences, means and sample SD/variance across six instance summaries, failures/exclusions, and frozen-input hashes. New behavioral n=0 and spending=0.
+
+If every profile's result is explained by the fixed outsider choice and source-label placebo, the 87.037% result supplies no evidence for a distinct coalition recovery mechanism. Retain the measurement core, lower the novelty judgment and do not commission a larger experiment merely to reproduce this combinatorial fact.
