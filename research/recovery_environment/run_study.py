@@ -46,6 +46,7 @@ class Stopped(RuntimeError):
 class Client:
     def __init__(self, run, config, transport, deadline):
         self.run, self.config, self.transport, self.deadline = Path(run), config, transport, deadline
+        self.utc_deadline = time.time() + max(0, deadline - time.monotonic())
         self.lock = threading.Lock()
         self.gate = threading.BoundedSemaphore(LIMITS['api_concurrency'])
         self.path = self.run / 'usage.json'
@@ -78,7 +79,7 @@ class Client:
                 s = self.state
                 pi = s['input_tokens'] + s['reserved_input_tokens'] + input_bound
                 po = s['output_tokens'] + s['reserved_output_tokens'] + cap
-                if (s['stopped'] or time.monotonic() >= self.deadline or s['calls_started'] >= LIMITS['calls']
+                if (s['stopped'] or time.monotonic() >= self.deadline or time.time() >= self.utc_deadline or s['calls_started'] >= LIMITS['calls']
                     or pi > LIMITS['input_tokens'] or po > LIMITS['output_tokens']
                     or pi * INPUT_RATE + po * OUTPUT_RATE > LIMITS['reference_usd']):
                     raise Stopped('Call/token/reference-cost/time gate closed')
@@ -227,7 +228,7 @@ def play(client, session, until, episode, directory, offer_initiator=None):
     return session
 
 
-def create_run():
+def create_run(parent=None):
     directory = DIRECTORY / 'live_runs' / datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
     directory.mkdir(parents=True, exist_ok=False)
     plan = json.loads((DIRECTORY / 'proposed_plan.json').read_text())
@@ -249,6 +250,36 @@ def create_run():
               'authorization': 'User requested starting this experiment on 2026-10-24; conservative bounded feasibility only.',
               'pc_s_results': 'research/recovery_environment/offline_runs/20261024T095635Z/results.json'}
     save(directory / 'frozen.json', frozen)
+    if parent is not None:
+        parent = parent.resolve()
+        review = json.loads((parent / 'control_review.json').read_text())
+        prior = json.loads((parent / 'usage.json').read_text())
+        old_frozen = json.loads((parent / 'frozen.json').read_text())
+        if not review['at_least_one_behavioral_control_passed'] or prior['reserved_input_tokens'] or prior['reserved_output_tokens']:
+            raise Stopped('Continuation requires demonstrated control sensitivity and settled accounting')
+        # Environment/context code and all scientific configuration remain exact.
+        for path in ('research/recovery_environment/harness.py',
+                     'llm-agent-collusion-2/Collusion_Cleanup/cleanup_llm/cleanup/env.py',
+                     'llm-agent-collusion-2/Collusion_Cleanup/cleanup_llm/cleanup/config.py'):
+            if hashlib.sha256((ROOT / path).read_bytes()).hexdigest() != old_frozen['source_sha256'][path]:
+                raise Stopped('Scientific harness changed; cannot inherit those controls')
+        failures = [json.loads(p.read_text()) for p in (parent / 'calls').glob('*.json')
+                    if json.loads(p.read_text())['status'] == 'failed']
+        if any(f.get('error_type') not in ('ReadTimeout', 'ConnectTimeout') for f in failures):
+            raise Stopped('Only diagnosed transport timeouts can use this operational continuation')
+        frozen['continuation'] = {'parent': str(parent.relative_to(ROOT)),
+            'authorization': 'User explicitly said continue after the initial live batch; preserve every failed seed and request, no retries.',
+            'changes': 'Renew one 45-minute execution window and add UTC deadline checking to cover host clock/suspension differences. No prompt, model, action or sample change.',
+            'failed_control_seed': 3, 'prior_calls': prior['calls_started'],
+            'prior_failed_calls': prior['calls_failed'], 'same_cumulative_call_token_reference_limits': True}
+        save(directory / 'frozen.json', frozen)
+        save(directory / 'prior_usage.json', prior)
+        next_usage = dict(prior)
+        next_usage.update(stopped=False, resumed_from=str(parent.relative_to(ROOT)),
+                          continuation_authorized_at=now())
+        save(directory / 'usage.json', next_usage)
+        shutil.copyfile(parent / 'control_review.json', directory / 'control_review.json')
+        (directory / 'controls').symlink_to(Path('..') / parent.name / 'controls', target_is_directory=True)
     return directory
 
 
@@ -309,7 +340,10 @@ def main():
     parser.add_argument('--live', action='store_true')
     parser.add_argument('--phase', choices=['controls', 'formation', 'branches'], default='controls')
     parser.add_argument('--run', type=Path)
+    parser.add_argument('--continue-from', type=Path)
     args = parser.parse_args()
+    if args.continue_from and (args.run or args.phase != 'formation'):
+        parser.error('--continue-from creates only a new formation stage; never repeats controls')
     if not args.live:
         print(json.dumps({'mode': 'plan_only', 'limits': LIMITS, 'phase': args.phase, 'model': MODEL}, indent=2))
         return
@@ -319,7 +353,7 @@ def main():
         raise Stopped('Configured model differs from protocol; no substitution')
     with (DIRECTORY / 'study.lock').open('a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        run = args.run.resolve() if args.run else create_run()
+        run = args.run.resolve() if args.run else create_run(args.continue_from)
         frozen = validate_sources(run)
         marker = run / (args.phase + '_attempt.json')
         if marker.exists():

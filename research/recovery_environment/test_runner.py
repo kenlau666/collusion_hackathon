@@ -110,6 +110,16 @@ class RunnerTests(unittest.TestCase):
                          {'kind': 'action', 'episode': 'gate', 'agent': 0, 'step': 1}, True)
             self.assertEqual(transport.requests, [])
 
+    def test_utc_wall_deadline_closes_before_dispatch(self):
+        with tempfile.TemporaryDirectory() as directory:
+            transport = Transport()
+            api = client(directory, transport)
+            api.utc_deadline = time.time() - 1
+            with self.assertRaises(Stopped):
+                api.call(Session(0).envelope(0, 'fixture'),
+                         {'kind': 'action', 'episode': 'utc_gate', 'agent': 0, 'step': 1}, True)
+            self.assertEqual(transport.requests, [])
+
     def test_incomplete_messages_are_not_delivered_and_actions_fall_back(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

@@ -55,7 +55,7 @@ flowchart TB
   RETAIN -->|"later supplied input"| LOCAL
   UPDATED -->|"next observation"| WORLD
 
-  subgraph PROPOSED["RECOVERY STUDY CONTROLS — validated offline; live behavior untested"]
+  subgraph PROPOSED["RECOVERY STUDY CONTROLS — implemented; recovery effectiveness untested"]
     VARIANT("Common research variant<br/>neutral prompts, equal zap rules,<br/>literal peer text, strict action validation")
     SNAPSHOT("Checkpoint after step 20<br/>world + agent fields + channel state + RNG")
     ARMS("Fork the same checkpoint<br/>R0 no change<br/>R1 clear one agent's retained context<br/>R2 clear both agents' retained context<br/>R3 revoke channel only<br/>R4 revoke + clear one<br/>R5 revoke + clear both")
@@ -222,3 +222,5 @@ No smoke test, tournament, endpoint launch, model substitution or new paid run i
 The [research harness](research/recovery_environment/harness.py) now implements the common world variant, local peer-text slot, authoritative channel, arm edits and JSON-restorable state. It reuses the starter environment phase sequence; overrides zaps to remove range/immunity privileges, instruments collection/cleaning/spawning, and isolates the starter's module-global RNG calls with a saved per-world stream under a lock. The provider-facing runner now passes five network-blocked request/routing/accounting checks. A revoked interface exposes no old partner ID; the host retains pair IDs for auditing and outcomes. The controller dispatches fixed controls, then prefixes/references, then only manually reviewed eligible branches. No live results are established by these software checks.
 
 **Results:** [PC-S and validation](research/recovery_environment/offline_runs/20261024T095635Z/results.md) passed eight checks and all six seeded known-effect fixtures against their nonattacking baselines. Scripted results do not establish LLM recovery.
+
+The first live control batch is [reported](research/recovery_environment/live_runs/20261024T095809Z/analysis/results.md): two of six attempted instructed controls passed; five completed and one transport timeout was retained. The continuation preserves all scientific behavior and adds an absolute UTC deadline check to the existing monotonic/token/call gates. Six dispatcher checks now pass. The original stopped batch is not modified or selectively rerun.

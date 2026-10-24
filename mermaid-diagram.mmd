@@ -44,7 +44,7 @@ flowchart TB
   RETAIN -->|"later supplied input"| LOCAL
   UPDATED -->|"next observation"| WORLD
 
-  subgraph PROPOSED["RECOVERY STUDY CONTROLS — validated offline; live behavior untested"]
+  subgraph PROPOSED["RECOVERY STUDY CONTROLS — implemented; recovery effectiveness untested"]
     VARIANT("Common research variant<br/>neutral prompts, equal zap rules,<br/>literal peer text, strict action validation")
     SNAPSHOT("Checkpoint after step 20<br/>world + agent fields + channel state + RNG")
     ARMS("Fork the same checkpoint<br/>R0 no change<br/>R1 clear one agent's retained context<br/>R2 clear both agents' retained context<br/>R3 revoke channel only<br/>R4 revoke + clear one<br/>R5 revoke + clear both")

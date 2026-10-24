@@ -2,7 +2,7 @@
 
 ## Current research: recovery from harmful coordination
 
-Start with [RESEARCH.md](RESEARCH.md) for the pivot, question and progress. The [protocol](RECOVERY_PROTOCOL.md), [architecture](ARCHITECTURE.md) and [related work](RELATED_WORK.md) hold the detailed design. Edit the visual in [mermaid-diagram.mmd](mermaid-diagram.mmd). The recovery harness and staged dispatcher passed offline validation; live behavioral controls are the next phase.
+Start with [RESEARCH.md](RESEARCH.md) for the pivot, question and progress. The [protocol](RECOVERY_PROTOCOL.md), [architecture](ARCHITECTURE.md) and [related work](RELATED_WORK.md) hold the detailed design. Edit the visual in [mermaid-diagram.mmd](mermaid-diagram.mmd). The recovery harness and staged dispatcher passed offline validation; see the research plan for current live results and status.
 
 This fork is [kenlau666/collusion_hackathon](https://github.com/kenlau666/collusion_hackathon); the original starter is [poseidon-research/collusion_hackathon](https://github.com/poseidon-research/collusion_hackathon). Research work is on `codex/recovery-research`. Historical auction protocols and reports are under [research/communication_limit/docs](research/communication_limit/docs/COMPARISON_RESULTS.md); superseded drafts remain in Git history.
 

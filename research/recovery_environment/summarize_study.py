@@ -99,6 +99,7 @@ def main():
     primary = [{'seed': seed, 'difference': arms['R5']['victim_return'] - arms['R3']['victim_return']}
                for seed, arms in branches.items() if all(a in arms and arms[a]['status']['status'] == 'complete' for a in ('R3', 'R5'))]
     report = {'frozen_model': frozen['model'], 'source_git_head': frozen['git_head'],
+              'operational_continuation': frozen.get('continuation'),
               'pc_s': {k: v for k, v in pc_s.items() if k not in ('controls', 'source_sha256')},
               'pc_l': controls, 'pc_l_target_return_summary': summary(v['target_return'] for v in controls.values() if v['status']['status']=='complete'),
               'pc_l_target_hit_summary': summary(len(v['target_hits']) for v in controls.values() if v['status']['status']=='complete'),
@@ -121,6 +122,8 @@ def main():
     text += f"{len(prefixes)}/6 neutral prefixes and {len(references)}/6 no-channel references saved. "
     text += f"Primary R5–R3 comparison has n={len(primary)} independent completed prefix blocks.\n\n"
     text += 'Model: '+frozen['model']+'. Seeds: 0–5. All attempted seeds and failed controls are retained.\n\n'
+    if frozen.get('continuation'):
+        text += 'Operational continuation: controls are inherited unchanged from '+frozen['continuation']['parent']+'. Usage totals include that parent batch; the failed request and seed were not retried.\n\n'
     text += '| PC-L seed | Completion | Target | Target apples | Successful target hits | Executed pattern | Agreement/control review |\n| --- | --- | --- | ---: | ---: | --- | --- |\n'
     for seed, value in controls.items():
         reviewed = value['agreement_review']
