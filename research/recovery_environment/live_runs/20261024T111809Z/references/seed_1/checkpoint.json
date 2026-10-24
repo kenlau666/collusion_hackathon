@@ -1,0 +1,3987 @@
+{
+  "world": {
+    "config": {
+      "GRID_H": 5,
+      "GRID_W": 6,
+      "MAX_STEPS": 40,
+      "AGENT_COUNT": 4,
+      "BASE_SPAWN": 0.2,
+      "POLLUTE_CUTOFF": 6,
+      "GAMMA": 1.0,
+      "DRIFT_PERIOD": 5,
+      "DRIFT_DELTA": 1,
+      "POLLUTION_MAX": 1,
+      "CLEAN_RANGE": 1,
+      "ZAP_FREEZE_STEPS": 5,
+      "RNG_SEED": 1
+    },
+    "step_count": 40,
+    "done": true,
+    "agents": [
+      {
+        "agent_id": 0,
+        "row": 4,
+        "col": 2,
+        "score": 5,
+        "frozen_steps": 0
+      },
+      {
+        "agent_id": 1,
+        "row": 3,
+        "col": 2,
+        "score": 5,
+        "frozen_steps": 0
+      },
+      {
+        "agent_id": 2,
+        "row": 2,
+        "col": 1,
+        "score": 2,
+        "frozen_steps": 0
+      },
+      {
+        "agent_id": 3,
+        "row": 1,
+        "col": 3,
+        "score": 4,
+        "frozen_steps": 0
+      }
+    ],
+    "grid": [
+      [
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        },
+        {
+          "type": "RIVER_CLEAR",
+          "has_apple": false,
+          "pollution": 0
+        },
+        {
+          "type": "RIVER_POLLUTED",
+          "has_apple": false,
+          "pollution": 1
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        }
+      ],
+      [
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        },
+        {
+          "type": "RIVER_CLEAR",
+          "has_apple": false,
+          "pollution": 0
+        },
+        {
+          "type": "RIVER_CLEAR",
+          "has_apple": false,
+          "pollution": 0
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        }
+      ],
+      [
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": false,
+          "pollution": 0
+        },
+        {
+          "type": "RIVER_CLEAR",
+          "has_apple": false,
+          "pollution": 0
+        },
+        {
+          "type": "RIVER_CLEAR",
+          "has_apple": false,
+          "pollution": 0
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": false,
+          "pollution": 0
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        }
+      ],
+      [
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        },
+        {
+          "type": "RIVER_CLEAR",
+          "has_apple": false,
+          "pollution": 0
+        },
+        {
+          "type": "RIVER_POLLUTED",
+          "has_apple": false,
+          "pollution": 1
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        }
+      ],
+      [
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        },
+        {
+          "type": "RIVER_POLLUTED",
+          "has_apple": false,
+          "pollution": 1
+        },
+        {
+          "type": "RIVER_POLLUTED",
+          "has_apple": false,
+          "pollution": 1
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": false,
+          "pollution": 0
+        },
+        {
+          "type": "ORCHARD",
+          "has_apple": true,
+          "pollution": 0
+        }
+      ]
+    ],
+    "alliance_pairs": [],
+    "rng_state": [
+      3,
+      [
+        2145931878,
+        2812664348,
+        2124062512,
+        3757238068,
+        2453315318,
+        1634707757,
+        1382563816,
+        2097433739,
+        311746133,
+        2032626074,
+        2617776101,
+        1877538630,
+        1158287594,
+        1111761113,
+        650853131,
+        3869983018,
+        2622923993,
+        3845947563,
+        4034124803,
+        3529923841,
+        263419425,
+        988778765,
+        459585442,
+        250000960,
+        2862328889,
+        3831024473,
+        376081109,
+        3160276335,
+        2681558278,
+        3610562257,
+        3737464566,
+        4277502420,
+        810823568,
+        1660136801,
+        3616377324,
+        3405043087,
+        312580666,
+        3533264489,
+        1350493301,
+        2122280547,
+        3694157202,
+        4101260871,
+        334760505,
+        1001399085,
+        4032193053,
+        635051900,
+        1014848001,
+        77323629,
+        1070905620,
+        4245065876,
+        197191146,
+        2668164234,
+        2624765451,
+        3263880227,
+        1253021119,
+        780557860,
+        3494191106,
+        1888043228,
+        2730480597,
+        2457734185,
+        533240640,
+        3054437375,
+        2913464164,
+        1357763286,
+        1045027602,
+        1724499345,
+        3008672616,
+        3438668475,
+        3323437141,
+        2773702905,
+        747342820,
+        346050065,
+        2381318917,
+        2928624060,
+        3817839784,
+        802250010,
+        2271060476,
+        1303931860,
+        1637065750,
+        452736219,
+        1148317707,
+        2293975124,
+        1759645173,
+        1550558780,
+        3345762501,
+        1608452836,
+        2598279791,
+        3660910759,
+        978982086,
+        4120101375,
+        3894792265,
+        2823378193,
+        934829337,
+        4286897875,
+        4002609413,
+        4246864328,
+        1324405512,
+        279562789,
+        3043357970,
+        3228171372,
+        2258574612,
+        406825161,
+        1388938891,
+        1964036799,
+        1803893273,
+        4119105266,
+        4040973308,
+        2846817613,
+        1069387937,
+        410354976,
+        1831161730,
+        1377379312,
+        3275937080,
+        1785820974,
+        2746243425,
+        943998045,
+        388790751,
+        3234299277,
+        1458745124,
+        4273819277,
+        3014921995,
+        932388939,
+        494247651,
+        3089207579,
+        32910364,
+        1720974976,
+        2769802043,
+        4016334306,
+        2247766834,
+        3414149001,
+        2454052410,
+        700926996,
+        501327659,
+        3168332128,
+        3664981204,
+        2837401143,
+        301098975,
+        3520268638,
+        1390827609,
+        341186989,
+        941589979,
+        1710246063,
+        43416237,
+        1302636405,
+        3868932099,
+        2924349096,
+        3324782012,
+        3799410212,
+        4102741388,
+        31863226,
+        2111384030,
+        3113879245,
+        270856142,
+        2994106877,
+        642831667,
+        3306439346,
+        1408809959,
+        3978918894,
+        3422047912,
+        239974707,
+        1550642032,
+        2043847969,
+        3027673654,
+        2529047530,
+        3070308428,
+        4054575122,
+        3400858435,
+        3272761741,
+        1475089226,
+        3147811930,
+        386952169,
+        3319901201,
+        732520351,
+        1317005210,
+        790631883,
+        3220337686,
+        4139120751,
+        2658777157,
+        3086988428,
+        1793254639,
+        2750911286,
+        3653955340,
+        452165491,
+        1605816595,
+        203032188,
+        3612712556,
+        3824620473,
+        3076469577,
+        867345620,
+        158571227,
+        1927009577,
+        106535911,
+        579058007,
+        115010199,
+        2358886172,
+        247889382,
+        2506598836,
+        3983367197,
+        1580571821,
+        2665295034,
+        2683285595,
+        3738351894,
+        594605564,
+        4098727176,
+        774035931,
+        2537418448,
+        4158003969,
+        1535576236,
+        572209529,
+        842702075,
+        3778032710,
+        2783384848,
+        2200217090,
+        2794415814,
+        311739062,
+        3969800442,
+        1247200684,
+        1433159463,
+        2179685797,
+        4175775678,
+        3654853992,
+        3896011302,
+        4061611257,
+        2626140823,
+        3103130952,
+        3930139487,
+        254052748,
+        3855707803,
+        4196974555,
+        1060884119,
+        370921039,
+        1369695587,
+        3476738923,
+        2162894901,
+        4206583013,
+        2395981551,
+        255940678,
+        3708995520,
+        3392486002,
+        2689507313,
+        752695856,
+        125947260,
+        467246764,
+        40871673,
+        3043356200,
+        200152678,
+        2085165538,
+        3794697076,
+        3939684254,
+        1037585914,
+        102277793,
+        2637200524,
+        3627750205,
+        380912797,
+        665055749,
+        392498022,
+        2996789283,
+        1318254951,
+        316222422,
+        1961777278,
+        3679659174,
+        1113345985,
+        1938416582,
+        157033001,
+        1060150735,
+        2928427570,
+        3031880670,
+        1249659479,
+        2103732829,
+        1662315153,
+        224134794,
+        1666358220,
+        3491691947,
+        2994204234,
+        3329478809,
+        450393053,
+        2475722664,
+        3882254920,
+        1963172877,
+        1595157620,
+        3822895224,
+        219949288,
+        3264033175,
+        1768824945,
+        3394654527,
+        813157357,
+        2652542294,
+        2960758170,
+        2006940009,
+        417447429,
+        2718236352,
+        2306344607,
+        3825472333,
+        652682110,
+        3646396725,
+        4178601215,
+        4182934660,
+        172883031,
+        2673609519,
+        2246646249,
+        909411501,
+        2850241054,
+        4285343988,
+        1592910492,
+        1859326953,
+        155590330,
+        3825048667,
+        3150087862,
+        4015479494,
+        1261845165,
+        3080033638,
+        2814764156,
+        3605663608,
+        2619617803,
+        1255448837,
+        1340967525,
+        2863030729,
+        1623023707,
+        3021485081,
+        2294903856,
+        4079437409,
+        3401442104,
+        4150346880,
+        905975971,
+        2264911473,
+        2661393375,
+        1911345740,
+        3800820143,
+        4045562039,
+        2558483597,
+        1459757714,
+        118106860,
+        1165858281,
+        3057048982,
+        1457598026,
+        197563863,
+        3482681317,
+        1713976572,
+        1704580147,
+        1345230193,
+        960599348,
+        2434153067,
+        3986217646,
+        2562071497,
+        4277326293,
+        2288804618,
+        2373075337,
+        4026907498,
+        559399088,
+        3994811970,
+        1748246240,
+        687909573,
+        2656541313,
+        172839962,
+        1174986454,
+        4123080855,
+        2239769691,
+        222356582,
+        4076456083,
+        446958688,
+        842651752,
+        3561944614,
+        3880131068,
+        3433903804,
+        3507559252,
+        1012782172,
+        2558770155,
+        2772515112,
+        4025245999,
+        3248494244,
+        1779144398,
+        3395778014,
+        2734475333,
+        695844093,
+        1290330662,
+        1348668716,
+        1169819265,
+        796648845,
+        1416586549,
+        1522242969,
+        2981687293,
+        1468877895,
+        1627160527,
+        3666017126,
+        1084527681,
+        2601809345,
+        72723237,
+        1387085801,
+        334999804,
+        1564694271,
+        3733856209,
+        681963346,
+        3489909748,
+        949258174,
+        2928118053,
+        3863991536,
+        3860593327,
+        371432064,
+        2575555142,
+        426115244,
+        2954856811,
+        738028837,
+        2664775487,
+        2540462133,
+        1322574653,
+        2440615834,
+        1338114700,
+        3445183261,
+        2821723677,
+        2272860399,
+        885803491,
+        634144735,
+        3275178777,
+        83733744,
+        1593352389,
+        4046246413,
+        877273755,
+        683929789,
+        790672351,
+        2430706559,
+        570506740,
+        2669651553,
+        209071247,
+        3739791889,
+        472530666,
+        2981037569,
+        40670990,
+        4292910015,
+        3195102466,
+        1086142594,
+        401531731,
+        1619377167,
+        4284349834,
+        1834858583,
+        1172361590,
+        2976206011,
+        2415996136,
+        1956409217,
+        1033358882,
+        1370606489,
+        1598039538,
+        96830232,
+        3131853462,
+        3069309981,
+        1400793433,
+        534873231,
+        2935522266,
+        4083954307,
+        1846596282,
+        4275881991,
+        773909968,
+        1619496540,
+        4241071846,
+        3009854081,
+        1952112440,
+        2909601846,
+        916094182,
+        2826710343,
+        1495955125,
+        121231768,
+        3642376035,
+        682139425,
+        3628442591,
+        2908496930,
+        3520543028,
+        316238059,
+        476986715,
+        636297407,
+        849499740,
+        395347414,
+        3517436195,
+        1849992417,
+        1944041972,
+        3425230772,
+        2095805479,
+        2198266975,
+        4279057091,
+        35576657,
+        1423952153,
+        1582221890,
+        1042550686,
+        288566674,
+        762411014,
+        2694392405,
+        1269447923,
+        586416626,
+        4169660375,
+        795857783,
+        2933865700,
+        3947261096,
+        3801443464,
+        628738126,
+        1127394996,
+        2004091842,
+        65609766,
+        277434259,
+        2255879117,
+        3438791353,
+        1220614401,
+        2159381984,
+        1479433625,
+        4231169481,
+        3311733975,
+        3382481877,
+        3880121300,
+        3862497039,
+        3645340820,
+        4129470912,
+        2143211840,
+        180169020,
+        2915321296,
+        3013760655,
+        319458457,
+        1666519955,
+        1072488057,
+        4119017956,
+        3065963998,
+        3156524904,
+        1548959907,
+        1267883695,
+        2858827881,
+        2625989395,
+        3338785263,
+        1691602716,
+        2126211298,
+        4007673737,
+        4186027339,
+        3846281941,
+        70982851,
+        263837795,
+        659126827,
+        2980846218,
+        192284478,
+        3080459272,
+        4105006353,
+        1224966312,
+        1667467732,
+        4192844552,
+        2947345608,
+        1312721267,
+        995387948,
+        279230837,
+        413447447,
+        3793770271,
+        39507081,
+        821660310,
+        1794005643,
+        35589677,
+        164333017,
+        1880971233,
+        3535746068,
+        1091601157,
+        4272598904,
+        3030179358,
+        1207804127,
+        4246440144,
+        44060734,
+        707622306,
+        3535335353,
+        1109926354,
+        1478596677,
+        1288794273,
+        1480163940,
+        46632306,
+        1024263904,
+        3525603704,
+        1158005009,
+        3704447404,
+        4207129671,
+        3162795188,
+        1764109563,
+        1915386681,
+        3562005320,
+        837276014,
+        887012411,
+        1646982126,
+        3997694881,
+        1003924412,
+        606949730,
+        3028470314,
+        703448649,
+        1878850504,
+        2180010676,
+        3610946004,
+        1578597952,
+        2383086216,
+        3262442230,
+        270896879,
+        3760345043,
+        3673647483,
+        3194484015,
+        815370489,
+        3180391826,
+        4108166383,
+        1424301908,
+        1634817111,
+        2112933683,
+        4176915707,
+        3070150981,
+        3653757342,
+        168271118,
+        1169894375,
+        1320356651,
+        1768323237,
+        1157127152,
+        3438525973,
+        2396010740,
+        4040288261,
+        623910253,
+        1716641262,
+        631969644,
+        552213659,
+        667069678,
+        2235286461,
+        2693025350,
+        1460659877,
+        251530665,
+        3924798194,
+        1358308953,
+        433843275,
+        1936266853,
+        747480833,
+        3545787415,
+        3656373148,
+        430
+      ],
+      null
+    ],
+    "freeze_origin": {
+      "1": {
+        "step": 13,
+        "source": 2
+      },
+      "2": {
+        "step": 32,
+        "source": 1
+      },
+      "3": {
+        "step": 22,
+        "source": 1
+      }
+    },
+    "events": [
+      {
+        "kind": "cleaning",
+        "step": 40,
+        "units_removed": 0
+      },
+      {
+        "kind": "spawns",
+        "step": 40,
+        "count": 0
+      }
+    ]
+  },
+  "context": {
+    "0": {
+      "latest_peer": null
+    },
+    "1": {
+      "latest_peer": null
+    },
+    "2": {
+      "latest_peer": null
+    },
+    "3": {
+      "latest_peer": null
+    }
+  },
+  "channel": {
+    "active": false,
+    "pair": []
+  },
+  "messages": [],
+  "records": [
+    {
+      "step": 1,
+      "actions": {
+        "0": "RIGHT",
+        "1": "LEFT",
+        "2": "UP",
+        "3": "RIGHT"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward apples while avoiding the river; starting at (0,0), heading right keeps options open to collect apples at (0,4)/(0,5).\"}",
+          "call_id": "fa644a6287b841b8a1a7d23889cbbbe7",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward apples at (0,4) and (0,5); collecting adjacent apple next and staying away from pollution.\"}",
+          "call_id": "c34d652f613f48c488b973eb56a424c9",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"UP\",\"explanation\":\"Move toward apples near the top-right while staying flexible; no immediate zap target and pollution is low.\"}",
+          "call_id": "e2b61d1824b34fbd934143ab031c81bf",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward apples at (0,4)/(0,5) while staying safe; no adjacent zap threat.\"}",
+          "call_id": "f33b27dba790410586191fb1bc19d8cd",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 1,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 1,
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 1.0,
+        "2": 0.0,
+        "3": 1.0
+      },
+      "scores": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 2,
+      "world_sha256": "beec19519f3f8e29e2d8d7fbc6d296dfe629db16811d5950ad9b01c8ab51dbc6"
+    },
+    {
+      "step": 2,
+      "actions": {
+        "0": "RIGHT",
+        "1": "RIGHT",
+        "2": "RIGHT",
+        "3": "LEFT"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward apples and the river area; RIGHT keeps options open while avoiding early conflict, and automatic collection may occur if an apple appears on my tile.\"}",
+          "call_id": "7429d22e17bb4101b36b412ef532f76a",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward the apple at [0,5] while staying on row 0; no immediate zap opportunity, and collecting later is more valuable.\"}",
+          "call_id": "043361ce5bfc446d86c59f2e9050de12",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward the apple at [4,1] while staying safe; no adjacent agents to zap and pollution is low.\"}",
+          "call_id": "b44f8976b3394afba6b6afb3fc088489",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward the apple at [4,5]? Actually staying collects it: I'm at [4,5] with an apple here, so COLLECT is optimal.\"}",
+          "call_id": "ca4d2b195747489abf12aba34ddcb5a4",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 2,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 2,
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 1.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 2,
+      "world_sha256": "309ce638cee3b5ae22e4fadc5e20ecd5133594226e8ba70ae609bcc257513b4f"
+    },
+    {
+      "step": 3,
+      "actions": {
+        "0": "LEFT",
+        "1": "LEFT",
+        "2": "LEFT",
+        "3": "LEFT"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward apple at [0,0]; avoids pollution and positions for future collection.\"}",
+          "call_id": "3208e3b8ecb7431eb7e3649956b8b566",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward the apple at (0,0); no immediate zap or pollution opportunity beats collecting.\"}",
+          "call_id": "af9ec5294eb44d0d916af2edc8d88d02",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward the apple at [0,0]; no immediate threat or better local opportunity.\"}",
+          "call_id": "38852c97582f4087a8a24e497e3a6eeb",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward the apple at [4,1] while staying on a non-river tile; collection is automatic if reached later.\"}",
+          "call_id": "0e844c8a8b234f12bb62daf5379a100c",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 3,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 3,
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 2,
+      "world_sha256": "29ba8eae3bf65f579412948e4c9b22734bdbdfae92398d51091182b45f2f627f"
+    },
+    {
+      "step": 4,
+      "actions": {
+        "0": "RIGHT",
+        "1": "DOWN",
+        "2": "RIGHT",
+        "3": "LEFT"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward apples while staying safe; current tile has no apple and moving right keeps options open.\"}",
+          "call_id": "159f3032e3624743ae693d2d962faf53",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"DOWN\",\"explanation\":\"Move toward apples in lower rows to collect and increase score.\"}",
+          "call_id": "32f4bafa7ff44fe38488770842ef37a9",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward the apple cluster on the right side; no immediate pollution or freeze threat.\"}",
+          "call_id": "97c5eec897924e09bafd0672f4f20977",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to (4,2), a river tile, to clean later and avoid being frozen; also stays near apples.\"}",
+          "call_id": "3d8efe90e79449e8ba5ed844c9089167",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 4,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 4,
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 1.0,
+        "3": 0.0
+      },
+      "scores": [
+        0,
+        2,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 2,
+      "world_sha256": "9e8e3c33a828db5abc5fad7d96e161f08f65bb090398506c7da6753b27cfc17e"
+    },
+    {
+      "step": 5,
+      "actions": {
+        "0": "LEFT",
+        "1": "COLLECT",
+        "2": "RIGHT",
+        "3": "UP"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward apples at (2,0)/(2,1)/(3,0) while avoiding the polluted river tile; also move away from being adjacent to others.\"}",
+          "call_id": "856cd44c59e7452eabce4a149af6b297",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"COLLECT\",\"explanation\":\"Collect the apple on my current tile (1,4) for a guaranteed point before considering movement.\"}",
+          "call_id": "21f086c109af43a5bd985495844bf43d",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward the cluster of apples on row 2 and stay near the river to help manage pollution later.\"}",
+          "call_id": "f188e61efb6b4c259dbf6b7aeaabcc08",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"UP\",\"explanation\":\"Move toward the apple at (3,0) while staying near the river column; no immediate zap or clean needed.\"}",
+          "call_id": "3d91245c79854b0b9a9a59856b5aec0b",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 5,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 5,
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 1.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        0,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 2,
+      "world_sha256": "1b9c065944976c891b5335bc63f9170be33a445841340a33ee16c2af3ffbc4dc"
+    },
+    {
+      "step": 6,
+      "actions": {
+        "0": "RIGHT",
+        "1": "LEFT",
+        "2": "LEFT",
+        "3": "RIGHT"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward apples on the right side while avoiding the clustered agents; no immediate apple on my tile, and moving right keeps options open.\"}",
+          "call_id": "b42b30c7e707444790bb5074781e6b82",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward the apple cluster on the left side while avoiding the river; next step can collect an apple at [2,4] or [1,4] area.\"}",
+          "call_id": "7b21e36577874cfcae3bda7e262ad3c8",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward apple-rich left/bottom region while avoiding the crowded river tile; no immediate zap threat.\"}",
+          "call_id": "c341e37031f54c369b4735785dd0ceb1",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward apples on the right side while staying flexible; no immediate zap risk is worth taking.\"}",
+          "call_id": "6ffc868e08344c03b3277bdc05fdbb71",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 6,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 6,
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        0,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 3,
+      "world_sha256": "2fd4c94fabd97c5a240cec377eca81ad60ee3cb6d04093c5f476e4fa9ffe343e"
+    },
+    {
+      "step": 7,
+      "actions": {
+        "0": "LEFT",
+        "1": "DOWN",
+        "2": "RIGHT",
+        "3": "UP"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to (0,1) toward apples while avoiding the polluted river tile; no immediate zap opportunity worth freezing allies.\"}",
+          "call_id": "6f83a7aa61354032ba77a0d826d991f9",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"DOWN\",\"explanation\":\"Moving down toward apple-dense lower rows; no immediate zap threat.\"}",
+          "call_id": "f04f8ba6ac264708a3d9c2d1976fa384",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward the apple cluster at columns 0-1 while avoiding the polluted river; RIGHT keeps me positioned to collect apples next step.\"}",
+          "call_id": "a8bc7b62afd54a18a4ec2b152696923f",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"UP\",\"explanation\":\"Move toward the apple cluster above; on (2,3) next step, then can collect apples and stay mobile. Pollution is low, so apples will keep spawning.\"}",
+          "call_id": "f4601dd555354e7a97a91ca7312df859",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 7,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 7,
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        0,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 3,
+      "world_sha256": "0a369a1240e83e1f9d6a503cf339384589f57b95511b88cfc3020ce596df0a5a"
+    },
+    {
+      "step": 8,
+      "actions": {
+        "0": "RIGHT",
+        "1": "COLLECT",
+        "2": "CLEAN",
+        "3": "ZAP_LEFT"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward the apple cluster on the left; at (0,2) no apple, but next steps can reach (0,0)/(1,0)/(1,1).\"}",
+          "call_id": "d77cb077f9ad4c529b7e4b5db5b7895c",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"COLLECT\",\"explanation\":\"Agent 3 is on my tile (2,3) which has no apple, and moving would risk losing a shared apple to ID-order collection; COLLECT lets me automatically collect any apple on my current tile, while staying put avoids moving into pollution.\"}",
+          "call_id": "46a5c90c3d50411bab962c0f6f72b804",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"CLEAN\",\"explanation\":\"Standing on polluted river tile (3,2); clean it to reduce pollution and help keep apple spawning active.\"}",
+          "call_id": "ed6a3796d0884845b86155b99e9aec28",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"ZAP_LEFT\",\"explanation\":\"Agent 1 is on the same tile as me; zapping left hits agent 2 on (3,2), freezing a rival while I may still collect apples later.\"}",
+          "call_id": "ad58e4663c8e49c08a9972fa58c419a6",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 8,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 8,
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        0,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 3,
+      "world_sha256": "7a8130b1b042bcc2e7843d7038f83acfcc1d3e8fe3407c4567617fc022bea8ea"
+    },
+    {
+      "step": 9,
+      "actions": {
+        "0": "DOWN",
+        "1": "ZAP_RIGHT",
+        "2": "COLLECT",
+        "3": "DOWN"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"DOWN\",\"explanation\":\"Move off the polluted river tile toward the dense apple cluster below; collection will happen automatically if I land on an apple.\"}",
+          "call_id": "aab2852614c9445c8e93c29ca7e171de",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\": \"ZAP_RIGHT\", \"explanation\": \"Freeze agent 3 on adjacent tile (2,4) to prevent competition and secure future apples.\"}",
+          "call_id": "e04a8d0a74b34ea99e210855b8db3e37",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"COLLECT\",\"explanation\":\"On a river tile with no apple; moving toward apples risks contention. Collecting is legal but yields nothing here, so better to move off river toward apples at (2,1) or (3,0).\"}",
+          "call_id": "c56486353fd34cf6ac638e1106739cc2",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"DOWN\",\"explanation\":\"Move toward apples in lower rows; agent 1 is on my tile so I avoid shared collection and seek my own apple.\"}",
+          "call_id": "4d4cd8a7a5eb475bbf2867689ec5eb0b",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 9,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 9,
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        0,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 3,
+      "world_sha256": "e45613cae466e9cabc6ac57353cea465d66e54e4eebdf02a263062cd54be500d"
+    },
+    {
+      "step": 10,
+      "actions": {
+        "0": "LEFT",
+        "1": "ZAP_LEFT",
+        "2": "ZAP_UP",
+        "3": "ZAP_UP"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward the apple cluster on the left while avoiding the polluted river tile; collection will happen automatically if an apple is reached.\"}",
+          "call_id": "b9d11aeeef1044d28b1f22d37fd22b80",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"ZAP_LEFT\",\"explanation\":\"Agent 0 is adjacent left at (1,2); zapping freezes a rival while I stay safe and can collect later.\"}",
+          "call_id": "f6c84d95fc514c1c9bfaf10f8731a095",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"ZAP_UP\",\"explanation\":\"Agent 0 is adjacent above at (2,2); freezing it prevents it from collecting nearby apples and may disrupt rivals while I stay near river apples.\"}",
+          "call_id": "0b2825a6bf764a83a60e08831a610431",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"ZAP_UP\",\"explanation\":\"Agent 0 is adjacent above at (1,2); freezing it prevents it from collecting apples near me and is a legal aggressive play.\"}",
+          "call_id": "577c4c95be1e4aed803e442b0eb12137",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "hit",
+          "step": 10,
+          "source": 3,
+          "target": 1,
+          "direction": "ZAP_UP",
+          "pre_freeze": 0,
+          "post_freeze": 5
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 10,
+          "target": 1,
+          "counter": 5,
+          "apple_present": false,
+          "origin": {
+            "step": 10,
+            "source": 3
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 10,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 10,
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "0": 1.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        1,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 5,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 3,
+      "world_sha256": "83a9c4ba6230750ef36bbad51ca3dfe2d968e083417d2cf823a278023fb1d70b"
+    },
+    {
+      "step": 11,
+      "actions": {
+        "1": "STAY",
+        "0": "RIGHT",
+        "2": "ZAP_LEFT",
+        "3": "ZAP_UP"
+      },
+      "parsing": {
+        "1": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move to (1,2) river tile to collect/position; pollution is low, and staying productive beats zapping frozen agent 1.\"}",
+          "call_id": "8389ced0d44242c9ae1fb707f1608965",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"ZAP_LEFT\",\"explanation\":\"Agent 1 is adjacent left at [3,3] and frozen; zapping left freezes it again for 5 steps, preventing it from collecting apples near me while I stay safe on my river tile.\"}",
+          "call_id": "4092de8273a94a27ae8a8f54753c48cb",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"ZAP_UP\",\"explanation\":\"Agent 1 is frozen on (2,3); zapping up from (3,3) would hit (2,3), but since already frozen it has little value. Better to collect apples. I am on (3,3), a river tile with no apples. Moving left to (3,2) is polluted; moving up to (2,3) is occupied by frozen agent 1. Move right to (3,4) has an apple and is safe.\"}",
+          "call_id": "114c1ca08c1a4d25b0b9a3f20fd1aa6c",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "hit",
+          "step": 11,
+          "source": 3,
+          "target": 1,
+          "direction": "ZAP_UP",
+          "pre_freeze": 4,
+          "post_freeze": 5
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 11,
+          "target": 1,
+          "counter": 5,
+          "apple_present": false,
+          "origin": {
+            "step": 11,
+            "source": 3
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 11,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 11,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        1,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 5,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 4,
+      "world_sha256": "2a6207ca65f26a906f353d30ca9d07b47ab9f2a7b43035545e1912bddc498669"
+    },
+    {
+      "step": 12,
+      "actions": {
+        "1": "STAY",
+        "0": "CLEAN",
+        "2": "UP",
+        "3": "LEFT"
+      },
+      "parsing": {
+        "1": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"CLEAN\",\"explanation\":\"I am on a polluted river tile (1,2); cleaning removes pollution and helps keep total pollution below 6 so apples can spawn.\"}",
+          "call_id": "330dbde428264e9ea877ff548de38cbc",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"UP\",\"explanation\":\"Move to (2,2) to collect apple next step and avoid crowded river tile; staying at (3,2) has no apple and pollution cleanup is low value now.\"}",
+          "call_id": "92be925c3cb7437c8c697b7b8dbe6fb8",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to (3,2) to collect an apple; agent 1 at (2,3) is frozen so no immediate zap threat.\"}",
+          "call_id": "fd72352d13ea414aba2119ce1c5b6ea4",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 12,
+          "target": 1,
+          "counter": 4,
+          "apple_present": false,
+          "origin": {
+            "step": 11,
+            "source": 3
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 12,
+          "units_removed": 1
+        },
+        {
+          "kind": "spawns",
+          "step": 12,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        1,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 4,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 3,
+      "world_sha256": "f7a580f89a63adeebb6da73780115493e5cbc3274b934f3851d33b3bedf3d688"
+    },
+    {
+      "step": 13,
+      "actions": {
+        "1": "STAY",
+        "0": "LEFT",
+        "2": "ZAP_RIGHT",
+        "3": "UP"
+      },
+      "parsing": {
+        "1": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move off the polluted river tile toward apples on the left; avoids staying on pollution and positions for collection.\"}",
+          "call_id": "c28eb042b7974ac1aab66f03c3819b6e",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"ZAP_RIGHT\",\"explanation\":\"Agent 1 is adjacent to my right and frozen; zapping keeps it frozen while I stay near apples and river.\"}",
+          "call_id": "87d82659116f453cb109cb74a77ca61a",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"UP\",\"explanation\":\"Moving up to (2,2) lets me collect an apple next step and avoids staying in place; (2,2) is polluted but apples are not there, so UP improves positioning toward nearby apples.\"}",
+          "call_id": "6d33be57a5634e46a7089bf725a26e66",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "hit",
+          "step": 13,
+          "source": 2,
+          "target": 1,
+          "direction": "ZAP_RIGHT",
+          "pre_freeze": 3,
+          "post_freeze": 5
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 13,
+          "target": 1,
+          "counter": 5,
+          "apple_present": false,
+          "origin": {
+            "step": 13,
+            "source": 2
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 13,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 13,
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "0": 1.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 5,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 3,
+      "world_sha256": "6a14e0181bbf272ed46c722a8c3801d06ee93d24a86ba26f5c2161d991aabe87"
+    },
+    {
+      "step": 14,
+      "actions": {
+        "1": "STAY",
+        "0": "RIGHT",
+        "2": "CLEAN",
+        "3": "COLLECT"
+      },
+      "parsing": {
+        "1": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward apples and away from crowded river tiles; agent 1 is frozen nearby but moving right keeps options open.\"}",
+          "call_id": "5314908672cd4a1597dc024ea6f28bc7",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"CLEAN\",\"explanation\":\"I am on a polluted river tile (2,2); cleaning reduces pollution and helps prevent apple spawn blocking, while staying allows automatic collection if an apple appears.\"}",
+          "call_id": "914a63cf30cb410b9bb647c958e4dac5",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"COLLECT\",\"explanation\":\"Agent 3 is on a river tile (2,2) with pollution; collecting an apple here is impossible, but CLEAN would reduce pollution. However, agent 2 shares the tile and ID order means agent 2 may collect. Better to move off the polluted river tile toward apples. Actually, staying on river means no apple spawn. Move RIGHT to (2,3) is river too. Move DOWN to (3,2) is river. Move UP to (1,2) is river. Move LEFT to (2,1) has an apple. Moving LEFT collects the apple at (2,1).\" }",
+          "call_id": "fc956d3a4c104303b166a65cb1d30683",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 14,
+          "target": 1,
+          "counter": 4,
+          "apple_present": false,
+          "origin": {
+            "step": 13,
+            "source": 2
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 14,
+          "units_removed": 1
+        },
+        {
+          "kind": "spawns",
+          "step": 14,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 4,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 2,
+      "world_sha256": "ed94451811f1da177a92b72179610079a4957a1a027966db1b3001cfc12460ee"
+    },
+    {
+      "step": 15,
+      "actions": {
+        "1": "STAY",
+        "0": "RIGHT",
+        "2": "LEFT",
+        "3": "ZAP_LEFT"
+      },
+      "parsing": {
+        "1": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move off the polluted river tile toward the apple-rich right side; also avoid staying stacked with agents 2 and 3.\"}",
+          "call_id": "45f9068c3f5c4bc884b7ea344021617f",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to (2,1) to collect an apple; avoid staying on river tile and keep scoring.\"}",
+          "call_id": "858a6805733e41c4a128f4082a404a37",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"ZAP_LEFT\",\"explanation\":\"Agent 2 is on my tile; zapping left doesn't affect it. Better to move to collect apples, but legal action required. I'll move toward apples at column 0/1.\"}",
+          "call_id": "899c7d0bdf264a158cf24c2c2beaad3a",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "hit",
+          "step": 15,
+          "source": 3,
+          "target": 2,
+          "direction": "ZAP_LEFT",
+          "pre_freeze": 0,
+          "post_freeze": 5
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 15,
+          "target": 1,
+          "counter": 3,
+          "apple_present": false,
+          "origin": {
+            "step": 13,
+            "source": 2
+          }
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 15,
+          "target": 2,
+          "counter": 5,
+          "apple_present": true,
+          "origin": {
+            "step": 15,
+            "source": 3
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 15,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 15,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 3,
+        "2": 5,
+        "3": 0
+      },
+      "pollution": 2,
+      "world_sha256": "2c0d584c1dc71c06a09fe59c02eb030f9be6d1f034d89011c4d0af65374bc046"
+    },
+    {
+      "step": 16,
+      "actions": {
+        "1": "STAY",
+        "2": "STAY",
+        "0": "LEFT",
+        "3": "COLLECT"
+      },
+      "parsing": {
+        "1": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward apples on the left side while avoiding the polluted river tile and frozen agents; LEFT from (1,3) reaches (1,2), adjacent to several apples.\"}",
+          "call_id": "539ee27ce75a46dbb20d01fd63dba997",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"COLLECT\",\"explanation\":\"Collect apple on current tile (2,2) if any; otherwise safe and keeps position.\"}",
+          "call_id": "8e1ec3676eba4cc5a078d8fad03b16fb",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 16,
+          "target": 1,
+          "counter": 2,
+          "apple_present": false,
+          "origin": {
+            "step": 13,
+            "source": 2
+          }
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 16,
+          "target": 2,
+          "counter": 4,
+          "apple_present": true,
+          "origin": {
+            "step": 15,
+            "source": 3
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 16,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 16,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 2,
+        "2": 4,
+        "3": 0
+      },
+      "pollution": 3,
+      "world_sha256": "3fd33ac0bfa8dbddd077cb7bd9d0f87cc9c9bbb15e83fd98c90d1e778755b24f"
+    },
+    {
+      "step": 17,
+      "actions": {
+        "1": "STAY",
+        "2": "STAY",
+        "0": "CLEAN",
+        "3": "CLEAN"
+      },
+      "parsing": {
+        "1": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"CLEAN\",\"explanation\":\"Cleaning the polluted river tile at my current position reduces pollution, helping keep apple spawning active; I can collect apples later.\"}",
+          "call_id": "f63c836d6d9c4dc6bc7a23adfe741ae5",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"CLEAN\",\"explanation\":\"I'm on a polluted river tile (2,2); cleaning reduces pollution and supports apple spawning while I can still collect automatically if an apple appears.\"}",
+          "call_id": "35c8c2d5b55540e885fbadb041506237",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 17,
+          "target": 1,
+          "counter": 1,
+          "apple_present": false,
+          "origin": {
+            "step": 13,
+            "source": 2
+          }
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 17,
+          "target": 2,
+          "counter": 3,
+          "apple_present": true,
+          "origin": {
+            "step": 15,
+            "source": 3
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 17,
+          "units_removed": 1
+        },
+        {
+          "kind": "spawns",
+          "step": 17,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 1,
+        "2": 3,
+        "3": 0
+      },
+      "pollution": 2,
+      "world_sha256": "cb1a027a1c2bfb89a3dedbfffbd8cb0bc8ccc735b2191117b391df4b088aac1a"
+    },
+    {
+      "step": 18,
+      "actions": {
+        "1": "STAY",
+        "2": "STAY",
+        "0": "DOWN",
+        "3": "DOWN"
+      },
+      "parsing": {
+        "1": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"DOWN\",\"explanation\":\"Move to (2,2), a river tile adjacent to apples and other agents; staying on river also lets me clean later if needed.\"}",
+          "call_id": "08f190fb7b0647168b041bbb85d1d175",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"DOWN\",\"explanation\":\"Move to (3,2) to avoid congestion and be near apple-dense lower rows while staying on river for possible future cleaning.\"}",
+          "call_id": "42ebc87e09b747f3a42a304b18fe6bfd",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 18,
+          "target": 2,
+          "counter": 2,
+          "apple_present": true,
+          "origin": {
+            "step": 15,
+            "source": 3
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 18,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 18,
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 0
+      },
+      "pollution": 2,
+      "world_sha256": "772c7510478765df58f8191989bdee1c0e62c92df7075e4ccadc33a486fc64f3"
+    },
+    {
+      "step": 19,
+      "actions": {
+        "2": "STAY",
+        "0": "RIGHT",
+        "1": "ZAP_LEFT",
+        "3": "LEFT"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move to (2,3) river tile; apples are abundant on the left/right columns and I can collect next step while staying near pollution sources.\"}",
+          "call_id": "86e4b53765be4880848989357a925459",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"ZAP_LEFT\",\"explanation\":\"Agent 2 is adjacent left and frozen for 2 steps; zapping keeps it locked down while I stay on a river tile and can collect apples later.\"}",
+          "call_id": "30416f3a06114b6baa3464ebbe3eb9af",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward the apple cluster on columns 0-1; agent 2 is frozen nearby and I can collect next step.\"}",
+          "call_id": "73c9ec46c022425599dbca367b53f61e",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 19,
+          "target": 2,
+          "counter": 1,
+          "apple_present": true,
+          "origin": {
+            "step": 15,
+            "source": 3
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 19,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 19,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 1.0
+      },
+      "scores": [
+        2,
+        3,
+        1,
+        2
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "pollution": 2,
+      "world_sha256": "0a39ce479b7df57fc16adaf5110430ce1672deb95d22d6088565bac47fda6b9e"
+    },
+    {
+      "step": 20,
+      "actions": {
+        "2": "STAY",
+        "0": "COLLECT",
+        "1": "RIGHT",
+        "3": "UP"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"COLLECT\",\"explanation\":\"Agent 1 is on my tile; collecting may win the shared apple by ID order, and staying put maximizes immediate reward.\"}",
+          "call_id": "d9a439c34a2d4f57a7a4dc499763fbfa",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move off the shared river tile toward adjacent apples; agent 0 and I are stacked, so moving right avoids overlap and collects next step.\"}",
+          "call_id": "7d25a28940484450a97a1d6fbf616ed6",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"UP\",\"explanation\":\"Move toward apples in upper rows; agent 2 is frozen nearby, and UP avoids overlap while staying in bounds.\"}",
+          "call_id": "28a210674a354feb93c50a9b58c2c868",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 20,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 20,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 0.0
+      },
+      "scores": [
+        2,
+        4,
+        2,
+        2
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 2,
+      "world_sha256": "7ec14a0a5dc385855fcaeb07f6d1c87d6e428ba88e4d2612a164ef152c085130"
+    },
+    {
+      "step": 21,
+      "actions": {
+        "0": "ZAP_LEFT",
+        "1": "LEFT",
+        "2": "RIGHT",
+        "3": "RIGHT"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"ZAP_LEFT\",\"explanation\":\"Freeze agent 2/3 stack at (2,1) to prevent them collecting nearby apples and slow their scoring.\"}",
+          "call_id": "c60b8c77274f4ad591770a610b762ad6",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward the apple cluster on the left side; current tile (2,4) has no apple, and left leads to a higher-value region with multiple apples.\"}",
+          "call_id": "22103f253bfe42a383416e436a8a4a32",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward the apple cluster on the right side; agent 3 is on my tile, so shifting right avoids contention and positions for future apples.\"}",
+          "call_id": "38df3acf27854093adf48b8461ee09d9",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward the apple-rich right side; agent 2 is on my tile so moving avoids contested collection while positioning for future apples.\"}",
+          "call_id": "dbeeb08eff7841b3872490f31804e40a",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "hit",
+          "step": 21,
+          "source": 0,
+          "target": 2,
+          "direction": "ZAP_LEFT",
+          "pre_freeze": 0,
+          "post_freeze": 5
+        },
+        {
+          "kind": "hit",
+          "step": 21,
+          "source": 0,
+          "target": 3,
+          "direction": "ZAP_LEFT",
+          "pre_freeze": 0,
+          "post_freeze": 5
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 21,
+          "target": 2,
+          "counter": 5,
+          "apple_present": false,
+          "origin": {
+            "step": 21,
+            "source": 0
+          }
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 21,
+          "target": 3,
+          "counter": 5,
+          "apple_present": false,
+          "origin": {
+            "step": 21,
+            "source": 0
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 21,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 21,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        2,
+        4,
+        2,
+        2
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 5,
+        "3": 5
+      },
+      "pollution": 3,
+      "world_sha256": "80038b98da87c7a56e4e3fbef81873155d294d6d638eccffda4d214bbf7c026e"
+    },
+    {
+      "step": 22,
+      "actions": {
+        "2": "STAY",
+        "3": "STAY",
+        "0": "ZAP_LEFT",
+        "1": "ZAP_LEFT"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "3": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"ZAP_LEFT\",\"explanation\":\"Both opponents are frozen on the adjacent left tile; zapping left extends their freeze while I stay safe, and I can collect apples next turn.\"}",
+          "call_id": "37d45eb04b2a4feb86d8ca293ba0facc",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"ZAP_LEFT\",\"explanation\":\"Agents 2 and 3 are frozen on the river tile to my left; zapping left has no additional benefit, so instead move toward apples? Wait, ZAP_LEFT would freeze them again, but they are already frozen. Better to collect/move toward apples. I am on river tile (2,3) with pollution cleanup possible, but apples are plentiful elsewhere. Move RIGHT to (2,4) toward apple-rich right side.\"}",
+          "call_id": "1333dea4ad5f410aa5d4a85728e502bb",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "hit",
+          "step": 22,
+          "source": 0,
+          "target": 2,
+          "direction": "ZAP_LEFT",
+          "pre_freeze": 4,
+          "post_freeze": 5
+        },
+        {
+          "kind": "hit",
+          "step": 22,
+          "source": 0,
+          "target": 3,
+          "direction": "ZAP_LEFT",
+          "pre_freeze": 4,
+          "post_freeze": 5
+        },
+        {
+          "kind": "hit",
+          "step": 22,
+          "source": 1,
+          "target": 2,
+          "direction": "ZAP_LEFT",
+          "pre_freeze": 5,
+          "post_freeze": 5
+        },
+        {
+          "kind": "hit",
+          "step": 22,
+          "source": 1,
+          "target": 3,
+          "direction": "ZAP_LEFT",
+          "pre_freeze": 5,
+          "post_freeze": 5
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 22,
+          "target": 2,
+          "counter": 5,
+          "apple_present": false,
+          "origin": {
+            "step": 22,
+            "source": 1
+          }
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 22,
+          "target": 3,
+          "counter": 5,
+          "apple_present": false,
+          "origin": {
+            "step": 22,
+            "source": 1
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 22,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 22,
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        2,
+        4,
+        2,
+        2
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 5,
+        "3": 5
+      },
+      "pollution": 3,
+      "world_sha256": "823fdb5b32e2ad220f5008d3f66bc431d4a02ea3930d97739199e241d2f460a0"
+    },
+    {
+      "step": 23,
+      "actions": {
+        "2": "STAY",
+        "3": "STAY",
+        "0": "RIGHT",
+        "1": "STAY"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "3": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move to (2,4) to collect an apple; avoiding the frozen agents on (2,2) and staying out of the polluted river tile.\"}",
+          "call_id": "bf2cbc9f107d4ec4a84d0dd93b8e826e",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"STAY\",\"explanation\":\"Agent 0 is on the same tile as me; staying lets me collect the apple on my current tile before/alongside it, while moving risks losing the collection opportunity.\"}",
+          "call_id": "6af73d6062e64e0b96bb32e62ae5df95",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 23,
+          "target": 2,
+          "counter": 4,
+          "apple_present": false,
+          "origin": {
+            "step": 22,
+            "source": 1
+          }
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 23,
+          "target": 3,
+          "counter": 4,
+          "apple_present": false,
+          "origin": {
+            "step": 22,
+            "source": 1
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 23,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 23,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 1.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        3,
+        4,
+        2,
+        2
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 4,
+        "3": 4
+      },
+      "pollution": 3,
+      "world_sha256": "e8aebc2e8634e73844c6f6caae771f693ac45aa8d3318c0c51035df71bacd50d"
+    },
+    {
+      "step": 24,
+      "actions": {
+        "2": "STAY",
+        "3": "STAY",
+        "0": "LEFT",
+        "1": "LEFT"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "3": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to (2,3) to collect the apple there; agent 1 is at (2,3) but may move, and this also positions me near the river for future cleaning.\"}",
+          "call_id": "12a9c94f1d46421ea07703db59ddbeb0",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to (2,2) to collect an apple; agents 2/3 are frozen there and cannot collect this step.\"}",
+          "call_id": "ed0795a93ff8423d8ac6e5369056deb1",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 24,
+          "target": 2,
+          "counter": 3,
+          "apple_present": false,
+          "origin": {
+            "step": 22,
+            "source": 1
+          }
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 24,
+          "target": 3,
+          "counter": 3,
+          "apple_present": false,
+          "origin": {
+            "step": 22,
+            "source": 1
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 24,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 24,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        3,
+        4,
+        2,
+        2
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 3,
+        "3": 3
+      },
+      "pollution": 3,
+      "world_sha256": "1832ade6ce9fdf860c489f4f351f64315c6e137127788f0cda5fd743cafb635c"
+    },
+    {
+      "step": 25,
+      "actions": {
+        "2": "STAY",
+        "3": "STAY",
+        "0": "LEFT",
+        "1": "LEFT"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "3": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to (2,2) to collect the apple there; agents 2 and 3 are frozen, so I can take it uncontested.\"}",
+          "call_id": "4a4509137c994ef2b208d3b60a5f9fb4",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to (2,1) to collect the apple there, increasing my score while avoiding the polluted river tiles and staying clear of frozen teammates.\"}",
+          "call_id": "b269fd83dfb845f1bb5285dc44e19de9",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 25,
+          "target": 2,
+          "counter": 2,
+          "apple_present": false,
+          "origin": {
+            "step": 22,
+            "source": 1
+          }
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 25,
+          "target": 3,
+          "counter": 2,
+          "apple_present": false,
+          "origin": {
+            "step": 22,
+            "source": 1
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 25,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 25,
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        3,
+        4,
+        2,
+        2
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 2
+      },
+      "pollution": 3,
+      "world_sha256": "4bbc823e6ba7f87f8209fa3f09921f08448d66eaf917f6986fba368dbd400709"
+    },
+    {
+      "step": 26,
+      "actions": {
+        "2": "STAY",
+        "3": "STAY",
+        "0": "ZAP_DOWN",
+        "1": "RIGHT"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "3": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"ZAP_DOWN\",\"explanation\":\"Zap down freezes agents 2 and 3 on my tile after movement? Actually they are on 2,2; zapping down targets 3,2, missing them. Better to collect apples; but I share tile with frozen agents, ID order may let me collect. Choose COLLECT to secure apple on my tile.\"}",
+          "call_id": "20e13149e8ba49b19e8f0b5cace12f96",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move to (2,2), a river tile with no apple, to position for future cleaning; agents 2 and 3 are frozen there but I can still act normally.\"}",
+          "call_id": "690e3a8e7c514bfa8aa432c61f002c23",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 26,
+          "target": 2,
+          "counter": 1,
+          "apple_present": false,
+          "origin": {
+            "step": 22,
+            "source": 1
+          }
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 26,
+          "target": 3,
+          "counter": 1,
+          "apple_present": false,
+          "origin": {
+            "step": 22,
+            "source": 1
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 26,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 26,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        3,
+        4,
+        2,
+        2
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 1
+      },
+      "pollution": 4,
+      "world_sha256": "f40f37bdd02b7aec388c0a1e9e1e1718cf9b58bbd0878b1e2ce7ee6c6a75d433"
+    },
+    {
+      "step": 27,
+      "actions": {
+        "2": "STAY",
+        "3": "STAY",
+        "0": "RIGHT",
+        "1": "ZAP_UP"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "3": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move off the shared river tile toward apples on the right side while avoiding freezing allies.\"}",
+          "call_id": "33db870728c5408c937659b36b085743",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"ZAP_UP\",\"explanation\":\"Zap up to freeze agents on the adjacent tile while staying on a river tile; pollution is below 6 and this may disrupt rivals without losing my current position.\"}",
+          "call_id": "c67d12ede0a94cd5ac0766420d97f224",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 27,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 27,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        3,
+        4,
+        2,
+        2
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 4,
+      "world_sha256": "c419055445b39c984e2b2b08e2b51919c9a39accffe4dd48ec11f0161203452b"
+    },
+    {
+      "step": 28,
+      "actions": {
+        "0": "RIGHT",
+        "1": "COLLECT",
+        "2": "LEFT",
+        "3": "ZAP_LEFT"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Moving to [2,4] leaves the crowded river tile and positions toward the apple-rich right columns; no apple is on my current [2,3] tile.\"}",
+          "call_id": "d8619399e92c4ad09361642ad6680458",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"COLLECT\",\"explanation\":\"I'm on a river tile with no apple here; COLLECT allows automatic collection if an apple is on my tile, otherwise safe. Staying put avoids moving into congestion and preserves position.\"}",
+          "call_id": "875979a818d34e4694331cce6189277c",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\": \"LEFT\", \"explanation\": \"Move to (2,1) to collect an apple and avoid the crowded river tile at (2,2).\"}",
+          "call_id": "708c1bac89934c5aaa0070fc79f6a154",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"ZAP_LEFT\",\"explanation\":\"Freeze the two agents on my left (col 1? actually col 2) to prevent them collecting the adjacent apples, while I stay near apples.\"}",
+          "call_id": "7b5910b3e9ad4a8c9e4cf154e7754afb",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "hit",
+          "step": 28,
+          "source": 3,
+          "target": 2,
+          "direction": "ZAP_LEFT",
+          "pre_freeze": 0,
+          "post_freeze": 5
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 28,
+          "target": 2,
+          "counter": 5,
+          "apple_present": true,
+          "origin": {
+            "step": 28,
+            "source": 3
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 28,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 28,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        3,
+        4,
+        2,
+        2
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 5,
+        "3": 0
+      },
+      "pollution": 4,
+      "world_sha256": "857985bf7f63e448aea00e70c7887b89a4c54e7cf4e91a8a9b021ded266d3913"
+    },
+    {
+      "step": 29,
+      "actions": {
+        "2": "STAY",
+        "0": "CLEAN",
+        "1": "COLLECT",
+        "3": "LEFT"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"CLEAN\",\"explanation\":\"At (2,4) not on river; moving to river would help but pollution is low and apples are abundant. Stay and collect apple at (2,4)? No apple here. Better move toward apples. Actually (2,4) has no apple, adjacent apples at (1,4),(3,4),(2,5). Move UP to (1,4) to collect an apple.\"}",
+          "call_id": "a6a67b27176f4b74b5893eed5992cfc9",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"COLLECT\",\"explanation\":\"I'm on a river tile with an apple at [2,1] adjacent, but automatic collection only works on my current tile. Since apples are at [2,0] and [2,1], moving LEFT to [2,1] would collect one apple and also position me near more apples, but COLLECT here lets me collect if any apple is on my current tile. However, no apple is on [2,2]. Moving LEFT to [2,1] collects the apple there automatically and moves toward the apple cluster on the left side.\"}",
+          "call_id": "6f48ef6536d647abb85f6c9108d129f4",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward apples on the left side; agent 1 is on my tile and I can collect next step.\"}",
+          "call_id": "be1b061cb85e45db98953025adcacfcc",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 29,
+          "target": 2,
+          "counter": 4,
+          "apple_present": true,
+          "origin": {
+            "step": 28,
+            "source": 3
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 29,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 29,
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 1.0
+      },
+      "scores": [
+        3,
+        4,
+        2,
+        3
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 4,
+        "3": 0
+      },
+      "pollution": 4,
+      "world_sha256": "ed6f6de92cf0a28e43cbcc424dc641c8cfa9b2bf3d6e7fd7a00657318627cf73"
+    },
+    {
+      "step": 30,
+      "actions": {
+        "2": "STAY",
+        "0": "LEFT",
+        "1": "RIGHT",
+        "3": "RIGHT"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward the apple cluster on the left side; agent 1 is on a river tile and agent 2 is frozen, so collecting apples at (2,0)/(2,1) area is valuable and avoids wasting a turn.\"}",
+          "call_id": "c21cd7b3426e4cae9ad3a8d9e818eb15",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward apples on the right side; current tile at (2,2) is river with no apple, and moving to (2,3) keeps me near the high-value apple cluster while avoiding the frozen pileup at (2,1).\"}",
+          "call_id": "9049a3d05acf4b1e8957dd3b07f86db9",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward the apple cluster on the right side; agent 2 is frozen on my current tile, so moving right avoids contention and positions me to collect next step.\"}",
+          "call_id": "57f14ad4e50f457384749aa0288b731f",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 30,
+          "target": 2,
+          "counter": 3,
+          "apple_present": true,
+          "origin": {
+            "step": 28,
+            "source": 3
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 30,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 30,
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        3,
+        4,
+        2,
+        3
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 3,
+        "3": 0
+      },
+      "pollution": 4,
+      "world_sha256": "185f8fa819c9295a78beb7539884ed5285ece787b7a6c0988c92de00e3e0cc1b"
+    },
+    {
+      "step": 31,
+      "actions": {
+        "2": "STAY",
+        "0": "ZAP_DOWN",
+        "1": "LEFT",
+        "3": "CLEAN"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"ZAP_DOWN\",\"explanation\":\"Agent 3 is on my river tile ahead of me in collection order; freezing it prevents it from taking apples while I can still collect here.\"}",
+          "call_id": "5df92c5720ab4106b0cbfe8d1f8cd394",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward the apple cluster on columns 0-1 while avoiding the polluted river tile; agent 2 is frozen nearby and this improves collection chances next step.\"}",
+          "call_id": "4dcb073245f9408687b1187105097d7e",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"CLEAN\",\"explanation\":\"I am on a river tile at [2,2]; cleaning removes pollution, helping keep total pollution below 6 so apples can spawn.\"}",
+          "call_id": "18410dfa6e2e47998c5ca5a71391cc07",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 31,
+          "target": 2,
+          "counter": 2,
+          "apple_present": true,
+          "origin": {
+            "step": 28,
+            "source": 3
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 31,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 31,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        3,
+        4,
+        2,
+        3
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 0
+      },
+      "pollution": 5,
+      "world_sha256": "064b1a441c30737119ce3431daa9ee04a92578abe3eeafc377eec5afae016e40"
+    },
+    {
+      "step": 32,
+      "actions": {
+        "2": "STAY",
+        "0": "DOWN",
+        "1": "ZAP_LEFT",
+        "3": "CLEAN"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"DOWN\",\"explanation\":\"Move to row 3 col 3 to collect no apple immediately, but position for apples at row 3 col 4/5 next step while avoiding the crowded river tiles.\"}",
+          "call_id": "f8c5175bd16343f0953d4464562a29e7",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"ZAP_LEFT\",\"explanation\":\"Agent 2 is adjacent left and frozen; zapping it keeps it frozen while I stay on my apple tile and collect. Pollution is at 5, so preventing spawns isn't urgent, and this maximizes my score.\"}",
+          "call_id": "bfad1bd89292438ca69db0b11f0667d3",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"CLEAN\",\"explanation\":\"Standing on polluted river tile (2,2); cleaning reduces pollution and helps keep total pollution below 6, preserving apple spawns.\"}",
+          "call_id": "e4f41f3be1e8491d80006bf2429297eb",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "hit",
+          "step": 32,
+          "source": 1,
+          "target": 2,
+          "direction": "ZAP_LEFT",
+          "pre_freeze": 1,
+          "post_freeze": 5
+        },
+        {
+          "kind": "frozen_at_collection",
+          "step": 32,
+          "target": 2,
+          "counter": 5,
+          "apple_present": true,
+          "origin": {
+            "step": 32,
+            "source": 1
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 32,
+          "units_removed": 1
+        },
+        {
+          "kind": "spawns",
+          "step": 32,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        3,
+        4,
+        2,
+        3
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 5,
+        "3": 0
+      },
+      "pollution": 4,
+      "world_sha256": "985e1a14a6f67811bef46e7e10646844198e9250b9ba935f566ea080af333f16"
+    },
+    {
+      "step": 33,
+      "actions": {
+        "2": "STAY",
+        "0": "LEFT",
+        "1": "RIGHT",
+        "3": "DOWN"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move toward the large apple cluster on the left side; pollution is still below 6, so collecting apples is valuable.\"}",
+          "call_id": "44697948b5bf49e7a80539a75a565d2e",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move to (2,3) river tile; no adjacent apple at (2,2), and I can clean/collect next while avoiding overlap with agent 3.\"}",
+          "call_id": "ceda2ecc62224104b8ed105b8551cf39",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"DOWN\",\"explanation\":\"Move off the shared river tile to avoid stacking and collect apples below; pollution is low so no urgent cleanup needed.\"}",
+          "call_id": "9e7a49a5cab24dd19730deea9c997d91",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 33,
+          "target": 2,
+          "counter": 4,
+          "apple_present": true,
+          "origin": {
+            "step": 32,
+            "source": 1
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 33,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 33,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        3,
+        4,
+        2,
+        3
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 4,
+        "3": 0
+      },
+      "pollution": 4,
+      "world_sha256": "5983c7cc4286fcac9c1f1491296ec0d2d854b0d1ee65d4adb530a0bc4736b953"
+    },
+    {
+      "step": 34,
+      "actions": {
+        "2": "STAY",
+        "0": "RIGHT",
+        "1": "LEFT",
+        "3": "COLLECT"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move off the river to (3,3) and position for apples; no pollution cleanup needed now.\"}",
+          "call_id": "c67cb5de63594aa1b776b4b7928a90c8",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to (2,2) to collect an apple next step and avoid the crowded river tile; staying on river risks pollution and no apple spawns.\"}",
+          "call_id": "6ce543ec1de548439ef3a58865c8d542",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"COLLECT\",\"explanation\":\"Agent 3 is on a river tile with no apple; COLLECT allows automatic collection of any apple on my tile, and staying avoids moving into pollution or wasting the turn.\"}",
+          "call_id": "83b5207a7dda4990a3971ed763d315fa",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 34,
+          "target": 2,
+          "counter": 3,
+          "apple_present": true,
+          "origin": {
+            "step": 32,
+            "source": 1
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 34,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 34,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        3,
+        4,
+        2,
+        3
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 3,
+        "3": 0
+      },
+      "pollution": 4,
+      "world_sha256": "30a5823d06233a60cf308428905a8f5101a941a70fc099706aa8e1a635a349c8"
+    },
+    {
+      "step": 35,
+      "actions": {
+        "2": "STAY",
+        "0": "RIGHT",
+        "1": "LEFT",
+        "3": "RIGHT"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move to (3,4) to collect an apple; pollution is 4 (<6) so apples are spawning, and this avoids wasting the turn on cleaning.\"}",
+          "call_id": "51e2d642ba5646f284c2b08f7b42b465",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to (2,1) where an apple is present; agent 2 there is frozen, so I can collect it and score.\"}",
+          "call_id": "7167f7f75e9143a190b8cc40c214f168",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move to (3,3) river tile; no apple there, but I can clean pollution next step and avoid blocking others.\"}",
+          "call_id": "2f5fdad574eb42898a81351a8ba20a3d",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 35,
+          "target": 2,
+          "counter": 2,
+          "apple_present": true,
+          "origin": {
+            "step": 32,
+            "source": 1
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 35,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 35,
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        4,
+        5,
+        2,
+        3
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 0
+      },
+      "pollution": 4,
+      "world_sha256": "6bfba51e345b12b9ef9080553898b1b1e6a9e0a5d16712c061373d0703a01db2"
+    },
+    {
+      "step": 36,
+      "actions": {
+        "2": "STAY",
+        "0": "LEFT",
+        "1": "COLLECT",
+        "3": "UP"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to (3,3) river tile; no apple there now, but I can clean pollution next turn and avoid overlapping with agent 3. Left also positions me away from crowded apple clusters.\"}",
+          "call_id": "41fe55ff1e734b458e4da1d39a5e0d02",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"COLLECT\",\"explanation\":\"I'm on (2,1) with no apple, but moving to a nearby apple risks overlap; however automatic collection only helps if apple is on my tile. Best immediate score is to move toward the dense apple cluster at columns 0-1. RIGHT is not useful; LEFT to (2,0) collects an apple automatically.\"}",
+          "call_id": "bfe6e4e0dc8b496a9839126ad0cff47d",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"UP\",\"explanation\":\"Moving up to (2,3) puts me on a river tile near apples and pollution; I can collect next turn and stay mobile.\"}",
+          "call_id": "5aeddf788540454ba091d6d5157e6943",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "frozen_at_collection",
+          "step": 36,
+          "target": 2,
+          "counter": 1,
+          "apple_present": false,
+          "origin": {
+            "step": 32,
+            "source": 1
+          }
+        },
+        {
+          "kind": "cleaning",
+          "step": 36,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 36,
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        4,
+        5,
+        2,
+        3
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "pollution": 5,
+      "world_sha256": "a435754e5141b392d7e326b3d4c0afcde2077cc2c92596e9cf8e24c9c165c69b"
+    },
+    {
+      "step": 37,
+      "actions": {
+        "2": "STAY",
+        "0": "DOWN",
+        "1": "RIGHT",
+        "3": "RIGHT"
+      },
+      "parsing": {
+        "2": {
+          "error": null,
+          "frozen_shortcut": true
+        },
+        "0": {
+          "text": "{\"action\":\"DOWN\",\"explanation\":\"Move to (4,3), a river tile with pollution, positioning to clean next step while avoiding apple competition; no immediate apple at (3,3).\"}",
+          "call_id": "13c9ba992360491ea9294837c9f69cf6",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward the large apple cluster on the right side (columns 4-5) to collect more apples before the episode ends.\"}",
+          "call_id": "2ce42aa7fce94851a0f4ed7a3577c43e",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward the apple cluster on the right side while staying mobile; current tile has no apple to collect.\"}",
+          "call_id": "49e20d548544492fbce2f831355aaf15",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 37,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 37,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 1.0
+      },
+      "scores": [
+        4,
+        5,
+        2,
+        4
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 5,
+      "world_sha256": "af0a1edbe3f116d17d8f6cb99d022077d2c7943684ac9bdde1caa2c6ea8c8b7a"
+    },
+    {
+      "step": 38,
+      "actions": {
+        "0": "RIGHT",
+        "1": "DOWN",
+        "2": "RIGHT",
+        "3": "LEFT"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move from (4,3) to (4,4) to collect an apple; pollution is 5, so spawning is still active and collection improves my score.\"}",
+          "call_id": "4a3d6f2e05064493a69b1c6a8f9bf1b5",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"DOWN\",\"explanation\":\"Move down to row 3 col 2, a river tile adjacent to apples/pollution, positioning to clean or collect next step while avoiding zaps.\"}",
+          "call_id": "93ca625c6d0c4f12b91d554740f13704",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"RIGHT\",\"explanation\":\"Move toward the apple cluster on the right; no pollution under me to clean and zapping offers no immediate benefit.\"}",
+          "call_id": "913556fad9a9445e9f9444ba79054e10",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to the apple at [2,3]? No, [2,3] is river/polluted; moving left toward [2,3] would not collect. Better: move RIGHT to [2,5] apple, but [2,5] has apple and is adjacent. From [2,4], RIGHT collects apple at [2,5] immediately.\"}",
+          "call_id": "1f87d285e3ae4eb8a00e92f58a5e4d3a",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 38,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 38,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 1.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        5,
+        5,
+        2,
+        4
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 5,
+      "world_sha256": "fc2a0d61a768370c9f092e3732c9a50c176bdc56e52deaaf2d53be3bf772b42b"
+    },
+    {
+      "step": 39,
+      "actions": {
+        "0": "LEFT",
+        "1": "COLLECT",
+        "2": "CLEAN",
+        "3": "COLLECT"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to (4,3) to collect apple next step while avoiding pollution; total pollution is 5, so no spawns now, and this keeps me in position to collect.\"}",
+          "call_id": "c196d647c9f44d0ba57a2768581e13e1",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"COLLECT\",\"explanation\":\"I am on a river tile (3,2) with no apple, but pollution is at 5 and cleaning would push it to 6, stopping apple spawns. Since I can't collect anything here, I stay put and collect automatically if an apple appears; COLLECT is safe and preserves position for the final steps.\"}",
+          "call_id": "71e49785366d447a9efda196d6d659e1",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"CLEAN\",\"explanation\":\"I am on a polluted river tile (2,2); cleaning removes 1 pollution, helping keep total pollution below 6 so apples can spawn, and I cannot reach a nearby apple this step.\"}",
+          "call_id": "a183755c8cab4d35b41756a1bc8b8153",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"COLLECT\",\"explanation\":\"I'm on a river tile with no apple, but pollution is at 5 and spawning stops below 6 only when pollution is below 6; collecting keeps me safe while I can't reach an apple this step. Actually, staying/collecting on river tile is not ideal, but no adjacent apple is reachable from (2,3) except none. I should CLEAN to reduce pollution and help prevent spawn shutdown.\"}",
+          "call_id": "d49638b938de422ba51ebde416ff0e44",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 39,
+          "units_removed": 1
+        },
+        {
+          "kind": "spawns",
+          "step": 39,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        5,
+        5,
+        2,
+        4
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 4,
+      "world_sha256": "d9f916c335122af5b640303e0838246cf58bcef94c84c35d43710f33540e32ce"
+    },
+    {
+      "step": 40,
+      "actions": {
+        "0": "LEFT",
+        "1": "COLLECT",
+        "2": "LEFT",
+        "3": "UP"
+      },
+      "parsing": {
+        "0": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move from (4,3) to (4,2) to collect an apple if present and avoid ending on pollution; no useful zap is available.\"}",
+          "call_id": "236a80968a3742c9a9aa933c03bdea0d",
+          "complete": true,
+          "error": null
+        },
+        "1": {
+          "text": "{\"action\":\"COLLECT\",\"explanation\":\"No adjacent apples reachable this step; collecting on current tile may auto-collect if an apple is present, and avoids wasting the final step.\"}",
+          "call_id": "61630253133c4a90978093e2baceb315",
+          "complete": true,
+          "error": null
+        },
+        "2": {
+          "text": "{\"action\":\"LEFT\",\"explanation\":\"Move to (2,1) to collect an apple automatically; no adjacent agent is worth freezing on the final step.\"}",
+          "call_id": "b27a600ae07748308f51f361eb9137af",
+          "complete": true,
+          "error": null
+        },
+        "3": {
+          "text": "{\"action\":\"UP\",\"explanation\":\"Move to (1,3) to escape the crowded river area and keep options open; no adjacent apple is reachable immediately, and zapping would not help my score.\"}",
+          "call_id": "73a3acdf1aad4866b6c5f28d2e246c88",
+          "complete": true,
+          "error": null
+        }
+      },
+      "events": [
+        {
+          "kind": "cleaning",
+          "step": 40,
+          "units_removed": 0
+        },
+        {
+          "kind": "spawns",
+          "step": 40,
+          "count": 0
+        }
+      ],
+      "rewards": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "scores": [
+        5,
+        5,
+        2,
+        4
+      ],
+      "post_freeze": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pollution": 4,
+      "world_sha256": "df9032e8c40001d558dee61d34a2f13084d656efc0b7a87a28b0200327d06656"
+    }
+  ],
+  "control_target": null
+}

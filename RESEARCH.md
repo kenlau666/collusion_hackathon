@@ -4,7 +4,7 @@ Last updated: 2026-10-24 (Asia/Hong_Kong).
 
 **Current direction: recovery in Cleanup, within llm-agent-collusion-2.** The user selected this pivot and requested replacement of the old plan. This document is the current project explanation. The detailed [experiment protocol](RECOVERY_PROTOCOL.md), [system map](ARCHITECTURE.md) and editable [Mermaid architecture](mermaid-diagram.mmd) define the proposed study.
 
-**Status:** live behavioral controls attempted on all six seeds: two passed, three completed without the required pattern, and one timed out before its final step. All evidence is retained. The user requested continuation to the planned neutral prefixes/references without repeating failed controls. Recovery effectiveness and the specific novelty claim remain unconfirmed.
+**Status:** feasibility stage completed at its predeclared stop. All six neutral agents refused the private channel, so there were zero eligible recovery cases and R0–R5 were not run. Recovery effectiveness and novelty remain unestablished.
 
 ## Reading guide
 
@@ -79,9 +79,9 @@ An allowed zap or a score gap alone does not prove harmful coordination. Less ac
 
 ## Evidence, novelty and stopping rules
 
-The first feasibility plan uses six independent seed/prefix blocks, at most 36 recovery continuations, plus six no-channel reference episodes. Every experiment will include positive controls: a scripted known-effect measurement check and, for this study, six separately labeled instructed LLM targeting episodes. Controls remain unrun and do not count as spontaneous coordination. The [protocol](RECOVERY_PROTOCOL.md) defines their criteria and interpretation limits.
+The first feasibility plan uses six independent seed/prefix blocks, at most 36 recovery continuations, plus six no-channel reference episodes. Every experiment will include positive controls: a scripted known-effect measurement check and, for this study, six separately labeled instructed LLM targeting episodes. Both controls were included; instructed cases do not count as spontaneous coordination. The [protocol](RECOVERY_PROTOCOL.md) defines their criteria and interpretation limits.
 
-Including the new LLM controls revises the proposed upper bound from 6,252 to **7,212 model-call attempts**, with no retries or judge calls. This is a design ceiling, not permission to spend or a completed run. Six blocks provide feasibility evidence, not a strong general effectiveness claim. Every experiment report must include **Results:** quantitative where possible; report variance, seeds and baselines, and always include the positive control.
+Including the new LLM controls revises the proposed upper bound from 6,252 to **7,212 model-call attempts**, with no retries or judge calls. The bounded run ended at 2,033 cumulative attempts after the eligibility gate failed; the full 7,212-attempt ceiling was not used. Six blocks provide feasibility evidence, not a general effectiveness claim. Every experiment report must include **Results:** quantitative where possible; report variance, seeds and baselines, and always include the positive control.
 
 [Closest prior work](RELATED_WORK.md) already covers persistence, targeted purification, dependency rollback, communication-edge selection and fresh recipients influenced by retained agents. Our possible contribution must identify an unresolved recovery boundary and a useful safety/performance tradeoff beyond those results. A simple adequate cleanup is a valid finding; it does not require an invented defense.
 
@@ -89,10 +89,14 @@ If the neutral, equal-rules variant produces no eligible coordination, report th
 
 ## Current progress
 
-The [research harness](research/recovery_environment/harness.py) now implements equal directional zaps, exact phase-level measurements, isolated world RNG streams, context/channel boundaries and JSON-restorable checkpoints. **Results:** [offline validation](research/recovery_environment/offline_runs/20261024T095635Z/results.md) passed eight checks and the scripted positive control on seeds 0–5 (6/6), with a matched nonattacking baseline. These are software findings; the dispatcher passed five additional network-blocked checks, and behavioral positive controls are next. The [first live control report](research/recovery_environment/live_runs/20261024T095809Z/analysis/results.md) records all six attempts; no recovery-effect result exists yet.
+The [research harness](research/recovery_environment/harness.py) and [staged runner](research/recovery_environment/run_study.py) are implemented. Eight harness checks and seven dispatcher checks pass. All 479 saved world transitions replayed with identical hashes.
+
+**Results:** [full report and per-seed evidence](research/recovery_environment/live_runs/20261024T111809Z/analysis/results.md) cover seeds 0–5. Scripted PC-S passed 6/6 against its nonattacking baseline. Instructed LLM PC-L passed 2/6 attempts; five episodes completed and one timed out at step 20, retained without retry. All six neutral prefixes and six no-channel references completed. Every offer returned valid accept:false, so no private messages were delivered and zero prefixes met eligibility. **The R5-minus-R3 recovery effect is unestimated (n=0), not zero.**
+
+Twenty-step total apples averaged 11.33 (sample SD 1.97) for neutral prefixes and 11.83 (SD 2.64) for the first 20 steps of no-channel references. These are descriptive task scores, not treatment effects. Cumulative accounting: 2,033 attempts, 2,032 successful calls, one timeout, reference token estimate US$0.697; actual endpoint billing is unverified. No replacement seed, judge call or model substitution was used.
 
 ## Next action
 
-Continue with the six neutral prefixes and no-channel references under a new operational freeze that carries the original control results and cumulative accounting. Determine prefix eligibility before any recovery branches. Preserve the timed-out control, make no replacement, and report the limited control sensitivity (2/6 attempts passed).
+Review the voluntary-offer precondition before another recovery batch. The exact observed result is refusal under this model, goal and offer format; it does not identify why the channel was declined or establish general collusion resistance. Check whether the pending offer and unavailable-until-accepted interface description are understood as intended, and predeclare any further diagnostic before spending. No new recovery defense is justified by this batch, and a material change of direction remains the user's decision.
 
 Question refinement uses the pinned [Orchestra Research Idea Brainstorming skill, v1.0.0](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md), through its problem-first, failure-analysis and simplicity lenses. The skill does not establish experimental validity or novelty.

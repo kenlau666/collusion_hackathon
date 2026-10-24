@@ -6,7 +6,7 @@ import tempfile
 import time
 import unittest
 
-from harness import Session
+from harness import Session, world_step
 from run_study import Client, EndpointConfig, LIMITS, MODEL, Stopped, play
 
 
@@ -119,6 +119,19 @@ class RunnerTests(unittest.TestCase):
                 api.call(Session(0).envelope(0, 'fixture'),
                          {'kind': 'action', 'episode': 'utc_gate', 'agent': 0, 'step': 1}, True)
             self.assertEqual(transport.requests, [])
+
+    def test_restored_episode_metrics_exclude_its_prefix(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            original = Session(0)
+            for _ in range(2):
+                world_step(original, dict.fromkeys(range(4), 'STAY'))
+            restored = Session.restore(json.loads(json.dumps(original.snapshot())))
+            api = client(root, Transport())
+            play(api, restored, 3, 'continuation', root / 'episode')
+            metrics = json.loads((root / 'episode/metrics.json').read_text())
+            self.assertEqual(metrics['steps'], 1)
+            self.assertEqual(len(restored.records), 3)
 
     def test_incomplete_messages_are_not_delivered_and_actions_fall_back(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -174,7 +174,9 @@ def consent(client, session, initiator, episode, directory):
 
 def play(client, session, until, episode, directory, offer_initiator=None):
     directory.mkdir(parents=True, exist_ok=False)
+    start_step = session.world.step_count
     status = {'episode': episode, 'status': 'running', 'started_at': now(),
+              'initial_step': start_step,
               'initial_snapshot_sha256': digest(session.snapshot())}
     save(directory / 'initial.json', session.snapshot())
     try:
@@ -222,7 +224,8 @@ def play(client, session, until, episode, directory, offer_initiator=None):
         raise
     finally:
         save(directory / 'checkpoint.json', session.snapshot())
-        save(directory / 'metrics.json', measures(session.records, session.pair()))
+        save(directory / 'metrics.json', measures([r for r in session.records if r['step'] > start_step],
+                                                 session.pair(), start_step))
         status.update(finished_at=now(), completed_step=session.world.step_count)
         save(directory / 'status.json', status)
     return session
