@@ -29,4 +29,6 @@ flowchart TB
   STATE --> SCRIPT
   QUAL["Authorized live LLM controls<br/>cycle 6/6, care 6/6; 30 requests; USD0.01575068"]
   RESULT --> QUAL
-  QUAL -. "instructed competence; exposure effect untested" .-> FUTURE
+  QUAL -. "instructed competence; exposure effect unidentified" .-> FUTURE
+  PROBE["Unpaid continuation probe:24scripted cases<br/>cap3permits query→action; always-query still inactive<br/>batchcap1positive6/6; not LLM qualification"]
+  SCRIPT --> PROBE

@@ -12,6 +12,8 @@ The separately authorized main run stopped on request 128with upstreamHTTP429. I
 
 The bounded original-source overlap below is unchanged: neither instructed controls nor an interrupted query-only run establish its proposed causal/utility gap. **Demonstrated novelty remains3/10; conditional design/readiness fall to7/5.** The question's lower-edge8potential is not a demonstrated result. No claim of first transmission, post-containment recurrence, authority composition, new defense or harmful collusion is supported. A one-generation/fresh-context engagement limit is an observed software risk, not a novel cognitive mechanism or proof that a larger cap works. Finish the unpaid failure report, then leave this paid configuration stopped; do not use further model/provider search to manufacture the required score.
 
+The subsequent [unpaid native continuation probe](RECOVERY_PROTOCOL.md#results-unpaid-native-continuation-probe) validates a scripted control-flow contrast and its counterexamples only. It adds no behavioral contribution or literature distinction; demonstrated novelty remains3. The bounded source-overlap assessment below is unchanged.
+
 ## Closest verified original sources
 
 | Exact primary source and inspected sections | Material overlap | Bounded distinction to test |

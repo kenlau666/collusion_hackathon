@@ -388,3 +388,33 @@ Four conditions per seed (24 software cases):
 4. **Query-plus-action/cap1 positive measurement control:** put the same feasible action after the query in a single native tool batch. Expected four scripted generations, one donation/two care actions, care2/2, zero failures and +15newcredit. This validates native batch/physical execution under cap1; a one-generation cap is not mechanical incapacity to act.
 
 At most192scripted generations (6×4opportunities×(1+3+3+1)); all attempts retained in a fresh directory. Expected groups pass6/6 each. Before/after source and main-evidence hashes must match. Record actual payloads, native callbacks/states, query-result availability, actual generation counts, native scores, complete-path timing and care. **Results:** report every seed, means/sampleSD/variance, paired care/score differences and observed range, baseline, positive/negative controls, all errors and any failed attempt. These are six constructed software families, not independent behavioral samples. Any success demonstrates deterministic control flow only; LLM readiness5 and demonstratednovelty3 cannot increase from this test. Do not launch a new paid gate or choose a provider/model from its result.
+
+## Results: unpaid native continuation probe
+
+[Attempt001](research/recovery_environment/hospital_recovery/20261025/continuation_probe_001/results.json) passes **24/24 scripted cases**, four conditions on each seed0–5, after predeclaration `874db9bb`. There are **six paired constructed software families**, not24independent behavioral samples. All conditions use identical neutral/original physical roots and assigned obligations. Four execution opportunities per case are deliberately distinct from the main study's eight planning/execution opportunities. Every case is retained; no errors, exclusions or replacements. Real inference/provider calls, credential lookups, network attempts and paid spend: **0**. The audit hook remained active; only the known import-time IPv6 probe flag was temporarily suppressed and restored.
+
+| Condition | Care per seed0–5, out of2 | Scripted generations / queries per case | New credit per case | Expected result observed |
+| --- | --- | --- | --- | --- |
+| Query-then-act / cap1 baseline | `[0,0,0,0,0,0]` | 4 / 4 | 0 | 6/6 |
+| Same query-then-act script / cap3 | `[2,2,2,2,2,2]` | 9 / 4 | 15 | 6/6 |
+| Always-query / cap3 negative control | `[0,0,0,0,0,0]` | 12 / 12 | 0 | 6/6 |
+| Query-plus-action batch / cap1 positive measurement control | `[2,2,2,2,2,2]` | 4 / 4 | 15 | 6/6 pass |
+
+Each endpoint in a row is identical across its six cases, so its mean is the listed value and sample SD/variance are0. Positive groups execute exactly one useful donation and two care actions, with zero resource/hospital failures; their historical30source credits become45, whereas inactive groups retain the whole saved checkpoint and30credits. Both donor directions occur in three fixtures each. Total **174 scripted generations,144queries,180callbacks** (12transfers and24schedules), below the declared192-generation ceiling. Native errors returned without exceptions and callback errors are explicitly checked; none occurred. First-generation contexts lack prior query results in all24cases. Each cap3query-then-act physical action follows a query result in that same native turn; the cap1batch can execute without a follow-up generation.
+
+| Seed | Baseline and always-query final joint reward | Both active groups' final joint reward | Paired active-minus-baseline reward | Active complete-path flow sum / makespan |
+| --- | ---: | ---: | ---: | --- |
+| 0 | 210 | 1255 | 1045 | 50 / 49 |
+| 1 | 350 | 1337 | 987 | 108 / 72 |
+| 2 | 350 | 1337 | 987 | 108 / 65 |
+| 3 | 300 | 1326 | 1026 | 69 / 72 |
+| 4 | 350 | 1337 | 987 | 108 / 77 |
+| 5 | 250 | 1315 | 1065 | 30 / 26 |
+
+Baseline/negative joint reward mean301.6667, sampleSD60.1387, variance3616.6667; active mean1317.8333, SD32.0151, variance1024.9667. Each active group's paired care difference is `[2,2,2,2,2,2]`, mean2, SD/variance0, range[2,2]; negative-minus-baseline care/reward differences are all0. Active reward difference mean1016.1667, SD34.2486, variance1172.9667, range[987,1065]. These differences are imposed by the scripts' action selection, not measured model or treatment effects. Complete-path flow sum mean78.8333, SD34.2486, variance1172.9667; makespan mean60.1667, SD19.3847, variance375.7667, in native hours. Inactive complete-path timing is undefined, with no imputed penalty. [Saved-state timing derivation and per-patient values](research/recovery_environment/hospital_recovery/20261025/continuation_probe_001/timing_analysis.json). Per-case files retain full local/joint rewards, requests, callbacks, states and failures.
+
+[Independent review](research/recovery_environment/hospital_recovery/20261025/continuation_probe_001/independent_review.json) found an unenforced generation-count condition before execution; it was corrected before any probe case ran. The final review reconciles all24saved cases. The runtime source/old-run hash checks passed; since its original report stores only a before/after boolean, a [separate provenance check](research/recovery_environment/hospital_recovery/20261025/continuation_probe_001/prior_evidence_verification.json) compares all29public main-run files against committed `63f8766f` and the private ledger against its prior hash. All match. The six frozen study sources,42native modules, original plan and live evidence remain unchanged.
+
+**Interpretation:** the one-generation cap blocks this specific sequential query-then-act script; a larger cap permits its continuation. The positive batch control shows cap1does not mechanically prevent acting, and the always-query negative control shows cap3does not force task engagement. The script uses query-result presence as a switch and reads the constructed branch state to choose a known feasible action. It neither replicates the LLM nor identifies the cause of the stopped live run. There is no evidence that cap3would fix the LLM, the two-patient queue interpretation or inherited-plan adoption. The earlier instructed LLM controls remain6/6each and are not repeated; ordinary task behavior under a revised cap is unrun.
+
+Current rubric stays **8,8,7,5,8,3**. This supports designing an ordinary-task engagement gate before any revised recovery study; it is not a paid gate or resumed-run authorization. Any new model call still needs a concrete frozen stage and explicit approval. No PR.
