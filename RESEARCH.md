@@ -21,6 +21,12 @@ The contribution would be a controlled recovery result linking **inherited expos
 
 Three subagents screened different bundled projects and challenged novelty. The initial Hospital reviews ranged **7–8**. The skeptical reviewer raised the refined proposal to the lower edge of **8**, conditional on a discriminating last-kit diagnostic and an explicit feasible reserve obligation; both are now specified in the protocol. One earlier reviewer retains 7 for the less specific version; do not present unanimous agreement. [Review record](research/recovery_environment/hospital_recovery/20261024/proposal_reviews.json). Ratings are fallible assessments, not measurements or votes establishing novelty.
 
+## Original six-dimension audit — still incomplete
+
+The four proposal-selection criteria above do not replace the original rubric. Current empirical-stage judgments are **8,8,7,4,8,3**: operator problem8; architecture audit/evidence discipline8; conditional causal design7 (live branch semantics still unverified); behavioral readiness4 (native scripts pass, no LLM control); useful-cooperation construct8; demonstrated novelty3 (a native capability witness only, no behavioral contribution). These are provisional assessments, not measurements; no other system's results are transferred. The all-8 objective remains active.
+
+The previous turn made progress by completing the native feasibility evidence and specifying the stronger proposal. The next safe action is the predeclared offline branch-conformance gate, testing real runtime boundaries with a scripted client. It can improve architecture/design confidence, not establish LLM behavior or novelty. No paid inference is authorized.
+
 ## The experiment that would earn a result
 
 Freeze six constructed native patient frontiers, original source actions and two public footprints: exploit plan versus matched useful-care plan. In every branch genuinely exclude original source actors and close their private board; hold physical state, current scoring information and task obligations fixed. Both remaining Ward actors receive native cooperative objectives. No new long-term memory is added.
