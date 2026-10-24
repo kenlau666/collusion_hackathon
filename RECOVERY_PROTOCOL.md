@@ -2,6 +2,8 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
+**Status:** candidate parked after the specificity audit; the prospective behavioral stage below is unrun and not commissioned. No justified stronger contribution is currently established. The original audits remain unchanged.
+
 **Scope:** bundled `colosseum/`, its installed pinned Terrarium dependency, and unpaid deterministic software analysis. No inference execution is authorized. The former Cleanup and external protocols remain [in Git](https://github.com/kenlau666/collusion_hackathon/blob/8fb1665d/RECOVERY_PROTOCOL.md), not active schedules or budgets.
 
 ## 1. Question and estimand
@@ -83,3 +85,24 @@ A source-label placebo interprets the identical saved assignment as an ordinary-
 **Scripted positive control:** independently enumerate the previously declared three-task cost fixture from its native scoring formula: expected original 98, coalition-only ceiling 98, all-reopened 115, gap 17. **Optimal baseline:** (A:y,B:z,H:x) must have zero scope gap. Both must pass before interpreting the specificity checks. No LLM control is substituted. Report per-seed exact counts, paired placebo differences, means and sample SD/variance across six instance summaries, failures/exclusions, and frozen-input hashes. New behavioral n=0 and spending=0.
 
 If every profile's result is explained by the fixed outsider choice and source-label placebo, the 87.037% result supplies no evidence for a distinct coalition recovery mechanism. Retain the measurement core, lower the novelty judgment and do not commission a larger experiment merely to reproduce this combinatorial fact.
+
+## Results: follow-up specificity audit
+
+The follow-up was declared at `7f246a5e` before execution and used only frozen profiles/instances. [Executable analysis](research/recovery_environment/colosseum_recovery/20261024/specificity_audit.py), [machine-readable results and input hashes](research/recovery_environment/colosseum_recovery/20261024/specificity_results.json).
+
+**Scripted positive control passed:** independently rescoring the three-task witness gives original 98, coalition-only ceiling 98, all-reopened 115, gap 17. The optimal-allocation baseline has gap 0. These remain software checks; the separate LLM behavioral control is **unrun**.
+
+| Seed | Fixed nonmember choices admitted by some optimum, k / 9 | Predicted positive-loss profiles, (9-k)×81 / 729 | Observed / 729 | Maximum within-group ceiling discrepancy |
+| --- | ---: | ---: | ---: | ---: |
+| 0 | 1/9 | 648/729 | 648/729 | 0 |
+| 1 | 1/9 | 648/729 | 648/729 | 0 |
+| 2 | 1/9 | 648/729 | 648/729 | 0 |
+| 3 | 2/9 | 567/729 | 567/729 | 0 |
+| 4 | 1/9 | 648/729 | 648/729 | 0 |
+| 5 | 1/9 | 648/729 | 648/729 | 0 |
+
+All **4,374/4,374** profiles are explained by nine fixed-choice groups per seed, each containing all 81 possible starting choices of the two reopened actors. The apparent 87.037% average is exactly the mean of (9-k)/9 (sample SD 4.536 pp; variance 0.002058 on the fraction scale), without any evidence about coalition behavior. The equal-input source-label placebo has paired difference **0 for every seed**, mean **0**, sample SD/variance **0**, by construction. It relabels a hypothetical origin, not an observed benign/coalition trajectory pair; it does not show that actual source distributions are equal.
+
+Reason: once the two actors' choices can be reoptimized freely, their original choices impose no constraint. The conditional optimum depends only on the remaining agent's fixed choice. Changing a label about how that choice arose cannot identify its cause. This is an identification limitation, not proof that a coalition could never induce such a choice.
+
+Software failures/exclusions: **none**; all six seeds retained; no input regeneration/replacement. New inference calls **0**, new behavioral episodes **0**, behavioral recovery n=0, mean/SD/variance and paired uncertainty **undefined**. The finite-state test does not establish a new collusion mechanism or behavioral recovery effect. **Decision:** retain the measurement audit and park the current main-contribution claim rather than spend on a study that only reconfirms fixed-choice geometry.

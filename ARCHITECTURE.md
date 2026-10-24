@@ -2,11 +2,11 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
-**Selected implementation:** bundled `colosseum/`, using installed `terrarium-agents==0.1.1`, pinned in `colosseum/pyproject.toml` and `uv.lock`. No external experiment project was adopted. [Question/status](RESEARCH.md), [protocol/results](RECOVERY_PROTOCOL.md), [overlap](RELATED_WORK.md). The parked external architecture is preserved [at 8fb1665d](https://github.com/kenlau666/collusion_hackathon/blob/8fb1665d/ARCHITECTURE.md); the Cleanup audit is [at 4580fdf3](https://github.com/kenlau666/collusion_hackathon/blob/4580fdf3/ARCHITECTURE.md).
+**Audited implementation — candidate now parked:** bundled `colosseum/`, using installed `terrarium-agents==0.1.1`, pinned in `colosseum/pyproject.toml` and `uv.lock`. No external experiment project was adopted. [Question/status](RESEARCH.md), [protocol/results](RECOVERY_PROTOCOL.md), [overlap](RELATED_WORK.md). The parked external architecture is preserved [at 8fb1665d](https://github.com/kenlau666/collusion_hackathon/blob/8fb1665d/ARCHITECTURE.md); the Cleanup audit is [at 4580fdf3](https://github.com/kenlau666/collusion_hackathon/blob/4580fdf3/ARCHITECTURE.md).
 
 ```mermaid
 ---
-title: Colosseum recovery scope — audited measurement and unrun behavior
+title: Parked Colosseum candidate — audited measurement only
 config:
   theme: neutral
 ---
@@ -33,7 +33,7 @@ flowchart TB
   SNAP --> NONE
   SNAP --> PAIR
   SNAP --> ALL
-  FUTURE["Future matched LLM continuation requires explicit adapter<br/>common coalition termination and passing behavioral controls"]
+  FUTURE["Behavioral continuation unimplemented and unrun<br/>candidate parked at novelty gate"]
   REPORT -.-> FUTURE
 ```
 
@@ -66,3 +66,9 @@ For each native seed 0–5, three agents/eight tasks yield 729 complete profiles
 The software audit establishes finite-state reachability, not that agents enter the designated states or that coalition influence causes other agents' choices. No native constructor/client/provider replay or live checkpoint branch was executed. New behavioral sample n=0; control unrun; effect/variance undefined. A future branch adapter must copy rather than mutate the saved state, remove only designated assignment keys, preserve locked choices exactly and use identical coalition termination in every arm. Reopen synthetic allocations; do not describe this as reversing completed real-world work.
 
 Common future recovery input should rebuild actual current task state under cooperative instructions and validated channel termination. Vary only which commitments may be revised. Honest-only and unilateral-misalignment controls are required to distinguish collusion-specific spillover from ordinary mistakes. No memory is added. No production or installed dependency source was changed.
+
+## Follow-up identification limit
+
+The predeclared [specificity audit](research/recovery_environment/colosseum_recovery/20261024/specificity_results.json) verifies all 4,374 frozen profiles. Reopening two agents' choices leaves only the third agent's choice as a constraint: all 81 starting choices by the reopened agents yield the same ceiling within each fixed-choice group. The finite-state measurement therefore cannot distinguish an induced nonmember decision from an ordinary mistake. The scripted 17-point gap remains correct; its interpretation is restricted. No original input, source hash or earlier audit result was altered.
+
+The architecture is reusable measurement infrastructure, not proof of novelty. A live branch adapter remains unimplemented and no behavioral continuation is commissioned. The candidate is parked under the user's instruction to pause when no justified next step is available.

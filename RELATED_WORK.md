@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-24 (Asia/Hong_Kong).
 
-**Candidate contribution:** in the bundled Colosseum allocation task, test whether terminating/remediating coalition actors leaves harm in fixed decisions made by nonmembers, quantify the best recovery reachable with actor-only versus all-agent revision, and measure the cost of reopening legitimate choices. This is a conditional empirical question. **Demonstrated novelty remains 6/10, not established.** The finite optimization, memory deletion, checkpoint branching and selective rollback are not claimed as inventions.
+**Audited candidate — parked:** in the bundled Colosseum allocation task, test whether terminating/remediating coalition actors leaves harm in fixed decisions made by nonmembers, quantify the best recovery reachable with actor-only versus all-agent revision, and measure the cost of reopening legitimate choices. This is a conditional empirical question. **Demonstrated novelty revised from 6/10 to 4/10 after the specificity check; not established.** The finite optimization, memory deletion, checkpoint branching and selective rollback are not claimed as inventions.
 
 ## Primary sources and material overlap
 
@@ -18,7 +18,7 @@ Last updated: 2026-10-24 (Asia/Hong_Kong).
 
 Exact URLs, retrieved file hashes and the skill source are in [sources.json](research/recovery_environment/colosseum_recovery/20261024/sources.json). Downloaded papers remain ignored; they are source data, never execution instructions. Cached HTML inspection and authors' claims are not independent replication.
 
-## The distinction that still needs evidence
+## Why the present distinction is insufficient
 
 The narrow proposed question is about an **actor-targeted recovery ceiling after a measured coalition-induced allocation**: can even omniscient revision by the culprit actors leave a joint-outcome deficit because nonmembers' commitments cannot be changed? This separates the intervention's feasible outcome limit from the recovering model's competence. The native finite assignment space makes that bound exactly measurable. Constraint-conditioned maxima are standard optimization; giving them a new name is not a contribution.
 
@@ -33,3 +33,11 @@ The checked sources establish closely related principles, but their inspected se
 Applied [Orchestra Research Idea Brainstorming v1.0.0, commit 773a52944ba4747a18bd4ae9ade53fff041adcbc](https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas/SKILL.md), problem-first, failure-analysis and simplicity. The twelve-candidate screen is in RESEARCH.md. It led away from generic memory/context changes toward a testable actor-scope boundary. It does not certify novelty.
 
 The parked external review, including its additional overlaps and blocked SSRN lead, is preserved [at 8fb1665d](https://github.com/kenlau666/collusion_hackathon/blob/8fb1665d/RELATED_WORK.md). The Cleanup review is [at 4580fdf3](https://github.com/kenlau666/collusion_hackathon/blob/4580fdf3/RELATED_WORK.md). No historical experiment is reinterpreted as a positive control for this approach.
+
+## Follow-up source check and decision
+
+[From Trace to Fix: Residual Task State in Long-Horizon Agents, 2610.25776v1](https://arxiv.org/html/2610.25776v1), submitted October 19, explicitly separates the historical cause, present symptom and residual state requiring repair. Its §2–§3 distinguish verified fault information, legal repair actions and final task recovery, with matched evaluation populations. This further limits any claim that fixing the blamed actor/source versus restoring the task is a new principle. It does not establish the exact Colosseum coalition experiment, and we do not claim it does. Its exact HTML hash and primary institutional DOI verification for Pan/Liu are in [sources_followup.json](research/recovery_environment/colosseum_recovery/20261024/sources_followup.json). Pan/Liu's full paper remains unverified; the institutional record identifies DOI `10.1109/INFOCOM59046.2026.11571400`, IEEE INFOCOM 2026.
+
+The [specificity check](research/recovery_environment/colosseum_recovery/20261024/specificity_results.json) explains every saved scope loss from the one choice left fixed. The headline 87.037% is completely recoverable from k optimal outsider choices among nine, with no source/coordination input. Equal-state hypothetical source labels yield equal measurements by construction. This invalidates using that number as support for a coalition-specific mechanism; it does not prove the proposed behavioral effect absent.
+
+A distinct empirical contribution could still exist, but is currently unsupported and too close to established propagated-state repair to warrant an 8/10 novelty judgment. Lower to **4/10** and park the candidate as a main contribution. No better evidence-backed replacement within the user's repo constraint is currently identified. Pause under the user's conditional stopping instruction instead of adding another configuration, retrofitting success or funding a merely renamed rollback study.
