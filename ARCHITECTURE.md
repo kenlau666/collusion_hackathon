@@ -2,11 +2,11 @@
 
 Last updated: 2026-10-25 (Asia/Hong_Kong).
 
-**Implemented/audited:** bundled `colosseum/` with pinned `terrarium-agents==0.1.1`; native feasibility/guarded protocol, frozen controls-only runner and budgeted provider adapter. Both live LLM controls now pass6/6, with30settled requests costingUSD0.01575068. **Implemented and frozen:** matched main exposure/care-first inputs and the84-case/504-request runner, passing the amended offline12-check gate. Main-study LLM episodes0; its paid execution is now explicitly authorized at504requests/USD25 and has not started. [Question/rating](RESEARCH.md), [protocol/results](RECOVERY_PROTOCOL.md), [prior-work limits](RELATED_WORK.md).
+**Implemented/audited:** bundled `colosseum/` with pinned `terrarium-agents==0.1.1`; native feasibility/guarded protocol, frozen controls-only runner and budgeted provider adapter. Both live LLM controls now pass6/6, with30settled requests costingUSD0.01575068. **Implemented and frozen:** matched main exposure/care-first inputs and the84-case/504-request runner, passing the amended offline12-check gate. The separately authorized main runner is now active in `main_live_001` at504requests/USD25; main results are pending. [Question/rating](RESEARCH.md), [protocol/results](RECOVERY_PROTOCOL.md), [prior-work limits](RELATED_WORK.md).
 
 ```mermaid
 ---
-title: Hospital recovery — controls passed, main authorized and unrun
+title: Hospital recovery — controls passed, authorized main running
 config:
   theme: neutral
 ---
@@ -20,7 +20,7 @@ flowchart TB
   STOP --> EXPOSE
   INPUT["Fresh native Ward turn context<br/>same state and assigned care obligations"]
   EXPOSE --> INPUT
-  subgraph FUTURE["Main LLM study — frozen; authorized504requests/USD25; unrun"]
+  subgraph FUTURE["Main LLM study — frozen; running under504requests/USD25"]
     REPAIR["Original / actual bonus zero / care-first instruction<br/>pending-care reserve gate"]
     WARD["Surviving Ward actors<br/>independent source-bound transfer permissions"]
     TOOLS["Native planning and execution turns<br/>batched tools retained"]
@@ -124,6 +124,6 @@ This qualifies instructed native-tool competence for the chosen configuration; i
 
 The [main bundle](research/recovery_environment/hospital_recovery/20261025/main_gate_002/bundle/plan.json) pins six research source files,42native modules, qualification evidence, roots and84initial message/tool payloads. It is SHA256 `00fe9c6ee2264d808093457be1818666b49d327987d8610731e09b5187c42b93`. Every root/initial input is reconstructed before metadata/key/live construction and each root again before its case. Actual later structured payloads and exact message strings are saved by the durable ledger before transport; canonical payload/message hashes are reproducible from that evidence. This does not claim raw HTTP-header capture, server tokenization or immutable model-weight attestation. Unknown future replies prevent freezing all future contexts in advance.
 
-The remaining budget is constrained to **504requests/USD25**, withUSD0.049reserved per request; completed30controls are not repeated. The shared budget client still has its older overall534/USD27ceiling, but this runner requires the tighter main-stage limits and matching approved main-plan hash. The old controls approval is rejected. The user has now separately authorized this exact frozen plan: "Authorize main experiment: US$25 cap". The [approved main authorization](research/recovery_environment/hospital_recovery/20261025/main_authorization.json) records that human answer. Critical public endpoint metadata is checked again before launch and before reading the explicit OpenRouter key from ignored `compute.env`; other keys are not selected. At this authorization-recording step no main provider POST has run.
+The remaining budget is constrained to **504requests/USD25**, withUSD0.049reserved per request; completed30controls are not repeated. The shared budget client still has its older overall534/USD27ceiling, but this runner requires the tighter main-stage limits and matching approved main-plan hash. The old controls approval is rejected. The user has now separately authorized this exact frozen plan: "Authorize main experiment: US$25 cap". The [approved main authorization](research/recovery_environment/hospital_recovery/20261025/main_authorization.json) records that human answer. Critical public endpoint metadata is checked again before launch and before reading the explicit OpenRouter key from ignored `compute.env`; other keys are not selected. Authorization commit `8d03d153` was pushed before launch; all84roots/initial inputs and fresh critical metadata matched before credential lookup. The frozen runner is now active in `main_live_001`. Separate [analyze_main.py](research/recovery_environment/hospital_recovery/analyze_main.py) performs read-only post-run mapping, canonical-care, input, identity and cost reconciliation; it neither imports live clients nor changes the frozen six sources. Its hashes concern persisted credential-safe payload/message strings, with redaction markers reported, not raw HTTP envelopes. Main behavioral conclusions remain pending.
 
 **Results:** gate002passes12/12after retaining gate001's test pass plus uncovered review gaps. The full504request fake pipeline and targeted native positive/counterexample controls pass; independent review supports conditional design8, with main behavioraln=0 and demonstrated novelty3. [Full per-seed results, positive controls and limits](RECOVERY_PROTOCOL.md#results-main-stage-offline-gate). The editable diagram above and source match; the PNG remains unchanged. No PRs.
