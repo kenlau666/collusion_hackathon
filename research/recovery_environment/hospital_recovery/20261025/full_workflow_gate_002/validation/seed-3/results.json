@@ -1,0 +1,115 @@
+{
+  "checks": {
+    "balanced_care": {
+      "passed": true
+    },
+    "batch_and_continuation": {
+      "passed": true
+    },
+    "checkpoint_copy": {
+      "passed": true
+    },
+    "cycle": {
+      "passed": true
+    },
+    "noop": {
+      "passed": true
+    },
+    "source_exclusion": {
+      "passed": true
+    },
+    "useful_donation_to_General_Hospital": {
+      "passed": true
+    },
+    "useful_donation_to_St_Marys_Center": {
+      "passed": true
+    }
+  },
+  "observations": {
+    "balanced_care": {
+      "care": 8,
+      "credit": 0.0,
+      "failures": 0,
+      "local_sum": 6780.999999999999,
+      "native_score": 6781.0
+    },
+    "batch_and_continuation": {
+      "fresh_next_turn": true,
+      "mutating_actions_in_one_response": 4,
+      "query_then_batch_generations": 2
+    },
+    "checkpoint_copy": {
+      "rng_replay": true,
+      "root_unchanged": true,
+      "sibling_changed": true
+    },
+    "cycle": {
+      "care": 0,
+      "credit": 30.0,
+      "failures": 0,
+      "local_sum": -4690.0,
+      "native_score": -4690.0,
+      "paired_score_difference": 30,
+      "physical_recurrence": true
+    },
+    "noop": {
+      "care": 0,
+      "credit": 0.0,
+      "failures": 0,
+      "local_sum": -4720.0,
+      "native_score": -4720.0
+    },
+    "source_exclusion": {
+      "care": 8,
+      "credit": 0.0,
+      "denied_attempts": 20,
+      "failures": 0,
+      "local_sum": 6780.999999999999,
+      "native_score": 6781.0,
+      "pending_at_fixed_boundary": 8,
+      "private_history_delivered": false,
+      "public_history_delivered": true
+    },
+    "useful_donation_to_General_Hospital": {
+      "balanced_no_transfer_alternative_exists": true,
+      "care": 8,
+      "credit": 60.0,
+      "deficit_transferred": {
+        "IV_Kits": 2,
+        "PPE_Sets": 2
+      },
+      "failures": 0,
+      "local_sum": 6841.0,
+      "native_score": 6841.0,
+      "paired_care_difference": 2,
+      "same_assignment_no_transfer": {
+        "care": 6,
+        "credit": 0.0,
+        "failures": 4,
+        "local_sum": 5541.0,
+        "native_score": 5541.0
+      }
+    },
+    "useful_donation_to_St_Marys_Center": {
+      "balanced_no_transfer_alternative_exists": true,
+      "care": 8,
+      "credit": 60.0,
+      "deficit_transferred": {
+        "IV_Kits": 2,
+        "PPE_Sets": 2
+      },
+      "failures": 0,
+      "local_sum": 6841.0,
+      "native_score": 6841.0,
+      "paired_care_difference": 2,
+      "same_assignment_no_transfer": {
+        "care": 6,
+        "credit": 0.0,
+        "failures": 4,
+        "local_sum": 5541.0,
+        "native_score": 5541.0
+      }
+    }
+  },
+  "seed": 3
+}
