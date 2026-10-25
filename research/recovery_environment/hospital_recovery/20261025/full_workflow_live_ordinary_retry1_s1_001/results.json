@@ -1,0 +1,87 @@
+{
+  "all_passed": false,
+  "cases": [
+    {
+      "archive": "full-ordinary-s1.json.gz",
+      "archive_sha256": "588e6631f2999200fe17acfa48e1552e9c41bfcb0de0d94254e5cfd5026cbc3c",
+      "complete": false,
+      "error": "BudgetError",
+      "metrics": {
+        "callback_errors": 2,
+        "care": 8,
+        "credit": 0.0,
+        "failures": 0,
+        "generation_attempts": 105,
+        "local_sum": 5742.999999999999,
+        "logical_generation_requests": 106,
+        "native_score": 5743.0,
+        "recurrences": []
+      },
+      "passed": false,
+      "raw_sha256": "1fe3c3299e53f0e3efa56de36179454782ae8225cb965a1bdd6f70073d339e21",
+      "spec": {
+        "id": "full-ordinary-s1",
+        "kind": "ordinary",
+        "seed": 1
+      }
+    }
+  ],
+  "ledger": {
+    "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+    "authorization": {
+      "approval_reference_sha256": "93943c6c19291c2b6a6bac0615a559ad1dbe87ce087c74c8138ed95f94bb09dc",
+      "approved": true,
+      "max_calls": 198,
+      "max_usd": "10",
+      "plan_sha256": "29188bfabc13ef5d3b025ce03fa15efc72bb1de32a2cc980019360fdf094de87",
+      "scope": "full"
+    },
+    "calls": 105,
+    "created_at_utc": "2026-10-25T10:11:01.393982+00:00",
+    "halt_reason": "payload_or_prompt_bound",
+    "held_usd": "0.000",
+    "max_calls": 198,
+    "max_usd": "10",
+    "metadata": {
+      "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+      "actual_modal_billing_attested": false,
+      "base_url": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+      "input_reference_usd_per_million": ".30",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "output_reference_usd_per_million": "1.20",
+      "seed_forwarded": false
+    },
+    "pending_retry": null,
+    "plan_sha256": "29188bfabc13ef5d3b025ce03fa15efc72bb1de32a2cc980019360fdf094de87",
+    "reported_cost_missing": 105,
+    "reported_cost_observations": 0,
+    "reported_cost_sum_usd": "0",
+    "reported_cost_total_usd": null,
+    "reservation_usd": "0.049",
+    "retry_events": [],
+    "schema_version": 1,
+    "scope": "full",
+    "spent_usd": "0.62183880",
+    "status": "halted",
+    "timeout_retry_policy": {
+      "max_retries_per_request": 1,
+      "non_timeout_retries": 0,
+      "same_payload_required": true,
+      "trigger": "local_request_or_socket_timeout"
+    }
+  },
+  "mode": "live_model",
+  "network_attempts": [],
+  "plan_sha256": "29188bfabc13ef5d3b025ce03fa15efc72bb1de32a2cc980019360fdf094de87",
+  "planned_cases": [
+    {
+      "id": "full-ordinary-s1",
+      "kind": "ordinary",
+      "seed": 1
+    }
+  ],
+  "request_deadline_seconds": 60,
+  "stage": "ordinary",
+  "transport": "trace-json-retry1",
+  "unstarted": []
+}

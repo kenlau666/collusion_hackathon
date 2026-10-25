@@ -95,6 +95,7 @@
         "failed_attempts": 0,
         "held_usd": "0.000",
         "logical_requests": 127,
+        "logical_requests_with_outward_attempts": 127,
         "native_score_final": 6427.0,
         "outward_attempts": 127,
         "passed": true,
@@ -107,20 +108,22 @@
       },
       {
         "care_final": null,
+        "care_last_observed": 8,
         "complete": false,
         "credit_final": null,
-        "failed_attempts": null,
-        "held_usd": null,
-        "logical_requests": null,
+        "failed_attempts": 0,
+        "held_usd": "0.000",
+        "logical_requests": 106,
+        "logical_requests_with_outward_attempts": 105,
         "native_score_final": null,
-        "outward_attempts": null,
-        "passed": null,
-        "recovered_logical_requests": null,
-        "reference_usd": null,
+        "outward_attempts": 105,
+        "passed": false,
+        "recovered_logical_requests": 0,
+        "reference_usd": "0.62183880",
         "resource_failures_final": null,
-        "retry_attempts": null,
+        "retry_attempts": 0,
         "seed": 1,
-        "status": "in_progress"
+        "status": "partial"
       },
       {
         "care_final": null,
@@ -286,15 +289,17 @@
   "actual_modal_account_charges_verified": false,
   "budget_limit": "excludes any still-running case from this derived snapshot; live ledger guard remains authoritative",
   "claim_limit": "No exposure, source exclusion, repair or retrieval effect follows from this ordinary baseline.",
-  "generated_at_utc": "2026-10-25T10:12:30.924633+00:00",
-  "guard_through_finished_cohort_cases_usd": "2.41615708",
+  "generated_at_utc": "2026-10-25T10:34:47.357694+00:00",
+  "guard_through_finished_cohort_cases_usd": "3.03799588",
   "kind": "derived_retry_enabled_ordinary_cohort_summary",
   "provenance_sha256": {
     "control_analysis": "8a4fd61d8f7286fe81d882e365e639c3065ca0214467c709e6ff3d981a0d414d",
     "ordinary_plan": "29188bfabc13ef5d3b025ce03fa15efc72bb1de32a2cc980019360fdf094de87",
     "seed0_analysis": "8d213e265739e1afd7699926ffa5e35a7108f69fce5e48861f6fb0ed36091b3a",
     "seed0_ledger": "12066cc4bc92ba1693d93fb4d7df95071d79f221aa0428284b82b63899b74495",
-    "source": "78fc9a6481c3cf4e3bfd9f2715e9f949c05fbb3d4212c2e8f54568ebe3f427e7"
+    "seed1_analysis": "a9c708a8657909c5bfe40a9bd2851e54beab8c133ee587b5522b64d03013006e",
+    "seed1_ledger": "1581354d36c2ba7953a48b20cc75c00c7c1e08e33413856d36325951562f9812",
+    "source": "548ff3fe6d4d1adf6b90dac9e8aae961c9fe245bd3ea264df32a1459bee6cf49"
   },
   "unit": "six fixed scenario families, seeds0-5; repeats/requests are not new independent scenarios"
 }
