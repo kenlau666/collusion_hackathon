@@ -1,4 +1,4 @@
-"""Verify actual exported media, exact captions and the closed report hashes."""
+"""Verify actual exported media, exact captions and the frozen report hashes."""
 import argparse
 import hashlib
 import json
@@ -70,7 +70,7 @@ def main():
     (P/'qa/capacity_final_loudness.json').write_text(json.dumps(loudness,indent=2)+'\n')
     manifest = load(P/'production_manifest.json')
     assert all(sha(P/path) == expected['sha256'] for path,expected in manifest['files'].items())
-    manifest.update(video_path=str(video.relative_to(R)),video_sha256=sha(video),
+    manifest.update(source_cutoff=args.source_commit,science_evidence_commit=report_qa['evidence_commit'],video_path=str(video.relative_to(R)),video_sha256=sha(video),
                     video_bytes=video.stat().st_size,video_source_commit=args.source_commit,
                     report_evidence_files_rechecked=len(report_manifest))
     manifest['skill_sources']={}
@@ -94,7 +94,11 @@ def main():
         'lineage_sha256':sha(source),'author':'LAU, Chi Hong','affiliation':None,
         'decoded_frames_visually_reviewed':len(frames),'opening_and_final_frames_verified':True,
         'kit_movement_verified_on_encoded_frames':True,'all_eight_patients_visible':True,
-        'missing_exploit_endpoints_preserved':data['missing_exploit_endpoints'],
+        'successor_missing_exploit_endpoints':data['missing_exploit_endpoints'],
+        'historical_missing_exploit_endpoints_preserved':5,
+        'cumulative_reference_guard_usd':lineage['accounting']['cumulative_reference_guard_usd'],
+        'asset_hashes_rechecked':len(manifest['files']),
+        'decoded_frame_sha256':{f['path']:sha(P/f['path']) for f in frames},
         'n_per_cell':1,'fabricated_experiment_results':False,'pre_render_check_passed':True,
         'craft_warnings_retained':check['craft']['warningCount'],
         'integrated_lufs':float(loudness['input_i']),'true_peak_dbtp':float(loudness['input_tp']),

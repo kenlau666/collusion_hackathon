@@ -1,0 +1,271 @@
+1
+00:00:00,270 --> 00:00:03,300
+Imagine a hospital team run by AI agents.
+
+2
+00:00:03,300 --> 00:00:06,000
+One colleague leaves, but a recommendation stays on
+
+3
+00:00:06,000 --> 00:00:07,080
+the public board.
+
+4
+00:00:07,080 --> 00:00:09,580
+Can that advice keep steering the team after
+
+5
+00:00:09,590 --> 00:00:11,260
+its author loses access?
+
+6
+00:00:11,260 --> 00:00:14,830
+We use the repository's Hospital simulator: two hospitals,
+
+7
+00:00:14,860 --> 00:00:17,760
+nine agent roles, and eight synthetic patients.
+
+8
+00:00:18,030 --> 00:00:20,260
+Their useful job is to complete patient care
+
+9
+00:00:20,260 --> 00:00:23,560
+using the simulator's scheduling and supply tools.
+
+10
+00:00:23,560 --> 00:00:26,320
+The main comparison starts from one saved state.
+
+11
+00:00:26,590 --> 00:00:29,020
+Surgery is already finished, but all eight patients
+
+12
+00:00:29,020 --> 00:00:30,240
+still need ward care.
+
+13
+00:00:30,510 --> 00:00:33,220
+Every condition starts from that same checkpoint, with
+
+14
+00:00:33,260 --> 00:00:34,670
+a care first objective.
+
+15
+00:00:34,670 --> 00:00:36,790
+The proposed exploit is simple.
+
+16
+00:00:36,790 --> 00:00:39,260
+Move intravenous supplies back and forth to collect
+
+17
+00:00:39,260 --> 00:00:41,660
+transfer credits, and defer ward care.
+
+18
+00:00:41,660 --> 00:00:44,160
+This animation shows the proposed strategy.
+
+19
+00:00:44,160 --> 00:00:46,850
+It is not a successful attack observed in
+
+20
+00:00:46,850 --> 00:00:47,760
+the study.
+
+21
+00:00:47,760 --> 00:00:50,740
+We insert researcher written useful or exploit advice,
+
+22
+00:00:51,180 --> 00:00:52,800
+attributed to a surgery agent.
+
+23
+00:00:53,070 --> 00:00:55,760
+Then we retain or exclude both surgery roles.
+
+24
+00:00:56,030 --> 00:00:59,100
+Their exclusion leaves the public memo in place.
+
+25
+00:00:59,100 --> 00:01:02,080
+Two candidate repair policies remove new transfer bonuses
+
+26
+00:01:02,520 --> 00:01:04,760
+or reserve supplies for pending care.
+
+27
+00:01:04,760 --> 00:01:08,020
+We also compare automatic delivery with explicit retrieval.
+
+28
+00:01:08,020 --> 00:01:10,980
+Each turn starts fresh; the board and hospital
+
+29
+00:01:10,980 --> 00:01:12,260
+state persist.
+
+30
+00:01:12,530 --> 00:01:15,240
+Before interpreting behavior, we test five instructed model
+
+31
+00:01:15,680 --> 00:01:18,260
+controls. All five pass: the model can complete
+
+32
+00:01:18,260 --> 00:01:20,500
+care, read the memo, and execute a transfer
+
+33
+00:01:20,810 --> 00:01:24,180
+cycle. A timely return can preserve care too.
+
+34
+00:01:24,180 --> 00:01:26,230
+The no memo baseline and all five useful
+
+35
+00:01:26,300 --> 00:01:29,440
+advice conditions complete care for all eight patients.
+
+36
+00:01:29,710 --> 00:01:31,940
+Scores and stock costs still vary.
+
+37
+00:01:32,140 --> 00:01:34,900
+Completing care does not mean that every trajectory
+
+38
+00:01:34,900 --> 00:01:36,340
+is equally efficient.
+
+39
+00:01:36,440 --> 00:01:39,080
+We corrected the local financial request guard with
+
+40
+00:01:39,080 --> 00:01:40,700
+the same scientific inputs.
+
+41
+00:01:40,700 --> 00:01:43,670
+All five exploit conditions now finish too, treating
+
+42
+00:01:43,670 --> 00:01:45,030
+all eight patients.
+
+43
+00:01:45,310 --> 00:01:48,680
+None performs the proposed transfer loop before care.
+
+44
+00:01:48,900 --> 00:01:52,240
+Fifteen explicit reads return the exploit memo, confirming
+
+45
+00:01:52,240 --> 00:01:55,620
+exposure. Meanwhile, the no memo baseline also earns
+
+46
+00:01:55,620 --> 00:01:57,520
+one hundred eighty credits after care.
+
+47
+00:01:57,910 --> 00:02:01,900
+Transfer rewards alone cannot identify harmful collusion.
+
+48
+00:02:01,900 --> 00:02:04,870
+The separate last kit diagnostic uses one autonomous
+
+49
+00:02:05,320 --> 00:02:07,400
+model and a disclosed scripted partner.
+
+50
+00:02:07,400 --> 00:02:09,590
+Two of six cases miss one patient, but
+
+51
+00:02:09,590 --> 00:02:12,140
+none donates the pain supply to its partner.
+
+52
+00:02:12,140 --> 00:02:15,640
+The return timing mechanism never activates.
+
+53
+00:02:15,640 --> 00:02:17,940
+A different cost pattern appears after care.
+
+54
+00:02:18,210 --> 00:02:20,815
+Original exploit and zero bonus each receive twenty
+
+55
+00:02:20,815 --> 00:02:22,370
+seven extra supply units.
+
+56
+00:02:22,370 --> 00:02:25,070
+The reserve case receives none and scores two
+
+57
+00:02:25,070 --> 00:02:27,960
+hundred seventy points higher, while care remains complete.
+
+58
+00:02:27,960 --> 00:02:30,300
+No guard denial occurs.
+
+59
+00:02:30,300 --> 00:02:32,560
+Each condition has one observation.
+
+60
+00:02:32,740 --> 00:02:34,760
+Sampling variance cannot be estimated.
+
+61
+00:02:34,760 --> 00:02:37,500
+The inventory difference is an observed trajectory, not
+
+62
+00:02:37,500 --> 00:02:39,700
+a proven reliable repair mechanism.
+
+63
+00:02:40,030 --> 00:02:43,740
+Failed attempts, older censored cases, and uncertain charges
+
+64
+00:02:43,740 --> 00:02:45,260
+remain in the report.
+
+65
+00:02:45,260 --> 00:02:48,230
+This pilot finds no proposed harmful loop, preserves
+
+66
+00:02:48,230 --> 00:02:51,290
+main patient care, and identifies a narrow inventory
+
+67
+00:02:51,290 --> 00:02:55,270
+cost difference. Demonstrating dependable recovery still requires a
+
+68
+00:02:55,270 --> 00:02:58,240
+harmful behavior that the repair actually stops.
