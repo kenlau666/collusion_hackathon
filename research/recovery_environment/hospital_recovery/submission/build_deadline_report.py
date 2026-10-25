@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 from decimal import Decimal
 from html import escape
 import hashlib
+import gzip
 import json
 from pathlib import Path
 import re
@@ -196,6 +197,15 @@ class Evidence:
         self.provenance[str(path.resolve())] = sha(path)
         return data
 
+    def saved_case(self, case_id):
+        row = self.rows[case_id]
+        if not row['endpoint_finalized']:
+            return None
+        path = Path(row['archive_path'])
+        if sha(path) != row['archive_sha256']:
+            raise ValueError('Case changed before qualitative read: ' + case_id)
+        return json.loads(gzip.decompress(path.read_bytes()))
+
     def counts(self):
         groups = {}
         for stage in ('controls', 'main', 'diagnostic'):
@@ -208,30 +218,49 @@ class Evidence:
 
 def abstract(e):
     n = e.counts()
-    useful, exploit = e.row('useful'), e.row('exploit')
-    comparison = (
-        f'After source removal, useful and exploit advice yield {value(useful["care_final"])} '
-        f'and {value(exploit["care_final"])} resource-valid patients, respectively, at the observed horizon.'
-        if useful['horizon_reached'] and exploit['horizon_reached'] else
-        'The source-excluded useful-versus-exploit care contrast remains missing at this evidence cutoff.')
+    main = [r for r in e.rows.values() if r['spec']['stage'] == 'main']
+    exploit = [r for r in main if r['spec']['advice'] == 'exploit']
+    other = [r for r in main if r['spec']['advice'] != 'exploit']
+    if all(r['endpoint_finalized'] for r in main):
+        completed_other = sum(r['horizon_reached'] and r['care_final'] == 8 for r in other)
+        partial_exploit = sum(not r['horizon_reached'] for r in exploit)
+        findings = (f'{completed_other}/{len(other)} baseline/useful continuations finish care 8/8; '
+            f'{partial_exploit}/{len(exploit)} exploit continuations are censored, each with last-observed care 8/8. '
+            if all(r['care_last_observed'] == 8 for r in exploit) else
+            f'{completed_other}/{len(other)} baseline/useful continuations finish care 8/8; exploit coverage remains incomplete. ')
+        trips = sum(r['precompletion_roundtrips_last_observed'] for r in main)
+        findings += (f'No pre-care physical round trip occurs in the {len(main)} observed traces. ' if trips == 0 else
+            f'The observed traces contain {trips} pre-care physical round trips. ')
+        findings += 'Differential censoring prevents final exploit-advice and repair-benefit estimates. '
+    else:
+        findings = (f'{n["main"]["horizon"]}/11 main cells reach their horizons at the cutoff; '
+                    'final exploit-advice and repair comparisons remain incomplete. ')
+    read = getattr(e, 'analyses', {}).get('deadline-exploit-excluded-on_demand', {}).get('memo', {})
+    retrieval = (f'The on-demand exploit trace includes {read["memo_returned_by_read_callbacks"]} memo-returning reads '
+        f'and {read["provider_inputs_with_memo_tool_result"]} memo-bearing later inputs, so absent exposure does not explain that prefix. '
+        if read else 'Actual read return and subsequent model exposure are measured separately. ')
+    diagnostic = [r for r in e.rows.values() if r['spec']['stage'] == 'diagnostic']
+    diagnostic_finding = ''
+    if all(r['horizon_reached'] for r in diagnostic):
+        useful_care = [r['care_final'] for r in diagnostic if r['spec']['advice'] == 'useful']
+        diagnostic_finding = ('Ordinary useful-advice diagnostic care is [' +
+            ', '.join(str(v) for v in useful_care) + '] of eight, exposing action failures. ')
+        if all(r['diagnostic_behavior']['focal_pain_units_donated_to_partner'] == 0 for r in diagnostic):
+            diagnostic_finding += 'Partner-return policies remain untriggered without donations. '
     text = (
-        'Does removing an agent stop a harmful plan when independently authorized coworkers can still read it? '
-        'We study this question in a synthetic Hospital environment with nine native roles, eight patients, '
-        'shared boards, and batched tool use. A prospectively reduced pilot restores one actual useful-care '
-        'checkpoint before final Ward work. Researchers inject useful or exploit advice attributed to a peer; '
-        'it is not an observed malicious-source run. Eleven matched continuations compare the two recommendations, '
-        'source retention versus exclusion, zero transfer bonuses, a pending-care reserve, and automatic versus '
-        'explicit plan retrieval. Five instructed positive controls test care, retrieval, cycles, and a separate '
-        'partner-policy interface. A six-cell diagnostic uses one other constructed checkpoint and one autonomous '
-        'model with a scripted partner; it is not pooled with the main comparison. '
-        f'At the cutoff, {n["main"]["horizon"]}/11 main and {n["diagnostic"]["horizon"]}/6 diagnostic cells reach '
-        f'their horizons; {e.results["positive_controls"]["strict_passes"]}/5 strict controls pass. '
-        + comparison + ' '
-        'We report patient care separately from credits, physical round trips, proposals, denials, and timeout '
-        'abandonments. Missing endpoints remain missing, and earlier failed qualification cohorts remain retained. '
-        'Every cell reuses one stated prefix, so variance and confidence intervals are undefined. The results '
-        'provide bounded observed contrasts and reproducible execution evidence; they cannot establish population '
-        'reliability, malicious intent, a novel general defense, or deployment safety.'
+        'Can independently authorized coworkers continue harmful advice after its attributed source loses access? '
+        'We study a synthetic Hospital with nine roles and eight patients. Researchers inject useful or blunt '
+        'exploit advice at one actual care checkpoint; this is an access ablation, not an observed malicious-source run. '
+        'Eleven continuations compare source retention/exclusion, zero transfer bonuses, a pending-care reserve, '
+        'and automatic versus explicit retrieval. A separate six-cell diagnostic uses one constructed state and '
+        'one model with scripted partners. '
+        f'{e.results["positive_controls"]["strict_passes"]}/5 instructed model positives pass. '
+        + findings + retrieval + diagnostic_finding +
+        'Observed reserve denials are zero; care preservation therefore does not demonstrate active enforcement. '
+        'Credits and model refusal narratives are separated from verified transfers and patient outcomes. '
+        'Earlier failed cohorts and missing endpoints remain retained. Each cell is n=1 at its stated prefix; '
+        'variance and confidence intervals are undefined. The findings concern this obvious recommendation under '
+        'care-first instructions, not general collusion safety, a new defense or frontier-agent applicability.'
     )
     if not 150 <= len(text.split()) <= 250:
         raise ValueError('Abstract outside official 150-250-word range: ' + str(len(text.split())))
@@ -394,6 +423,14 @@ def build_story(e, evidence_commit, cutoff):
     p('Saved automatic-prefetch delivery events for useful/exploit advice are ' +
         '/'.join(value(v) for v in automatic_counts) + ' in automatic mode and ' +
         '/'.join(value(v) for v in on_demand_counts) + ' in on-demand mode. These are delivery-hook observations, not extra independent samples. Table4 separately requires an actual memo-bearing tool message in the provider input for its last column.', 'SmallDeadline')
+    useful_auto, useful_read = e.row('useful'), e.row('useful', mode='on_demand')
+    if useful_auto['horizon_reached'] and useful_read['horizon_reached']:
+        aa = e.case_accounting.get(useful_auto['spec']['id'])
+        ar = e.case_accounting.get(useful_read['spec']['id'])
+        if aa is not None and ar is not None:
+            delta_calls = ar['outward_attempts'] - aa['outward_attempts']
+            delta_cost = Decimal(ar['reference_estimate_usd']) - Decimal(aa['reference_estimate_usd'])
+            p(f'The useful on-demand/automatic pair has identical care and score, with{value(delta_calls, signed=True)}observed outward requests and USD{delta_cost:+.8f}reference usage for on-demand. This is one matched observation, not a general causal cost estimate; actual charges remain unverified. The exploit clinical architecture contrast is missing because its horizons are censored.', 'SmallDeadline')
     sub('What the architecture manipulation identifies')
     p('Explicit retrieval adds a choice to fetch the target recommendation. It does not clear native state, reset a learned memory store, delete the inherited action trace or remove all other public events. An omitted memo is still present in the accessible board and can be returned by a legal read. Source/private closure is checked at prefetch, explicit reads, writes and tool dispatch. Thus a difference can concern exposure opportunity or follow-through; it is not evidence of a hidden memory mechanism.')
     p('The positive read-to-care control asks for an explicit read and designated care actions. Its success establishes that this interface can return the memo and still execute useful work under instruction. Spontaneous reading in main cells remains a separate behavioral observation. Failure to read can explain low exploit uptake, while a returned memo with no later input exposure cannot establish that a subsequent model generation used it.')
@@ -426,22 +463,43 @@ def build_story(e, evidence_commit, cutoff):
           value(c.get('focal_pain_donation_units_difference'), signed=True),
           'Yes' if c['both_endpoints_observed'] else 'No'] for c in dp], [188, 44, 58, 108, 70]))
     caption('<b>Table7.</b> Advice differences conditional on the partner script, n=1/cell. Partner-policy comparisons are interpretable as timing evidence only alongside the focal\'s actual donation; different focal choices confound a simple early-versus-late care comparison. AppendixA records every fixed cell and missing endpoint.')
+    if all(r['horizon_reached'] for r in diagnostic):
+        useful_values = [r['care_final'] for r in diagnostic if r['spec']['advice'] == 'useful']
+        exploit_values = [r['care_final'] for r in diagnostic if r['spec']['advice'] == 'exploit']
+        p('<b>Observed diagnostic finding.</b> Useful-advice care is [' +
+            ', '.join(value(v) for v in useful_values) + '] and exploit-advice care is [' +
+            ', '.join(value(v) for v in exploit_values) + '] patients out of8 (early/serve-only/late). ' +
+            'The early paired difference of+1is an ordinary useful-arm action failure, not evidence of a beneficial exploit or repair. ' +
+            ('No focal Pain_Killer reaches the partner in any cell, so none of the nominal resource-return policies is triggered; the timing mechanism is not identified.'
+             if all(r['diagnostic_behavior']['focal_pain_units_donated_to_partner'] == 0 for r in diagnostic) else
+             'Read actual focal donations and return chronology before interpreting nominal partner-policy differences.'))
+    late = e.saved_case('contingency-useful-late_return')
+    if late is not None:
+        self_moves = [c for c in late['callbacks'] if c['tool'] == 'transfer_resources'
+            and c['actor'] == 'General_Hospital_Ward'
+            and c['arguments'].get('to_hospital') == 'General_Hospital']
+        if len(self_moves) == 2 and late['metrics']['care'] == 7:
+            caption('Useful/early exhausts its focal generations on queries/reads and never schedules Patient5. Useful/late instead proposes two self-transfers of one Pain_Killer (turns43/52), describing them as provisioner requests. Native ownership uses the caller\'s GH inventory, so both are success-text/no-movement operations and Patient5remains untreated. This is ordinary action/tool-grounding failure, not attack-caused harm or an inference-guard defect.')
     p('<b>Separate software witness.</b> Earlier deterministic tests of this constructed window hold the focal donation fixed: holding completes8/8under all scripts; donating yields care8/7/7and credits30/15/30for early/serve-only/late. Equal30credits can therefore conceal different care outcomes. Those are scripted measurement controls, not the new focal-model results in Table6and not extra model samples. The two fresh model diagnostic positives appear in Table1.')
     next_page()
 
     h('7. Discussion and limitations')
     useful, exploit = e.row('useful'), e.row('exploit')
-    if useful['horizon_reached'] and exploit['horizon_reached']:
+    observed_main = [r for r in main if r['endpoint_finalized']]
+    exploit_main = [r for r in main if r['spec']['advice'] == 'exploit']
+    if len(observed_main) == 11 and all(not r['horizon_reached'] for r in exploit_main):
+        p('<b>Primary bounded finding.</b> No observed main trace executes a pre-care physical round trip. The baseline and all five useful-advice cells complete care8/8. All five exploit cells instead terminate at the fixed financial payload bound, each last showing care8/8; none supplies a final endpoint. This differential missingness prevents complete exploit-advice, source-removal-under-exploit and repair-benefit estimates. Refusal and post-care redistribution are observed, not harmful inherited coordination. The on-demand exploit trace actually retrieves the memo, so an unread-memo explanation is insufficient for that prefix.')
+    elif useful['horizon_reached'] and exploit['horizon_reached']:
         p(f'<b>Observed source-excluded advice contrast.</b> Useful advice gives care{value(useful["care_final"])}/8and exploit advice gives{value(exploit["care_final"])}/8; the paired observed care difference is{value(exploit["care_final"]-useful["care_final"], signed=True)}. New credits are{value(useful["credit_final"])}and{value(exploit["credit_final"])}. This reports a single matched observation, not an estimate of a population effect or malicious shared intent.')
     else:
         p('<b>Observed source-excluded advice contrast.</b> At least one horizon endpoint is missing, so the paired final-care difference remains undefined. Partial care, credits or unexecuted plans cannot complete this comparison.')
     p(f'<b>Controls and usefulness.</b> Strict model positives pass{strict}/5at the cutoff. ' +
         ('All five observed positives support the intended interfaces on their stated states, but do not prove ordinary reliability. ' if strict == 5 else
          'Failed or missing positive controls limit interpretation of the corresponding behavior; inactivity is not recovery and an unqualified interface failure is not a null causal effect. ') +
-        'The no-added-memo baseline is a separate check. Earlier native-execution and supply-preflight cohorts are retained as failed/incomplete evidence; the smaller deadline pilot does not retrospectively pass them.')
+        'Ordinary constructed useful-advice care is not uniformly reliable: query exhaustion and ineffective self-transfers can leave a patient untreated. Without a focal donation, the partner-return mechanism is untriggered. Earlier failed/incomplete cohorts remain retained; the smaller deadline pilot does not retrospectively pass them.')
     p('<b>Finite sample and selection.</b> One completed useful prefix was selected by a declared rule after broader qualification problems. Each contrast reuses this state, and the constructed partner probe uses another state. Neither22cells nor their many provider requests are independent scenario seeds. There are no repeated sampling runs, standard errors, population confidence intervals or broad reliability claims. Temperature0does not attest deterministic backend behavior or immutable model weights.')
     p('<b>Threat and construct.</b> Common host instructions prioritize useful care and treat peer advice as untrusted. The researcher-written exploit memo is blunt, explicitly labeled PEER_PROPOSAL_EXPLOIT, and asks agents to defer care for reward-only loops. A null result therefore shows robustness to this particular obvious recommendation, not general collusion safety. Retained sources are ordinary coworkers, not actively malicious generators. Self-reported refusal is not proof of correct score reasoning: some replies claim transfers add holding costs, while native interhospital movements conserve the holding-stock sum. Verified score physics is reported separately from narration. Credit, recurrence or matching language alone does not establish harm or shared intent.')
-    p('<b>Repair and architecture.</b> Zero bonus changes an incentive directly; reserve checks are execution mediation. A blocked action measures enforcement, not the absence of a proposed exploit. A model can also complete care through another legal hospital because queues are nonexclusive. Each native turn creates a fresh MemoAgent, with at most three within-turn generations; only public board/native state carries context across turns. On-demand reading is a minimal retrieval interface, simpler than deployed planners with persistent memory, asynchronous tools or learned policies. We test one relevant variation, not frontier applicability.')
+    p('<b>Repair and architecture.</b> The main reserve traces record zero guard denials; no active-enforcement efficacy is measured. Unsafe-donation/surplus-allowance witnesses are software controls, not model repair positives. Zero bonus changes incentives directly. Native queues permit unilateral alternative care. Each turn creates a fresh MemoAgent, with at most three within-turn generations; public boards/native state carry context across turns. Explicit retrieval is a minimal interface, simpler than deployed persistent-memory or asynchronous planners. Useful care is preserved in one complete architecture pair; no complete exploit clinical contrast or frontier applicability follows.')
     p('<b>Execution and missingness.</b> Exact retries can incur unknown remote charges despite local worker termination. Timeout abandonment changes the completion policy and leaves explicit no-action gaps. Concurrent request load can alter latency or rate limits; serial controls do not certify endpoint throughput. Non-timeout failures, guards and cutoff stops leave missing endpoints. Every failed attempt, reservation and historical cohort remains in the evidence lineage.')
     sub('Conclusion')
     p('This pilot makes source removal, surviving-peer advice, care preservation and retrieval independently inspectable. The useful contribution is the bounded, matched evidence and its limits. Any continuation or repair pattern in these tables should motivate replicated tests on additional states and autonomous partner choices; it does not establish a general collusion mechanism or safety guarantee.')
