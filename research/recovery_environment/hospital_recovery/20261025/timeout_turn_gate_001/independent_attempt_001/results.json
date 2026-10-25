@@ -1,0 +1,170 @@
+{
+  "Results": [
+    {
+      "error": "'list' object has no attribute 'items'",
+      "error_type": "AttributeError",
+      "mode": "two_timeouts_then_later_turn",
+      "passed": false
+    },
+    {
+      "abandoned_timeout_turns": 1,
+      "abandonment_accepted": true,
+      "ledger_status": "halted",
+      "logical_invocations": 1,
+      "mode": "no_abandoned_logical_reuse",
+      "native_transfer_actions": 0,
+      "passed": true,
+      "provider_attempts": 2,
+      "retained_prior_callbacks": 1,
+      "retained_simulated_holds_usd": "0.098"
+    },
+    {
+      "abandoned_timeout_turns": 0,
+      "abandonment_accepted": false,
+      "ledger_status": "halted",
+      "logical_invocations": 1,
+      "mode": "http_failure",
+      "native_transfer_actions": 0,
+      "passed": true,
+      "provider_attempts": 1,
+      "retained_prior_callbacks": 1,
+      "retained_simulated_holds_usd": "0.049"
+    },
+    {
+      "abandoned_timeout_turns": 0,
+      "abandonment_accepted": false,
+      "ledger_status": "halted",
+      "logical_invocations": 1,
+      "mode": "non_timeout_failure",
+      "native_transfer_actions": 0,
+      "passed": true,
+      "provider_attempts": 1,
+      "retained_prior_callbacks": 1,
+      "retained_simulated_holds_usd": "0.049"
+    },
+    {
+      "abandoned_timeout_turns": 0,
+      "abandonment_accepted": false,
+      "ledger_status": "halted",
+      "logical_invocations": 1,
+      "mode": "changed_wire",
+      "native_transfer_actions": 0,
+      "passed": true,
+      "provider_attempts": 2,
+      "retained_prior_callbacks": 1,
+      "retained_simulated_holds_usd": "0.098"
+    },
+    {
+      "abandoned_timeout_turns": 0,
+      "abandonment_accepted": false,
+      "ledger_status": "halted",
+      "logical_invocations": 1,
+      "mode": "absent_diagnostic",
+      "native_transfer_actions": 0,
+      "passed": true,
+      "provider_attempts": 2,
+      "retained_prior_callbacks": 1,
+      "retained_simulated_holds_usd": "0.098"
+    },
+    {
+      "abandoned_timeout_turns": 0,
+      "abandonment_accepted": false,
+      "ledger_status": "halted",
+      "logical_invocations": 1,
+      "mode": "unreaped_worker",
+      "native_transfer_actions": 0,
+      "passed": true,
+      "provider_attempts": 2,
+      "retained_prior_callbacks": 1,
+      "retained_simulated_holds_usd": "0.098"
+    },
+    {
+      "abandoned_timeout_turns": 0,
+      "abandonment_accepted": false,
+      "ledger_status": "halted",
+      "logical_invocations": 1,
+      "mode": "physical_mutation",
+      "native_transfer_actions": 0,
+      "passed": true,
+      "provider_attempts": 2,
+      "retained_prior_callbacks": 1,
+      "retained_simulated_holds_usd": "0.098"
+    },
+    {
+      "abandoned_timeout_turns": 1,
+      "abandonment_accepted": true,
+      "ledger_status": "ready",
+      "logical_invocations": 1,
+      "mode": "duplicate_abandonment",
+      "native_transfer_actions": 0,
+      "passed": true,
+      "provider_attempts": 2,
+      "retained_prior_callbacks": 1,
+      "retained_simulated_holds_usd": "0.098"
+    },
+    {
+      "abandoned_timeout_turns": 1,
+      "abandonment_accepted": true,
+      "ledger_status": "halted",
+      "logical_invocations": 2,
+      "mode": "call_limit_after_abandonment",
+      "native_transfer_actions": 0,
+      "passed": true,
+      "provider_attempts": 2,
+      "retained_prior_callbacks": 1,
+      "retained_simulated_holds_usd": "0.098"
+    },
+    {
+      "abandoned_timeout_turns": 1,
+      "abandonment_accepted": true,
+      "ledger_status": "halted",
+      "logical_invocations": 2,
+      "mode": "dollar_limit_after_abandonment",
+      "native_transfer_actions": 0,
+      "passed": true,
+      "provider_attempts": 2,
+      "retained_prior_callbacks": 1,
+      "retained_simulated_holds_usd": "0.098"
+    },
+    {
+      "abandoned_timeout_turns": 1,
+      "abandonment_accepted": true,
+      "ledger_status": "halted",
+      "logical_invocations": 2,
+      "mode": "cumulative_limit_after_abandonment",
+      "native_transfer_actions": 0,
+      "passed": true,
+      "provider_attempts": 2,
+      "retained_prior_callbacks": 1,
+      "retained_simulated_holds_usd": "0.098"
+    },
+    {
+      "authorization_rejected_before_dispatch": true,
+      "mode": "missing_new_authorization",
+      "passed": true,
+      "provider_attempts": 0
+    },
+    {
+      "authorization_rejected_before_dispatch": true,
+      "mode": "missing_old_retry_authorization",
+      "passed": true,
+      "provider_attempts": 0
+    },
+    {
+      "authorization_rejected_before_dispatch": true,
+      "mode": "missing_capacity_authorization",
+      "passed": true,
+      "provider_attempts": 0
+    }
+  ],
+  "claim_limit": "Execution policy controls only; no model behavior or care-preserving recovery established.",
+  "inference_calls": 0,
+  "n_per_software_counterexample": 1,
+  "network_attempts": [],
+  "new_spend_usd": "0",
+  "passed": false,
+  "plan_sha256": "184cf8ddf61180ca2c0678a2f62d25c50371de8e197a9d33911e2feac6d68e5d",
+  "positive_control_passed": false,
+  "sample_sd": null,
+  "sample_variance": null
+}

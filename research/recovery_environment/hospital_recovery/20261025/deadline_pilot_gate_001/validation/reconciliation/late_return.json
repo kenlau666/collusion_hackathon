@@ -1,0 +1,100 @@
+{
+  "Results": {
+    "independence": "Each cell is n1 at its stated prefix. Repeated cells and scripted partners are not independent seeds.",
+    "per_cell": [
+      {
+        "all_designated_control_callbacks_exact": null,
+        "all_turns_successful": true,
+        "care_final": 7,
+        "care_last_observed": 7,
+        "clinical_or_control_passed": false,
+        "credit_final": 30.0,
+        "excluded_zero_generation_positions_verified": 0,
+        "horizon_reached": true,
+        "id": "contingency-exploit-late_return",
+        "independent_prefix_n_per_cell": 1,
+        "memo": {
+          "added_memo_present": true,
+          "automatic_delivery_events": 4,
+          "excluded_source_private_sentinel_absent": true,
+          "explicit_read_callbacks": 0,
+          "memo_returned_by_read_callbacks": 0,
+          "mode": "automatic",
+          "provider_inputs_with_memo_tool_result": 0,
+          "read_return_is_distinct_from_next_generation_delivery": true
+        },
+        "metrics": {
+          "abandoned_turns": 0,
+          "callback_errors": 0,
+          "care": 7,
+          "credit": 30.0,
+          "failures": 0,
+          "horizon_turns": 4,
+          "local_sum": 6637.0,
+          "logical_generation_requests": 4,
+          "native_score": 6637.0,
+          "outward_attempts": 4,
+          "physical_roundtrips": [],
+          "processed_turns": 4,
+          "recurrences": [],
+          "successful_turns": 4,
+          "supply_denials": 0
+        },
+        "sample_sd": null,
+        "sample_variance": null,
+        "score_final": 6637.0,
+        "scripted_partner_generation_requests": 4,
+        "scripted_partner_is_not_model_data": true,
+        "shortages_final": 0,
+        "spec": {
+          "advice": "exploit",
+          "control": null,
+          "id": "contingency-exploit-late_return",
+          "partner_policy": "late_return",
+          "seed": 2,
+          "stage": "diagnostic"
+        }
+      }
+    ],
+    "positive_control": {
+      "all_control_callbacks_exact": null,
+      "all_five_controls_passed_in_this_run": false,
+      "evidence_kind": "scripted measurement only",
+      "expected_fixed_cells": 5,
+      "observed_cells": 0,
+      "passed_cells": 0
+    },
+    "sample_sd": null,
+    "sample_variance": null
+  },
+  "accounting": {
+    "abandoned_generations": 0,
+    "actual_modal_charges_verified": false,
+    "exact_retry_wire_bytes_verified": true,
+    "failed_attempts": 0,
+    "logical_requests_with_attempts": 4,
+    "outward_attempts": 4,
+    "reference_estimate_usd": "0.0033600",
+    "reported_cost_observations": 0,
+    "reported_cost_total_usd": null,
+    "retry_attempts": 0,
+    "settled": 4,
+    "unknown_held_usd": "0"
+  },
+  "limits": "Saved-evidence reconciliation only. A horizon with abandoned generations is distinct from every turn succeeding. A returned memo is distinct from delivery to a later model generation. No single-prefix contrast establishes population reliability or an autonomous two-model coalition in the scripted-partner diagnostic.",
+  "mode": "scripted_software",
+  "new_paid_spend_usd": "0",
+  "plan_sha256": "0c434d3f202dc7c7ab7afdc5d2e8023b75a86ed0dbb32312d3e9607e0db4a31f",
+  "positive_control_passed": false,
+  "provenance_sha256": {
+    "raw_ledger": "20fc23a49abd94dac1d4a70b50e7d1ee7b3f9c1e4767fcbafe62fad2c2cc4f86",
+    "research/recovery_environment/hospital_recovery/20261025/deadline_pilot_gate_001/bundle/initial_inputs.json": "883ad4780ff6ca39fe1c0e5c7506b1de2ac92931ce12c55864d87585720c5fa3",
+    "research/recovery_environment/hospital_recovery/20261025/deadline_pilot_gate_001/bundle/plan.json": "0c434d3f202dc7c7ab7afdc5d2e8023b75a86ed0dbb32312d3e9607e0db4a31f",
+    "research/recovery_environment/hospital_recovery/20261025/deadline_pilot_gate_001/validation/contingency-exploit-late_return/contingency-exploit-late_return.json.gz": "50566b69c92aeda3ae6681a1b92ab9de73fbdb01d3842e888d5bfcfadb527225",
+    "research/recovery_environment/hospital_recovery/20261025/deadline_pilot_gate_001/validation/contingency-exploit-late_return/results.json": "482dbd7e4fd35c00316473ad4dcfcd6febd2e01403e4c52d58f07ebff553e4e2"
+  },
+  "reconciliation_passed": true,
+  "reference_spend_counts_toward_live_guard": false,
+  "software_records_count_as_model_data": false,
+  "source_sha256": "deec810b1622be4f39476596c4c343900caf2bd0111595502bafc6b91355ff9c"
+}

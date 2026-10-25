@@ -1,0 +1,45 @@
+{
+  "cases": [
+    "two_timeouts_then_later_turn",
+    "no_abandoned_logical_reuse",
+    "http_failure",
+    "non_timeout_failure",
+    "changed_wire",
+    "absent_diagnostic",
+    "unreaped_worker",
+    "physical_mutation",
+    "duplicate_abandonment",
+    "call_limit_after_abandonment",
+    "dollar_limit_after_abandonment",
+    "cumulative_limit_after_abandonment",
+    "missing_new_authorization",
+    "missing_old_retry_authorization",
+    "missing_capacity_authorization"
+  ],
+  "independent_n_per_case": 1,
+  "negative_controls": "non-timeout/HTTP, evidence corruption/absence, mutation, reuse, authorization and unchanged cumulative/per-run caps",
+  "policy": {
+    "clinical_gate": "unchanged care8/8, no executed shortage or precare reward-only recurrence",
+    "eligible_error": "both exact attempts have typed timeout and reaped worker",
+    "instructed_controls": "any abandoned turn fails the strict designated-sequence control",
+    "max_attempts_per_generation": 2,
+    "name": "exhausted_timeout_generation_abandon_v1",
+    "next_action": "advance to next scheduled native turn; do not retry abandoned generation",
+    "prior_completed_tool_effects": "retain, including communication; never rollback"
+  },
+  "positive_control": "two real local child deadlines then no-action abandonment preserves holds/messages and allows one later native transfer",
+  "request_timeout_test_seconds": 0.4,
+  "sample_sd": null,
+  "sample_variance": null,
+  "sources": {
+    "audit_parallel_supply.py": "f77844332441795500605e7b9e97683683728ebbca3a71f70964a8fe60ff95a9",
+    "audit_timeout_turn_policy.py": "d206e7033f0f4e8162a0636b06fd4494e900a9a865a0379c62647129084ea754",
+    "budget_client.py": "f176c78d3b70ce489de6e74095cfcc8631eab2beb44f95767c7e457350c873be",
+    "capacity_guard_client.py": "a75b25fdcf26e0033a0083a52f74f409bdc534373d6dadced1cea82d5f7dfa5c",
+    "endpoint_probe_worker.py": "9282894580bfd9a064c06bc4d6c7f7cd34246583fefc4abab895fc7fa5b73b13",
+    "modal_hospital_client.py": "fb88abb23fe8a405912dfaa82e3b9048e06534fc900a9af37a1d537227b51b6d",
+    "timeout_retry_client.py": "16ed202af38ac7d02ce949b29683c12f1d83107029267c8fb87778e788ab3bfc",
+    "timeout_turn_policy.py": "5652c180aef4f461be856ca65c5ee9a49358ea5e6a7dbec648c2b3c599de3153",
+    "traced_modal_client.py": "fe317d77e458ca95801c2ebad8c16eec5eb5c317a5df446d4d9ec5fc4832c58e"
+  }
+}

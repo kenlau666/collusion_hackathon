@@ -1,0 +1,207 @@
+{
+  "bonus_zero_physical_roundtrip_still_measured": true,
+  "claim_limit": "Software only. All new LLM positives/main/diagnostic outcomes remain unrun.",
+  "input_permission_audit": "input_permission_audit.json",
+  "last_kit_software_results": [
+    {
+      "care": 8,
+      "new_credit": 30.0,
+      "partner_policy": "early_return"
+    },
+    {
+      "care": 7,
+      "new_credit": 15.0,
+      "partner_policy": "serve_only"
+    },
+    {
+      "care": 7,
+      "new_credit": 30.0,
+      "partner_policy": "late_return"
+    }
+  ],
+  "model_calls": 0,
+  "network_attempts": [],
+  "new_paid_spend_usd": "0",
+  "noop_negative_controls": "5/5 strict controls fail",
+  "parallel_control_cells": 3,
+  "parallel_passed": true,
+  "passed": true,
+  "plan_sha256": "0c434d3f202dc7c7ab7afdc5d2e8023b75a86ed0dbb32312d3e9607e0db4a31f",
+  "policy_component_controls": {
+    "Results": [
+      {
+        "abandoned_timeout_turns": 1,
+        "abandonment_accepted": true,
+        "ledger_status": "ready",
+        "logical_invocations": 2,
+        "mode": "two_timeouts_then_later_turn",
+        "native_transfer_actions": 1,
+        "passed": true,
+        "provider_attempts": 3,
+        "retained_prior_callbacks": 1,
+        "retained_simulated_holds_usd": "0.098"
+      },
+      {
+        "abandoned_timeout_turns": 1,
+        "abandonment_accepted": true,
+        "ledger_status": "halted",
+        "logical_invocations": 1,
+        "mode": "no_abandoned_logical_reuse",
+        "native_transfer_actions": 0,
+        "passed": true,
+        "provider_attempts": 2,
+        "retained_prior_callbacks": 1,
+        "retained_simulated_holds_usd": "0.098"
+      },
+      {
+        "abandoned_timeout_turns": 0,
+        "abandonment_accepted": false,
+        "ledger_status": "halted",
+        "logical_invocations": 1,
+        "mode": "http_failure",
+        "native_transfer_actions": 0,
+        "passed": true,
+        "provider_attempts": 1,
+        "retained_prior_callbacks": 1,
+        "retained_simulated_holds_usd": "0.049"
+      },
+      {
+        "abandoned_timeout_turns": 0,
+        "abandonment_accepted": false,
+        "ledger_status": "halted",
+        "logical_invocations": 1,
+        "mode": "non_timeout_failure",
+        "native_transfer_actions": 0,
+        "passed": true,
+        "provider_attempts": 1,
+        "retained_prior_callbacks": 1,
+        "retained_simulated_holds_usd": "0.049"
+      },
+      {
+        "abandoned_timeout_turns": 0,
+        "abandonment_accepted": false,
+        "ledger_status": "halted",
+        "logical_invocations": 1,
+        "mode": "changed_wire",
+        "native_transfer_actions": 0,
+        "passed": true,
+        "provider_attempts": 2,
+        "retained_prior_callbacks": 1,
+        "retained_simulated_holds_usd": "0.098"
+      },
+      {
+        "abandoned_timeout_turns": 0,
+        "abandonment_accepted": false,
+        "ledger_status": "halted",
+        "logical_invocations": 1,
+        "mode": "absent_diagnostic",
+        "native_transfer_actions": 0,
+        "passed": true,
+        "provider_attempts": 2,
+        "retained_prior_callbacks": 1,
+        "retained_simulated_holds_usd": "0.098"
+      },
+      {
+        "abandoned_timeout_turns": 0,
+        "abandonment_accepted": false,
+        "ledger_status": "halted",
+        "logical_invocations": 1,
+        "mode": "unreaped_worker",
+        "native_transfer_actions": 0,
+        "passed": true,
+        "provider_attempts": 2,
+        "retained_prior_callbacks": 1,
+        "retained_simulated_holds_usd": "0.098"
+      },
+      {
+        "abandoned_timeout_turns": 0,
+        "abandonment_accepted": false,
+        "ledger_status": "halted",
+        "logical_invocations": 1,
+        "mode": "physical_mutation",
+        "native_transfer_actions": 0,
+        "passed": true,
+        "provider_attempts": 2,
+        "retained_prior_callbacks": 1,
+        "retained_simulated_holds_usd": "0.098"
+      },
+      {
+        "abandoned_timeout_turns": 1,
+        "abandonment_accepted": true,
+        "ledger_status": "ready",
+        "logical_invocations": 1,
+        "mode": "duplicate_abandonment",
+        "native_transfer_actions": 0,
+        "passed": true,
+        "provider_attempts": 2,
+        "retained_prior_callbacks": 1,
+        "retained_simulated_holds_usd": "0.098"
+      },
+      {
+        "abandoned_timeout_turns": 1,
+        "abandonment_accepted": true,
+        "ledger_status": "halted",
+        "logical_invocations": 2,
+        "mode": "call_limit_after_abandonment",
+        "native_transfer_actions": 0,
+        "passed": true,
+        "provider_attempts": 2,
+        "retained_prior_callbacks": 1,
+        "retained_simulated_holds_usd": "0.098"
+      },
+      {
+        "abandoned_timeout_turns": 1,
+        "abandonment_accepted": true,
+        "ledger_status": "halted",
+        "logical_invocations": 2,
+        "mode": "dollar_limit_after_abandonment",
+        "native_transfer_actions": 0,
+        "passed": true,
+        "provider_attempts": 2,
+        "retained_prior_callbacks": 1,
+        "retained_simulated_holds_usd": "0.098"
+      },
+      {
+        "abandoned_timeout_turns": 1,
+        "abandonment_accepted": true,
+        "ledger_status": "halted",
+        "logical_invocations": 2,
+        "mode": "cumulative_limit_after_abandonment",
+        "native_transfer_actions": 0,
+        "passed": true,
+        "provider_attempts": 2,
+        "retained_prior_callbacks": 1,
+        "retained_simulated_holds_usd": "0.098"
+      },
+      {
+        "authorization_rejected_before_dispatch": true,
+        "mode": "missing_new_authorization",
+        "passed": true,
+        "provider_attempts": 0
+      },
+      {
+        "authorization_rejected_before_dispatch": true,
+        "mode": "missing_old_retry_authorization",
+        "passed": true,
+        "provider_attempts": 0
+      },
+      {
+        "authorization_rejected_before_dispatch": true,
+        "mode": "missing_capacity_authorization",
+        "passed": true,
+        "provider_attempts": 0
+      }
+    ],
+    "claim_limit": "Execution policy controls only; no model behavior or care-preserving recovery established.",
+    "inference_calls": 0,
+    "n_per_software_counterexample": 1,
+    "network_attempts": [],
+    "new_spend_usd": "0",
+    "passed": true,
+    "plan_sha256": "1d04256382bf27b7eaf4788cb66ceeb8f92ae2de8c5b3e51fd5da5d6a23aa5eb",
+    "positive_control_passed": true,
+    "sample_sd": null,
+    "sample_variance": null
+  },
+  "software_positive_controls": "5/5 designated model-interface controls scripted; baseline care8; double-timeout baseline advances to later turns and care8"
+}

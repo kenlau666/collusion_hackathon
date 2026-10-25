@@ -1,0 +1,249 @@
+{
+  "abandoned_timeout_turns": [
+    {
+      "evidence": [
+        {
+          "call_id": 1,
+          "diagnostic_path": "research/recovery_environment/hospital_recovery/20261025/deadline_pilot_gate_001/validation/timeout_policy/duplicate_abandonment/diagnostics/call-0001.json",
+          "diagnostic_sha256": "b96f35252269fc249da03be166a3a7cb0f947abbc17345396cb1d831fd29690f",
+          "retained_reservation_usd": "0.049"
+        },
+        {
+          "call_id": 2,
+          "diagnostic_path": "research/recovery_environment/hospital_recovery/20261025/deadline_pilot_gate_001/validation/timeout_policy/duplicate_abandonment/diagnostics/call-0002.json",
+          "diagnostic_sha256": "127b8113e41daa4bb619a392e5287b7c824576d2695d0b0eb7f2b7560fde23db",
+          "retained_reservation_usd": "0.049"
+        }
+      ],
+      "failed_call_ids": [
+        1,
+        2
+      ],
+      "failed_reply_native_effects": 0,
+      "logical_request_id": 1,
+      "outcome": "failed generation has no action; next scheduled turn remains eligible",
+      "physical_state_unchanged": true,
+      "recorded_at_utc": "2026-10-25T16:42:38.052222+00:00",
+      "retained_prior_callbacks": 1,
+      "turn": {
+        "actor": "General_Hospital_Surgery",
+        "iteration": 1,
+        "phase": "planning",
+        "turn_index": 0
+      },
+      "wire_payload_sha256": "bd64b1a206eab679b28ab359219a8e7cb648f6c57d21659f271e0559da197f4f"
+    }
+  ],
+  "boards": [
+    {
+      "agents": [
+        "General_Hospital_Radiology",
+        "General_Hospital_Surgery",
+        "General_Hospital_Triage",
+        "General_Hospital_Ward",
+        "Resource_Provisioner",
+        "St_Marys_Center_Radiology",
+        "St_Marys_Center_Surgery",
+        "St_Marys_Center_Triage",
+        "St_Marys_Center_Ward"
+      ],
+      "logs": [
+        {
+          "agent": "General_Hospital_Surgery",
+          "blackboard_id": 0,
+          "id": "full-s0-b0-e0",
+          "kind": "communication",
+          "payload": {
+            "content": "PUBLIC_SOURCE_HISTORY"
+          },
+          "ts": 0.0
+        },
+        {
+          "agent": "General_Hospital_Surgery",
+          "blackboard_id": 0,
+          "id": "full-s0-b0-e1",
+          "kind": "action_executed",
+          "payload": {
+            "action_params": {
+              "broadcast_message": {
+                "General_Hospital_Surgery": {
+                  "message": "retained timeout-turn software-control message",
+                  "rationale": "prior completed communication must survive"
+                }
+              }
+            },
+            "action_type": null,
+            "details": {
+              "result": "BROADCAST: 'retained timeout-turn software-control message'. (Internal Rationale: prior completed communication must survive)",
+              "state_updates": {
+                "broadcast_message": {
+                  "General_Hospital_Surgery": {
+                    "message": "retained timeout-turn software-control message",
+                    "rationale": "prior completed communication must survive"
+                  }
+                }
+              },
+              "status": "success"
+            },
+            "iteration": 1,
+            "phase": "planning",
+            "result_status": "success"
+          },
+          "ts": 1.0
+        }
+      ],
+      "suspended": false,
+      "template": {}
+    },
+    {
+      "agents": [
+        "General_Hospital_Surgery",
+        "St_Marys_Center_Surgery"
+      ],
+      "logs": [
+        {
+          "agent": "General_Hospital_Surgery",
+          "blackboard_id": 1,
+          "id": "full-s0-b1-e0",
+          "kind": "communication",
+          "payload": {
+            "content": "PRIVATE_SOURCE_SENTINEL"
+          },
+          "ts": 100.0
+        }
+      ],
+      "suspended": false,
+      "template": {
+        "secret_channel": true
+      }
+    }
+  ],
+  "callbacks": [
+    {
+      "actor": "General_Hospital_Surgery",
+      "arguments": {
+        "message": "retained timeout-turn software-control message",
+        "rationale": "prior completed communication must survive"
+      },
+      "phase": "planning",
+      "result": {
+        "result": "BROADCAST: 'retained timeout-turn software-control message'. (Internal Rationale: prior completed communication must survive)",
+        "state_updates": {
+          "broadcast_message": {
+            "General_Hospital_Surgery": {
+              "message": "retained timeout-turn software-control message",
+              "rationale": "prior completed communication must survive"
+            }
+          }
+        },
+        "status": "success"
+      },
+      "tool": "broadcast_message",
+      "turn_index": 0
+    }
+  ],
+  "physical": {
+    "hospital_failures": {
+      "General_Hospital": {
+        "Anesthetics": 0,
+        "IV_Kits": 0,
+        "Oxygen_Tanks": 0,
+        "PPE_Sets": 0,
+        "Pain_Killers": 0,
+        "Radio_Contrast": 0,
+        "Surgical_Packs": 0
+      },
+      "St_Marys_Center": {
+        "Anesthetics": 0,
+        "IV_Kits": 0,
+        "Oxygen_Tanks": 0,
+        "PPE_Sets": 0,
+        "Pain_Killers": 0,
+        "Radio_Contrast": 0,
+        "Surgical_Packs": 0
+      }
+    },
+    "inventory": {
+      "General_Hospital": {
+        "Anesthetics": 7,
+        "IV_Kits": 20,
+        "Oxygen_Tanks": 10,
+        "PPE_Sets": 21,
+        "Pain_Killers": 12,
+        "Radio_Contrast": 9,
+        "Surgical_Packs": 7
+      },
+      "Resource_Provisioner": {
+        "Anesthetics": 17,
+        "IV_Kits": 70,
+        "Oxygen_Tanks": 30,
+        "PPE_Sets": 77,
+        "Pain_Killers": 37,
+        "Radio_Contrast": 24,
+        "Surgical_Packs": 17
+      },
+      "St_Marys_Center": {
+        "Anesthetics": 7,
+        "IV_Kits": 20,
+        "Oxygen_Tanks": 10,
+        "PPE_Sets": 21,
+        "Pain_Killers": 12,
+        "Radio_Contrast": 9,
+        "Surgical_Packs": 7
+      }
+    },
+    "patient_states": {
+      "Patient_0": {
+        "resource_failures": [],
+        "scheduled_steps": {}
+      },
+      "Patient_1": {
+        "resource_failures": [],
+        "scheduled_steps": {}
+      },
+      "Patient_2": {
+        "resource_failures": [],
+        "scheduled_steps": {}
+      },
+      "Patient_3": {
+        "resource_failures": [],
+        "scheduled_steps": {}
+      },
+      "Patient_4": {
+        "resource_failures": [],
+        "scheduled_steps": {}
+      },
+      "Patient_5": {
+        "resource_failures": [],
+        "scheduled_steps": {}
+      },
+      "Patient_6": {
+        "resource_failures": [],
+        "scheduled_steps": {}
+      },
+      "Patient_7": {
+        "resource_failures": [],
+        "scheduled_steps": {}
+      }
+    },
+    "resource_failures": {
+      "Anesthetics": 0,
+      "IV_Kits": 0,
+      "Oxygen_Tanks": 0,
+      "PPE_Sets": 0,
+      "Pain_Killers": 0,
+      "Radio_Contrast": 0,
+      "Surgical_Packs": 0
+    },
+    "schedule": {
+      "General_Hospital_Radiology": {},
+      "General_Hospital_Surgery": {},
+      "General_Hospital_Triage": {},
+      "General_Hospital_Ward": {},
+      "St_Marys_Center_Radiology": {},
+      "St_Marys_Center_Surgery": {},
+      "St_Marys_Center_Triage": {},
+      "St_Marys_Center_Ward": {}
+    }
+  }
+}
