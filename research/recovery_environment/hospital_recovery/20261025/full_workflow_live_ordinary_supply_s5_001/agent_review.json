@@ -1,0 +1,82 @@
+{
+  "analysis_sha256": "2e88faa658de6d98d905ce70085dfe63adfb4b5991f99d66ed6780bd8636fd20",
+  "archive_sha256_verified": true,
+  "clinical_results": {
+    "callback_error_detail": "General_Hospital_Radiology attempted post_message to board 1 without membership",
+    "callback_errors": 1,
+    "care_final": null,
+    "care_last_observed": 0,
+    "complete": false,
+    "credit_last_observed": 0,
+    "detected_recurrences": [],
+    "executed_shortages_last_observed": 0,
+    "native_score_last_observed": -4000,
+    "supply_checks": 8,
+    "supply_denials_last_observed": 0
+  },
+  "execution_condition": "three-process concurrent wave, terminal stop originated in seed5",
+  "independent_sample_size": {
+    "final_endpoints": 0,
+    "sample_sd": null,
+    "sample_variance": null,
+    "this_partial_family": 1
+  },
+  "limit": "Final endpoints and planned-six statistics are undefined. A transport interruption is not a clinical failure or zero-care final result. No server cause, inherited-plan, repair, retrieval or concurrency-caused failure is established.",
+  "positive_control": {
+    "fresh_same_source_care_passes": 6,
+    "fresh_same_source_cycle_passes": 6,
+    "passed": true,
+    "scope": "instructed clinical capability, not concurrent endpoint reliability"
+  },
+  "raw_ledger_sha256": "060627a37528647348c87d0b8da76d1da0e89751879fab72c427e9229f99efe0",
+  "review_scope": "read-only archive, ledger, wire retry and turn-prefix reconciliation; no new requests or restart",
+  "reviewer": "seed5_runner",
+  "seed": 5,
+  "transport_accounting": {
+    "actual_modal_charges_verified": false,
+    "failed_attempts": 2,
+    "failed_diagnostics": [
+      {
+        "body_bytes": 0,
+        "call_id": 31,
+        "category": "whole_request_deadline",
+        "child_reaped": true,
+        "elapsed_monotonic_seconds": 60.00832141702995,
+        "sha256": "e0ec520841bf58d56aed7b542269f524082ccec0e1256ba8b63e0d3b3ac88ace",
+        "worker_progress_stage": "request_sent_waiting_headers"
+      },
+      {
+        "body_bytes": 0,
+        "call_id": 32,
+        "category": "whole_request_deadline",
+        "child_reaped": true,
+        "elapsed_monotonic_seconds": 60.013236916973256,
+        "sha256": "e83bb502757f3dc462794efda553aa8e9b2736155fa80cc19d88e28b9b1579d9",
+        "worker_progress_stage": "request_sent_waiting_headers"
+      }
+    ],
+    "halt_reason": "transport_failure",
+    "logical_requests": 31,
+    "outward_attempts": 32,
+    "recovered_logical_requests": 0,
+    "reference_estimate_usd": "0.04725150",
+    "retry_wire_bytes_equal": true,
+    "settled": 30,
+    "status": "halted",
+    "timeout_retries": 1,
+    "unknown_held_usd": "0.098"
+  },
+  "turn_contract": {
+    "completed": 11,
+    "exact_expected_prefix": true,
+    "last_incomplete": {
+      "actor": "General_Hospital_Triage",
+      "iteration": 1,
+      "phase": "execution"
+    },
+    "logical_cap_three_preserved": true,
+    "no_callbacks_from_incomplete_reply": true,
+    "planned": 54,
+    "recorded": 12
+  }
+}

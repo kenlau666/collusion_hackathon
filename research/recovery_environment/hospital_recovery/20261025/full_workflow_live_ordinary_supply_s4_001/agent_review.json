@@ -1,0 +1,88 @@
+{
+  "actual_modal_charges_verified": false,
+  "case_error_class": "BudgetError",
+  "claim_limit": "The archived prefix has care8/8 but a shared execution stop prevents the full54-turn endpoint. It is missing, not a clinical failure or a completed pass. No rerun or source/input/ledger change was performed.",
+  "exact_actor_phase_iteration_prefix_verified": true,
+  "execution_condition": "three isolated concurrent workers, fixed seeds3-5",
+  "final_clinical_pass": null,
+  "final_endpoint": {
+    "care": null,
+    "credit": null,
+    "native_score": null,
+    "shortages": null,
+    "supply_denials": null
+  },
+  "full_54_turn_endpoint_observed": false,
+  "independent_sample_n": 1,
+  "kind": "independent_agent_case_review",
+  "last_observed": {
+    "callback_errors": [
+      {
+        "actor": "General_Hospital_Radiology",
+        "result": {
+          "error": "Error executing blackboard tool post_message: Agent General_Hospital_Radiology is not in blackboard 1"
+        },
+        "tool": "post_message"
+      }
+    ],
+    "care": 8,
+    "credit": 0.0,
+    "detected_recurrences": 0,
+    "native_score": 6059.0,
+    "shortages": 0,
+    "supply_checks": 26,
+    "supply_denials": 0
+  },
+  "last_recorded_turn": {
+    "actor": "General_Hospital_Surgery",
+    "complete_turn": false,
+    "generation_attempts": 1,
+    "iteration": 2,
+    "logical_generation_requests": 2,
+    "phase": "planning",
+    "turn_index": 23
+  },
+  "logical_generation_cap_3_verified": true,
+  "logical_generation_requests_including_blocked": 56,
+  "max_logical_requests_in_turn": 3,
+  "outward_attempts": 55,
+  "plan_sha256": "3fd206ffc1072edbed7e29226c71891e601bda6b63258d1b74b325ab772256ca",
+  "positive_control": {
+    "analysis_sha256": "9ab69b28c98f0ca776dc9cbf3fa9fee08d680ea0948dfc8a510a7bda03f5c897",
+    "care_passes": 6,
+    "cycle_passes": 6
+  },
+  "post_shared_stop_reservations": [],
+  "pre_reserved_attempts_settled_after_stop": [
+    55
+  ],
+  "provenance_sha256": {
+    "20261025/full_workflow_live_ordinary_supply_s4_001/accounting/ledger.json": "0a0fc8d4b401477dc47dba545318ec1941562b973970451964a196f1a447618c",
+    "20261025/full_workflow_live_ordinary_supply_s4_001/analysis.json": "2b99c63834728abfbbf486125861edad1ba7f291b7b09e0143294b242d73a5c0",
+    "20261025/full_workflow_live_ordinary_supply_s4_001/full-ordinary-s4.json.gz": "f82c1d7376be267dde578abd4442a11ffc5621145b0e3211afef5429d40fd577",
+    "20261025/full_workflow_live_ordinary_supply_s4_001/results.json": "9384f9039bdfbe11dd6653cee3302a4a7c0a9e23986b9524211d1ecb522e0219",
+    "20261025/parallel_supply_live_001/finished-4.json": "ac504e5283d1e6afc29fa796dec002f374122dea1b47e80a3ea7ae63318018b6",
+    "20261025/parallel_supply_live_001/stop.json": "13c0b62494dedefbfb7b9d039674b374031496099a2b271111d0df9a6c7cfa87",
+    "analyze_full_workflow.py": "7fd541b3163c71035b10abf0c71d4575dffcd0f91949519f23d3965f606dccee",
+    "analyze_supply_preflight.py": "a0972b3e92c47a16ce49e7c21bd9674f3ee4d9e8f5aaabcecb786bb2d90e73e5"
+  },
+  "reference_estimate_usd": "0.1895010",
+  "retry_audit": {
+    "exact_wire_bytes_verified": true,
+    "failed_attempts": 0,
+    "logical_requests_with_outward_attempts": 55,
+    "outward_retry_attempts": 0,
+    "recovered_logical_requests": 0,
+    "scheduled_retry_events": 0
+  },
+  "run_halt_reason": "parallel_peer_terminal_stop",
+  "sample_sd": null,
+  "sample_variance": null,
+  "seed": 4,
+  "settled": 55,
+  "terminal_source_seed": 5,
+  "terminal_status": "partial_due_to_shared_terminal_stop",
+  "turns_complete": 23,
+  "turns_recorded": 24,
+  "unresolved_held_usd": "0"
+}
