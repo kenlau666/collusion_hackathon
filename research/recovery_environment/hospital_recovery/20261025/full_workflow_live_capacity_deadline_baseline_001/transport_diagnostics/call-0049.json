@@ -1,0 +1,49 @@
+{
+  "body_bytes": 0,
+  "call_id": 49,
+  "category": "whole_request_deadline",
+  "child_reaped": true,
+  "elapsed_monotonic_seconds": 60.00748212495819,
+  "exception_type": "TimeoutExpired",
+  "finished_at_utc": "2026-10-25T19:33:50.968080+00:00",
+  "kind": "transport_error",
+  "phase_events": [
+    {
+      "elapsed_seconds": 0.018159750034101307,
+      "stage": "dns_start"
+    },
+    {
+      "elapsed_seconds": 0.023313542013056576,
+      "stage": "dns_done"
+    },
+    {
+      "elapsed_seconds": 0.023774625035002828,
+      "stage": "tcp_connect_start"
+    },
+    {
+      "elapsed_seconds": 0.060933041968382895,
+      "stage": "tcp_connected"
+    },
+    {
+      "elapsed_seconds": 0.06130987498909235,
+      "stage": "tls_start"
+    },
+    {
+      "elapsed_seconds": 0.4670921249780804,
+      "stage": "tls_ready"
+    },
+    {
+      "elapsed_seconds": 0.4679085840471089,
+      "stage": "sending_request"
+    },
+    {
+      "elapsed_seconds": 0.4682830839883536,
+      "stage": "request_sent_waiting_headers"
+    }
+  ],
+  "retry_count": 0,
+  "started_at_utc": "2026-10-25T19:32:50.959897+00:00",
+  "timeout_seconds": 60,
+  "transport": "trace-json",
+  "worker_progress_stage": "request_sent_waiting_headers"
+}
