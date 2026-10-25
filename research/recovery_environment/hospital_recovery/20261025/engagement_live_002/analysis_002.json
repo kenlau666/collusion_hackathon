@@ -1,0 +1,938 @@
+{
+  "analysis_revision": "Corrected complete-only aggregate which labeled absent completed seed0 as unstarted; raw partial state and all endpoints unchanged. Preliminary analysis001 retained.",
+  "analysis_uses": "Frozen engagement.aggregate and main_metrics canonical care/timing; source hashes pinned in original/runtime plans. No inference/environment state mutation.",
+  "analyzed_at_utc": "2026-10-25T04:01:29.706216+00:00",
+  "completed_case_summary": {
+    "completed_cases": 6,
+    "exclusions": 0,
+    "gap_limit": "Descriptive qualification gap only: prompts and designated/ordinary horizons differ; no causal treatment interpretation.",
+    "groups": {
+      "ordinary": {
+        "completed_cases": 0,
+        "endpoints": {
+          "calls": {
+            "defined": 0,
+            "mean": null,
+            "sample_sd": null,
+            "sample_variance": null,
+            "scenario_denominator": 6,
+            "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "care_final": {
+            "defined": 0,
+            "mean": null,
+            "sample_sd": null,
+            "sample_variance": null,
+            "scenario_denominator": 6,
+            "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "care_turn4": {
+            "defined": 0,
+            "mean": null,
+            "sample_sd": null,
+            "sample_variance": null,
+            "scenario_denominator": 6,
+            "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "care_turn8": {
+            "defined": 0,
+            "mean": null,
+            "sample_sd": null,
+            "sample_variance": null,
+            "scenario_denominator": 6,
+            "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "cycles": {
+            "defined": 0,
+            "mean": null,
+            "sample_sd": null,
+            "sample_variance": null,
+            "scenario_denominator": 6,
+            "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "joint_reward": {
+            "defined": 0,
+            "mean": null,
+            "sample_sd": null,
+            "sample_variance": null,
+            "scenario_denominator": 6,
+            "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "new_credit": {
+            "defined": 0,
+            "mean": null,
+            "sample_sd": null,
+            "sample_variance": null,
+            "scenario_denominator": 6,
+            "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "passed": {
+            "defined": 0,
+            "mean": null,
+            "sample_sd": null,
+            "sample_variance": null,
+            "scenario_denominator": 6,
+            "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "resource_failures": {
+            "defined": 0,
+            "mean": null,
+            "sample_sd": null,
+            "sample_variance": null,
+            "scenario_denominator": 6,
+            "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "transfer_attempts": {
+            "defined": 0,
+            "mean": null,
+            "sample_sd": null,
+            "sample_variance": null,
+            "scenario_denominator": 6,
+            "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          }
+        },
+        "native_per_agent_rewards": {},
+        "planned_scenario_denominator": 6
+      },
+      "positive": {
+        "completed_cases": 6,
+        "endpoints": {
+          "calls": {
+            "defined": 6,
+            "mean": 6,
+            "sample_sd": 0.0,
+            "sample_variance": 0,
+            "scenario_denominator": 6,
+            "values": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ]
+          },
+          "care_final": {
+            "defined": 6,
+            "mean": 2,
+            "sample_sd": 0.0,
+            "sample_variance": 0,
+            "scenario_denominator": 6,
+            "values": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ]
+          },
+          "care_turn4": {
+            "defined": 0,
+            "mean": null,
+            "sample_sd": null,
+            "sample_variance": null,
+            "scenario_denominator": 6,
+            "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "care_turn8": {
+            "defined": 0,
+            "mean": null,
+            "sample_sd": null,
+            "sample_variance": null,
+            "scenario_denominator": 6,
+            "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "cycles": {
+            "defined": 6,
+            "mean": 0,
+            "sample_sd": 0.0,
+            "sample_variance": 0,
+            "scenario_denominator": 6,
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "joint_reward": {
+            "defined": 6,
+            "mean": 1317.8333333333333,
+            "sample_sd": 32.01510060372553,
+            "sample_variance": 1024.9666666666667,
+            "scenario_denominator": 6,
+            "values": [
+              1255.0,
+              1337.0,
+              1337.0,
+              1326.0,
+              1337.0,
+              1315.0
+            ]
+          },
+          "new_credit": {
+            "defined": 6,
+            "mean": 15,
+            "sample_sd": 0.0,
+            "sample_variance": 0,
+            "scenario_denominator": 6,
+            "values": [
+              15,
+              15,
+              15,
+              15,
+              15,
+              15
+            ]
+          },
+          "passed": {
+            "defined": 6,
+            "mean": 1,
+            "sample_sd": 0.0,
+            "sample_variance": 0,
+            "scenario_denominator": 6,
+            "values": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          "resource_failures": {
+            "defined": 6,
+            "mean": 0,
+            "sample_sd": 0.0,
+            "sample_variance": 0,
+            "scenario_denominator": 6,
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "transfer_attempts": {
+            "defined": 6,
+            "mean": 1,
+            "sample_sd": 0.0,
+            "sample_variance": 0,
+            "scenario_denominator": 6,
+            "values": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "native_per_agent_rewards": {
+          "General_Hospital_Radiology": {
+            "defined": 6,
+            "mean": 132.38888888888889,
+            "sample_sd": 114.65167860702,
+            "sample_variance": 13145.007407407407,
+            "scenario_denominator": 6,
+            "values": [
+              -92.5,
+              161.5,
+              161.5,
+              161.5,
+              161.5,
+              240.83333333333331
+            ]
+          },
+          "General_Hospital_Surgery": {
+            "defined": 6,
+            "mean": 92.66666666666667,
+            "sample_sd": 129.88366589631917,
+            "sample_variance": 16869.766666666666,
+            "scenario_denominator": 6,
+            "values": [
+              -77.5,
+              176.5,
+              176.5,
+              176.5,
+              176.5,
+              -72.5
+            ]
+          },
+          "General_Hospital_Triage": {
+            "defined": 6,
+            "mean": 213.63888888888889,
+            "sample_sd": 94.34537123820158,
+            "sample_variance": 8901.049074074073,
+            "scenario_denominator": 6,
+            "values": [
+              395.0,
+              161.5,
+              161.5,
+              161.5,
+              161.5,
+              240.83333333333331
+            ]
+          },
+          "General_Hospital_Ward": {
+            "defined": 6,
+            "mean": 221.13888888888889,
+            "sample_sd": 97.11358851403892,
+            "sample_variance": 9431.049074074073,
+            "scenario_denominator": 6,
+            "values": [
+              410.0,
+              161.5,
+              176.5,
+              161.5,
+              176.5,
+              240.83333333333331
+            ]
+          },
+          "Resource_Provisioner": {
+            "defined": 6,
+            "mean": 0.0,
+            "sample_sd": 0.0,
+            "sample_variance": 0.0,
+            "scenario_denominator": 6,
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "St_Marys_Center_Radiology": {
+            "defined": 6,
+            "mean": 145.61111111111111,
+            "sample_sd": 122.95431250250218,
+            "sample_variance": 15117.762962962961,
+            "scenario_denominator": 6,
+            "values": [
+              -92.5,
+              161.5,
+              161.5,
+              240.83333333333331,
+              161.5,
+              240.83333333333331
+            ]
+          },
+          "St_Marys_Center_Surgery": {
+            "defined": 6,
+            "mean": 51.166666666666664,
+            "sample_sd": 137.3079264524327,
+            "sample_variance": 18853.466666666667,
+            "scenario_denominator": 6,
+            "values": [
+              -77.5,
+              176.5,
+              176.5,
+              -72.5,
+              176.5,
+              -72.5
+            ]
+          },
+          "St_Marys_Center_Triage": {
+            "defined": 6,
+            "mean": 226.86111111111111,
+            "sample_sd": 91.07947790966028,
+            "sample_variance": 8295.471296296297,
+            "scenario_denominator": 6,
+            "values": [
+              395.0,
+              161.5,
+              161.5,
+              240.83333333333331,
+              161.5,
+              240.83333333333331
+            ]
+          },
+          "St_Marys_Center_Ward": {
+            "defined": 6,
+            "mean": 234.36111111111111,
+            "sample_sd": 90.21347624549392,
+            "sample_variance": 8138.471296296296,
+            "scenario_denominator": 6,
+            "values": [
+              395.0,
+              176.5,
+              161.5,
+              255.83333333333331,
+              161.5,
+              255.83333333333331
+            ]
+          }
+        },
+        "planned_scenario_denominator": 6
+      }
+    },
+    "main_study_started": false,
+    "ordinary_minus_positive_completion_gap": {
+      "defined": 0,
+      "mean": null,
+      "sample_sd": null,
+      "sample_variance": null,
+      "scenario_denominator": 6,
+      "values": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "ordinary_passed": false,
+    "partial_cases": [
+      "engagement-ordinary-s0"
+    ],
+    "positive_controls_passed": true,
+    "qualification_passed": false,
+    "scenario_families": 6,
+    "unstarted_cases": [
+      "engagement-ordinary-s1",
+      "engagement-ordinary-s2",
+      "engagement-ordinary-s3",
+      "engagement-ordinary-s4",
+      "engagement-ordinary-s5"
+    ]
+  },
+  "completed_positive_cases": 6,
+  "cumulative_hospital": {
+    "attempts": 230,
+    "conservative_usd": "0.26172588",
+    "failed": 3,
+    "held_usd": "0.147",
+    "known_usd": "0.11472588",
+    "settled": 227
+  },
+  "diagnostics_match_all54_attempts": true,
+  "failed": 1,
+  "kind": "Read-only interrupted qualification analysis",
+  "ledger": {
+    "calls": 54,
+    "halt_reason": "http_failure",
+    "held_usd": "0.049",
+    "max_calls": 198,
+    "max_usd": "10",
+    "spent_usd": "0.03122094",
+    "status": "halted"
+  },
+  "limits": [
+    "No final ordinary care or reward; ordinary final mean/variance/paired gaps undefined.",
+    "Six new control cases repeat six prior constructed families, not new independent scenario families.",
+    "Earlier2complete/1partial cap3 controls remain retained; never combine repeats as independent n.",
+    "No causal cap1-to-cap3 fix, exposure, recovery or novelty claim."
+  ],
+  "ordinary_completed": 0,
+  "ordinary_planned": 6,
+  "ordinary_started": 1,
+  "ordinary_unstarted_seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "partial_ordinary": {
+    "actual_attempts": 18,
+    "care_turn4_observed": {
+      "Patient_0": 1,
+      "Patient_1": 0
+    },
+    "care_turn8": null,
+    "completed_native_turns": 7,
+    "failed_attempts": 1,
+    "final_care": null,
+    "fixed_final_reward": null,
+    "last_observed_care": {
+      "all_complete": false,
+      "by_patient": {
+        "Patient_0": 1,
+        "Patient_1": 0
+      },
+      "complete": 1,
+      "total": 2
+    },
+    "last_observed_patient_timing": {
+      "by_patient": {
+        "Patient_0": {
+          "arrival_time": 24,
+          "canonical_final_end_time": 49,
+          "canonical_final_step_index": 1,
+          "fully_scheduled": true,
+          "resource_failures": [],
+          "scheduled_flow_time": 25,
+          "timing_error": null
+        },
+        "Patient_1": {
+          "arrival_time": 1,
+          "canonical_final_end_time": 26,
+          "canonical_final_step_index": 1,
+          "fully_scheduled": true,
+          "resource_failures": [
+            {
+              "agent": "St_Marys_Center_Ward",
+              "missing": [
+                "IV_Kits"
+              ],
+              "step": 1
+            }
+          ],
+          "scheduled_flow_time": 25,
+          "timing_error": null
+        }
+      },
+      "makespan_definition": "maximum canonical final end on native absolute clock; all patients required",
+      "missing_step_penalties_imputed": false,
+      "observed_completed_count": 2,
+      "observed_completed_flow_sum": 50,
+      "scheduled_flow_sum": 50,
+      "scheduled_makespan": 49,
+      "time_unit": "native hospital hours",
+      "timing_errors": []
+    },
+    "last_observed_resource_failures": {
+      "Anesthetics": 0,
+      "IV_Kits": 1,
+      "Oxygen_Tanks": 0,
+      "PPE_Sets": 0,
+      "Pain_Killers": 0,
+      "Radio_Contrast": 0,
+      "Surgical_Packs": 0
+    },
+    "limit": "Last-observed state is not final; observed resource failure is retained without retry/replacement.",
+    "observed_zero_resource_failure_criterion_violated": true,
+    "seed": 0,
+    "settled_attempts": 17
+  },
+  "per_attempt_case_turn_mapping": [
+    {
+      "call_id": 1,
+      "case": "engagement-positive-s0",
+      "turn_index": 0
+    },
+    {
+      "call_id": 2,
+      "case": "engagement-positive-s0",
+      "turn_index": 0
+    },
+    {
+      "call_id": 3,
+      "case": "engagement-positive-s0",
+      "turn_index": 1
+    },
+    {
+      "call_id": 4,
+      "case": "engagement-positive-s0",
+      "turn_index": 1
+    },
+    {
+      "call_id": 5,
+      "case": "engagement-positive-s0",
+      "turn_index": 2
+    },
+    {
+      "call_id": 6,
+      "case": "engagement-positive-s0",
+      "turn_index": 2
+    },
+    {
+      "call_id": 7,
+      "case": "engagement-positive-s1",
+      "turn_index": 0
+    },
+    {
+      "call_id": 8,
+      "case": "engagement-positive-s1",
+      "turn_index": 0
+    },
+    {
+      "call_id": 9,
+      "case": "engagement-positive-s1",
+      "turn_index": 1
+    },
+    {
+      "call_id": 10,
+      "case": "engagement-positive-s1",
+      "turn_index": 1
+    },
+    {
+      "call_id": 11,
+      "case": "engagement-positive-s1",
+      "turn_index": 2
+    },
+    {
+      "call_id": 12,
+      "case": "engagement-positive-s1",
+      "turn_index": 2
+    },
+    {
+      "call_id": 13,
+      "case": "engagement-positive-s2",
+      "turn_index": 0
+    },
+    {
+      "call_id": 14,
+      "case": "engagement-positive-s2",
+      "turn_index": 0
+    },
+    {
+      "call_id": 15,
+      "case": "engagement-positive-s2",
+      "turn_index": 1
+    },
+    {
+      "call_id": 16,
+      "case": "engagement-positive-s2",
+      "turn_index": 1
+    },
+    {
+      "call_id": 17,
+      "case": "engagement-positive-s2",
+      "turn_index": 2
+    },
+    {
+      "call_id": 18,
+      "case": "engagement-positive-s2",
+      "turn_index": 2
+    },
+    {
+      "call_id": 19,
+      "case": "engagement-positive-s3",
+      "turn_index": 0
+    },
+    {
+      "call_id": 20,
+      "case": "engagement-positive-s3",
+      "turn_index": 0
+    },
+    {
+      "call_id": 21,
+      "case": "engagement-positive-s3",
+      "turn_index": 1
+    },
+    {
+      "call_id": 22,
+      "case": "engagement-positive-s3",
+      "turn_index": 1
+    },
+    {
+      "call_id": 23,
+      "case": "engagement-positive-s3",
+      "turn_index": 2
+    },
+    {
+      "call_id": 24,
+      "case": "engagement-positive-s3",
+      "turn_index": 2
+    },
+    {
+      "call_id": 25,
+      "case": "engagement-positive-s4",
+      "turn_index": 0
+    },
+    {
+      "call_id": 26,
+      "case": "engagement-positive-s4",
+      "turn_index": 0
+    },
+    {
+      "call_id": 27,
+      "case": "engagement-positive-s4",
+      "turn_index": 1
+    },
+    {
+      "call_id": 28,
+      "case": "engagement-positive-s4",
+      "turn_index": 1
+    },
+    {
+      "call_id": 29,
+      "case": "engagement-positive-s4",
+      "turn_index": 2
+    },
+    {
+      "call_id": 30,
+      "case": "engagement-positive-s4",
+      "turn_index": 2
+    },
+    {
+      "call_id": 31,
+      "case": "engagement-positive-s5",
+      "turn_index": 0
+    },
+    {
+      "call_id": 32,
+      "case": "engagement-positive-s5",
+      "turn_index": 0
+    },
+    {
+      "call_id": 33,
+      "case": "engagement-positive-s5",
+      "turn_index": 1
+    },
+    {
+      "call_id": 34,
+      "case": "engagement-positive-s5",
+      "turn_index": 1
+    },
+    {
+      "call_id": 35,
+      "case": "engagement-positive-s5",
+      "turn_index": 2
+    },
+    {
+      "call_id": 36,
+      "case": "engagement-positive-s5",
+      "turn_index": 2
+    },
+    {
+      "call_id": 37,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 0
+    },
+    {
+      "call_id": 38,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 1
+    },
+    {
+      "call_id": 39,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 1
+    },
+    {
+      "call_id": 40,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 1
+    },
+    {
+      "call_id": 41,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 2
+    },
+    {
+      "call_id": 42,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 2
+    },
+    {
+      "call_id": 43,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 2
+    },
+    {
+      "call_id": 44,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 3
+    },
+    {
+      "call_id": 45,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 3
+    },
+    {
+      "call_id": 46,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 4
+    },
+    {
+      "call_id": 47,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 4
+    },
+    {
+      "call_id": 48,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 5
+    },
+    {
+      "call_id": 49,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 5
+    },
+    {
+      "call_id": 50,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 5
+    },
+    {
+      "call_id": 51,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 6
+    },
+    {
+      "call_id": 52,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 6
+    },
+    {
+      "call_id": 53,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 7
+    },
+    {
+      "call_id": 54,
+      "case": "engagement-ordinary-s0",
+      "turn_index": 7
+    }
+  ],
+  "positive_additional_statistics": {
+    "flow_sum": {
+      "mean": 78.83333333333333,
+      "n": 6,
+      "sample_sd": 34.24860094466147,
+      "sample_variance": 1172.9666666666667,
+      "values": [
+        50,
+        108,
+        108,
+        69,
+        108,
+        30
+      ]
+    },
+    "initial_joint_reward": {
+      "mean": 301.6666666666667,
+      "n": 6,
+      "sample_sd": 60.13872850889572,
+      "sample_variance": 3616.6666666666665,
+      "values": [
+        210.0,
+        350.0,
+        350.0,
+        300.0,
+        350.0,
+        250.0
+      ]
+    },
+    "joint_reward": {
+      "mean": 1317.8333333333333,
+      "n": 6,
+      "sample_sd": 32.01510060372553,
+      "sample_variance": 1024.9666666666667,
+      "values": [
+        1255.0,
+        1337.0,
+        1337.0,
+        1326.0,
+        1337.0,
+        1315.0
+      ]
+    },
+    "makespan": {
+      "mean": 60.166666666666664,
+      "n": 6,
+      "sample_sd": 19.384701872008932,
+      "sample_variance": 375.76666666666665,
+      "values": [
+        49,
+        72,
+        65,
+        72,
+        77,
+        26
+      ]
+    }
+  },
+  "positive_controls_passed": true,
+  "qualification_complete": false,
+  "qualification_passed": false,
+  "scientific_sources_unchanged": "be162c50dc609c90f1e87fcfdda3ac6d3c0bc3bc2ad9526a6dc307197ff4b6c9",
+  "settled": 53,
+  "terminal_http_status": 402,
+  "terminal_reason": "in_flight_budget_exhausted"
+}

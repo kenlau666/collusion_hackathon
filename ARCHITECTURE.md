@@ -6,7 +6,7 @@ Last updated: 2026-10-25 (Asia/Hong_Kong).
 
 ```mermaid
 ---
-title: Hospital recovery — controls passed, main stopped on HTTP429
+title: Hospital recovery — fixed execution and retained behavioral failures
 config:
   theme: neutral
 ---
@@ -41,7 +41,7 @@ flowchart TB
   SCRIPT --> PROBE
   ENGAGE["Cap3 qualification stopped at request18<br/>2positive pass;1partial;9unstarted<br/>ordinary n=0; no recovery result"]
   PROBE -. "software witness only" .-> ENGAGE
-  RUNTIME["Verified transport corrections<br/>typed diagnostics and60s child deadline<br/>same12cases/criteria; standing approval"]
+  RUNTIME["Corrected runtime:6care controls pass<br/>request54HTTP402;ordinary0partial,5unstarted<br/>observed IVfailure1; criteria unchanged"]
   ENGAGE -. "new repetition; old evidence retained" .-> RUNTIME
 ```
 
@@ -178,3 +178,8 @@ The user's2026-10-25instruction authorizes further paid qualification after veri
 New separate `request_worker.py`/`deadline_transport.py` supervise the same one-shot verifiedTLSOpenRouter call in a killable child, with a60s child deadline plus bounded cleanup and typed credential-safe diagnostics before the frozen ledger catches exceptions. Unknown costs remain reserved; HTTPstatus/body handling and no-retry/no-fallback remain. `qualification_runtime.py` verifies the unchanged original7/42sources, all12roots/inputs, three new source hashes, standing authorization, prior ledger hashes, totalUSD50and per-run198/USD10limits before key lookup. A real OSadvisory lock serializes corrected-runtime runs. The exact old native runner/metrics/criteria execute unchanged. Host suspension can delay the supervisor; no claim that this explains the prior wall-clock gap. [Correction Results and limits](RECOVERY_PROTOCOL.md#results-verified-implementation-corrections).
 
 The initial unpaid gate passed8/8with221fake attempts; independent review then found an output-path accounting gap. Enforcing fresh direct `engagement_live_NNN` output paths before key lookup now passes9/9in validation002with another221fake attempts, including162identical old pipeline payloads, retained no-op behavioral failures, typed exception/HTTP429stops and three killed/reaped real child controls. This is software validation only. A new full12-case qualification is recorded under standing approval; it retains all previous observations and uses repeated-family accounting. No PR; PNG unchanged.
+
+
+## Corrected-runtime live observations
+
+The same12-case qualification under standing approval ran through54attempts, with all six instructed care controls passing. All54per-call diagnostics match the ledger;53HTTP200requests settled forUSD0.03122094, then a recordedHTTP402`openrouter_in_flight_budget`response stopped globally withUSD0.049held. No deadline hit, retry/fallback or code/task change occurred. Ordinary seed0has seven complete turns and a final-turn query before the failed continuation; care1/2and IVfailure1are last-observed state, with final turn8undefined. Its native prompt explicitly permits scheduling under shortage to avoid a larger missing-task penalty; its response cites that tradeoff. A later donation does not erase the failure. This is observable action/ordering behavior under unchanged native inputs, not another demonstrated runtime defect. Other five ordinary cases are unstarted. The account-limit GET cannot prove transient in-flight availability. [Full Results and public provenance](RECOVERY_PROTOCOL.md#results-qualification-after-implementation-correction).

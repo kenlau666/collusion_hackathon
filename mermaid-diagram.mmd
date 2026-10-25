@@ -1,5 +1,5 @@
 ---
-title: Hospital recovery — controls passed, main stopped on HTTP429
+title: Hospital recovery — fixed execution and retained behavioral failures
 config:
   theme: neutral
 ---
@@ -34,5 +34,5 @@ flowchart TB
   SCRIPT --> PROBE
   ENGAGE["Cap3 qualification stopped at request18<br/>2positive pass;1partial;9unstarted<br/>ordinary n=0; no recovery result"]
   PROBE -. "software witness only" .-> ENGAGE
-  RUNTIME["Verified transport corrections<br/>typed diagnostics and60s child deadline<br/>same12cases/criteria; standing approval"]
+  RUNTIME["Corrected runtime:6care controls pass<br/>request54HTTP402;ordinary0partial,5unstarted<br/>observed IVfailure1; criteria unchanged"]
   ENGAGE -. "new repetition; old evidence retained" .-> RUNTIME
