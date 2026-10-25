@@ -19,7 +19,7 @@ Follow a hospital handoff: the memo remains after its author is excluded. A reso
 
 ## Sources
 
-- Final report: `../../../../../output/pdf/hospital_deadline_recovery_report.pdf` (repository-relative authoritative path is recorded in production manifest).
+- Final report: `../../../../output/pdf/hospital_deadline_recovery_report.pdf` (repository-relative authoritative path is recorded in production manifest).
 - Closed 22-cell lineage: `../20261025/deadline_pilot_lineage_001/analysis.json`.
 - Current RESEARCH.md, RECOVERY_PROTOCOL.md and ARCHITECTURE.md.
 - Source cutoff b7d4f46f90ca866c451e2ce111ed9be9d4e64512; report delivery deb76e16efa5243e324b1300698ec72c8f6be882.

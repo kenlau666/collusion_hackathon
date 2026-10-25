@@ -1,0 +1,295 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 15
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 11.56,
+        "selector": "div.abs.caption-foot",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 192,
+          "top": 910,
+          "right": 852.27,
+          "bottom": 947,
+          "width": 660.27,
+          "height": 37
+        },
+        "containerSelector": "#care-stage > p:nth-of-type(1)",
+        "text": "A memo can persist without a private memory store",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/handoff.html",
+        "bbox": {
+          "x": 192,
+          "y": 910,
+          "width": 660.27,
+          "height": 37
+        },
+        "firstSeen": 11.56,
+        "lastSeen": 11.56,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.56
+        ]
+      }
+    ],
+    "duration": 177.6,
+    "samples": [
+      3.062,
+      9.186,
+      15.31,
+      21.434,
+      27.559,
+      33.683,
+      39.807,
+      45.931,
+      52.055,
+      58.179,
+      64.303,
+      70.428,
+      76.552,
+      82.676,
+      88.8,
+      94.924,
+      101.048,
+      107.172,
+      113.297,
+      119.421,
+      125.545,
+      131.669,
+      137.793,
+      143.917,
+      150.041,
+      156.166,
+      162.29,
+      168.414,
+      174.538
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 1,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      3.062,
+      45.931,
+      88.8,
+      131.669,
+      174.538
+    ],
+    "checked": 48,
+    "passed": 48
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 7,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.56 s (19.57–23.13 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 19.569,
+        "seconds": 3.558,
+        "floorSeconds": 3,
+        "until": 23.127
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"THE MAIN COMPARISON\" (3 words) is on screen 0.78 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "THE MAIN COMPARISON",
+        "selector": "#prefix-stage > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/prefix.html",
+        "bbox": {
+          "x": 192,
+          "y": 110,
+          "width": 356.28,
+          "height": 38
+        },
+        "time": 24.035,
+        "words": 3,
+        "seconds": 0.779,
+        "floorSeconds": 1.05
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.26 s (44.18–47.44 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 44.178,
+        "seconds": 3.261,
+        "floorSeconds": 3,
+        "until": 47.439
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.26 s (64.64–67.90 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 64.636,
+        "seconds": 3.261,
+        "floorSeconds": 3,
+        "until": 67.897
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.86 s (80.05–83.91 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 80.053,
+        "seconds": 3.855,
+        "floorSeconds": 3,
+        "until": 83.908
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.26 s (105.25–108.52 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 105.255,
+        "seconds": 3.262,
+        "floorSeconds": 3,
+        "until": 108.517
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.85 s (123.64–127.49 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 123.638,
+        "seconds": 3.854,
+        "floorSeconds": 3,
+        "until": 127.492
+      }
+    ],
+    "enabled": true,
+    "step": 0.2960000000000207,
+    "samples": 599
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": true,
+    "files": [
+      ".hyperframes/artifacts/snapshots/d302f9cd-8799-458b-a495-43afa95eed55/frame-00-at-3.1s.png",
+      ".hyperframes/artifacts/snapshots/d302f9cd-8799-458b-a495-43afa95eed55/frame-01-at-45.9s.png",
+      ".hyperframes/artifacts/snapshots/d302f9cd-8799-458b-a495-43afa95eed55/frame-02-at-88.8s.png",
+      ".hyperframes/artifacts/snapshots/d302f9cd-8799-458b-a495-43afa95eed55/frame-03-at-131.7s.png",
+      ".hyperframes/artifacts/snapshots/d302f9cd-8799-458b-a495-43afa95eed55/frame-04-at-174.5s.png"
+    ],
+    "times": [
+      3.062,
+      45.931,
+      88.8,
+      131.669,
+      174.538
+    ],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "b2b02537-d00e-4317-b6b2-e0178f1f2236",
+    "revision": "f0892e80-4aaf-4849-af39-11de4978c256",
+    "report": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/research/recovery_environment/hospital_recovery/video/.hyperframes/artifacts/checks/b2b02537-d00e-4317-b6b2-e0178f1f2236.json",
+    "attribution": "recorded-revision"
+  },
+  "_meta": {
+    "version": "0.8.198",
+    "latestVersion": "0.8.198",
+    "updateAvailable": false
+  }
+}
