@@ -69,16 +69,29 @@ def sha(path):
 
 
 def paragraph(text, style='BodyDeadline'):
-    # The output uses ASCII hyphens to avoid unsupported Times glyphs.
     for value in ('\u2010', '\u2011', '\u2012', '\u2013', '\u2014', '\u2212'):
         text = text.replace(value, '-')
-    # Restore normal prose spacing without modifying URLs, numeric values,
-    # code identifiers or the hexadecimal provenance hashes.
-    text = re.sub(r'\b(care|score|credit|variance|SD|seed|seeds|turn|turns|Table|TableA|TableB|Figure|USD|Section|sections|AppendixD|temperature)(?=[0-9])',
-        r'\1 ', text, flags=re.I)
-    text = re.sub(r'(?<=[0-9])(?=(?:and|with|without|under|from|for|of|in|main|diagnostic|instructed|independent|fixed|strict|controls|cells|cell|each|new|credits|patients|positive|complete|partial|planned|at|over|is|are|before|after|Hong|October|January|outward|output|logical|model|separate|state|under|to|whole|final|only|actual|while|then)\b)',
-        ' ', text)
-    return Paragraph(text, STYLES[style])
+    text = text.replace('newcredit', 'new credit').replace('GHPatient', 'GH Patient ').replace('SMPatient', 'SM Patient ')
+    text = re.sub(r'\b(Table|Appendix)([A-Z])(?=[.0-9])', r'\1 \2', text)
+    # Keep markup, URLs, hashes and appendix/version identifiers intact while
+    # restoring normal boundaries in the rendered prose.
+    pieces = re.split(r'(<[^>]+>|https?://[^\s<]+|\b[0-9a-fA-F]{12,}\b|\b[A-Z]\d+(?:\.\d+)?\b)', text)
+    before = (r'care|score|credit|credits|variance|SD|seed|seeds|turn|turns|Table|Figure|USD|Section|sections|'
+        r'temperature|is|and|a|an|call|calls|already|earning|with|of|Patient|completes|Equal|pass|Neither|Sprint|'
+        r'checked|October|most|abstract|frozen|All|including|contain|in|has|are|mean|disabled|contains|planned|from|'
+        r'returned|after|before')
+    after = (r'and|with|without|under|from|for|of|in|main|diagnostic|instructed|independent|fixed|strict|controls|'
+        r'cells|cell|each|new|credits|patients|positive|complete|partial|planned|at|over|is|are|before|after|Hong|'
+        r'October|January|outward|output|logical|model|separate|state|to|whole|final|only|actual|while|then|'
+        r'observed|reference|remain|remains|or|does|words|plan|belongs|scripted|durable|unresolved|historical|'
+        r'last|local|returns|turns|requests|settled|s')
+    for i in range(0, len(pieces), 2):
+        part = re.sub(r'\b(' + before + r')(?=[+-]?\d)', r'\1 ', pieces[i], flags=re.I)
+        part = re.sub(r'(?<=\d)(?=(?:' + after + r')\b)', ' ', part)
+        part = re.sub(r',(?=[A-Za-z0-9])', ', ', part)
+        part = re.sub(r'(?<=[A-Za-z]):(?=\d)', ': ', part)
+        pieces[i] = part
+    return Paragraph(''.join(pieces), STYLES[style])
 
 
 def value(number, *, signed=False, places=2):
@@ -269,7 +282,7 @@ def abstract(e):
 
 def design_figure():
     d = Drawing(468, 106)
-    boxes = [(0, 40, 116, 44, ['Actual seed0 prefix', 'All Surgery complete']),
+    boxes = [(0, 40, 116, 44, ['Actual seed 0 prefix', 'All Surgery complete']),
         (140, 56, 122, 32, ['Useful peer advice']),
         (140, 10, 122, 32, ['Exploit peer advice']),
         (289, 16, 179, 73, ['Sources retained / excluded', 'Excluded + zero new bonus',
@@ -535,7 +548,7 @@ def build_story(e, evidence_commit, cutoff):
         all_rows.append([i, label, observed_status(row), value(row['care_final']),
             value(row.get('care_last_observed')), value(row['credit_final']),
             value(row.get('abandoned_turns_final')), value(row.get('callback_errors'))])
-    story.append(table(['#', 'Fixed cell', 'Endpoint', 'Final care', 'Last care', 'Final credit', 'Skipped', 'Err*'],
+    story.append(table(['#', 'Fixed cell', 'Endpoint', 'Final care', 'Last care', 'Final credit', 'Observed skips', 'Err*'],
         all_rows, [23, 165, 66, 45, 43, 47, 41, 38], small=True))
     caption('<b>TableA1.</b> All22fixed model cases, including5positive controls,11main cells and6scripted-partner diagnostic cells. Each case is n=1at its stated prefix. Old software checks are excluded. Final means equal their single-case observations; SD, variance and CI are undefined. Last care and *callback-error/denial counts are observed-to-date for partial cases. A skipped turn is an exhausted-timeout abandonment, never a fabricated action. Legitimate reserve denials are separately counted in Table2.')
     shortages = [r['shortages_final'] for r in e.rows.values() if r['horizon_reached']]
