@@ -38,3 +38,5 @@ flowchart TB
   ENGAGE -. "new repetition; old evidence retained" .-> RUNTIME
   MODAL["User-selected Modal DeepSeek-V4.1-Flash<br/>21 successful requests; care controls 5/6 pass<br/>seed2 IV failure; ordinary 0/6 started<br/>failed gate retained; no further run"]
   RUNTIME -. "explicit user provider correction" .-> MODAL
+  FIX["Positive-control-only instruction correction<br/>8/8 offline checks; 6/6 scripted care positives<br/>126 ordinary payloads unchanged; exact freeze<br/>no model calls; old 5/6 retained"]
+  MODAL -. "explicit offline implementation request" .-> FIX
