@@ -176,8 +176,8 @@ async def case(spec, client, out, expected, gate=None):
                 if client.ledger.state['status'] != 'halted':
                     client.ledger.halt('native_or_input_integrity_failure')
                 reason = client.ledger.state['halt_reason'] or ''
-                if gate is not None and any(word in reason for word in
-                    ('cumulative', 'dollar', 'ledger', 'persistence', 'integrity', 'model_mismatch', 'wire', 'retry_payload')):
+                if gate is not None and not (reason in {'transport_failure', 'payload_financial_bound', 'payload_or_prompt_bound'}
+                    or reason.startswith('http_')):
                     gate.stop('shared budget/accounting/integrity failure')
         if scripted is not None:
             scripted_requests.extend(deepcopy(selected_client.requests))
@@ -324,9 +324,15 @@ async def execute(bundle, out, selected, *, mock=None, gate=None):
         'study_variant': VARIANT, 'mode': 'scripted_software' if mock else 'live_model',
         'prior': prior, 'selected': selected, 'request_deadline_seconds': 60,
         'transport': r.CAPACITY_TRANSPORT, 'network_forbidden': r.OFFLINE})
-    ledger_class = ContinueTurnLedger
+    class DeadlineLedger(ContinueTurnLedger):
+        def reserve(self, payload, payload_bytes):
+            if mock is None and time.time() >= plan['paid_cutoff_unix']:
+                self.halt('paid_cutoff')
+                raise r.BudgetError('paid cutoff before reservation')
+            return super().reserve(payload, payload_bytes)
+    ledger_class = DeadlineLedger
     if gate is not None:
-        class WaveLedger(ContinueTurnLedger):
+        class WaveLedger(DeadlineLedger):
             def reserve(self, payload, payload_bytes):
                 try:
                     gate.first_reservation(self)
@@ -376,6 +382,8 @@ def main():
     parser.add_argument('--lock-fd', type=int)
     parser.add_argument('--mock', choices=['success', 'noop', 'double_timeout_first', 'donate'])
     args = parser.parse_args()
+    if args.command == 'run' and args.mock:
+        parser.error('--mock is restricted to offline worker/validation execution')
     if args.command == 'prepare':
         result = asyncio.run(prepare(args.out))
     elif args.command == 'validate':
