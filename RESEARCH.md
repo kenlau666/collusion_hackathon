@@ -4,7 +4,7 @@ Last updated: 2026-10-26 (Asia/Hong_Kong).
 
 **Current stage:** All22fixed cases have independently reconciled terminal outputs:17reach their horizons and5exploit main cases are payload-censored. Inference is finished. All5real positive controls pass. Main baseline+5useful cases complete care8/8; every exploit trace last shows8/8but lacks a final clinical endpoint. Harmful collusion and a clinical recovery benefit are not demonstrated. The separate constructed diagnostics also expose ordinary query/tool-use failures.
 
-**Next action:** Close the evidence commit, generate the final report and visually verify every page. No further inference, replacement seeds, guard changes or result-dependent tuning is planned. The user's eight-hour report target is08:00Hong Kong; execution finished well before its06:30paid cutoff. Author review and external submission remain unclaimed.
+**Deliverable complete:** The final report is generated and all12pages are visually verified:7main pages,223-word abstract, references and appendices. No further inference, replacement seeds, guard changes or result-dependent tuning is planned. The report is ready for author review; external submission remains unclaimed. All work finished before the user's eight-hour target.
 
 ## Question and scope
 
@@ -34,7 +34,9 @@ New742outward attempts comprise740settlements and two typed-timeout failures; on
 
 ## Report
 
-LAU, Chi Hong; no affiliation. The new [report generator](research/recovery_environment/hospital_recovery/submission/build_deadline_report.py) is prepared around the eleven main cells, six separate partner-policy cells, positive controls, missing outcomes and accounting. Final generation requires a closed, independently reconciled evidence cutoff. It uses the official template's core sections, an abstract of150–250 words and at most eight main pages, plus references and limitations/ethics/dual-use/LLM statements. Author review and external submission are not claimed.
+The [final report](output/pdf/hospital_deadline_recovery_report.pdf), **After Source Removal: Matched Advice, Patient Care, and Plan Retrieval in Hospital Agents**, is generated and verified. [QA and exact hashes](research/recovery_environment/hospital_recovery/submission/deadline_report_qa.json) pin the closed evidence cutoff `b7d4f46f90ca866c451e2ce111ed9be9d4e64512`. It uses real-model evidence with every failed/censored outcome retained; mocks are labeled software only.
+
+LAU, Chi Hong; no affiliation. The [report generator](research/recovery_environment/hospital_recovery/submission/build_deadline_report.py) is prepared around the eleven main cells, six separate partner-policy cells, positive controls, missing outcomes and accounting. Generation uses the closed, independently reconciled evidence cutoff. It uses the official template's core sections, an abstract of150–250 words and at most eight main pages, plus references and limitations/ethics/dual-use/LLM statements. Author review and external submission are not claimed.
 
 The [earlier report](output/pdf/hospital_agent_pilot_report.pdf) remains a saved historical draft at evidence commit `e52775e3`; it does not contain the new deadline pilot. Its four main pages plus references/appendices were rendered and verified. The [PDF skill](/Users/kenlau/.codex/plugins/cache/openai-primary-runtime/pdf/26.1017.22136/skills/pdf/SKILL.md) governs artifact production and visual QA. The [Google Drive skill](/Users/kenlau/.codex/plugins/cache/openai-curated-remote/google-drive/0.1.22/skills/google-drive/SKILL.md) was used to read the [official template](https://docs.google.com/document/d/1Y5wd3VRbXU5N08BvAGiJUQTaWbMCSPjhzXsR-ozuehg/edit); no cloud document was edited. These skills do not authorize research claims or spending.
 
