@@ -1,0 +1,77 @@
+{
+  "all_passed": false,
+  "cases": [
+    {
+      "archive": "full-ordinary-s0.json.gz",
+      "archive_sha256": "0adac916fc5f51b633d5669402c7aaea344f92064cd70021e2c079a156d12aa7",
+      "complete": false,
+      "error": "BudgetError",
+      "metrics": {
+        "callback_errors": 0,
+        "care": 0,
+        "credit": 0.0,
+        "failures": 0,
+        "generation_attempts": 42,
+        "local_sum": 2180.0,
+        "native_score": 2180.0,
+        "recurrences": []
+      },
+      "passed": false,
+      "raw_sha256": "dd29543a784f96461a54132ad1a7845a24bccb2c4b14f6db443e0a4bbcb41fec",
+      "spec": {
+        "id": "full-ordinary-s0",
+        "kind": "ordinary",
+        "seed": 0
+      }
+    }
+  ],
+  "ledger": {
+    "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+    "authorization": {
+      "approval_reference_sha256": "93943c6c19291c2b6a6bac0615a559ad1dbe87ce087c74c8138ed95f94bb09dc",
+      "approved": true,
+      "max_calls": 162,
+      "max_usd": "10",
+      "plan_sha256": "561ed3420be65dfd9450571e56db73f95d7478d2f07778cbacabc643e1b9b10b",
+      "scope": "full"
+    },
+    "calls": 42,
+    "created_at_utc": "2026-10-25T08:42:50.131742+00:00",
+    "halt_reason": "transport_failure",
+    "held_usd": "0.049",
+    "max_calls": 162,
+    "max_usd": "10",
+    "metadata": {
+      "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+      "actual_modal_billing_attested": false,
+      "base_url": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+      "input_reference_usd_per_million": ".30",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "output_reference_usd_per_million": "1.20",
+      "seed_forwarded": false
+    },
+    "plan_sha256": "561ed3420be65dfd9450571e56db73f95d7478d2f07778cbacabc643e1b9b10b",
+    "reported_cost_missing": 42,
+    "reported_cost_observations": 0,
+    "reported_cost_sum_usd": "0",
+    "reported_cost_total_usd": null,
+    "reservation_usd": "0.049",
+    "schema_version": 1,
+    "scope": "full",
+    "spent_usd": "0.11744370",
+    "status": "halted"
+  },
+  "mode": "live_model",
+  "network_attempts": [],
+  "plan_sha256": "561ed3420be65dfd9450571e56db73f95d7478d2f07778cbacabc643e1b9b10b",
+  "planned_cases": [
+    {
+      "id": "full-ordinary-s0",
+      "kind": "ordinary",
+      "seed": 0
+    }
+  ],
+  "request_deadline_seconds": 180,
+  "stage": "ordinary",
+  "unstarted": []
+}
