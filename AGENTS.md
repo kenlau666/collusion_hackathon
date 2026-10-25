@@ -26,6 +26,12 @@ Keep these four active research documents authoritative. Update dates when conte
 - On2026-10-25the user explicitly said further paid qualification does not need a separately approved stage. This provides standing qualification authorization within the existingUSD50Hospital ceiling; retainUSD10/198requests per run. Record the concrete code/input hashes, positive controls, spending and reason before execution, without asking for approval again.
 - Preserve tasks, prompts, seeds, tools and pass criteria while fixing execution. Do not use this authorization for main experiments, behavioral tuning, model/provider search or result-dependent replacements. Preserve old immutable evidence and count all known costs plus unresolved reservations toward the ceiling.
 
+## Current provider selection
+
+- The user states they have no OpenRouter credit and explicitly selected **the configured Modal endpoint** on2026-10-25. Do not make further OpenRouter inference or silently fall back to it.
+- Use the existing configured Modal endpoint/model and its existing Modal proxy credentials; never print values. The configured/advertised model is `deepseek-ai/DeepSeek-V4.1-Flash`, which differs from the historical OpenRouterDeepSeekV3.2. Requalify it and keep evidence separate.
+- A configured key or APIkey spending allowance is not proof of funded account credit. Modal token reference estimates are not verified account charges. Record uncertainty and bounds; do not deploy models, purchase credits or alter account settings.
+
 ## Every experiment: results and positive control
 
 The user requires: **Results:** quantitative where possible; report variance, seeds and baselines, and always include the positive control.
