@@ -41,6 +41,7 @@ INPUT_USD_PER_TOKEN = Decimal("0.00000026")
 OUTPUT_USD_PER_TOKEN = Decimal("0.00000038")
 NATIVE_REQUEST_UPPER_BOUND_USD = Decimal("0.04882432")
 RESERVATION_USD = Decimal("0.049")
+SUCCESSOR_RESERVATION_USD = Decimal("0.16")
 SCOPE_LIMITS = {"controls": (30, Decimal("1.50")), "full": (534, Decimal("27"))}
 METADATA = {
     "checked_date_hkt": "2026-10-24",
@@ -138,14 +139,24 @@ class BudgetLedger:
     def __init__(self, directory: str | Path, *, scope: str = "controls",
                  max_calls: int | None = None, max_usd: Any = None,
                  plan_sha256: str | None = None,
-                 authorization: Mapping[str, Any] | None = None):
+                 authorization: Mapping[str, Any] | None = None,
+                 reservation_usd: Any = None):
         calls, dollars = _limits(scope, max_calls, max_usd)
+        reservation = RESERVATION_USD if reservation_usd is None else _money(reservation_usd)
+        if reservation not in {RESERVATION_USD, SUCCESSOR_RESERVATION_USD}:
+            raise BudgetError("unsupported per-attempt reservation profile")
+        authorization = dict(authorization or {})
+        if (reservation != RESERVATION_USD or "reservation_usd" in authorization):
+            if (authorization.get("approved") is not True or
+                    _money(authorization.get("reservation_usd")) != reservation):
+                raise BudgetError("explicit matching per-attempt reservation authorization required")
         if plan_sha256 is not None and not _plan_hash(plan_sha256):
             raise BudgetError("invalid plan fingerprint")
         self.directory = Path(directory)
         self.path = self.directory / "ledger.json"
         self._lock = threading.RLock()
-        self.authorization = deepcopy(dict(authorization or {}))
+        self.authorization = deepcopy(authorization)
+        self._reservation_usd = reservation
         self.plan_sha256 = plan_sha256
         authorization_summary = (_approved(self.authorization, plan_sha256)
             if self.authorization.get("approved") is True else {"approved": False})
@@ -158,11 +169,16 @@ class BudgetLedger:
             "schema_version": 1, "created_at_utc": _now(), "scope": scope,
             "max_calls": calls, "max_usd": str(dollars), "plan_sha256": plan_sha256,
             "authorization": authorization_summary,
-            "reservation_usd": str(RESERVATION_USD), "calls": 0,
+            "reservation_usd": str(self.reservation_usd), "calls": 0,
             "spent_usd": "0", "held_usd": "0", "status": "ready",
             "halt_reason": None, "records": [], "metadata": deepcopy(METADATA),
         }
         self._persist()
+
+    @property
+    def reservation_usd(self) -> Decimal:
+        """One fixed, authorization-bound amount shared by every attempt path."""
+        return self._reservation_usd
 
     def _persist(self) -> None:
         temporary = self.directory / ".ledger.pending"
@@ -196,18 +212,20 @@ class BudgetLedger:
             if self.state["calls"] >= self.max_calls:
                 self.halt("call_limit")
                 raise BudgetError("call limit reached")
-            if (_money(self.state["spent_usd"]) + _money(self.state["held_usd"]) +
-                    RESERVATION_USD > self.max_usd):
+            guarded_spend = max(_money(self.state["spent_usd"]),
+                                _money(self.state.get("reported_cost_sum_usd", "0")))
+            if (guarded_spend + _money(self.state["held_usd"]) +
+                    self.reservation_usd > self.max_usd):
                 self.halt("dollar_limit")
                 raise BudgetError("dollar limit reached before request")
             call_id = self.state["calls"] + 1
             record = {"call_id": call_id, "reserved_at_utc": _now(), "status": "reserved",
-                      "reservation_usd": str(RESERVATION_USD), "payload_bytes": payload_bytes,
+                      "reservation_usd": str(self.reservation_usd), "payload_bytes": payload_bytes,
                       "payload": deepcopy(payload), "response": None, "response_id": None,
                       "usage": None, "known_cost_usd": None}
             self.state["records"].append(record)
             self.state["calls"] = call_id
-            self.state["held_usd"] = str(_money(self.state["held_usd"]) + RESERVATION_USD)
+            self.state["held_usd"] = str(_money(self.state["held_usd"]) + self.reservation_usd)
             self.state["status"] = "in_flight"
             self._persist()
             return call_id
@@ -232,7 +250,7 @@ class BudgetLedger:
                 # The reservation remains held even if a failed reply reports a cost.
             else:
                 record["status"] = "settled"
-                self.state["held_usd"] = str(_money(self.state["held_usd"]) - RESERVATION_USD)
+                self.state["held_usd"] = str(_money(self.state["held_usd"]) - self.reservation_usd)
                 self.state["status"] = "ready"
             self._persist()
 
@@ -356,7 +374,7 @@ class _ReservedSession:
         except Exception:
             ledger.finish(call_id, failure="invalid_transport_reply")
             raise BudgetError("invalid transport reply; reservation retained") from None
-        failure, cost = _validate_reply(status, body)
+        failure, cost = _validate_reply(status, body, reservation_usd=ledger.reservation_usd)
         ledger.finish(call_id, status_code=status, response=saved_body, cost=cost, failure=failure)
         if failure:
             raise BudgetError("provider response rejected; reservation retained")
@@ -365,7 +383,7 @@ class _ReservedSession:
         return _NativeResponse(saved_body)
 
 
-def _validate_reply(status: Any, body: Any) -> tuple[str | None, Decimal | None]:
+def _validate_reply(status: Any, body: Any, *, reservation_usd: Decimal = RESERVATION_USD) -> tuple[str | None, Decimal | None]:
     if not _integer(status, 100) or not 200 <= status < 300:
         return "http_failure", None
     if not isinstance(body, dict):
@@ -377,7 +395,7 @@ def _validate_reply(status: Any, body: Any) -> tuple[str | None, Decimal | None]
         cost = _money(usage["cost"])
     except BudgetError:
         return "invalid_cost", None
-    if cost > RESERVATION_USD:
+    if cost > reservation_usd:
         return "overreservation_cost", cost
     prompt, completion = usage.get("prompt_tokens"), usage.get("completion_tokens")
     if not _integer(prompt) or prompt > CONTEXT_LIMIT:

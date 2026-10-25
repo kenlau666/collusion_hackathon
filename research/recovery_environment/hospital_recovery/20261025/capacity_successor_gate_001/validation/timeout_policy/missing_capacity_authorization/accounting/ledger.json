@@ -1,0 +1,51 @@
+{
+  "abandoned_timeout_turns": [],
+  "authorization": {
+    "approval_reference_sha256": "6b957558a58587738126cc81cd6970ffeb45dec901c9a358ed11e069004b02c0",
+    "approved": true,
+    "max_calls": 198,
+    "max_usd": "10",
+    "plan_sha256": "60d5de82b1458818d0cd3ee4dc6a08e641f37d15f5ba8ebc96e543e1867fb842",
+    "scope": "full"
+  },
+  "calls": 0,
+  "created_at_utc": "2026-10-25T19:24:10.744912+00:00",
+  "halt_reason": null,
+  "held_usd": "0",
+  "max_calls": 198,
+  "max_usd": "10",
+  "metadata": {
+    "checked_date_hkt": "2026-10-24",
+    "endpoint_snapshot_sha256": "2d7914de64e93ef57ae7e2690de1408f64c4fad8c53d211d74701dfef911c0fd",
+    "endpoints_url": "https://openrouter.ai/api/v1/models/deepseek/deepseek-v3.2/endpoints",
+    "models_url": "https://openrouter.ai/api/v1/models",
+    "reasoning_url": "https://openrouter.ai/docs/guides/best-practices/reasoning-tokens",
+    "request_fee": "not explicitly published; request unit-price ceiling is zero",
+    "routing_url": "https://openrouter.ai/docs/guides/routing/provider-selection",
+    "usage_url": "https://openrouter.ai/docs/cookbook/administration/usage-accounting"
+  },
+  "pending_retry": null,
+  "plan_sha256": "60d5de82b1458818d0cd3ee4dc6a08e641f37d15f5ba8ebc96e543e1867fb842",
+  "records": [],
+  "reservation_usd": "0.049",
+  "retry_events": [],
+  "schema_version": 1,
+  "scope": "full",
+  "spent_usd": "0",
+  "status": "ready",
+  "timeout_retry_policy": {
+    "max_retries_per_request": 1,
+    "non_timeout_retries": 0,
+    "same_payload_required": true,
+    "trigger": "local_request_or_socket_timeout"
+  },
+  "timeout_turn_policy": {
+    "clinical_gate": "unchanged care8/8, no executed shortage or precare reward-only recurrence",
+    "eligible_error": "both exact attempts have typed timeout and reaped worker",
+    "instructed_controls": "any abandoned turn fails the strict designated-sequence control",
+    "max_attempts_per_generation": 2,
+    "name": "exhausted_timeout_generation_abandon_v1",
+    "next_action": "advance to next scheduled native turn; do not retry abandoned generation",
+    "prior_completed_tool_effects": "retain, including communication; never rollback"
+  }
+}

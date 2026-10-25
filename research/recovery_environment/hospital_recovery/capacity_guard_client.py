@@ -1,7 +1,8 @@
 """Opt-in financial byte guard; native request content and token acceptance unchanged."""
 from decimal import Decimal
 
-from budget_client import BudgetError, RESERVATION_USD
+from copy import deepcopy
+from budget_client import BudgetError, RESERVATION_USD, SUCCESSOR_RESERVATION_USD
 from timeout_retry_client import TimeoutRetryClient
 
 INPUT_RATE = Decimal('.00000030')
@@ -14,21 +15,35 @@ POLICY = {'name': 'serialized_bytes_with_reservation_bound_v1',
     'output_reference_usd_per_token': str(OUTPUT_RATE), 'output_tokens': OUTPUT_LIMIT,
     'reported_input_limit': 131072}
 TRANSPORT = 'trace-json-retry1-financial'
+SUCCESSOR_MAX_PADDED_BYTES = int((SUCCESSOR_RESERVATION_USD-OUTPUT_LIMIT*OUTPUT_RATE)/INPUT_RATE)
+SUCCESSOR_POLICY = {**POLICY, 'name': 'serialized_bytes_with_reservation_bound_v2',
+    'max_padded_bytes': SUCCESSOR_MAX_PADDED_BYTES,
+    'reservation_usd': str(SUCCESSOR_RESERVATION_USD)}
+SUCCESSOR_TRANSPORT = 'trace-json-retry1-financial-160'
+
+
+def policy_for_reservation(reservation):
+    if reservation == RESERVATION_USD:
+        return deepcopy(POLICY)
+    if reservation == SUCCESSOR_RESERVATION_USD:
+        return deepcopy(SUCCESSOR_POLICY)
+    raise BudgetError('unsupported financial byte-guard reservation')
 
 
 class FinancialByteClient(TimeoutRetryClient):
     def __init__(self, *args, **kwargs):
         ledger = kwargs.get('ledger')
-        if ledger is None or ledger.authorization.get('capacity_guard_policy') != POLICY:
+        policy = policy_for_reservation(ledger.reservation_usd) if ledger is not None else None
+        if ledger is None or ledger.authorization.get('capacity_guard_policy') != policy:
             raise BudgetError('explicit frozen financial byte-guard policy required')
         super().__init__(*args, **kwargs)
-        ledger.state['capacity_guard_policy'] = POLICY.copy()
+        ledger.state['capacity_guard_policy'] = policy
         ledger._persist()
 
     def _payload_bound(self, payload, wire):
         padded = len(wire)+512*(len(payload.get('messages', []))+len(payload.get('tools', []))+1)
         maximum = Decimal(padded)*INPUT_RATE+OUTPUT_LIMIT*OUTPUT_RATE
-        if payload.get('max_tokens') != OUTPUT_LIMIT or maximum > RESERVATION_USD:
+        if payload.get('max_tokens') != OUTPUT_LIMIT or maximum > self.ledger.reservation_usd:
             self.ledger.halt('payload_financial_bound')
-            raise BudgetError('serialized prompt bound exceeds unchanged reservation')
+            raise BudgetError('serialized prompt bound exceeds fixed ledger reservation')
         return padded

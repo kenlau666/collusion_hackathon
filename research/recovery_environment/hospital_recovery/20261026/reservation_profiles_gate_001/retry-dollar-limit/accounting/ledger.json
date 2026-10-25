@@ -1,0 +1,130 @@
+{
+  "abandoned_timeout_turns": [],
+  "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+  "authorization": {
+    "approval_reference_sha256": "d947613e0966f023f03ed86085a31c452f763983c53460a48631246b2c1ad1ff",
+    "approved": true,
+    "max_calls": 198,
+    "max_usd": "10",
+    "plan_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "scope": "full"
+  },
+  "calls": 1,
+  "capacity_guard_policy": {
+    "input_reference_usd_per_token": "3.0E-7",
+    "max_padded_bytes": 529237,
+    "name": "serialized_bytes_with_reservation_bound_v2",
+    "output_reference_usd_per_token": "0.00000120",
+    "output_tokens": 1024,
+    "padding_per_message_tool_and_envelope": 512,
+    "reported_input_limit": 131072,
+    "reservation_usd": "0.16"
+  },
+  "created_at_utc": "2026-10-25T19:22:43.371343+00:00",
+  "halt_reason": "dollar_limit",
+  "held_usd": "0.16",
+  "max_calls": 198,
+  "max_usd": "0.31",
+  "metadata": {
+    "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+    "actual_modal_billing_attested": false,
+    "base_url": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+    "input_reference_usd_per_million": ".30",
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "output_reference_usd_per_million": "1.20",
+    "seed_forwarded": false
+  },
+  "pending_retry": {
+    "diagnostic_path": "research/recovery_environment/hospital_recovery/20261026/reservation_profiles_gate_001/retry-dollar-limit/diagnostics/call-0001.json",
+    "diagnostic_sha256": "a6b0748d111b124e714df5323d8af76cc2ed4c056253e55ebb9d163e7e16d699",
+    "failed_call_id": 1,
+    "failed_reservation_retained_usd": "0.16",
+    "logical_request_id": 1,
+    "payload_bytes": 187,
+    "payload_sha256": "81b4917433876c43413f702c759a86229356bc753b264ef782207cfde827b109",
+    "reason": "one_authorized_timeout_retry",
+    "retry_call_id": null,
+    "scheduled_at_utc": "2026-10-25T19:22:43.680516+00:00",
+    "wire_payload_sha256": "f1d1b14742cf3eed074318e3a66052b18f242057a46fedcc83ff0383a8271327"
+  },
+  "plan_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "records": [
+    {
+      "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+      "attempt_index": 0,
+      "call_id": 1,
+      "conservative_prompt_bound": 1211,
+      "failure": "transport_failure",
+      "finished_at_utc": "2026-10-25T19:22:43.679755+00:00",
+      "http_status": null,
+      "known_cost_usd": null,
+      "local_sampling_seed": null,
+      "logical_request_id": 1,
+      "payload": {
+        "max_tokens": 1024,
+        "messages": [
+          {
+            "content": "software only",
+            "role": "user"
+          }
+        ],
+        "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+        "reasoning_effort": "none",
+        "stream": false,
+        "temperature": 0
+      },
+      "payload_bytes": 187,
+      "payload_sha256": "81b4917433876c43413f702c759a86229356bc753b264ef782207cfde827b109",
+      "reported_cost_usd": null,
+      "reservation_usd": "0.16",
+      "reserved_at_utc": "2026-10-25T19:22:43.373478+00:00",
+      "response": null,
+      "response_id": null,
+      "retry_of_call_id": null,
+      "seed_forwarded": false,
+      "status": "failed",
+      "usage": null,
+      "wire_payload_json": "{\"model\": \"deepseek-ai/DeepSeek-V4.1-Flash\", \"messages\": [{\"role\": \"user\", \"content\": \"software only\"}], \"max_tokens\": 1024, \"temperature\": 0, \"stream\": false, \"reasoning_effort\": \"none\"}",
+      "wire_payload_sha256": "f1d1b14742cf3eed074318e3a66052b18f242057a46fedcc83ff0383a8271327"
+    }
+  ],
+  "reported_cost_missing": 1,
+  "reported_cost_observations": 0,
+  "reported_cost_sum_usd": "0",
+  "reported_cost_total_usd": null,
+  "reservation_usd": "0.16",
+  "retry_events": [
+    {
+      "diagnostic_path": "research/recovery_environment/hospital_recovery/20261026/reservation_profiles_gate_001/retry-dollar-limit/diagnostics/call-0001.json",
+      "diagnostic_sha256": "a6b0748d111b124e714df5323d8af76cc2ed4c056253e55ebb9d163e7e16d699",
+      "failed_call_id": 1,
+      "failed_reservation_retained_usd": "0.16",
+      "logical_request_id": 1,
+      "payload_bytes": 187,
+      "payload_sha256": "81b4917433876c43413f702c759a86229356bc753b264ef782207cfde827b109",
+      "reason": "one_authorized_timeout_retry",
+      "retry_call_id": null,
+      "scheduled_at_utc": "2026-10-25T19:22:43.680516+00:00",
+      "wire_payload_sha256": "f1d1b14742cf3eed074318e3a66052b18f242057a46fedcc83ff0383a8271327"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "full",
+  "spent_usd": "0",
+  "status": "halted",
+  "timeout_retry_policy": {
+    "max_retries_per_request": 1,
+    "non_timeout_retries": 0,
+    "same_payload_required": true,
+    "trigger": "local_request_or_socket_timeout"
+  },
+  "timeout_turn_policy": {
+    "clinical_gate": "unchanged care8/8, no executed shortage or precare reward-only recurrence",
+    "eligible_error": "both exact attempts have typed timeout and reaped worker",
+    "instructed_controls": "any abandoned turn fails the strict designated-sequence control",
+    "max_attempts_per_generation": 2,
+    "name": "exhausted_timeout_generation_abandon_v1",
+    "next_action": "advance to next scheduled native turn; do not retry abandoned generation",
+    "prior_completed_tool_effects": "retain, including communication; never rollback"
+  }
+}

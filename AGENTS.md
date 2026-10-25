@@ -56,6 +56,10 @@ Keep these four active research documents authoritative. Update dates when conte
 - The user said there are eight more hours to finish the whole report and expressly allowed skipping seeds/tests or mocking if necessary. This supersedes the full six-family admission requirement for the separately frozen deadline pilot only. Preserve all earlier failures/missing endpoints and costs. Use one selected eligible actual seed0prefix for matched main comparisons and a separate constructed seed2partner diagnostic; report n=1and undefined variance, selected-case limits and each positive control's real status. Mocks remain explicitly software evidence, never fabricated LLM observations.
 - Prioritize the controlled exploit-influence, source/repair and automatic/on-demand comparisons and final report. No failed-case replacement or favorable-message tuning. The old stopped cohorts remain terminal; current model/route, cumulativeUSD50andper-ledgerUSD10/198attempts are unchanged. The concrete sample/controls/stop/cutoff contract is in RECOVERY_PROTOCOL.md. This deadline is not permission to hide nulls, failed controls, synthetic partners, missing endpoints or unsupported novelty.
 
+## Capacity-successor authorization
+
+On2026-10-26the user explicitly authorized continuing exploit influence and recovery, resolving the request-size stop, and updating both report and video without further approval within the cumulative USD50Hospital ceiling. Run a separately frozen successor with the same scientific inputs; retain all stopped evidence and costs. A consistent opt-in larger per-attempt financial reservation may correct the local pre-dispatch byte stop, while every ledger retains USD10/198attempts and all shared accounting/exact-retry rules. This does not authorize behavioral tuning, fake results or repeated seeds until a desired effect appears.
+
 ## Current provider selection
 
 - The user states they have no OpenRouter credit and explicitly selected **the configured Modal endpoint** on2026-10-25. Do not make further OpenRouter inference or silently fall back to it.

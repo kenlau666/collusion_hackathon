@@ -68,7 +68,7 @@ class TimeoutRetryLedger(BudgetLedger):
                 self.halt('invalid_retry_state')
                 raise BudgetError('retry reservation without authorized timeout')
             if self.cumulative_guard is not None:
-                if Decimal(self.cumulative_guard()['guard_usd']) + Decimal('.049') > 50:
+                if Decimal(self.cumulative_guard()['guard_usd']) + self.reservation_usd > 50:
                     self.halt('cumulative_dollar_limit')
                     raise BudgetError('cumulative ceiling before provider attempt')
             if self.state['status'] == 'retry_pending':

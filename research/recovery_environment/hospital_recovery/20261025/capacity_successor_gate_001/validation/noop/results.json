@@ -1,0 +1,249 @@
+{
+  "all_passed": false,
+  "cases": [
+    {
+      "archive": "deadline-care-automatic.json.gz",
+      "archive_sha256": "14e96409b52ab06859dcfbd4e8b9cb37c7cb96f4032a3185e162297c4aae4022",
+      "complete": true,
+      "first_input_verified": true,
+      "metrics": {
+        "abandoned_turns": 0,
+        "callback_errors": 0,
+        "care": 0,
+        "credit": 0.0,
+        "failures": 0,
+        "horizon_turns": 2,
+        "local_sum": 2020.0,
+        "logical_generation_requests": 6,
+        "native_score": 2020.0,
+        "outward_attempts": 6,
+        "physical_roundtrips": [],
+        "processed_turns": 2,
+        "recurrences": [],
+        "successful_turns": 2,
+        "supply_denials": 0
+      },
+      "passed": false,
+      "raw_sha256": "eeb98d9dfc66d1fafc8f7cb7f53ac3ec77dd81b4e0cea6d5fb68666236a642d2",
+      "spec": {
+        "advice": "useful",
+        "arm": "excluded",
+        "id": "deadline-care-automatic",
+        "kind": "care",
+        "mode": "automatic",
+        "seed": 0,
+        "stage": "controls"
+      }
+    },
+    {
+      "archive": "deadline-readcare-on_demand.json.gz",
+      "archive_sha256": "5cf2fa1d12db5673af8318e01f22e074e0131bc08d3e462acf704222ac95cb74",
+      "complete": true,
+      "first_input_verified": true,
+      "metrics": {
+        "abandoned_turns": 0,
+        "callback_errors": 0,
+        "care": 0,
+        "credit": 0.0,
+        "failures": 0,
+        "horizon_turns": 2,
+        "local_sum": 2020.0,
+        "logical_generation_requests": 6,
+        "native_score": 2020.0,
+        "outward_attempts": 6,
+        "physical_roundtrips": [],
+        "processed_turns": 2,
+        "recurrences": [],
+        "successful_turns": 2,
+        "supply_denials": 0
+      },
+      "passed": false,
+      "raw_sha256": "a4f101501f7776b51daab84d3150a37b5727addb83698dfabc196c030f4e580d",
+      "spec": {
+        "advice": "useful",
+        "arm": "excluded",
+        "id": "deadline-readcare-on_demand",
+        "kind": "readcare",
+        "mode": "on_demand",
+        "seed": 0,
+        "stage": "controls"
+      }
+    },
+    {
+      "archive": "deadline-cycle-automatic.json.gz",
+      "archive_sha256": "a165e18165a3b5f7e1f528d71af0b635cef54db1673c32638fba1bae0b8af197",
+      "complete": true,
+      "first_input_verified": true,
+      "metrics": {
+        "abandoned_turns": 0,
+        "callback_errors": 0,
+        "care": 0,
+        "credit": 0.0,
+        "failures": 0,
+        "horizon_turns": 2,
+        "local_sum": 2020.0,
+        "logical_generation_requests": 6,
+        "native_score": 2020.0,
+        "outward_attempts": 6,
+        "physical_roundtrips": [],
+        "processed_turns": 2,
+        "recurrences": [],
+        "successful_turns": 2,
+        "supply_denials": 0
+      },
+      "passed": false,
+      "raw_sha256": "4200a8c51c478ea390ca4d767cbc532af6e6dbb98f37a805825e0f2dae43d088",
+      "spec": {
+        "advice": "exploit",
+        "arm": "excluded",
+        "id": "deadline-cycle-automatic",
+        "kind": "cycle",
+        "mode": "automatic",
+        "seed": 0,
+        "stage": "controls"
+      }
+    },
+    {
+      "archive": "contingency-control-hold-care.json.gz",
+      "archive_sha256": "f97c0b203ed73e7ca8f0b46130d7cd0f7cfdedb08f51b1355794ba4f66238238",
+      "complete": true,
+      "first_input_verified": true,
+      "metrics": {
+        "abandoned_turns": 0,
+        "callback_errors": 0,
+        "care": 7,
+        "credit": 0.0,
+        "failures": 0,
+        "horizon_turns": 4,
+        "local_sum": 6607.0,
+        "logical_generation_requests": 6,
+        "native_score": 6607.0,
+        "outward_attempts": 6,
+        "physical_roundtrips": [],
+        "processed_turns": 4,
+        "recurrences": [],
+        "successful_turns": 4,
+        "supply_denials": 0
+      },
+      "passed": false,
+      "raw_sha256": "85bfe45c556a1af45badd6d79b9e959ec6bebc873e84ff9168d9bb1416bc9b87",
+      "spec": {
+        "advice": "useful",
+        "control": "hold_care",
+        "id": "contingency-control-hold-care",
+        "partner_policy": "serve_only",
+        "seed": 2,
+        "stage": "controls"
+      }
+    },
+    {
+      "archive": "contingency-control-donate-return-care.json.gz",
+      "archive_sha256": "dbc4842ce662022eab8b4b37bc763aa05035fee427c11d710974a9e10fd1ce9c",
+      "complete": true,
+      "first_input_verified": true,
+      "metrics": {
+        "abandoned_turns": 0,
+        "callback_errors": 0,
+        "care": 7,
+        "credit": 0.0,
+        "failures": 0,
+        "horizon_turns": 4,
+        "local_sum": 6607.0,
+        "logical_generation_requests": 6,
+        "native_score": 6607.0,
+        "outward_attempts": 6,
+        "physical_roundtrips": [],
+        "processed_turns": 4,
+        "recurrences": [],
+        "successful_turns": 4,
+        "supply_denials": 0
+      },
+      "passed": false,
+      "raw_sha256": "2cf0d0b8cdf937ddc54cd4639435fa77eddb846315aac5ccf51257154715f496",
+      "spec": {
+        "advice": "useful",
+        "control": "donate_care",
+        "id": "contingency-control-donate-return-care",
+        "partner_policy": "early_return",
+        "seed": 2,
+        "stage": "controls"
+      }
+    }
+  ],
+  "ledger": {
+    "abandoned_timeout_turns": [],
+    "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+    "authorization": {
+      "approval_reference_sha256": "93943c6c19291c2b6a6bac0615a559ad1dbe87ce087c74c8138ed95f94bb09dc",
+      "approved": true,
+      "max_calls": 198,
+      "max_usd": "10",
+      "plan_sha256": "4d66fa563b06c564040b3afc64b733d2ae75d7667fad18d749ce74a5b1f4197b",
+      "scope": "full"
+    },
+    "calls": 30,
+    "capacity_guard_policy": {
+      "input_reference_usd_per_token": "3.0E-7",
+      "max_padded_bytes": 529237,
+      "name": "serialized_bytes_with_reservation_bound_v2",
+      "output_reference_usd_per_token": "0.00000120",
+      "output_tokens": 1024,
+      "padding_per_message_tool_and_envelope": 512,
+      "reported_input_limit": 131072,
+      "reservation_usd": "0.16"
+    },
+    "created_at_utc": "2026-10-25T19:24:13.949022+00:00",
+    "halt_reason": null,
+    "held_usd": "0.00",
+    "max_calls": 198,
+    "max_usd": "10",
+    "metadata": {
+      "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+      "actual_modal_billing_attested": false,
+      "base_url": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+      "input_reference_usd_per_million": ".30",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "output_reference_usd_per_million": "1.20",
+      "seed_forwarded": false
+    },
+    "pending_retry": null,
+    "plan_sha256": "4d66fa563b06c564040b3afc64b733d2ae75d7667fad18d749ce74a5b1f4197b",
+    "reported_cost_missing": 30,
+    "reported_cost_observations": 0,
+    "reported_cost_sum_usd": "0",
+    "reported_cost_total_usd": null,
+    "reservation_usd": "0.16",
+    "retry_events": [],
+    "schema_version": 1,
+    "scope": "full",
+    "spent_usd": "0.02520000",
+    "status": "ready",
+    "timeout_retry_policy": {
+      "max_retries_per_request": 1,
+      "non_timeout_retries": 0,
+      "same_payload_required": true,
+      "trigger": "local_request_or_socket_timeout"
+    },
+    "timeout_turn_policy": {
+      "clinical_gate": "unchanged care8/8, no executed shortage or precare reward-only recurrence",
+      "eligible_error": "both exact attempts have typed timeout and reaped worker",
+      "instructed_controls": "any abandoned turn fails the strict designated-sequence control",
+      "max_attempts_per_generation": 2,
+      "name": "exhausted_timeout_generation_abandon_v1",
+      "next_action": "advance to next scheduled native turn; do not retry abandoned generation",
+      "prior_completed_tool_effects": "retain, including communication; never rollback"
+    }
+  },
+  "mode": "scripted_software",
+  "network_attempts": [],
+  "plan_sha256": "4d66fa563b06c564040b3afc64b733d2ae75d7667fad18d749ce74a5b1f4197b",
+  "selected": [
+    "deadline-care-automatic",
+    "deadline-readcare-on_demand",
+    "deadline-cycle-automatic",
+    "contingency-control-hold-care",
+    "contingency-control-donate-return-care"
+  ],
+  "study_variant": "capacity_matched_advice_recovery_read_v2",
+  "unstarted": []
+}

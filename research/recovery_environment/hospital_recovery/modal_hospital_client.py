@@ -19,7 +19,7 @@ import time
 from types import SimpleNamespace
 
 from branch_runtime import TogetherClient
-from budget_client import BudgetError, TransportReply, _NativeResponse, _approved, _redact
+from budget_client import BudgetError, TransportReply, RESERVATION_USD, _NativeResponse, _approved, _redact
 
 BASE_URL = 'https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1'
 MODEL = 'deepseek-ai/DeepSeek-V4.1-Flash'
@@ -35,7 +35,7 @@ def persist(path, value):
     os.replace(temporary, path)
 
 
-def validate_reply(reply):
+def validate_reply(reply, *, reservation_usd=RESERVATION_USD):
     body = reply.body
     if type(reply.status_code) is not int or not 200 <= reply.status_code < 300:
         return 'http_failure', None, None
@@ -60,7 +60,7 @@ def validate_reply(reply):
             reported = Decimal(str(usage['cost']))
             if not reported.is_finite() or reported < 0: raise InvalidOperation
         except (InvalidOperation, ValueError): return 'invalid_reported_cost', None, None
-        if reported > Decimal('.049'):
+        if reported > reservation_usd:
             return 'overreservation_reported_cost', None, reported
     estimate = Decimal(prompt) * Decimal('.00000030') + Decimal(output) * Decimal('.00000120')
     return None, estimate, reported
@@ -143,7 +143,7 @@ class ModalHospitalClient(TogetherClient):
         self.ledger._persist()
         try:
             reply = self.transport.post(deepcopy(payload), timeout=remaining)
-            failure, estimate, reported = validate_reply(reply)
+            failure, estimate, reported = validate_reply(reply, reservation_usd=self.ledger.reservation_usd)
             body = self.sanitize_for_log(reply.body)
             json.dumps(body, allow_nan=False)
         except Exception:

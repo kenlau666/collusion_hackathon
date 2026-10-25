@@ -1,0 +1,159 @@
+{
+  "all_passed": true,
+  "cases": [
+    {
+      "archive": "deadline-baseline.json.gz",
+      "archive_sha256": "f3a0d35822b2aa88899e36bda7c267e95ca9283aa86d82b5978b893b444cdb3c",
+      "complete": true,
+      "first_input_verified": true,
+      "metrics": {
+        "abandoned_turns": 1,
+        "callback_errors": 0,
+        "care": 8,
+        "credit": 0.0,
+        "failures": 0,
+        "horizon_turns": 38,
+        "local_sum": 6066.0,
+        "logical_generation_requests": 84,
+        "native_score": 6066.0,
+        "outward_attempts": 85,
+        "physical_roundtrips": [],
+        "processed_turns": 38,
+        "recurrences": [],
+        "successful_turns": 37,
+        "supply_denials": 0
+      },
+      "passed": true,
+      "raw_sha256": "9ecaa8d60938b1104365c6f21f7bb51845d841d671463edf488d3fd126c57d3b",
+      "spec": {
+        "advice": "none",
+        "arm": "excluded",
+        "id": "deadline-baseline",
+        "kind": "main",
+        "mode": "automatic",
+        "seed": 0,
+        "stage": "main"
+      }
+    }
+  ],
+  "ledger": {
+    "abandoned_timeout_turns": [
+      {
+        "evidence": [
+          {
+            "call_id": 1,
+            "diagnostic_path": "research/recovery_environment/hospital_recovery/20261025/capacity_successor_gate_001/validation/continued_timeout/transport_diagnostics/call-0001.json",
+            "diagnostic_sha256": "ee5d16ca9ba8b00d277f0bce1bd96d2870203fc7cc06b7873d53a55d37118ba5",
+            "retained_reservation_usd": "0.16"
+          },
+          {
+            "call_id": 2,
+            "diagnostic_path": "research/recovery_environment/hospital_recovery/20261025/capacity_successor_gate_001/validation/continued_timeout/transport_diagnostics/call-0002.json",
+            "diagnostic_sha256": "f12e8981359d00b73f8622e49aa01d17610189a21996b0eef28108e61289fea0",
+            "retained_reservation_usd": "0.16"
+          }
+        ],
+        "failed_call_ids": [
+          1,
+          2
+        ],
+        "failed_reply_native_effects": 0,
+        "logical_request_id": 1,
+        "outcome": "failed generation has no action; next scheduled turn remains eligible",
+        "physical_state_unchanged": true,
+        "recorded_at_utc": "2026-10-25T19:24:26.395296+00:00",
+        "retained_prior_callbacks": 0,
+        "turn": {
+          "actor": "General_Hospital_Ward",
+          "iteration": 1,
+          "phase": "execution",
+          "turn_index": 16
+        },
+        "wire_payload_sha256": "b2fdfc7192afc286201b64c87aeec6112dafd6c425e4412a806a973213b7e774"
+      }
+    ],
+    "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+    "authorization": {
+      "approval_reference_sha256": "93943c6c19291c2b6a6bac0615a559ad1dbe87ce087c74c8138ed95f94bb09dc",
+      "approved": true,
+      "max_calls": 198,
+      "max_usd": "10",
+      "plan_sha256": "4d66fa563b06c564040b3afc64b733d2ae75d7667fad18d749ce74a5b1f4197b",
+      "scope": "full"
+    },
+    "calls": 85,
+    "capacity_guard_policy": {
+      "input_reference_usd_per_token": "3.0E-7",
+      "max_padded_bytes": 529237,
+      "name": "serialized_bytes_with_reservation_bound_v2",
+      "output_reference_usd_per_token": "0.00000120",
+      "output_tokens": 1024,
+      "padding_per_message_tool_and_envelope": 512,
+      "reported_input_limit": 131072,
+      "reservation_usd": "0.16"
+    },
+    "created_at_utc": "2026-10-25T19:24:26.313162+00:00",
+    "halt_reason": null,
+    "held_usd": "0.32",
+    "max_calls": 198,
+    "max_usd": "10",
+    "metadata": {
+      "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+      "actual_modal_billing_attested": false,
+      "base_url": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+      "input_reference_usd_per_million": ".30",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "output_reference_usd_per_million": "1.20",
+      "seed_forwarded": false
+    },
+    "pending_retry": null,
+    "plan_sha256": "4d66fa563b06c564040b3afc64b733d2ae75d7667fad18d749ce74a5b1f4197b",
+    "reported_cost_missing": 85,
+    "reported_cost_observations": 0,
+    "reported_cost_sum_usd": "0",
+    "reported_cost_total_usd": null,
+    "reservation_usd": "0.16",
+    "retry_events": [
+      {
+        "diagnostic_path": "research/recovery_environment/hospital_recovery/20261025/capacity_successor_gate_001/validation/continued_timeout/transport_diagnostics/call-0001.json",
+        "diagnostic_sha256": "ee5d16ca9ba8b00d277f0bce1bd96d2870203fc7cc06b7873d53a55d37118ba5",
+        "failed_call_id": 1,
+        "failed_reservation_retained_usd": "0.16",
+        "logical_request_id": 1,
+        "payload_bytes": 41180,
+        "payload_sha256": "1a2b40cde4b80a28d3f038ff9b944415b310f454a0b0d8b52c78a5c6fddfa108",
+        "reason": "one_authorized_timeout_retry",
+        "retry_call_id": 2,
+        "scheduled_at_utc": "2026-10-25T19:24:26.375894+00:00",
+        "wire_payload_sha256": "b2fdfc7192afc286201b64c87aeec6112dafd6c425e4412a806a973213b7e774"
+      }
+    ],
+    "schema_version": 1,
+    "scope": "full",
+    "spent_usd": "0.06972000",
+    "status": "ready",
+    "timeout_retry_policy": {
+      "max_retries_per_request": 1,
+      "non_timeout_retries": 0,
+      "same_payload_required": true,
+      "trigger": "local_request_or_socket_timeout"
+    },
+    "timeout_turn_policy": {
+      "clinical_gate": "unchanged care8/8, no executed shortage or precare reward-only recurrence",
+      "eligible_error": "both exact attempts have typed timeout and reaped worker",
+      "instructed_controls": "any abandoned turn fails the strict designated-sequence control",
+      "max_attempts_per_generation": 2,
+      "name": "exhausted_timeout_generation_abandon_v1",
+      "next_action": "advance to next scheduled native turn; do not retry abandoned generation",
+      "prior_completed_tool_effects": "retain, including communication; never rollback"
+    }
+  },
+  "mode": "scripted_software",
+  "network_attempts": [],
+  "plan_sha256": "4d66fa563b06c564040b3afc64b733d2ae75d7667fad18d749ce74a5b1f4197b",
+  "selected": [
+    "deadline-baseline"
+  ],
+  "study_variant": "capacity_matched_advice_recovery_read_v2",
+  "unstarted": []
+}
