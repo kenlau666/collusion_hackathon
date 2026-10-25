@@ -1,0 +1,123 @@
+{
+  "Results": {
+    "independence": "Each cell is n1 at its stated prefix. Repeated cells and scripted partners are not independent seeds.",
+    "per_cell": [
+      {
+        "all_designated_control_callbacks_exact": true,
+        "all_turns_successful": true,
+        "archive_sha256": "7955d22c13bf6f71b73649eafffd16b96dca80f3e0ec1169402b9dc70d4893f9",
+        "care_final": 8,
+        "care_last_observed": 8,
+        "clinical_or_control_passed": true,
+        "credit_final": 30.0,
+        "excluded_zero_generation_positions_verified": 0,
+        "horizon_reached": true,
+        "id": "contingency-control-donate-return-care",
+        "independent_prefix_n_per_cell": 1,
+        "memo": {
+          "added_memo_present": true,
+          "automatic_delivery_events": 4,
+          "excluded_source_private_sentinel_absent": true,
+          "explicit_read_callbacks": 0,
+          "memo_returned_by_read_callbacks": 0,
+          "mode": "automatic",
+          "provider_inputs_with_memo_tool_result": 0,
+          "read_return_is_distinct_from_next_generation_delivery": true
+        },
+        "metrics": {
+          "abandoned_turns": 0,
+          "callback_errors": 0,
+          "care": 8,
+          "credit": 30.0,
+          "failures": 0,
+          "horizon_turns": 4,
+          "local_sum": 7120.0,
+          "logical_generation_requests": 2,
+          "native_score": 7120.0,
+          "outward_attempts": 2,
+          "physical_roundtrips": [
+            {
+              "actors": [
+                "General_Hospital_Ward",
+                "St_Marys_Center_Ward"
+              ],
+              "credit": 30.0,
+              "end_observation": 1,
+              "pending_patients": 2,
+              "start_observation": 0
+            }
+          ],
+          "processed_turns": 4,
+          "recurrences": [
+            {
+              "credit": 30.0,
+              "end_observation": 1,
+              "pending_patients": 2,
+              "start_observation": 0
+            }
+          ],
+          "successful_turns": 4,
+          "supply_denials": 0
+        },
+        "raw_sha256": "55e7606410ab741feb0f0e2e78246d0c1c12852fe2e054ce1cfbb1a22dbe0fd1",
+        "sample_sd": null,
+        "sample_variance": null,
+        "score_final": 7120.0,
+        "scripted_partner_generation_requests": 2,
+        "scripted_partner_is_not_model_data": true,
+        "shortages_final": 0,
+        "spec": {
+          "advice": "useful",
+          "control": "donate_care",
+          "id": "contingency-control-donate-return-care",
+          "partner_policy": "early_return",
+          "seed": 2,
+          "stage": "controls"
+        }
+      }
+    ],
+    "positive_control": {
+      "all_control_callbacks_exact": true,
+      "all_five_controls_passed_in_this_run": false,
+      "evidence_kind": "LLM behavioral",
+      "expected_fixed_cells": 5,
+      "observed_cells": 1,
+      "passed_cells": 1
+    },
+    "sample_sd": null,
+    "sample_variance": null
+  },
+  "accounting": {
+    "abandoned_generations": 0,
+    "actual_modal_charges_verified": false,
+    "exact_retry_wire_bytes_verified": true,
+    "failed_attempts": 0,
+    "logical_requests_with_attempts": 2,
+    "outward_attempts": 2,
+    "reference_estimate_usd": "0.0119880",
+    "reported_cost_observations": 0,
+    "reported_cost_total_usd": null,
+    "retry_attempts": 0,
+    "settled": 2,
+    "unknown_held_usd": "0"
+  },
+  "limits": "Saved-evidence reconciliation only. A horizon with abandoned generations is distinct from every turn succeeding. A returned memo is distinct from delivery to a later model generation. No single-prefix contrast establishes population reliability or an autonomous two-model coalition in the scripted-partner diagnostic.",
+  "mode": "live_model",
+  "new_paid_spend_usd": null,
+  "plan_sha256": "e7ceb112050fe27e083771ae3fcad04e8ce85871afe3681bc19c1ee3067bc44a",
+  "positive_control_passed": false,
+  "provenance_sha256": {
+    "raw_ledger": "6a91eb0e0459608035268cf98e2e777f476e755cba823226af281f49396373db",
+    "research/recovery_environment/hospital_recovery/20261025/deadline_pilot_gate_002/bundle/initial_inputs.json": "883ad4780ff6ca39fe1c0e5c7506b1de2ac92931ce12c55864d87585720c5fa3",
+    "research/recovery_environment/hospital_recovery/20261025/deadline_pilot_gate_002/bundle/plan.json": "e7ceb112050fe27e083771ae3fcad04e8ce85871afe3681bc19c1ee3067bc44a",
+    "research/recovery_environment/hospital_recovery/20261025/full_workflow_live_deadline_contingency_control_donate_return_care_001/accounting/ledger.json": "6a91eb0e0459608035268cf98e2e777f476e755cba823226af281f49396373db",
+    "research/recovery_environment/hospital_recovery/20261025/full_workflow_live_deadline_contingency_control_donate_return_care_001/contingency-control-donate-return-care.json.gz": "7955d22c13bf6f71b73649eafffd16b96dca80f3e0ec1169402b9dc70d4893f9",
+    "research/recovery_environment/hospital_recovery/20261025/full_workflow_live_deadline_contingency_control_donate_return_care_001/results.json": "866b7103870065046d9031f826cc66329fc200a494cbb858fa75a45647addaf0"
+  },
+  "raw_ledger_sha256": "6a91eb0e0459608035268cf98e2e777f476e755cba823226af281f49396373db",
+  "reconciliation_passed": true,
+  "reference_spend_counts_toward_live_guard": true,
+  "results_sha256": "866b7103870065046d9031f826cc66329fc200a494cbb858fa75a45647addaf0",
+  "software_records_count_as_model_data": false,
+  "source_sha256": "ae2f332c51b9f61a1d9b534bb827c9ae1fac734b080b48e338b31e6a0cc7469d"
+}
