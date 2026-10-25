@@ -1,0 +1,62 @@
+{
+  "body_bytes": 2728,
+  "call_id": 87,
+  "child_exit_code": 0,
+  "child_reaped": true,
+  "elapsed_monotonic_seconds": 6.185008875094354,
+  "finished_at_utc": "2026-10-25T15:41:31.113365+00:00",
+  "http_status": 200,
+  "kind": "reply",
+  "phase_events": [
+    {
+      "elapsed_seconds": 0.017725541023537517,
+      "stage": "dns_start"
+    },
+    {
+      "elapsed_seconds": 0.022779125021770597,
+      "stage": "dns_done"
+    },
+    {
+      "elapsed_seconds": 0.023246249998919666,
+      "stage": "tcp_connect_start"
+    },
+    {
+      "elapsed_seconds": 0.11143579101189971,
+      "stage": "tcp_connected"
+    },
+    {
+      "elapsed_seconds": 0.11190141597762704,
+      "stage": "tls_start"
+    },
+    {
+      "elapsed_seconds": 0.5457375829573721,
+      "stage": "tls_ready"
+    },
+    {
+      "elapsed_seconds": 0.5471035829978064,
+      "stage": "sending_request"
+    },
+    {
+      "elapsed_seconds": 0.5479020830243826,
+      "stage": "request_sent_waiting_headers"
+    },
+    {
+      "elapsed_seconds": 6.096203707973473,
+      "stage": "headers_received"
+    },
+    {
+      "elapsed_seconds": 6.098397625028156,
+      "stage": "first_body_bytes"
+    },
+    {
+      "elapsed_seconds": 6.100302250008099,
+      "stage": "complete"
+    }
+  ],
+  "retry_count": 0,
+  "started_at_utc": "2026-10-25T15:41:24.928641+00:00",
+  "stderr_bytes": 0,
+  "timeout_seconds": 60,
+  "transport": "trace-json",
+  "worker_progress_stage": "complete"
+}

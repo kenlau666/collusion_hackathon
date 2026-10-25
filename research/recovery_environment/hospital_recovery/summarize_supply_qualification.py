@@ -1,5 +1,6 @@
 """Fixed-six descriptive lineage for the new common-supply qualifier only."""
 from decimal import Decimal
+import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -47,6 +48,19 @@ def main():
         if analysis_path.exists():
             analysis = load(analysis_path)
             assert analysis['supply_preflight_reconciliation_passed']
+            brief = load(run / 'results.json')['cases'][0]
+            archive = run / brief['archive']
+            assert sha(archive) == brief['archive_sha256']
+            raw = gzip.decompress(archive.read_bytes())
+            assert hashlib.sha256(raw).hexdigest() == brief['raw_sha256']
+            trace = json.loads(raw)
+            expected_turns = [(iteration, phase, actor) for iteration in range(1, 4)
+                              for phase in ('planning', 'execution') for actor in trace['initial']['order']]
+            actual_turns = [(t['iteration'], t['phase'], t['actor']) for t in trace['turns']]
+            assert actual_turns == expected_turns[:len(actual_turns)]
+            assert all(t['logical_generation_requests'] <= 3 for t in trace['turns'])
+            if trace['complete']:
+                assert len(actual_turns) == 54 and all(t['complete_turn'] for t in trace['turns'])
             case, counts = analysis['cases'][0], analysis['supply_proposals'][0]
             assert case['seed'] == seed and case['kind'] == 'ordinary'
             final = case['complete']
