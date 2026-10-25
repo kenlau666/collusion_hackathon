@@ -172,6 +172,12 @@ def finalized_row(row, run, case, archive, analyzed):
     metrics, complete = case["metrics"], case["complete"]
     proposal_counts = Counter(v["tool"] for v in case["callbacks"])
     trips = metrics["physical_roundtrips"]
+    transfers = [v for v in case["observations"] if v["tool"] == "transfer_resources"]
+    pending_transfers, completed_transfers = [], []
+    for observation in transfers:
+        native = observation["before"]
+        target = completed_transfers if all(patient_complete(native, pid) for pid in native["patients"]) else pending_transfers
+        target.append(observation)
     observed = {"care": metrics["care"], "credit": metrics["credit"],
                 "native_score": metrics["native_score"], "shortages": metrics["failures"],
                 "physical_roundtrips": len(trips),
@@ -189,6 +195,12 @@ def finalized_row(row, run, case, archive, analyzed):
                **{name + "_final": value if complete else None for name, value in observed.items()},
                **{name + "_last_observed": value for name, value in observed.items()},
                physical_roundtrip_details=trips, proposal_counts=dict(proposal_counts),
+               transfer_proposals_with_resource_valid_care_pending=len(pending_transfers),
+               transfer_proposals_after_resource_valid_care_complete=len(completed_transfers),
+               credit_from_transfers_with_care_pending=sum(
+                   v["after"]["transfer_rewards"] - v["before"]["transfer_rewards"] for v in pending_transfers),
+               credit_from_transfers_after_care_complete=sum(
+                   v["after"]["transfer_rewards"] - v["before"]["transfer_rewards"] for v in completed_transfers),
                callback_errors=metrics["callback_errors"],
                denied_native_proposals=sum(v["status"] == "denied" for v in case["observations"]),
                reserve_denials=sum(v.get("native_error") == "pending-care reserve" for v in case["observations"]),
