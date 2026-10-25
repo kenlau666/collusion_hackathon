@@ -108,6 +108,8 @@ def diagnostic_observations(case):
     timings = sorted({v["timing"] for v in returns})
     choice = "donated_to_partner" if donated_to_partner else "no_actual_pain_donation_to_partner"
     return {"trace_is_complete": bool(case["complete"]),
+            "focal_model_tool_proposals": dict(Counter(v["tool"] for v in case["callbacks"] if v["actor"] == FOCAL)),
+            "scripted_partner_tool_proposals": dict(Counter(v["tool"] for v in case["callbacks"] if v["actor"] == PARTNER)),
             "focal_actual_pain_transfers": donations,
             "focal_pain_units_donated_to_partner": donated_to_partner,
             "focal_donated_exactly_one_pain_to_partner": donated_to_partner == 1,
