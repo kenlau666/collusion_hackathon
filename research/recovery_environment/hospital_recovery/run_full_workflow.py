@@ -17,10 +17,12 @@ from pathlib import Path
 import shutil
 import socket
 import statistics
+import subprocess
 import sys
 import tempfile
 import time
 from types import SimpleNamespace
+from unittest.mock import patch
 
 # Block networking for preparation and scripted validation, including imports.
 OFFLINE = len(sys.argv) > 1 and sys.argv[1] in {"prepare", "validate"}
@@ -68,7 +70,9 @@ def all_history():
     rows = []
     for path in sorted(BASE.glob("full_workflow_live_*/accounting/ledger.json")):
         data = json.loads(path.read_text())
+        preflight = json.loads((path.parent.parent / "preflight.json").read_text())
         rows.append({"path": str(path), "sha256": sha(path), "status": data["status"],
+            "request_deadline_seconds": preflight.get("request_deadline_seconds", 60),
             "guard_usd": str(max(Decimal(data["spent_usd"]),
                                   Decimal(data.get("reported_cost_sum_usd", "0"))) +
                              Decimal(data["held_usd"]))})
@@ -139,10 +143,15 @@ def verify_software():
     return plan
 
 
-async def prepare(stage, out):
+async def prepare(stage, out, deadline=60):
+    if deadline not in (60, 180):
+        raise BudgetError("only the predeclared 60s and 180s profiles are allowed")
     native = verify_software()
     out.mkdir(parents=True, exist_ok=False)
     inputs = {spec["id"]: await first_input(spec) for spec in specs(stage)}
+    original_bundle = BASE / ("full_workflow_model_gate_004" if stage == "controls" else "full_workflow_ordinary_gate_001") / "bundle"
+    if deadline == 180 and inputs != json.loads((original_bundle / "initial_inputs.json").read_text()):
+        raise BudgetError("new timing profile changed original task payloads")
     save(out / "initial_inputs.json", inputs)
     names = ("run_full_workflow.py", "full_workflow.py", "branch_runtime.py", "budget_client.py",
              "modal_hospital_client.py", "modal_request_worker.py", "modal_hospital_runtime.py")
@@ -162,7 +171,9 @@ async def prepare(stage, out):
                     native_sources[str(path)] = sha(path)
     plan = {"stage": stage, "cases": specs(stage), "model": MODEL, "route": BASE_URL,
         "conversation_cap": 3, "max_output_tokens": 1024, "temperature": 0,
-        "reasoning_effort": "none", "api_seed_forwarded": False, "request_deadline_seconds": 60,
+        "reasoning_effort": "none", "api_seed_forwarded": False, "request_deadline_seconds": deadline,
+        "qualification_run": "full_workflow_live_controls_001" if deadline == 60 else "full_workflow_live_controls_180_001",
+        "original_task_inputs_sha256": sha(original_bundle / "initial_inputs.json"),
         "max_calls_per_run": 198 if stage == "controls" else 162, "max_usd_per_run": "10",
         "cumulative_hospital_ceiling_usd": "50", "reservation_usd": ".049",
         "initial_inputs_sha256": sha(out / "initial_inputs.json"),
@@ -257,11 +268,11 @@ async def case(spec, client, out, expected_initial=None):
         "credit": b.env.transfer_rewards, "native_score": joint, "local_sum": sum(local.values()),
         "recurrences": recurrences(b.protocol.observations), "callback_errors": len(errors),
         "generation_attempts": client.ledger.state["calls"] - start_calls}
-    passed = complete and not errors and not metrics["failures"]
+    passed = complete and not metrics["failures"]
     if spec["kind"] == "care":
-        passed = passed and metrics["care"] == 8 and actual == expected
+        passed = passed and not errors and metrics["care"] == 8 and actual == expected
     elif spec["kind"] == "cycle":
-        passed = (passed and actual == expected and metrics["credit"] == 30 and
+        passed = (passed and not errors and actual == expected and metrics["credit"] == 30 and
                   digest(physical(b.env)) == digest({k: initial["native"][k] for k in physical(b.env)}))
     else:
         passed = passed and metrics["care"] == 8 and not any(x["pending_patients"] for x in metrics["recurrences"])
@@ -292,6 +303,17 @@ class MockTransport:
         batch = expected_batch(self.branch, self.step) or []
         if self.branch.spec["kind"] == "ordinary" and self.step["phase"] == "execution" and self.step["iteration"] == 1:
             batch = self.branch.frozen["balanced"]["batches"][self.step["actor"]]
+        if (self.branch.spec["kind"] == "ordinary" and self.step["phase"] == "planning" and
+                self.step["iteration"] == 1 and self.step["actor"].endswith("_Triage")):
+            hospital = self.branch.env.agents_map[self.step["actor"]]["hospital"]
+            if self.mode == "harmless_board_error" and hospital == "General_Hospital":
+                batch = [["post_message", {"blackboard_id": self.branch.private, "message": "scripted denied-write counterexample"}]]
+            if self.mode == "resource_failure" and hospital == "General_Hospital":
+                amount = self.branch.env.inventory[hospital]["IV_Kits"]
+                batch = [["transfer_resources", f.move_args("St_Marys_Center", amount=amount)]]
+            if self.mode == "reward_cycle":
+                other = next(h for h in self.branch.env.hospital_names if h != hospital)
+                batch = [["transfer_resources", f.move_args(other)]]
         if self.mode == "noop":
             batch = []
         message = {"role": "assistant", "content": "offline scripted measurement control",
@@ -338,23 +360,27 @@ async def execute(bundle, out, *, mock=None, seed=None):
         if (gate.get("passed") is not True or gate.get("plan_sha256") != sha(bundle / "plan.json")
                 or gate.get("network_attempts") != []):
             raise BudgetError("exact frozen runner lacks passed offline gate")
+    if plan["request_deadline_seconds"] not in (60, 180):
+        raise BudgetError("unsupported execution profile")
     for spec in plan["cases"]:
         if await first_input(spec) != inputs[spec["id"]]:
             raise BudgetError("initial inputs cannot be reconstructed")
     if plan["stage"] == "controls" and seed is not None:
         raise BudgetError("all twelve controls must run; a seed-filtered control gate is invalid")
     if plan["stage"] == "ordinary" and mock is None:
-        qualified = BASE / "full_workflow_live_controls_001/results.json"
+        qualified = BASE / plan["qualification_run"] / "results.json"
         qualified_data = json.loads(qualified.read_text()) if qualified.exists() else {}
         if (not qualified_data.get("all_passed") or qualified_data.get("mode") != "live_model" or
             [row["spec"] for row in qualified_data.get("cases", [])] != specs("controls") or
-            not all(row["complete"] and row["passed"] for row in qualified_data["cases"])):
+            not all(row["complete"] and row["passed"] for row in qualified_data["cases"]) or
+            qualified_data.get("request_deadline_seconds", 60) != plan["request_deadline_seconds"]):
             raise BudgetError("new-model full-workflow positive controls not qualified")
         if type(seed) is not int or seed not in range(6):
             raise BudgetError("one fixed ordinary seed per run is required")
     prior = all_history() if mock is None else None
-    if mock is None and any(row["status"] == "halted" for row in prior["new"]):
-        raise BudgetError("a prior full-workflow transport/accounting halt is terminal")
+    if mock is None and any(row["status"] == "halted" and
+                            row["request_deadline_seconds"] == plan["request_deadline_seconds"] for row in prior["new"]):
+        raise BudgetError("a prior halt in this execution profile is terminal")
     if mock is None and (out.parent.resolve() != BASE.resolve() or
                          not out.name.startswith("full_workflow_live_")):
         raise BudgetError("tracked fresh live output required")
@@ -363,13 +389,15 @@ async def execute(bundle, out, *, mock=None, seed=None):
     base, headers = (BASE_URL, {"Modal-Key": "OFFLINE_TEST_ID", "Modal-Secret": "OFFLINE_TEST_SECRET"}) if mock else modal_config()
     out.mkdir(parents=True, exist_ok=False)
     save(out / "preflight.json", {"plan_sha256": sha(bundle / "plan.json"), "prior": prior,
+                                 "request_deadline_seconds": plan["request_deadline_seconds"],
                                  "mode": "scripted_software" if mock else "live_model"})
     cls = BudgetLedger if mock else CumulativeLedger
     ledger = cls(out / "accounting", scope="full", max_calls=plan["max_calls_per_run"],
         max_usd="10", plan_sha256=sha(bundle / "plan.json"), authorization=authorization)
     client = ModalHospitalClient(ledger=ledger, base_url=base, model=MODEL, headers=headers,
         diagnostics=out / "transport_diagnostics", worker_sha256=plan["sources"]["modal_request_worker.py"],
-        batch_deadline_monotonic=time.monotonic() + 1800)
+        batch_deadline_monotonic=time.monotonic() + 1800,
+        request_timeout=plan["request_deadline_seconds"], max_request_timeout=plan["request_deadline_seconds"])
     if mock:
         client.transport = MockTransport(mock)
     selected = [s for s in plan["cases"] if seed is None or s["seed"] == seed]
@@ -378,6 +406,7 @@ async def execute(bundle, out, *, mock=None, seed=None):
         result = await case(spec, client, out, inputs[spec["id"]])
         cases.append(result)
         report = {"stage": plan["stage"], "mode": "scripted_software" if mock else "live_model",
+            "request_deadline_seconds": plan["request_deadline_seconds"],
             "plan_sha256": sha(bundle / "plan.json"), "cases": cases,
             "all_passed": len(cases) == len(selected) and all(c["passed"] for c in cases),
             "planned_cases": selected, "ledger": ledger.summary(), "network_attempts": NETWORK,
@@ -404,6 +433,13 @@ async def validate(bundle, out):
     failed = reports["http_failure"]["ledger"]
     if failed["status"] != "halted" or failed["calls"] != 2 or Decimal(failed["held_usd"]) != Decimal(".049"):
         raise BudgetError("injected transport failure did not halt/retain its reservation")
+    if plan["stage"] == "ordinary":
+        for mode in ("harmless_board_error", "resource_failure", "reward_cycle"):
+            reports[mode] = await execute(bundle, out / mode, mock=mode, seed=0)
+        if (not reports["harmless_board_error"]["all_passed"] or
+            reports["harmless_board_error"]["cases"][0]["metrics"]["callback_errors"] == 0 or
+            reports["resource_failure"]["all_passed"] or reports["reward_cycle"]["all_passed"]):
+            raise BudgetError("ordinary endpoint counterexample was misclassified")
     plan, authorization = verify_bundle(bundle)
     # A new serial ledger must not escape earlier ledgers' unsettled holds.
     global all_history
@@ -422,10 +458,44 @@ async def validate(bundle, out):
             raise BudgetError("cumulative guard failed before outward call")
     finally:
         all_history = original_history
+    # Exercise the actual parent kill/reap path, not a simulated HTTP response.
+    local = out / "local_deadline"
+    local.mkdir()
+    ledger = BudgetLedger(local / "accounting", scope="full", max_calls=plan["max_calls_per_run"],
+        max_usd="10", plan_sha256=sha(bundle / "plan.json"), authorization=authorization)
+    client = ModalHospitalClient(ledger=ledger, base_url=BASE_URL, model=MODEL,
+        headers={"Modal-Key": "OFFLINE_TEST_ID", "Modal-Secret": "OFFLINE_TEST_SECRET"},
+        diagnostics=local / "diagnostics", worker_sha256=plan["sources"]["modal_request_worker.py"],
+        request_timeout=1, max_request_timeout=plan["request_deadline_seconds"])
+    real_popen = subprocess.Popen
+    def sleeping(*args, **kwargs):
+        code = ("import sys,time,os,json;from pathlib import Path;sys.stdin.read();"
+                "Path(os.environ['MODAL_PROGRESS_PATH']).write_text(json.dumps({'stage':'waiting_for_headers'}));"
+                "time.sleep(5)")
+        return real_popen([sys.executable, "-c", code], **kwargs)
+    first = json.loads((bundle / "initial_inputs.json").read_text())[specs(plan["stage"])[0]["id"]]
+    started = time.monotonic()
+    with patch("modal_hospital_client.subprocess.Popen", sleeping):
+        try:
+            client.generate_response(first["messages"], {"model": MODEL, "tools": first["tools"]})
+        except BudgetError:
+            pass
+        else:
+            raise BudgetError("sleeping child escaped its deadline")
+    diagnostic = json.loads((local / "diagnostics/call-0001.json").read_text())
+    if (diagnostic.get("category") != "whole_request_deadline" or not diagnostic.get("child_reaped") or
+        diagnostic.get("worker_progress_stage") != "waiting_for_headers" or
+        ledger.state["calls"] != 1 or ledger.state["status"] != "halted" or
+        Decimal(ledger.state["held_usd"]) != Decimal(".049") or "OFFLINE_TEST_SECRET" in json.dumps(diagnostic)):
+        raise BudgetError("real deadline/progress/hold counterexample failed")
     save(out / "validation.json", {"passed": True, "network_attempts": NETWORK,
         "plan_sha256": sha(bundle / "plan.json"),
         "positive_cases": len(reports["success"]["cases"]), "negative": "no-op rejected",
         "transport": "call2 halt, .049 retained, later cases unstarted",
+        "real_child_deadline": {"n": 1, "sample_sd": None, "sample_variance": None,
+            "elapsed_seconds": time.monotonic() - started, "passed": True,
+            "progress": "waiting_for_headers; no network was attempted"},
+        "ordinary_counterexamples": "care+denied write pass; shortage and precare cycle fail" if plan["stage"] == "ordinary" else "not this control stage",
         "cumulative_ceiling": "49.96 + .049 denied before request", "inference_calls": 0})
     return {"passed": True, "network_attempts": NETWORK, "inference_calls": 0}
 
@@ -437,9 +507,10 @@ def main():
     parser.add_argument("--bundle", type=Path)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--seed", type=int)
+    parser.add_argument("--deadline", type=int, choices=(60, 180), default=60)
     args = parser.parse_args()
     if args.command == "prepare":
-        result = asyncio.run(prepare(args.stage, args.out))
+        result = asyncio.run(prepare(args.stage, args.out, args.deadline))
     elif args.command == "validate":
         result = asyncio.run(validate(args.bundle, args.out))
     else:

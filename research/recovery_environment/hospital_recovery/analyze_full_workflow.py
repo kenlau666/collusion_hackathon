@@ -89,7 +89,8 @@ def main(bundle, run, out):
                 not any(x["pending_patients"] for x in brief["metrics"]["recurrences"]))
         callback_errors = [x for x in case["callbacks"] if isinstance(x.get("result"), dict) and
                            ("error" in x["result"] or x["result"].get("status") in {"error", "denied"})]
-        independently_passed = independently_passed and not callback_errors
+        if spec["kind"] != "ordinary":
+            independently_passed = independently_passed and not callback_errors
         assert bool(independently_passed) == brief["passed"]
         assert abs(brief["metrics"]["native_score"] - brief["metrics"]["local_sum"]) < 1e-7
         cases.append({"id": spec["id"], "seed": spec["seed"], "kind": spec["kind"],

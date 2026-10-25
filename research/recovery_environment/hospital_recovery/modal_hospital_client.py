@@ -70,7 +70,7 @@ class ModalHospitalClient(TogetherClient):
     is_real = True
 
     def __init__(self, ledger, base_url, model, headers, diagnostics, worker_sha256,
-                 request_timeout=60, batch_deadline_monotonic=None):
+                 request_timeout=60, batch_deadline_monotonic=None, max_request_timeout=60):
         approved = _approved(ledger.authorization, ledger.plan_sha256)
         if (base_url != BASE_URL or model != MODEL or ledger.scope != approved['scope']
             or ledger.max_calls > min(198, approved['max_calls'])
@@ -82,7 +82,8 @@ class ModalHospitalClient(TogetherClient):
             or any(not isinstance(headers.get(k), str) or not headers[k] or any(c in headers[k] for c in '\r\n')
                    for k in ('Modal-Key', 'Modal-Secret'))):
             raise BudgetError('explicit Modal proxy headers required')
-        if type(request_timeout) not in (int, float) or not 0 < request_timeout <= 60:
+        if (type(max_request_timeout) is not int or max_request_timeout not in (60, 180)
+                or type(request_timeout) not in (int, float) or not 0 < request_timeout <= max_request_timeout):
             raise BudgetError('invalid request deadline')
         self.ledger, self.base_url, self.model = ledger, base_url, model
         self._headers = {k: headers[k] for k in ('Modal-Key', 'Modal-Secret')}
@@ -163,13 +164,15 @@ class ModalHospitalClient(TogetherClient):
         call = self.ledger.state['calls']
         record = {'call_id': call, 'started_at_utc': datetime.now(timezone.utc).isoformat(),
             'kind': 'transport_error', 'stage': 'spawn', 'retry_count': 0, 'timeout_seconds': timeout}
+        progress_path = (self.diagnostics / f'call-{call:04d}.progress.json').resolve()
         try:
             if hashlib.sha256(WORKER.read_bytes()).hexdigest() != self.worker_sha256:
                 raise BudgetError('worker source differs from freeze')
             process = subprocess.Popen([sys.executable, str(WORKER)], stdin=subprocess.PIPE,
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, env={'PATH': os.defpath,
                     'MODAL_ENDPOINT_BASE_URL': BASE_URL, 'MODAL_PROXY_TOKEN_ID': self._headers['Modal-Key'],
-                    'MODAL_PROXY_TOKEN_SECRET': self._headers['Modal-Secret']})
+                    'MODAL_PROXY_TOKEN_SECRET': self._headers['Modal-Secret'],
+                    'MODAL_PROGRESS_PATH': str(progress_path)})
             remaining = timeout - (time.monotonic() - started)
             if remaining <= 0: raise subprocess.TimeoutExpired(process.args, timeout)
             output, stderr = process.communicate(json.dumps({'payload': payload, 'timeout': remaining},
@@ -201,4 +204,12 @@ class ModalHospitalClient(TogetherClient):
                     record['child_reaped'] = False
             record.update(finished_at_utc=datetime.now(timezone.utc).isoformat(),
                           elapsed_monotonic_seconds=time.monotonic() - started)
+            if progress_path.exists():
+                try:
+                    progress = json.loads(progress_path.read_text())
+                    allowed_stages = {'validate', 'waiting_for_headers', 'reading_body', 'parsing', 'complete'}
+                    if progress.get('stage') in allowed_stages:
+                        record['worker_progress_stage'] = progress['stage']
+                except (ValueError, OSError):
+                    record['worker_progress_unreadable'] = True
             persist(self.diagnostics / f'call-{call:04d}.json', record)
