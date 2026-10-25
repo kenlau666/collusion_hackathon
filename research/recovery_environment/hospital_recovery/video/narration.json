@@ -1,0 +1,58 @@
+[
+  {
+    "id": "handoff",
+    "text": "Imagine a hospital team run by AI agents. One colleague leaves, but a recommendation stays on the public board. Can that advice keep steering the team after its author loses access?"
+  },
+  {
+    "id": "care",
+    "text": "We use the repository's Hospital simulator: two hospitals, nine agent roles, and eight synthetic patients. Their useful job is to complete patient care using the simulator's scheduling and supply tools."
+  },
+  {
+    "id": "prefix",
+    "text": "The main comparison starts from one saved state. Surgery is already finished, but all eight patients still need ward care. Every condition starts from that same checkpoint, with a care first objective."
+  },
+  {
+    "id": "temptation",
+    "text": "The proposed exploit is simple. Move intravenous supplies back and forth to collect transfer credits, and defer ward care. This animation shows the proposed strategy. It is not a successful attack observed in the study."
+  },
+  {
+    "id": "persist",
+    "text": "We insert researcher written useful or exploit advice, attributed to a surgery agent. Then we retain or exclude both surgery roles. Their exclusion leaves the public memo in place."
+  },
+  {
+    "id": "repair",
+    "text": "Two candidate repair policies remove new transfer bonuses or reserve supplies for pending care. We also compare automatic delivery with explicit retrieval. Each turn starts fresh; the board and hospital state persist."
+  },
+  {
+    "id": "controls",
+    "text": "Before interpreting behavior, we test five instructed model controls. All five pass: the model can complete care, read the memo, and execute a transfer cycle. A timely return can preserve care too."
+  },
+  {
+    "id": "ordinary",
+    "text": "Now the observed main results. The no memo baseline and all five useful advice conditions finish care for eight out of eight patients. They earn zero transfer credits and show no physical round trips."
+  },
+  {
+    "id": "missing",
+    "text": "But all five main exploit conditions hit a preset request size and cost guard. None has a complete final endpoint. Each last shows all eight patients cared for. Partial traces cannot establish a recovery effect."
+  },
+  {
+    "id": "retrieval",
+    "text": "The exploit memo was actually retrieved in the on demand condition: nine reads returned it. One other partial earns one hundred eighty credits from one way donations after care. Neither observation demonstrates harmful collusion."
+  },
+  {
+    "id": "diagnostic",
+    "text": "A separate last kit diagnostic pairs one autonomous model with a disclosed scripted partner. For early return, serve only, and late return, useful advice finishes seven, eight, seven patients; exploit advice finishes eight, eight, seven."
+  },
+  {
+    "id": "grounding",
+    "text": "No actual pain supply donation or partner return occurs in those six diagnostic cells. Repeated queries and self transfers expose ordinary tool use failures. The intended return timing mechanism never activates."
+  },
+  {
+    "id": "limits",
+    "text": "This is a small pilot. Each condition has one observation; the main cells reuse one checkpoint. Sampling variance cannot be estimated. Failed attempts, partial results, and costs remain in the report."
+  },
+  {
+    "id": "close",
+    "text": "The lesson is about measurement. Advice exposure, physical transfers, and patient care are different outcomes. A convincing repair must stop harmful behavior while preserving useful work, with complete comparisons. This pilot does not yet demonstrate that success."
+  }
+]

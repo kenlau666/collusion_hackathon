@@ -1,0 +1,11 @@
+# Storyline choices
+
+Chosen autonomously under the user's no-stops instruction.
+
+1. **The handoff that remains** (selected). World: two hospital departments connected by a resource conveyor and a public memo. Device: follow the memo after its attributed author loses access. Form: one object passes between architectural cutaways, an evidence board and the final patient counter. Opens on a disappearing agent identity beside a memo that stays. Hook → care task → proposed credit loop → exclusion → repairs and retrieval → controls → actual results → missing endpoints → limits. Look: surgical green, white clinical surfaces, cobalt resource kit, large geometric sans type. Sound: warm local narration, quiet licensed music if available, restrained physical whooshes on major moves. The setting makes source removal tangible and connects directly to the care outcome.
+
+2. **The evidence detective**. World: a research bench with 22 case folders. Device: open each folder, exposing the difference between an observation and a missing endpoint. Form: top-down continuous desk tour with folders becoming full-frame data. First two seconds: five folders stamped ENDPOINT MISSING. Beats: mystery → method → controls → partial evidence → conclusion. Look: white forensic bench, cobalt stamps, graphite typography. Sound: narration and folder/slide effects. Strong on validity, but weaker at teaching how the agents work.
+
+3. **A letter from the last kit** (bold alternative). World: a medication kit travels between two hospitals while narrating the experiment. Device: the kit's first-person journey contrasts scoring with timely care. Form: object-following lateral track with time stopping at the return deadline. First two seconds: kit suspended halfway between hospitals. Beats: purpose → tempting loop → proposed guard → observed non-transfer → uncertainty. Look: enlarged physical kit on a clinical model. Sound: conversational synthetic narrator and sparse movement effects. More unusual, but risks making the untriggered diagnostic seem like an observed exploit.
+
+Five initial directions also considered a kinetic abstract, a hospital shift clock, and a case-folder countdown. The selected route prioritizes explaining the task and evidence; it avoids a slide-by-slide abstract and a fictional successful attack.
