@@ -1,0 +1,100 @@
+{
+  "all_passed": true,
+  "cases": [
+    {
+      "archive": "full-ordinary-s3.json.gz",
+      "archive_sha256": "2ff47a94601870768705ca20f0f5b2717db7e579f28fe2fb3236fabcb23c7b91",
+      "complete": true,
+      "error": null,
+      "metrics": {
+        "callback_errors": 0,
+        "care": 8,
+        "credit": 0.0,
+        "denied_supply_proposals": 0,
+        "failures": 0,
+        "generation_attempts": 148,
+        "local_sum": 6780.999999999999,
+        "logical_generation_requests": 148,
+        "native_score": 6781.0,
+        "recurrences": [],
+        "supply_checks": 22
+      },
+      "passed": true,
+      "raw_sha256": "0590fdbe8759d9a3b7317ee8dde9c1a50b8bf5eafc2d25669de3139e76f4548c",
+      "spec": {
+        "id": "full-ordinary-s3",
+        "kind": "ordinary",
+        "seed": 3
+      }
+    }
+  ],
+  "ledger": {
+    "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+    "authorization": {
+      "approval_reference_sha256": "c8d4af5da6c665f287a77f5493576791777b3ec209bd5827adf0fa7f5ae25d15",
+      "approved": true,
+      "max_calls": 198,
+      "max_usd": "10",
+      "plan_sha256": "3fd206ffc1072edbed7e29226c71891e601bda6b63258d1b74b325ab772256ca",
+      "scope": "full"
+    },
+    "calls": 148,
+    "capacity_guard_policy": {
+      "input_reference_usd_per_token": "3.0E-7",
+      "max_padded_bytes": 159237,
+      "name": "serialized_bytes_with_reservation_bound_v1",
+      "output_reference_usd_per_token": "0.00000120",
+      "output_tokens": 1024,
+      "padding_per_message_tool_and_envelope": 512,
+      "reported_input_limit": 131072,
+      "reservation_usd": "0.049"
+    },
+    "created_at_utc": "2026-10-25T15:59:14.713132+00:00",
+    "halt_reason": null,
+    "held_usd": "0.000",
+    "max_calls": 198,
+    "max_usd": "10",
+    "metadata": {
+      "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+      "actual_modal_billing_attested": false,
+      "base_url": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+      "input_reference_usd_per_million": ".30",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "output_reference_usd_per_million": "1.20",
+      "seed_forwarded": false
+    },
+    "pending_retry": null,
+    "plan_sha256": "3fd206ffc1072edbed7e29226c71891e601bda6b63258d1b74b325ab772256ca",
+    "reported_cost_missing": 148,
+    "reported_cost_observations": 0,
+    "reported_cost_sum_usd": "0",
+    "reported_cost_total_usd": null,
+    "reservation_usd": "0.049",
+    "retry_events": [],
+    "schema_version": 1,
+    "scope": "full",
+    "spent_usd": "0.12432000",
+    "status": "ready",
+    "timeout_retry_policy": {
+      "max_retries_per_request": 1,
+      "non_timeout_retries": 0,
+      "same_payload_required": true,
+      "trigger": "local_request_or_socket_timeout"
+    }
+  },
+  "mode": "scripted_software",
+  "network_attempts": [],
+  "plan_sha256": "3fd206ffc1072edbed7e29226c71891e601bda6b63258d1b74b325ab772256ca",
+  "planned_cases": [
+    {
+      "id": "full-ordinary-s3",
+      "kind": "ordinary",
+      "seed": 3
+    }
+  ],
+  "request_deadline_seconds": 60,
+  "stage": "ordinary",
+  "study_variant": "current_supply_schedule_preflight_v1",
+  "transport": "trace-json-retry1-financial",
+  "unstarted": []
+}

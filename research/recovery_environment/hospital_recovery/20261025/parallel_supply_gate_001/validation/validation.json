@@ -1,0 +1,169 @@
+{
+  "claim_limit": "scripted execution equivalence only; endpoint concurrency success not established",
+  "coordination_controls": {
+    "Results": "Inherited exact-timeout retry and terminal admission counterexamples pass; these are software controls, not model samples.",
+    "cases": [
+      {
+        "mode": "static_envelope_boundaries",
+        "passed": true
+      },
+      {
+        "durable_stop": false,
+        "held_simulated_usd": "0.000",
+        "logical_generations": 1,
+        "mode": "success_no_timeout",
+        "native_transfers": 1,
+        "outward_attempts": 1,
+        "passed": true,
+        "recording_gate_only": true
+      },
+      {
+        "durable_stop": false,
+        "held_simulated_usd": "0.049",
+        "logical_generations": 1,
+        "mode": "timeout_then_success",
+        "native_transfers": 1,
+        "outward_attempts": 2,
+        "passed": true,
+        "recording_gate_only": true
+      },
+      {
+        "durable_stop": true,
+        "held_simulated_usd": "0.098",
+        "logical_generations": 1,
+        "mode": "two_timeouts",
+        "native_transfers": 0,
+        "outward_attempts": 2,
+        "passed": true,
+        "recording_gate_only": true
+      },
+      {
+        "durable_stop": true,
+        "held_simulated_usd": "0.049",
+        "logical_generations": 1,
+        "mode": "http_failure",
+        "native_transfers": 0,
+        "outward_attempts": 1,
+        "passed": true,
+        "recording_gate_only": true
+      },
+      {
+        "durable_stop": true,
+        "held_simulated_usd": "0",
+        "logical_generations": 1,
+        "mode": "stop_before_initial",
+        "native_transfers": 0,
+        "outward_attempts": 0,
+        "passed": true,
+        "recording_gate_only": true
+      },
+      {
+        "durable_stop": true,
+        "held_simulated_usd": "0.049",
+        "logical_generations": 1,
+        "mode": "stop_before_retry",
+        "native_transfers": 0,
+        "outward_attempts": 1,
+        "passed": true,
+        "recording_gate_only": true
+      },
+      {
+        "durable_stop": true,
+        "held_simulated_usd": "0.049",
+        "logical_generations": 1,
+        "mode": "call_limit",
+        "native_transfers": 0,
+        "outward_attempts": 1,
+        "passed": true,
+        "recording_gate_only": true
+      },
+      {
+        "durable_stop": true,
+        "held_simulated_usd": "0.049",
+        "logical_generations": 1,
+        "mode": "dollar_limit",
+        "native_transfers": 0,
+        "outward_attempts": 1,
+        "passed": true,
+        "recording_gate_only": true
+      },
+      {
+        "durable_stop": true,
+        "held_simulated_usd": "0.000",
+        "logical_generations": 1,
+        "mode": "already_reserved_success",
+        "native_transfers": 1,
+        "outward_attempts": 1,
+        "passed": true,
+        "recording_gate_only": true
+      },
+      {
+        "durable_stop": true,
+        "held_simulated_usd": "0",
+        "logical_generations": 1,
+        "mode": "payload_guard",
+        "native_transfers": 0,
+        "outward_attempts": 0,
+        "passed": true,
+        "recording_gate_only": true
+      },
+      {
+        "mode": "real_wave_reentrant_stop_and_reservation",
+        "passed": true
+      },
+      {
+        "mode": "dead_coordinator",
+        "passed": true
+      },
+      {
+        "mode": "stale_heartbeat",
+        "passed": true
+      },
+      {
+        "mode": "real_wave_startup_barrier",
+        "passed": true
+      },
+      {
+        "mode": "real_three_process_admission_mutex",
+        "passed": true,
+        "processes": 3,
+        "serialized_updates": 36
+      }
+    ],
+    "independent_n_per_counterexample": 1,
+    "inference_calls": 0,
+    "llm_behavior_established": false,
+    "network_attempts": [],
+    "passed": true,
+    "plan_sha256": "71a464311b1eb833039a17358e33f3daac093fe8406bb57d38121f52dbaeb463",
+    "positive_control_passed": true,
+    "real_spend_usd": "0",
+    "sample_sd": null,
+    "sample_variance": null
+  },
+  "model_calls": 0,
+  "network_attempts": [],
+  "new_paid_spend_usd": "0",
+  "passed": true,
+  "plan_sha256": "13dd89759c9b0f0a72f008626e39730c584972a78cdb720c3fe59e55a7b9ebe8",
+  "software_positive_control": [
+    {
+      "care": 8,
+      "exact_serial_parallel_archive_equal": true,
+      "seed": 3,
+      "turns": 54
+    },
+    {
+      "care": 8,
+      "exact_serial_parallel_archive_equal": true,
+      "seed": 4,
+      "turns": 54
+    },
+    {
+      "care": 8,
+      "exact_serial_parallel_archive_equal": true,
+      "seed": 5,
+      "turns": 54
+    }
+  ]
+}

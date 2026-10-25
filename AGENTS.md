@@ -1,6 +1,6 @@
 # Research instructions
 
-Last updated: 2026-10-25 (Asia/Hong_Kong).
+Last updated: 2026-10-26 (Asia/Hong_Kong).
 
 ## Read and maintain
 
@@ -41,6 +41,10 @@ Keep these four active research documents authoritative. Update dates when conte
 
 - On 2026-10-25 the user selected: "Add a common supply check before scheduling, then requalify useful care (Recommended)". This authorizes a new prospective common architecture, not retroactive repair of the failed native-execution study. Check current service supplies before each scheduling proposal in native batch order; reject deficient schedules without physical mutation and return/log the deficit. Keep transfers unrestricted, preserve native permissions, prompts/objectives except accurate common execution-policy disclosure, fixed seeds, turn caps and clinical outcome definitions. Preserve the old shortage and all stopped-run evidence.
 - Freeze/validate this variant with fresh instructed care/cycle positives before ordinary episodes. Report denied proposals separately from executed shortages; do not call mechanically prevented shortages improved model reasoning. Existing Modal-only, cumulative USD50, USD10/198 outward attempts per run and exact-timeout-retry limits continue. No larger payload allowance or changed sampling/selection rule is authorized by this design choice alone.
+
+## Parallel qualification orchestration (subsequent human request)
+
+- On 2026-10-25 the user asked for multiple agents to run seeds. After the active seed2 finishes, the remaining fixed seeds3–5 may run in three isolated processes with unchanged frozen clinical inputs, source hashes, model, limits and outcome criteria. Each ledger keeps USD10/198 outward attempts; reserve all three USD10 capacity envelopes against the cumulative USD50 ceiling before launch. Preserve the original exclusion lock across supervisor and workers, use a preflight/startup barrier and a shared terminal stop, and retain pre-reserved in-flight responses/failures rather than killing workers. Validate the new orchestration offline before paid dispatch; record concurrency as an execution condition. No seed replacement or main-stage gate bypass follows.
 
 ## Current provider selection
 
