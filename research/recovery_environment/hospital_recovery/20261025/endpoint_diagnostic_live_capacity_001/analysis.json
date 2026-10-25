@@ -1,0 +1,51 @@
+{
+  "Results": {
+    "descriptive_token_difference": 2244,
+    "independent_families": 1,
+    "per_input": [
+      {
+        "id": "previous-positive",
+        "ledger_sha256": "57866615de938552d9fb1a49e4f6749ee64c5b6c480c12ad2570cc8b3aa99991",
+        "legacy_metadata_mislabeled": true,
+        "output_tokens": 1,
+        "prompt_tokens": 32465,
+        "reference_usd": "0.00974070",
+        "retry_audit": {
+          "exact_wire_bytes_verified": true,
+          "failed_attempts": 0,
+          "logical_requests_with_outward_attempts": 1,
+          "outward_retry_attempts": 0,
+          "recovered_logical_requests": 0,
+          "scheduled_retry_events": 0
+        }
+      },
+      {
+        "id": "rejected-input",
+        "ledger_sha256": "1feb52e8747e63c4ea2a6c657ddf64701d9edb8f8c8fac29c343ae319885e6c5",
+        "legacy_metadata_mislabeled": true,
+        "output_tokens": 1,
+        "prompt_tokens": 34709,
+        "reference_usd": "0.01041390",
+        "retry_audit": {
+          "exact_wire_bytes_verified": true,
+          "failed_attempts": 0,
+          "logical_requests_with_outward_attempts": 1,
+          "outward_retry_attempts": 0,
+          "recovered_logical_requests": 0,
+          "scheduled_retry_events": 0
+        }
+      }
+    ],
+    "positive_control_passed": true,
+    "sample_sd": null,
+    "sample_variance": null
+  },
+  "actual_modal_charges_verified": false,
+  "metadata_limitation": "Generic ledger metadata retained stale OpenRouter reference URLs; route/model are instead established by frozen Modal-only plan/worker, payload and config. No OpenRouter inference took place; original ledgers remain unchanged.",
+  "model_from_frozen_plan": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "native_tool_calls": 0,
+  "reconciliation_passed": true,
+  "reference_usd": "0.02015460",
+  "route_from_frozen_plan": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+  "source_plan_sha256": "9de9598f674c3b66830a01c02d52c523f27c3085f396987a231497a84b779cdd"
+}
