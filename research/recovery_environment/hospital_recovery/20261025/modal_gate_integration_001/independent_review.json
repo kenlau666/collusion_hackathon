@@ -1,0 +1,30 @@
+{
+  "concrete_findings": [
+    {
+      "correction": "Use source-pinned modal_request_worker.NoRedirect",
+      "issue": "Metadata imported unpinned old NoRedirect",
+      "targeted_check_passed": true
+    },
+    {
+      "correction": "Require existing Modal proxy pair andsendonlyModal-Key/Modal-Secret",
+      "issue": "Configuration allowed bearer but client requiresproxy-pair",
+      "targeted_check_passed": true
+    }
+  ],
+  "credential_values_logged": false,
+  "kind": "Bounded independent Modal runtime/transport review",
+  "limits": [
+    "Byte-plus-overhead prompt guard is a local heuristic, not a tokenizer proof.131072is also a provider-reported post-response bound.",
+    "USD10guard is a published token reference estimate; actualModalcharges/account-wide caps are not attested.",
+    "Newconfiguredmodel needs its own LLMpositivecontrols; oldV3.2results are not reused as V4.1evidence."
+  ],
+  "other_concrete_launch_blockers_found": false,
+  "paid_calls": 0,
+  "post_review_proof": "modal_gate_integration_001/results.json,4/4targetedchecks; native scientific functions/client/worker equal full9-checkmodal_gate002snapshots.",
+  "reviewer": "market_candidates",
+  "source_sha256": {
+    "modal_hospital_client.py": "29457f5540467c4e615e7ea65e25cdb54f5db3d84f9a3599e94f61ef644f7984",
+    "modal_hospital_runtime.py": "3b3d5a48df3491753abf2bb235a6d66d78bbe359500ef121bb8795ac46610559",
+    "modal_request_worker.py": "b2c24050b00d7d13d4f33882eb9ecfa9276a1bebed582c1ec80749ed564cc6eb"
+  }
+}

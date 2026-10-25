@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-25 (Asia/Hong_Kong).
 
-**Current status: correcting provider selection to the user's configured Modal endpoint.** The user has no OpenRouter credit and explicitly chose Modal. Authenticated metadata confirms `deepseek-ai/DeepSeek-V4.1-Flash`; earlier Hospital inference used OpenRouterDeepSeekV3.2and remains separate. No further OpenRouter inference. Prepare native tool qualification for the configured Modal model under standing approval, preserving task/pass criteria and all prior failures.
+**Current status: correcting provider selection to the user's configured Modal endpoint.** The user has no OpenRouter credit and explicitly chose Modal. Authenticated metadata confirms `deepseek-ai/DeepSeek-V4.1-Flash`; earlier Hospital inference used OpenRouterDeepSeekV3.2and remains separate. No further OpenRouter inference. The9/9native adapter gate and4/4targeted review checks pass; the exactnewmodel/endpoint plan is frozen. Next: fresh authenticatedModalmetadata/input checks, then the same12-case qualification under standing approval, preserving task/pass criteria and all prior failures. [Modal preparation Results](RECOVERY_PROTOCOL.md#results-modal-adapter-and-native-qualification-preparation).
 
 The selected question remains: after original exploiters lose access, can their public recommendation induce ordinarily cooperative coworkers to continue a resource-credit loop through independent permissions, and which repair preserves useful care? The proposal has lower-edge8/10novelty potential; **demonstrated novelty remains3/10**. Neither interrupted run establishes exposure-induced continuation or recovery.
 

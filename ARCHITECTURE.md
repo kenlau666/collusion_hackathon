@@ -43,6 +43,8 @@ flowchart TB
   PROBE -. "software witness only" .-> ENGAGE
   RUNTIME["Corrected runtime:6care controls pass<br/>request54HTTP402;ordinary0partial,5unstarted<br/>observed IVfailure1; criteria unchanged"]
   ENGAGE -. "new repetition; old evidence retained" .-> RUNTIME
+  MODAL["User-selected existing Modal endpoint<br/>DeepSeek-V4.1-Flash; no OpenRouterfallback<br/>same task/criteria; new modelqualification"]
+  RUNTIME -. "explicit user provider correction" .-> MODAL
 ```
 
 Editable source: [mermaid-diagram.mmd](mermaid-diagram.mmd), equal to the block above. The PNG remains historical and unchanged. No new render/layout verification is claimed.
@@ -188,3 +190,6 @@ The same12-case qualification under standing approval ran through54attempts, wit
 ## Current provider correction — Modal only
 
 The user explicitly selected the existing configured Modal endpoint after explaining that OpenRouteris unfunded. AuthenticatedGET/modelsusing its existing proxy headers confirms `deepseek-ai/DeepSeek-V4.1-Flash`. Earlier HTTP401was an omitted-proxy-header discovery attempt, not a missing deployment. No OpenRouterfallback or deployment is authorized. Preserve old provider/model snapshots and results; the new advertised model needs fresh native tool controls. The forthcoming separate adapter must preserve native task/turn/tool/metric behavior, use the configured proxy authentication privately and distinguish Modal reference-token estimates from actual unreported charges. [Predeclared correction](RECOVERY_PROTOCOL.md#explicit-provider-correction-to-the-existing-modal-endpoint).
+
+
+The separate Modal client/worker/runtime now preserve native formatter/parser, MainAgentturns and the unchanged frozen7source task/metrics. Only explicit advertisedmodel/Modalproxytransport and remoteparameter mapping change. Full native scripted9/9checks plus4/4targeted review corrections pass before inference; actualinputs/tools matcholdtask. Sidecars/killable child deadlines and durable reservations remain; ledger`spent_usd`/`known_cost_usd` are explicitly reference estimates forModal, with actualreportedcostobservations/missingness separate. A missing monetarycostisnotfreeinference. Proxyheaders areprivate, OpenRouterfields/seedforwardingabsent, and metadata uses the pinned Modalworker's redirecthandler. [Full preparation Results and limitations](RECOVERY_PROTOCOL.md#results-modal-adapter-and-native-qualification-preparation).
