@@ -37,6 +37,11 @@ Keep these four active research documents authoritative. Update dates when conte
 - Permit at most two provider attempts per logical generation, only after a local whole-request/socket timeout and a killed/reaped worker. Require byte-equal serialized POST bodies, linked attempt IDs/hashes and a separate durable reservation for each attempt. Keep the first failure/reservation, apply the budget and request caps again before retry, and execute no tools from incomplete replies. Non-timeout errors and a second timeout remain terminal.
 - Retain USD 10/198 outward attempts per run, the native cap of three logical generations per turn, all task inputs/criteria and the configured Modal model. Count retries and unresolved reservations in the cumulative ceiling. Qualify the opt-in condition with explicit software recovery controls and current-model care/cycle controls before ordinary cases; report the changed completion policy and all failures.
 
+## Common supply-preflight study (subsequent human design choice)
+
+- On 2026-10-25 the user selected: "Add a common supply check before scheduling, then requalify useful care (Recommended)". This authorizes a new prospective common architecture, not retroactive repair of the failed native-execution study. Check current service supplies before each scheduling proposal in native batch order; reject deficient schedules without physical mutation and return/log the deficit. Keep transfers unrestricted, preserve native permissions, prompts/objectives except accurate common execution-policy disclosure, fixed seeds, turn caps and clinical outcome definitions. Preserve the old shortage and all stopped-run evidence.
+- Freeze/validate this variant with fresh instructed care/cycle positives before ordinary episodes. Report denied proposals separately from executed shortages; do not call mechanically prevented shortages improved model reasoning. Existing Modal-only, cumulative USD50, USD10/198 outward attempts per run and exact-timeout-retry limits continue. No larger payload allowance or changed sampling/selection rule is authorized by this design choice alone.
+
 ## Current provider selection
 
 - The user states they have no OpenRouter credit and explicitly selected **the configured Modal endpoint** on2026-10-25. Do not make further OpenRouter inference or silently fall back to it.
