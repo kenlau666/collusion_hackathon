@@ -14,7 +14,7 @@ The bounded original-source overlap below is unchanged: neither instructed contr
 
 The subsequent [unpaid native continuation probe](RECOVERY_PROTOCOL.md#results-unpaid-native-continuation-probe) validates a scripted control-flow contrast and its counterexamples only. It adds no behavioral contribution or literature distinction; demonstrated novelty remains3. The bounded source-overlap assessment below is unchanged.
 
-The distinct cap3ordinary-task qualification is now frozen after8/8offline checks, with no new model execution. It is measurement preparation rather than a new contribution; all six current scores, including demonstrated novelty3, remain unchanged. [Preparation Results](RECOVERY_PROTOCOL.md#results-ordinary-task-qualification-preparation).
+The distinct cap3qualification was separately approved after8/8offline checks, then stopped on request18with a transport failure. Two instructed care controls pass, one is partial, three controls and all six ordinary cases are unstarted. Ordinary behavior remains untested; this does not establish a causal cap fix, inherited-plan continuation or a new recovery contribution. All six current scores, including demonstrated novelty3, remain unchanged. [Interrupted qualification Results](RECOVERY_PROTOCOL.md#results-interrupted-cap3-qualification). The exact-version source-overlap assessment below is unchanged; no new literature-wide absence or novelty claim follows.
 
 ## Closest verified original sources
 
