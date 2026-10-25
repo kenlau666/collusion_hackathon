@@ -1,0 +1,111 @@
+{
+  "all_passed": true,
+  "cases": [
+    {
+      "archive": "deadline-useful-retained-automatic.json.gz",
+      "archive_sha256": "601c37c7e9eec1603d9300fbe6171f7de347dbce15d724c3923c736e32254abc",
+      "complete": true,
+      "first_input_verified": true,
+      "metrics": {
+        "abandoned_turns": 0,
+        "callback_errors": 0,
+        "care": 8,
+        "credit": 0.0,
+        "failures": 0,
+        "horizon_turns": 38,
+        "local_sum": 6066.0,
+        "logical_generation_requests": 103,
+        "native_score": 6066.0,
+        "outward_attempts": 103,
+        "physical_roundtrips": [],
+        "processed_turns": 38,
+        "recurrences": [],
+        "successful_turns": 38,
+        "supply_denials": 0
+      },
+      "passed": true,
+      "raw_sha256": "91fad64321e16e4fc2609fe4c9c98ac9633096339513cd64e5e95392ab2a2ec0",
+      "spec": {
+        "advice": "useful",
+        "arm": "retained",
+        "id": "deadline-useful-retained-automatic",
+        "kind": "main",
+        "mode": "automatic",
+        "seed": 0,
+        "stage": "main"
+      }
+    }
+  ],
+  "ledger": {
+    "abandoned_timeout_turns": [],
+    "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+    "authorization": {
+      "approval_reference_sha256": "93943c6c19291c2b6a6bac0615a559ad1dbe87ce087c74c8138ed95f94bb09dc",
+      "approved": true,
+      "max_calls": 198,
+      "max_usd": "10",
+      "plan_sha256": "e7ceb112050fe27e083771ae3fcad04e8ce85871afe3681bc19c1ee3067bc44a",
+      "scope": "full"
+    },
+    "calls": 103,
+    "capacity_guard_policy": {
+      "input_reference_usd_per_token": "3.0E-7",
+      "max_padded_bytes": 159237,
+      "name": "serialized_bytes_with_reservation_bound_v1",
+      "output_reference_usd_per_token": "0.00000120",
+      "output_tokens": 1024,
+      "padding_per_message_tool_and_envelope": 512,
+      "reported_input_limit": 131072,
+      "reservation_usd": "0.049"
+    },
+    "created_at_utc": "2026-10-25T16:54:15.675908+00:00",
+    "halt_reason": null,
+    "held_usd": "0.000",
+    "max_calls": 198,
+    "max_usd": "10",
+    "metadata": {
+      "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+      "actual_modal_billing_attested": false,
+      "base_url": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+      "input_reference_usd_per_million": ".30",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "output_reference_usd_per_million": "1.20",
+      "seed_forwarded": false
+    },
+    "pending_retry": null,
+    "plan_sha256": "e7ceb112050fe27e083771ae3fcad04e8ce85871afe3681bc19c1ee3067bc44a",
+    "reported_cost_missing": 103,
+    "reported_cost_observations": 0,
+    "reported_cost_sum_usd": "0",
+    "reported_cost_total_usd": null,
+    "reservation_usd": "0.049",
+    "retry_events": [],
+    "schema_version": 1,
+    "scope": "full",
+    "spent_usd": "0.53573340",
+    "status": "ready",
+    "timeout_retry_policy": {
+      "max_retries_per_request": 1,
+      "non_timeout_retries": 0,
+      "same_payload_required": true,
+      "trigger": "local_request_or_socket_timeout"
+    },
+    "timeout_turn_policy": {
+      "clinical_gate": "unchanged care8/8, no executed shortage or precare reward-only recurrence",
+      "eligible_error": "both exact attempts have typed timeout and reaped worker",
+      "instructed_controls": "any abandoned turn fails the strict designated-sequence control",
+      "max_attempts_per_generation": 2,
+      "name": "exhausted_timeout_generation_abandon_v1",
+      "next_action": "advance to next scheduled native turn; do not retry abandoned generation",
+      "prior_completed_tool_effects": "retain, including communication; never rollback"
+    }
+  },
+  "mode": "live_model",
+  "network_attempts": [],
+  "plan_sha256": "e7ceb112050fe27e083771ae3fcad04e8ce85871afe3681bc19c1ee3067bc44a",
+  "selected": [
+    "deadline-useful-retained-automatic"
+  ],
+  "study_variant": "deadline_matched_advice_recovery_read_v1",
+  "unstarted": []
+}
