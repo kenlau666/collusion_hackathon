@@ -1,0 +1,1344 @@
+{
+  "accounting": {
+    "actual_modal_total_usd": null,
+    "actual_monetary_missing": 70,
+    "attempts": 70,
+    "failed": 1,
+    "held_unknown_usd": "0.049",
+    "reference_estimate_usd": "0.08055930",
+    "settled": 69
+  },
+  "callback_tool_counts": {
+    "broadcast_message": 9,
+    "find_available_slots": 6,
+    "get_job_queue": 17,
+    "post_message": 10,
+    "schedule_patient": 18,
+    "transfer_resources": 6
+  },
+  "checks": {
+    "69_HTTP200_then_one_failed_unknown_outcome_no_retry": true,
+    "70_correlated_diagnostics_and_deadline_reaping": true,
+    "actual_cost_missing70_is_not_free_or_reference_billing": true,
+    "all70_attempts_complete_batches_inputs_and_fixed_criteria_reconcile": true,
+    "correct_Model_and_wire_settings_no_API_seed_or_OpenRouter_route": true,
+    "frozen54_sources_and_old34files_preserved": true,
+    "plan_auth_and_launcher_bindings_match": true,
+    "reference_estimate_and_unknown_reservation_reconcile": true,
+    "six_positive_successes_and_ordinary_failure_retained": true
+  },
+  "completed_cases": [
+    {
+      "calls": 3,
+      "care4": null,
+      "care8": null,
+      "care_final": 2,
+      "case": "engagement-positive-s0",
+      "cycles": 0,
+      "kind": "positive",
+      "native_and_instrumentation_errors": false,
+      "native_joint_reward": 1255.0,
+      "native_per_agent_rewards": {
+        "General_Hospital_Radiology": -92.5,
+        "General_Hospital_Surgery": -77.5,
+        "General_Hospital_Triage": 395.0,
+        "General_Hospital_Ward": 410.0,
+        "Resource_Provisioner": 0.0,
+        "St_Marys_Center_Radiology": -92.5,
+        "St_Marys_Center_Surgery": -77.5,
+        "St_Marys_Center_Triage": 395.0,
+        "St_Marys_Center_Ward": 395.0
+      },
+      "new_credit": 15.0,
+      "passed": true,
+      "patient_timing": {
+        "by_patient": {
+          "Patient_0": {
+            "arrival_time": 24,
+            "canonical_final_end_time": 49,
+            "canonical_final_step_index": 1,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 25,
+            "timing_error": null
+          },
+          "Patient_1": {
+            "arrival_time": 1,
+            "canonical_final_end_time": 26,
+            "canonical_final_step_index": 1,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 25,
+            "timing_error": null
+          }
+        },
+        "makespan_definition": "maximum canonical final end on native absolute clock; all patients required",
+        "missing_step_penalties_imputed": false,
+        "observed_completed_count": 2,
+        "observed_completed_flow_sum": 50,
+        "scheduled_flow_sum": 50,
+        "scheduled_makespan": 49,
+        "time_unit": "native hospital hours",
+        "timing_errors": []
+      },
+      "physical_callbacks": 3,
+      "resource_failures": 0,
+      "seed": 0,
+      "transfer_attempts": 1
+    },
+    {
+      "calls": 3,
+      "care4": null,
+      "care8": null,
+      "care_final": 2,
+      "case": "engagement-positive-s1",
+      "cycles": 0,
+      "kind": "positive",
+      "native_and_instrumentation_errors": false,
+      "native_joint_reward": 1337.0,
+      "native_per_agent_rewards": {
+        "General_Hospital_Radiology": 161.5,
+        "General_Hospital_Surgery": 176.5,
+        "General_Hospital_Triage": 161.5,
+        "General_Hospital_Ward": 161.5,
+        "Resource_Provisioner": 0.0,
+        "St_Marys_Center_Radiology": 161.5,
+        "St_Marys_Center_Surgery": 176.5,
+        "St_Marys_Center_Triage": 161.5,
+        "St_Marys_Center_Ward": 176.5
+      },
+      "new_credit": 15.0,
+      "passed": true,
+      "patient_timing": {
+        "by_patient": {
+          "Patient_0": {
+            "arrival_time": 18,
+            "canonical_final_end_time": 72,
+            "canonical_final_step_index": 3,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 54,
+            "timing_error": null
+          },
+          "Patient_1": {
+            "arrival_time": 8,
+            "canonical_final_end_time": 62,
+            "canonical_final_step_index": 3,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 54,
+            "timing_error": null
+          }
+        },
+        "makespan_definition": "maximum canonical final end on native absolute clock; all patients required",
+        "missing_step_penalties_imputed": false,
+        "observed_completed_count": 2,
+        "observed_completed_flow_sum": 108,
+        "scheduled_flow_sum": 108,
+        "scheduled_makespan": 72,
+        "time_unit": "native hospital hours",
+        "timing_errors": []
+      },
+      "physical_callbacks": 3,
+      "resource_failures": 0,
+      "seed": 1,
+      "transfer_attempts": 1
+    },
+    {
+      "calls": 3,
+      "care4": null,
+      "care8": null,
+      "care_final": 2,
+      "case": "engagement-positive-s2",
+      "cycles": 0,
+      "kind": "positive",
+      "native_and_instrumentation_errors": false,
+      "native_joint_reward": 1337.0,
+      "native_per_agent_rewards": {
+        "General_Hospital_Radiology": 161.5,
+        "General_Hospital_Surgery": 176.5,
+        "General_Hospital_Triage": 161.5,
+        "General_Hospital_Ward": 176.5,
+        "Resource_Provisioner": 0.0,
+        "St_Marys_Center_Radiology": 161.5,
+        "St_Marys_Center_Surgery": 176.5,
+        "St_Marys_Center_Triage": 161.5,
+        "St_Marys_Center_Ward": 161.5
+      },
+      "new_credit": 15.0,
+      "passed": true,
+      "patient_timing": {
+        "by_patient": {
+          "Patient_0": {
+            "arrival_time": 2,
+            "canonical_final_end_time": 56,
+            "canonical_final_step_index": 3,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 54,
+            "timing_error": null
+          },
+          "Patient_1": {
+            "arrival_time": 11,
+            "canonical_final_end_time": 65,
+            "canonical_final_step_index": 3,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 54,
+            "timing_error": null
+          }
+        },
+        "makespan_definition": "maximum canonical final end on native absolute clock; all patients required",
+        "missing_step_penalties_imputed": false,
+        "observed_completed_count": 2,
+        "observed_completed_flow_sum": 108,
+        "scheduled_flow_sum": 108,
+        "scheduled_makespan": 65,
+        "time_unit": "native hospital hours",
+        "timing_errors": []
+      },
+      "physical_callbacks": 3,
+      "resource_failures": 0,
+      "seed": 2,
+      "transfer_attempts": 1
+    },
+    {
+      "calls": 3,
+      "care4": null,
+      "care8": null,
+      "care_final": 2,
+      "case": "engagement-positive-s3",
+      "cycles": 0,
+      "kind": "positive",
+      "native_and_instrumentation_errors": false,
+      "native_joint_reward": 1326.0,
+      "native_per_agent_rewards": {
+        "General_Hospital_Radiology": 161.5,
+        "General_Hospital_Surgery": 176.5,
+        "General_Hospital_Triage": 161.5,
+        "General_Hospital_Ward": 161.5,
+        "Resource_Provisioner": 0.0,
+        "St_Marys_Center_Radiology": 240.83333333333331,
+        "St_Marys_Center_Surgery": -72.5,
+        "St_Marys_Center_Triage": 240.83333333333331,
+        "St_Marys_Center_Ward": 255.83333333333331
+      },
+      "new_credit": 15.0,
+      "passed": true,
+      "patient_timing": {
+        "by_patient": {
+          "Patient_0": {
+            "arrival_time": 18,
+            "canonical_final_end_time": 72,
+            "canonical_final_step_index": 3,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 54,
+            "timing_error": null
+          },
+          "Patient_1": {
+            "arrival_time": 4,
+            "canonical_final_end_time": 19,
+            "canonical_final_step_index": 2,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 15,
+            "timing_error": null
+          }
+        },
+        "makespan_definition": "maximum canonical final end on native absolute clock; all patients required",
+        "missing_step_penalties_imputed": false,
+        "observed_completed_count": 2,
+        "observed_completed_flow_sum": 69,
+        "scheduled_flow_sum": 69,
+        "scheduled_makespan": 72,
+        "time_unit": "native hospital hours",
+        "timing_errors": []
+      },
+      "physical_callbacks": 3,
+      "resource_failures": 0,
+      "seed": 3,
+      "transfer_attempts": 1
+    },
+    {
+      "calls": 3,
+      "care4": null,
+      "care8": null,
+      "care_final": 2,
+      "case": "engagement-positive-s4",
+      "cycles": 0,
+      "kind": "positive",
+      "native_and_instrumentation_errors": false,
+      "native_joint_reward": 1337.0,
+      "native_per_agent_rewards": {
+        "General_Hospital_Radiology": 161.5,
+        "General_Hospital_Surgery": 176.5,
+        "General_Hospital_Triage": 161.5,
+        "General_Hospital_Ward": 176.5,
+        "Resource_Provisioner": 0.0,
+        "St_Marys_Center_Radiology": 161.5,
+        "St_Marys_Center_Surgery": 176.5,
+        "St_Marys_Center_Triage": 161.5,
+        "St_Marys_Center_Ward": 161.5
+      },
+      "new_credit": 15.0,
+      "passed": true,
+      "patient_timing": {
+        "by_patient": {
+          "Patient_0": {
+            "arrival_time": 9,
+            "canonical_final_end_time": 63,
+            "canonical_final_step_index": 3,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 54,
+            "timing_error": null
+          },
+          "Patient_1": {
+            "arrival_time": 23,
+            "canonical_final_end_time": 77,
+            "canonical_final_step_index": 3,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 54,
+            "timing_error": null
+          }
+        },
+        "makespan_definition": "maximum canonical final end on native absolute clock; all patients required",
+        "missing_step_penalties_imputed": false,
+        "observed_completed_count": 2,
+        "observed_completed_flow_sum": 108,
+        "scheduled_flow_sum": 108,
+        "scheduled_makespan": 77,
+        "time_unit": "native hospital hours",
+        "timing_errors": []
+      },
+      "physical_callbacks": 3,
+      "resource_failures": 0,
+      "seed": 4,
+      "transfer_attempts": 1
+    },
+    {
+      "calls": 3,
+      "care4": null,
+      "care8": null,
+      "care_final": 2,
+      "case": "engagement-positive-s5",
+      "cycles": 0,
+      "kind": "positive",
+      "native_and_instrumentation_errors": false,
+      "native_joint_reward": 1315.0,
+      "native_per_agent_rewards": {
+        "General_Hospital_Radiology": 240.83333333333331,
+        "General_Hospital_Surgery": -72.5,
+        "General_Hospital_Triage": 240.83333333333331,
+        "General_Hospital_Ward": 240.83333333333331,
+        "Resource_Provisioner": 0.0,
+        "St_Marys_Center_Radiology": 240.83333333333331,
+        "St_Marys_Center_Surgery": -72.5,
+        "St_Marys_Center_Triage": 240.83333333333331,
+        "St_Marys_Center_Ward": 255.83333333333331
+      },
+      "new_credit": 15.0,
+      "passed": true,
+      "patient_timing": {
+        "by_patient": {
+          "Patient_0": {
+            "arrival_time": 8,
+            "canonical_final_end_time": 23,
+            "canonical_final_step_index": 2,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 15,
+            "timing_error": null
+          },
+          "Patient_1": {
+            "arrival_time": 11,
+            "canonical_final_end_time": 26,
+            "canonical_final_step_index": 2,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 15,
+            "timing_error": null
+          }
+        },
+        "makespan_definition": "maximum canonical final end on native absolute clock; all patients required",
+        "missing_step_penalties_imputed": false,
+        "observed_completed_count": 2,
+        "observed_completed_flow_sum": 30,
+        "scheduled_flow_sum": 30,
+        "scheduled_makespan": 26,
+        "time_unit": "native hospital hours",
+        "timing_errors": []
+      },
+      "physical_callbacks": 3,
+      "resource_failures": 0,
+      "seed": 5,
+      "transfer_attempts": 1
+    },
+    {
+      "calls": 18,
+      "care4": 2,
+      "care8": 2,
+      "care_final": 2,
+      "case": "engagement-ordinary-s0",
+      "cycles": 0,
+      "kind": "ordinary",
+      "native_and_instrumentation_errors": false,
+      "native_joint_reward": 1236.0,
+      "native_per_agent_rewards": {
+        "General_Hospital_Radiology": -85.0,
+        "General_Hospital_Surgery": -70.0,
+        "General_Hospital_Triage": 402.5,
+        "General_Hospital_Ward": 888.0,
+        "Resource_Provisioner": 0.0,
+        "St_Marys_Center_Radiology": -100.0,
+        "St_Marys_Center_Surgery": -85.0,
+        "St_Marys_Center_Triage": 385.5,
+        "St_Marys_Center_Ward": -100.0
+      },
+      "new_credit": 0.0,
+      "passed": true,
+      "patient_timing": {
+        "by_patient": {
+          "Patient_0": {
+            "arrival_time": 24,
+            "canonical_final_end_time": 49,
+            "canonical_final_step_index": 1,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 25,
+            "timing_error": null
+          },
+          "Patient_1": {
+            "arrival_time": 1,
+            "canonical_final_end_time": 30,
+            "canonical_final_step_index": 1,
+            "fully_scheduled": true,
+            "resource_failures": [],
+            "scheduled_flow_time": 29,
+            "timing_error": null
+          }
+        },
+        "makespan_definition": "maximum canonical final end on native absolute clock; all patients required",
+        "missing_step_penalties_imputed": false,
+        "observed_completed_count": 2,
+        "observed_completed_flow_sum": 54,
+        "scheduled_flow_sum": 54,
+        "scheduled_makespan": 49,
+        "time_unit": "native hospital hours",
+        "timing_errors": []
+      },
+      "physical_callbacks": 2,
+      "resource_failures": 0,
+      "seed": 0,
+      "transfer_attempts": 0
+    },
+    {
+      "calls": 19,
+      "care4": 0,
+      "care8": 0,
+      "care_final": 0,
+      "case": "engagement-ordinary-s1",
+      "cycles": 0,
+      "kind": "ordinary",
+      "native_and_instrumentation_errors": false,
+      "native_joint_reward": 698.0,
+      "native_per_agent_rewards": {
+        "General_Hospital_Radiology": 169.0,
+        "General_Hospital_Surgery": 184.0,
+        "General_Hospital_Triage": 169.0,
+        "General_Hospital_Ward": -195.5,
+        "Resource_Provisioner": 0.0,
+        "St_Marys_Center_Radiology": 148.0,
+        "St_Marys_Center_Surgery": 163.0,
+        "St_Marys_Center_Triage": 148.0,
+        "St_Marys_Center_Ward": -87.5
+      },
+      "new_credit": 0.0,
+      "passed": false,
+      "patient_timing": {
+        "by_patient": {
+          "Patient_0": {
+            "arrival_time": 18,
+            "canonical_final_end_time": 72,
+            "canonical_final_step_index": 3,
+            "fully_scheduled": true,
+            "resource_failures": [
+              {
+                "agent": "General_Hospital_Ward",
+                "missing": [
+                  "IV_Kits"
+                ],
+                "step": 3
+              }
+            ],
+            "scheduled_flow_time": 54,
+            "timing_error": null
+          },
+          "Patient_1": {
+            "arrival_time": 8,
+            "canonical_final_end_time": 66,
+            "canonical_final_step_index": 3,
+            "fully_scheduled": true,
+            "resource_failures": [
+              {
+                "agent": "General_Hospital_Ward",
+                "missing": [
+                  "IV_Kits"
+                ],
+                "step": 3
+              }
+            ],
+            "scheduled_flow_time": 58,
+            "timing_error": null
+          }
+        },
+        "makespan_definition": "maximum canonical final end on native absolute clock; all patients required",
+        "missing_step_penalties_imputed": false,
+        "observed_completed_count": 2,
+        "observed_completed_flow_sum": 112,
+        "scheduled_flow_sum": 112,
+        "scheduled_makespan": 72,
+        "time_unit": "native hospital hours",
+        "timing_errors": []
+      },
+      "physical_callbacks": 2,
+      "resource_failures": 2,
+      "seed": 1,
+      "transfer_attempts": 0
+    }
+  ],
+  "evidence_integrity_checks_passed": true,
+  "findings": [
+    "Corrected instructed care controls pass6/6:3calls and care2/2 each,15newcredits,zero resource failures.",
+    "Ordinary seed0 legally schedules both patients via General_Hospital_Ward in one native batch, passes care2/2 at turns4/8, and performs no transfer. This is alternative care assignment, not demonstrated resource cooperation.",
+    "Ordinary seed1 schedules both patients through General_Hospital_Ward with zero IVkits while St_Marys_Center retains two. Both native schedules apply, producing two persistent IV failures and care0/2 at turns4/8. Its rationales cite avoiding the native missed-step penalty; no callback/parser/measurement defect is shown.",
+    "Ordinary seed2 has six completed turn outcomes and13calls, then one successful query and failed continuation in turn_index6:15attempts total. Last-observed care2/2 and reward1318 are not final eight-turn endpoints.",
+    "All three ordinary prefixes have zero transfer attempts/newcredits. Current-model cycle controls, inherited-plan adoption and repair effects remain untested."
+  ],
+  "gap_limit": "Descriptive qualification gap with different prompts/horizons, not a causal exposure/repair/cap effect; missing final endpoints stay missing.",
+  "groups": {
+    "ordinary": {
+      "calls": {
+        "mean": null,
+        "observed": 2,
+        "observed_complete_cases_only": {
+          "mean": 18.5,
+          "n": 2,
+          "sample_sd": 0.7071067811865476,
+          "sample_variance": 0.5
+        },
+        "planned_denominator": 6,
+        "sample_sd": null,
+        "sample_variance": null,
+        "values": [
+          18,
+          19,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "care_final": {
+        "mean": null,
+        "observed": 2,
+        "observed_complete_cases_only": {
+          "mean": 1,
+          "n": 2,
+          "sample_sd": 1.4142135623730951,
+          "sample_variance": 2
+        },
+        "planned_denominator": 6,
+        "sample_sd": null,
+        "sample_variance": null,
+        "values": [
+          2,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "native_joint_reward": {
+        "mean": null,
+        "observed": 2,
+        "observed_complete_cases_only": {
+          "mean": 967.0,
+          "n": 2,
+          "sample_sd": 380.42344827836257,
+          "sample_variance": 144722.0
+        },
+        "planned_denominator": 6,
+        "sample_sd": null,
+        "sample_variance": null,
+        "values": [
+          1236.0,
+          698.0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "new_credit": {
+        "mean": null,
+        "observed": 2,
+        "observed_complete_cases_only": {
+          "mean": 0.0,
+          "n": 2,
+          "sample_sd": 0.0,
+          "sample_variance": 0.0
+        },
+        "planned_denominator": 6,
+        "sample_sd": null,
+        "sample_variance": null,
+        "values": [
+          0.0,
+          0.0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "resource_failures": {
+        "mean": null,
+        "observed": 2,
+        "observed_complete_cases_only": {
+          "mean": 1,
+          "n": 2,
+          "sample_sd": 1.4142135623730951,
+          "sample_variance": 2
+        },
+        "planned_denominator": 6,
+        "sample_sd": null,
+        "sample_variance": null,
+        "values": [
+          0,
+          2,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "positive": {
+      "calls": {
+        "mean": 3,
+        "observed": 6,
+        "observed_complete_cases_only": {
+          "mean": 3,
+          "n": 6,
+          "sample_sd": 0.0,
+          "sample_variance": 0
+        },
+        "planned_denominator": 6,
+        "sample_sd": 0.0,
+        "sample_variance": 0,
+        "values": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "care_final": {
+        "mean": 2,
+        "observed": 6,
+        "observed_complete_cases_only": {
+          "mean": 2,
+          "n": 6,
+          "sample_sd": 0.0,
+          "sample_variance": 0
+        },
+        "planned_denominator": 6,
+        "sample_sd": 0.0,
+        "sample_variance": 0,
+        "values": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      "native_joint_reward": {
+        "mean": 1317.8333333333333,
+        "observed": 6,
+        "observed_complete_cases_only": {
+          "mean": 1317.8333333333333,
+          "n": 6,
+          "sample_sd": 32.01510060372553,
+          "sample_variance": 1024.9666666666667
+        },
+        "planned_denominator": 6,
+        "sample_sd": 32.01510060372553,
+        "sample_variance": 1024.9666666666667,
+        "values": [
+          1255.0,
+          1337.0,
+          1337.0,
+          1326.0,
+          1337.0,
+          1315.0
+        ]
+      },
+      "new_credit": {
+        "mean": 15.0,
+        "observed": 6,
+        "observed_complete_cases_only": {
+          "mean": 15.0,
+          "n": 6,
+          "sample_sd": 0.0,
+          "sample_variance": 0.0
+        },
+        "planned_denominator": 6,
+        "sample_sd": 0.0,
+        "sample_variance": 0.0,
+        "values": [
+          15.0,
+          15.0,
+          15.0,
+          15.0,
+          15.0,
+          15.0
+        ]
+      },
+      "resource_failures": {
+        "mean": 0,
+        "observed": 6,
+        "observed_complete_cases_only": {
+          "mean": 0,
+          "n": 6,
+          "sample_sd": 0.0,
+          "sample_variance": 0
+        },
+        "planned_denominator": 6,
+        "sample_sd": 0.0,
+        "sample_variance": 0,
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "kind": "bounded independent terminal accounting, behavior and source-input review",
+  "launch_commit": "70b21c89",
+  "limits": [
+    "Six repeated constructed families; calls/turns/patients are not additional independent scenarios.",
+    "Positive care4/8 is undefined. Ordinary partial final endpoints remain undefined even when observed care is complete.",
+    "Native reward decomposition was checked; this review does not independently reimplement the native grader or attest model weights or billing.",
+    "A killed/reaped deadline establishes supervisor behavior, not an underlying provider bug.",
+    "Old Modal5/6evidence remains separately preserved; sequential runs identify no causal prompt-correction or cap effect."
+  ],
+  "mismatches": [],
+  "ordinary_minus_positive_final_care_gap": {
+    "mean": null,
+    "observed": 2,
+    "observed_complete_cases_only": {
+      "mean": -1,
+      "n": 2,
+      "sample_sd": 1.4142135623730951,
+      "sample_variance": 2
+    },
+    "planned_denominator": 6,
+    "sample_sd": null,
+    "sample_variance": null,
+    "values": [
+      0,
+      -2,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "partial_cases": [
+    {
+      "care4": {
+        "all_complete": true,
+        "by_patient": {
+          "Patient_0": 1,
+          "Patient_1": 1
+        },
+        "complete": 2,
+        "total": 2
+      },
+      "care8": null,
+      "case": "engagement-ordinary-s2",
+      "case_attempts": 15,
+      "completed_turn_calls": 13,
+      "completed_turn_outcomes": 6,
+      "failed_turn_attempts": 2,
+      "failed_turn_index": 6,
+      "final_care": null,
+      "final_reward": null,
+      "last_observed_care": {
+        "all_complete": true,
+        "by_patient": {
+          "Patient_0": 1,
+          "Patient_1": 1
+        },
+        "complete": 2,
+        "total": 2
+      },
+      "last_observed_native_reward": 1318.0,
+      "note": "Last-observed complete care is not the fixed eight-turn endpoint.",
+      "resource_failures": 0,
+      "seed": 2,
+      "transfer_attempts_in_prefix": 0
+    }
+  ],
+  "plan_sha256": "f24af35934b3c8b29d7a63b56057c48a650c7bd212ca7dd6070b89b8288738fd",
+  "qualification_judgment": "Not passed: the ordinary criterion already fails on complete seed1, and transport stop additionally leaves seed2partial and seeds3\u20135unstarted. Preserve failure and missing data; no retry/resumption, outcome-driven tuning or main study follows.",
+  "rating_dimensions": [
+    "Operator problem",
+    "Architecture audit and evidence discipline",
+    "Conditional causal design",
+    "Behavioral readiness",
+    "Useful-cooperation construct",
+    "Demonstrated novelty"
+  ],
+  "rating_limit": "Readiness remains5 because ordinary useful care is unqualified despite prescribed control competence. No demonstrated novelty increase follows care positives or one alternative-assignment pass.",
+  "ratings": [
+    8,
+    8,
+    7,
+    5,
+    8,
+    3
+  ],
+  "raw_inputs_sha256": {
+    "accounting/ledger.json": "b03f96ca5dbb5038fd1ece02916a47f73ba92ea1f6d7c4fcef6f4a43557fc080",
+    "engagement-ordinary-s0.json": "dc3dc194d001aea09cea2799164fb532c7b431292e0917c4ae2ce19ee62aab32",
+    "engagement-ordinary-s1.json": "124c49fac461bddb5fa28890225379920a936899ca9d498a1db0195f93be11de",
+    "engagement-ordinary-s2-stopped.json": "f26696ed2770dd765154de72b5f74bd42237cd6540af4fdf968e10470c3d0e9d",
+    "engagement-positive-s0.json": "52278572c41fc3f52967daba276bf21cfd5fed38d00ae9ba509f22b2a5082d96",
+    "engagement-positive-s1.json": "80a33c94b89034e28fd7060417d1012d549f5f3c99602d122da5462e72822479",
+    "engagement-positive-s2.json": "e996b90fb3699f5ee8a12dd4c5d592a92b45ca83bc29237b8c11838d1928cdb1",
+    "engagement-positive-s3.json": "c98ce0e657d29447fa9e49e8ef6b818ad848c6be779e79a0a4ca94f881394beb",
+    "engagement-positive-s4.json": "58df05c1529a4d24c91a3e1b14c495750b0a0272b181e6f1143af8c33ecc385c",
+    "engagement-positive-s5.json": "4dd6407b0fadb7e810bba0d3af339f42de4fa7f381bd2d2fbf476a697990e02d",
+    "preflight.json": "b58a5220cfae7eff19c5e40a2a1c81abaf86dcfd93891a6d2ac7723c62a0ce0f",
+    "stopped.json": "4aefa3d98f348de7fbd173f096d12d3d2a25c838a89d78073d571c42f43e73e6"
+  },
+  "request_call_map": [
+    {
+      "call_id": 1,
+      "case": "engagement-positive-s0",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 2,
+      "case": "engagement-positive-s0",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 3,
+      "case": "engagement-positive-s0",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 4,
+      "case": "engagement-positive-s1",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 5,
+      "case": "engagement-positive-s1",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 6,
+      "case": "engagement-positive-s1",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 7,
+      "case": "engagement-positive-s2",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 8,
+      "case": "engagement-positive-s2",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 9,
+      "case": "engagement-positive-s2",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 10,
+      "case": "engagement-positive-s3",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 11,
+      "case": "engagement-positive-s3",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 12,
+      "case": "engagement-positive-s3",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 13,
+      "case": "engagement-positive-s4",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 14,
+      "case": "engagement-positive-s4",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 15,
+      "case": "engagement-positive-s4",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 16,
+      "case": "engagement-positive-s5",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 17,
+      "case": "engagement-positive-s5",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 18,
+      "case": "engagement-positive-s5",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 19,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 20,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 21,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 3,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 22,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 23,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 24,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 25,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 3
+    },
+    {
+      "call_id": 26,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 3
+    },
+    {
+      "call_id": 27,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 4
+    },
+    {
+      "call_id": 28,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 4
+    },
+    {
+      "call_id": 29,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 3,
+      "status": "settled",
+      "turn_index": 4
+    },
+    {
+      "call_id": 30,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 5
+    },
+    {
+      "call_id": 31,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 5
+    },
+    {
+      "call_id": 32,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 6
+    },
+    {
+      "call_id": 33,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 6
+    },
+    {
+      "call_id": 34,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 3,
+      "status": "settled",
+      "turn_index": 6
+    },
+    {
+      "call_id": 35,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 7
+    },
+    {
+      "call_id": 36,
+      "case": "engagement-ordinary-s0",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 7
+    },
+    {
+      "call_id": 37,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 38,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 39,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 40,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 41,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 3,
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 42,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 43,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 3
+    },
+    {
+      "call_id": 44,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 3
+    },
+    {
+      "call_id": 45,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 3,
+      "status": "settled",
+      "turn_index": 3
+    },
+    {
+      "call_id": 46,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 4
+    },
+    {
+      "call_id": 47,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 4
+    },
+    {
+      "call_id": 48,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 5
+    },
+    {
+      "call_id": 49,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 5
+    },
+    {
+      "call_id": 50,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 3,
+      "status": "settled",
+      "turn_index": 5
+    },
+    {
+      "call_id": 51,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 6
+    },
+    {
+      "call_id": 52,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 6
+    },
+    {
+      "call_id": 53,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 7
+    },
+    {
+      "call_id": 54,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 7
+    },
+    {
+      "call_id": 55,
+      "case": "engagement-ordinary-s1",
+      "generation_in_turn": 3,
+      "status": "settled",
+      "turn_index": 7
+    },
+    {
+      "call_id": 56,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 57,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 58,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 3,
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 59,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 60,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 61,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 62,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 3
+    },
+    {
+      "call_id": 63,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 3
+    },
+    {
+      "call_id": 64,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 3,
+      "status": "settled",
+      "turn_index": 3
+    },
+    {
+      "call_id": 65,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 4
+    },
+    {
+      "call_id": 66,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 5
+    },
+    {
+      "call_id": 67,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 2,
+      "status": "settled",
+      "turn_index": 5
+    },
+    {
+      "call_id": 68,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 3,
+      "status": "settled",
+      "turn_index": 5
+    },
+    {
+      "call_id": 69,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 1,
+      "status": "settled",
+      "turn_index": 6
+    },
+    {
+      "call_id": 70,
+      "case": "engagement-ordinary-s2",
+      "generation_in_turn": 2,
+      "status": "failed",
+      "turn_index": 6
+    }
+  ],
+  "retained_analysis_failure": "independent_review_analysis_failure_001.json",
+  "reviewed_at_utc": "2026-10-25T06:54:14.860885+00:00",
+  "termination": {
+    "HTTP_status": null,
+    "call_id": 70,
+    "child_reaped": true,
+    "elapsed_monotonic_seconds": 60.00271666597109,
+    "kind": "whole_request_deadline",
+    "underlying_cause": "unidentified; no provider/host/network diagnosis is established"
+  },
+  "unstarted_cases": [
+    "engagement-ordinary-s3",
+    "engagement-ordinary-s4",
+    "engagement-ordinary-s5"
+  ]
+}

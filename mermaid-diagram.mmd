@@ -40,3 +40,5 @@ flowchart TB
   RUNTIME -. "explicit user provider correction" .-> MODAL
   FIX["Positive-control-only instruction correction<br/>8/8 offline checks; 6/6 scripted care positives<br/>126 ordinary payloads unchanged; exact freeze<br/>no model calls; old 5/6 retained"]
   MODAL -. "explicit offline implementation request" .-> FIX
+  LIVEFIX["Corrected live qualification: care controls 6/6 pass<br/>ordinary: 1 pass, 1 fail, 1 partial, 3 unstarted<br/>request70: 60s deadline; worker reaped<br/>no retry or main study"]
+  FIX -. "human-authorized model test" .-> LIVEFIX
