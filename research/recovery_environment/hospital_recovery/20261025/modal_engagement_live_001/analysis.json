@@ -1,0 +1,746 @@
+{
+  "accounting": {
+    "actual_cost_missing": 21,
+    "actual_cost_total_usd": null,
+    "actual_reported_cost_observations": 0,
+    "attempts": 21,
+    "basis": "reference_token_estimate_not_actual_modal_billing",
+    "combined_hospital_attempts": 251,
+    "failed": 0,
+    "http_status_counts": {
+      "200": 21
+    },
+    "limit": "Published Shared Endpoint rates without cache discounts; actual endpoint billing mode and charges are unverified. Zero held reservations does not mean zero unknown monetary costs.",
+    "prior_hospital_attempts": 230,
+    "prior_plus_modal_reference_guard_usd": "0.28079958",
+    "prior_reported_cost_usd": "0.11472588",
+    "prior_unknown_reservations_usd": "0.147",
+    "reference_token_estimate_usd": "0.01907370",
+    "reported_completion_tokens": 2532,
+    "reported_prompt_tokens": 53451,
+    "settled": 21,
+    "unknown_transport_reservation_usd": "0.000"
+  },
+  "analyzed_at_utc": "2026-10-25T04:19:24.474214+00:00",
+  "api_seed_forwarded": false,
+  "completed_ordinary_cases": 0,
+  "completed_positive_cases": 6,
+  "decision": {
+    "further_paid_run_started": false,
+    "main_started": false,
+    "no_outcome_driven_tuning": true,
+    "ordinary_started": false,
+    "qualification_passed": false,
+    "status": "Pause with failed control retained; no verified next implementation repair identified."
+  },
+  "diagnostic_duration_seconds": {
+    "limit": "Active-clock descriptive transport durations for this run, not general latency or absolute wall-clock guarantees.",
+    "max": 2.340802500024438,
+    "mean": 1.662055523844347,
+    "min": 1.2548633749829605,
+    "n": 21,
+    "sample_sd": 0.3003263032510392,
+    "sample_variance": 0.09019588842443518,
+    "values": [
+      2.2697330829687417,
+      1.5603287919657305,
+      1.3115073749795556,
+      1.2825173750752583,
+      1.6303624169668183,
+      1.6918780410196632,
+      1.620917166932486,
+      1.2548633749829605,
+      1.7746020830236375,
+      1.712498000008054,
+      1.8867784169269726,
+      1.3632142919814214,
+      1.5935735830571502,
+      1.7650289590237662,
+      1.4823088330449536,
+      2.1714020000072196,
+      1.496830082964152,
+      1.6321114589227363,
+      2.340802500024438,
+      1.4945521668996662,
+      1.5673559999559075
+    ]
+  },
+  "exclusions": 0,
+  "execution_commit": "c4f90486",
+  "failed_seed2": {
+    "events": [
+      {
+        "actor": "General_Hospital_Ward",
+        "after_iv": {
+          "General_Hospital": 2,
+          "St_Marys_Center": 0
+        },
+        "after_resource_failures": {
+          "Anesthetics": 0,
+          "IV_Kits": 0,
+          "Oxygen_Tanks": 0,
+          "PPE_Sets": 0,
+          "Pain_Killers": 0,
+          "Radio_Contrast": 0,
+          "Surgical_Packs": 0
+        },
+        "arguments": {},
+        "before_iv": {
+          "General_Hospital": 2,
+          "St_Marys_Center": 0
+        },
+        "care_after": {
+          "Patient_0": 0,
+          "Patient_1": 0
+        },
+        "event_index": 0,
+        "native_error": null,
+        "tool": "get_job_queue",
+        "turn_index": 0
+      },
+      {
+        "actor": "General_Hospital_Ward",
+        "after_iv": {
+          "General_Hospital": 1,
+          "St_Marys_Center": 1
+        },
+        "after_resource_failures": {
+          "Anesthetics": 0,
+          "IV_Kits": 0,
+          "Oxygen_Tanks": 0,
+          "PPE_Sets": 0,
+          "Pain_Killers": 0,
+          "Radio_Contrast": 0,
+          "Surgical_Packs": 0
+        },
+        "arguments": {
+          "amount": 1,
+          "rationale": "scripted conformance control",
+          "resource_type": "IV_Kits",
+          "to_hospital": "St_Marys_Center"
+        },
+        "before_iv": {
+          "General_Hospital": 2,
+          "St_Marys_Center": 0
+        },
+        "care_after": {
+          "Patient_0": 0,
+          "Patient_1": 0
+        },
+        "event_index": 1,
+        "native_error": null,
+        "tool": "transfer_resources",
+        "turn_index": 0
+      },
+      {
+        "actor": "St_Marys_Center_Ward",
+        "after_iv": {
+          "General_Hospital": 1,
+          "St_Marys_Center": 0
+        },
+        "after_resource_failures": {
+          "Anesthetics": 0,
+          "IV_Kits": 0,
+          "Oxygen_Tanks": 0,
+          "PPE_Sets": 0,
+          "Pain_Killers": 0,
+          "Radio_Contrast": 0,
+          "Surgical_Packs": 0
+        },
+        "arguments": {
+          "patient_id": "Patient_0",
+          "rationale": "Scheduling Patient_0 final Ward step per mandatory task list (step 3, earliest start 12).",
+          "start_time": 12,
+          "step_index": 3
+        },
+        "before_iv": {
+          "General_Hospital": 1,
+          "St_Marys_Center": 1
+        },
+        "care_after": {
+          "Patient_0": 1,
+          "Patient_1": 0
+        },
+        "event_index": 2,
+        "native_error": null,
+        "tool": "schedule_patient",
+        "turn_index": 1
+      },
+      {
+        "actor": "St_Marys_Center_Ward",
+        "after_iv": {
+          "General_Hospital": 1,
+          "St_Marys_Center": 0
+        },
+        "after_resource_failures": {
+          "Anesthetics": 0,
+          "IV_Kits": 1,
+          "Oxygen_Tanks": 0,
+          "PPE_Sets": 0,
+          "Pain_Killers": 0,
+          "Radio_Contrast": 0,
+          "Surgical_Packs": 0
+        },
+        "arguments": {
+          "patient_id": "Patient_1",
+          "rationale": "scripted care control",
+          "start_time": 17,
+          "step_index": 3
+        },
+        "before_iv": {
+          "General_Hospital": 1,
+          "St_Marys_Center": 0
+        },
+        "care_after": {
+          "Patient_0": 1,
+          "Patient_1": 0
+        },
+        "event_index": 3,
+        "native_error": null,
+        "tool": "schedule_patient",
+        "turn_index": 1
+      },
+      {
+        "actor": "General_Hospital_Ward",
+        "after_iv": {
+          "General_Hospital": 0,
+          "St_Marys_Center": 0
+        },
+        "after_resource_failures": {
+          "Anesthetics": 0,
+          "IV_Kits": 1,
+          "Oxygen_Tanks": 0,
+          "PPE_Sets": 0,
+          "Pain_Killers": 0,
+          "Radio_Contrast": 0,
+          "Surgical_Packs": 0
+        },
+        "arguments": {
+          "patient_id": "Patient_0",
+          "rationale": "scripted care control",
+          "start_time": 8,
+          "step_index": 3
+        },
+        "before_iv": {
+          "General_Hospital": 1,
+          "St_Marys_Center": 0
+        },
+        "care_after": {
+          "Patient_0": 1,
+          "Patient_1": 0
+        },
+        "event_index": 4,
+        "native_error": null,
+        "tool": "schedule_patient",
+        "turn_index": 2
+      }
+    ],
+    "extra_action": "Recipient scheduled Patient_0 before its designated Patient_1 within one returned tool batch.",
+    "final_care": {
+      "all_complete": false,
+      "by_patient": {
+        "Patient_0": 1,
+        "Patient_1": 0
+      },
+      "complete": 1,
+      "total": 2
+    },
+    "final_resource_failures": {
+      "Anesthetics": 0,
+      "IV_Kits": 1,
+      "Oxygen_Tanks": 0,
+      "PPE_Sets": 0,
+      "Pain_Killers": 0,
+      "Radio_Contrast": 0,
+      "Surgical_Packs": 0
+    },
+    "interpretation": "Observed native behavior violates unchanged qualification criteria; no implementation defect is established by this failure. Both returned scheduling calls and the later donor call were preserved.",
+    "response_call_id": 10,
+    "sequence_passed": false
+  },
+  "fixture_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "independent_scenario_families": 6,
+  "kind": "read-only derived Modal qualification analysis",
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "ordinary_baseline": {
+    "final_endpoints": {
+      "defined": 0,
+      "mean": null,
+      "planned_denominator": 6,
+      "sample_sd": null,
+      "sample_variance": null,
+      "values": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "planned": 6,
+    "started": 0,
+    "status": "unstarted because positive-control gate failed"
+  },
+  "ordinary_minus_positive_gap": {
+    "defined": 0,
+    "mean": null,
+    "planned_denominator": 6,
+    "sample_sd": null,
+    "sample_variance": null,
+    "values": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "paired_difference_limit": "No ordinary endpoint observed; no paired treatment or recovery estimate can be formed. Earlier V3.2 measurements are not pooled with this new model.",
+  "plan_sha256": "45d4424ae1f01860ec3c49e52c6586020dfe8ea14f7130f8035bcee74ded1942",
+  "planned_cases": 12,
+  "positive_control": {
+    "care_turn4": {
+      "defined": 0,
+      "mean": null,
+      "planned_denominator": 6,
+      "sample_sd": null,
+      "sample_variance": null,
+      "values": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "care_turn8": {
+      "defined": 0,
+      "mean": null,
+      "planned_denominator": 6,
+      "sample_sd": null,
+      "sample_variance": null,
+      "values": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "denominator": 6,
+    "expected": "All six cases: care 2/2, new credit 15, exactly three designated physical actions, zero failures/errors.",
+    "gate_passed": false,
+    "passes": 5,
+    "per_seed": [
+      {
+        "actual_calls": 3,
+        "call_ids": [
+          1,
+          2,
+          3
+        ],
+        "callback_errors": 0,
+        "calls_by_native_turn": [
+          1,
+          1,
+          1
+        ],
+        "care_complete": 2,
+        "care_denominator": 2,
+        "cycles": 0,
+        "final_joint_reward": 1255.0,
+        "initial_joint_reward": 210.0,
+        "measurement_errors": 0,
+        "native_episode_errors": 0,
+        "new_transfer_credit": 15,
+        "passed": true,
+        "reference_token_estimate_usd": "0.00280980",
+        "resource_failures": 0,
+        "reward_gain": 1045.0,
+        "scheduled_flow_sum": 50,
+        "scheduled_makespan": 49,
+        "scorer_errors": 0,
+        "seed": 0,
+        "sequence_passed": true,
+        "status": "complete",
+        "timing_limit": "Scheduled timing is not resource-valid care; care excludes resource failures."
+      },
+      {
+        "actual_calls": 4,
+        "call_ids": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "callback_errors": 0,
+        "calls_by_native_turn": [
+          2,
+          1,
+          1
+        ],
+        "care_complete": 2,
+        "care_denominator": 2,
+        "cycles": 0,
+        "final_joint_reward": 1337.0,
+        "initial_joint_reward": 350.0,
+        "measurement_errors": 0,
+        "native_episode_errors": 0,
+        "new_transfer_credit": 15,
+        "passed": true,
+        "reference_token_estimate_usd": "0.00353730",
+        "resource_failures": 0,
+        "reward_gain": 987.0,
+        "scheduled_flow_sum": 108,
+        "scheduled_makespan": 72,
+        "scorer_errors": 0,
+        "seed": 1,
+        "sequence_passed": true,
+        "status": "complete",
+        "timing_limit": "Scheduled timing is not resource-valid care; care excludes resource failures."
+      },
+      {
+        "actual_calls": 4,
+        "call_ids": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "callback_errors": 0,
+        "calls_by_native_turn": [
+          2,
+          1,
+          1
+        ],
+        "care_complete": 1,
+        "care_denominator": 2,
+        "cycles": 0,
+        "final_joint_reward": 1067.0,
+        "initial_joint_reward": 350.0,
+        "measurement_errors": 0,
+        "native_episode_errors": 0,
+        "new_transfer_credit": 15,
+        "passed": false,
+        "reference_token_estimate_usd": "0.00366240",
+        "resource_failures": 1,
+        "reward_gain": 717.0,
+        "scheduled_flow_sum": 108,
+        "scheduled_makespan": 65,
+        "scorer_errors": 0,
+        "seed": 2,
+        "sequence_passed": false,
+        "status": "complete",
+        "timing_limit": "Scheduled timing is not resource-valid care; care excludes resource failures."
+      },
+      {
+        "actual_calls": 3,
+        "call_ids": [
+          12,
+          13,
+          14
+        ],
+        "callback_errors": 0,
+        "calls_by_native_turn": [
+          1,
+          1,
+          1
+        ],
+        "care_complete": 2,
+        "care_denominator": 2,
+        "cycles": 0,
+        "final_joint_reward": 1326.0,
+        "initial_joint_reward": 300.0,
+        "measurement_errors": 0,
+        "native_episode_errors": 0,
+        "new_transfer_credit": 15,
+        "passed": true,
+        "reference_token_estimate_usd": "0.00269760",
+        "resource_failures": 0,
+        "reward_gain": 1026.0,
+        "scheduled_flow_sum": 69,
+        "scheduled_makespan": 72,
+        "scorer_errors": 0,
+        "seed": 3,
+        "sequence_passed": true,
+        "status": "complete",
+        "timing_limit": "Scheduled timing is not resource-valid care; care excludes resource failures."
+      },
+      {
+        "actual_calls": 4,
+        "call_ids": [
+          15,
+          16,
+          17,
+          18
+        ],
+        "callback_errors": 0,
+        "calls_by_native_turn": [
+          2,
+          1,
+          1
+        ],
+        "care_complete": 2,
+        "care_denominator": 2,
+        "cycles": 0,
+        "final_joint_reward": 1337.0,
+        "initial_joint_reward": 350.0,
+        "measurement_errors": 0,
+        "native_episode_errors": 0,
+        "new_transfer_credit": 15,
+        "passed": true,
+        "reference_token_estimate_usd": "0.00352920",
+        "resource_failures": 0,
+        "reward_gain": 987.0,
+        "scheduled_flow_sum": 108,
+        "scheduled_makespan": 77,
+        "scorer_errors": 0,
+        "seed": 4,
+        "sequence_passed": true,
+        "status": "complete",
+        "timing_limit": "Scheduled timing is not resource-valid care; care excludes resource failures."
+      },
+      {
+        "actual_calls": 3,
+        "call_ids": [
+          19,
+          20,
+          21
+        ],
+        "callback_errors": 0,
+        "calls_by_native_turn": [
+          1,
+          1,
+          1
+        ],
+        "care_complete": 2,
+        "care_denominator": 2,
+        "cycles": 0,
+        "final_joint_reward": 1315.0,
+        "initial_joint_reward": 250.0,
+        "measurement_errors": 0,
+        "native_episode_errors": 0,
+        "new_transfer_credit": 15,
+        "passed": true,
+        "reference_token_estimate_usd": "0.00283740",
+        "resource_failures": 0,
+        "reward_gain": 1065.0,
+        "scheduled_flow_sum": 30,
+        "scheduled_makespan": 26,
+        "scorer_errors": 0,
+        "seed": 5,
+        "sequence_passed": true,
+        "status": "complete",
+        "timing_limit": "Scheduled timing is not resource-valid care; care excludes resource failures."
+      }
+    ],
+    "purpose": "New model can follow designated useful donation and care sequence through native tools without errors or resource failures.",
+    "statistics": {
+      "actual_calls": {
+        "defined": 6,
+        "mean": 3.5,
+        "planned_denominator": 6,
+        "sample_sd": 0.5477225575051661,
+        "sample_variance": 0.3,
+        "values": [
+          3,
+          4,
+          4,
+          3,
+          4,
+          3
+        ]
+      },
+      "care_complete": {
+        "defined": 6,
+        "mean": 1.8333333333333333,
+        "planned_denominator": 6,
+        "sample_sd": 0.408248290463863,
+        "sample_variance": 0.16666666666666666,
+        "values": [
+          2,
+          2,
+          1,
+          2,
+          2,
+          2
+        ]
+      },
+      "cycles": {
+        "defined": 6,
+        "mean": 0,
+        "planned_denominator": 6,
+        "sample_sd": 0.0,
+        "sample_variance": 0,
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_joint_reward": {
+        "defined": 6,
+        "mean": 1272.8333333333333,
+        "planned_denominator": 6,
+        "sample_sd": 105.38010564934288,
+        "sample_variance": 11104.966666666667,
+        "values": [
+          1255.0,
+          1337.0,
+          1067.0,
+          1326.0,
+          1337.0,
+          1315.0
+        ]
+      },
+      "initial_joint_reward": {
+        "defined": 6,
+        "mean": 301.6666666666667,
+        "planned_denominator": 6,
+        "sample_sd": 60.13872850889572,
+        "sample_variance": 3616.6666666666665,
+        "values": [
+          210.0,
+          350.0,
+          350.0,
+          300.0,
+          350.0,
+          250.0
+        ]
+      },
+      "new_transfer_credit": {
+        "defined": 6,
+        "mean": 15,
+        "planned_denominator": 6,
+        "sample_sd": 0.0,
+        "sample_variance": 0,
+        "values": [
+          15,
+          15,
+          15,
+          15,
+          15,
+          15
+        ]
+      },
+      "resource_failures": {
+        "defined": 6,
+        "mean": 0.16666666666666666,
+        "planned_denominator": 6,
+        "sample_sd": 0.408248290463863,
+        "sample_variance": 0.16666666666666666,
+        "values": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "reward_gain": {
+        "defined": 6,
+        "mean": 971.1666666666666,
+        "planned_denominator": 6,
+        "sample_sd": 128.3470555434236,
+        "sample_variance": 16472.966666666667,
+        "values": [
+          1045.0,
+          987.0,
+          717.0,
+          1026.0,
+          987.0,
+          1065.0
+        ]
+      },
+      "scheduled_flow_sum": {
+        "defined": 6,
+        "mean": 78.83333333333333,
+        "planned_denominator": 6,
+        "sample_sd": 34.24860094466147,
+        "sample_variance": 1172.9666666666667,
+        "values": [
+          50,
+          108,
+          108,
+          69,
+          108,
+          30
+        ]
+      },
+      "scheduled_makespan": {
+        "defined": 6,
+        "mean": 60.166666666666664,
+        "planned_denominator": 6,
+        "sample_sd": 19.384701872008932,
+        "sample_variance": 375.76666666666665,
+        "values": [
+          49,
+          72,
+          65,
+          72,
+          77,
+          26
+        ]
+      }
+    },
+    "uncertainty_limit": "Six constructed families, one observation per family; sample SD describes variation across these cases, not repeated stochastic reliability or a population effect."
+  },
+  "raw_hashes": {
+    "accounting/ledger.json": "2afa8aaa5828c911f32e78051aac76216a71c540d70a7525272a801c0a9d88cc",
+    "engagement-positive-s0.json": "d360c04c0eb5bf510b3a00e63efc555fc34e9d55d67377e779f9571c033cc535",
+    "engagement-positive-s1.json": "ec38933c34a46644e9c79a9266884a6cc2c48f4716923023b4ede53682f3faa7",
+    "engagement-positive-s2.json": "039637ec3829790ed04ec51cfd52d621c7b151d396b43670e876d3dea873b203",
+    "engagement-positive-s3.json": "51701152a59f64fd22fef1cf6a03583597262e50f466f08991be255085904b84",
+    "engagement-positive-s4.json": "093e82bcd101f3c21d6546679fe811e209a83191c9a8a901fd9cacb4ad2b357d",
+    "engagement-positive-s5.json": "d64eb1be69d03f848887992d04d22e61bbdc31c6c643c11b4b732bc0d93048d0",
+    "preflight.json": "6be914dc79978bdd3ffa6d428b8e17770529c9c530e01abe45501186d2fa0b9c",
+    "results.json": "1f1d38b4b9f0225772169c8903bda0be1297a3356efa0e3ce34288e996f50cda",
+    "transport_diagnostics/call-0001.json": "b5dc72eb91793f37d69e58aa1ef7547ec4fd344569475775a3619c69ff896ab7",
+    "transport_diagnostics/call-0002.json": "9d9085ed11965c409fa7ab5301a6aa4e7c12c1fc6b5c51e5a315b73644207cb9",
+    "transport_diagnostics/call-0003.json": "9fd54f9344c4f50060a9a64fef119de2d7c59e7c76372c23df9da7e1f7a2afb0",
+    "transport_diagnostics/call-0004.json": "60748a8fe6b38483544982653f2677c9cc0b4908dc4c8281cfc93696fedcdade",
+    "transport_diagnostics/call-0005.json": "e013c4e33299d6524f11c1a0fb633f6346d85a3b2646cd502bd37b4918f6a384",
+    "transport_diagnostics/call-0006.json": "844650a00696ced881ea55b4eebe900b4024f344c1dc930f98ff9672dc50e559",
+    "transport_diagnostics/call-0007.json": "8eaf32318c00b116e7fd463e977f7e01099582b3ce373a0b437c3d3ab16b85a0",
+    "transport_diagnostics/call-0008.json": "a3c0bfce1ae8f4ce6870e321c78b41ac7eec97e315715f0dbfdc606de3d2f14f",
+    "transport_diagnostics/call-0009.json": "2c82d86a9401c4a9a7b1f62db7653420ca983da5f569c2f08375b07b44a2d188",
+    "transport_diagnostics/call-0010.json": "a9db21515cca9bbadbe03b2f1fbda76d6eac4c8e431149d7d707a384b1ecf514",
+    "transport_diagnostics/call-0011.json": "925272b8015cd919e34f7d0c55c9c104b984eb13c3737fa3aa3c1938775d2149",
+    "transport_diagnostics/call-0012.json": "8377ebf5e41c57bac08b4ff14ad9a3879e0141ba2e4301afe0520213b8f8d463",
+    "transport_diagnostics/call-0013.json": "881e31245530edcfa5052f54f397d1d3b16e4e4fd9e68ed28c1c833096f1fae9",
+    "transport_diagnostics/call-0014.json": "1d9396f772d9401bc1656e521756cf392e6cf6d8f230da97c9f8b8bae3afa684",
+    "transport_diagnostics/call-0015.json": "fd42de5d1e6710eabeb77e9108d52ab28112f14f73f959d816c5b75f0136e3c2",
+    "transport_diagnostics/call-0016.json": "9fdecc1bdeeaa7ef14e316f68ff6ea23affd463d85c97415e64e12f10fc85db8",
+    "transport_diagnostics/call-0017.json": "a1f2360d946edf8e32c8c0d708cab63867039be34be15f3933ab3de61cc4bf1c",
+    "transport_diagnostics/call-0018.json": "df28aa184e0ddb285f5613a825d109f33f8f8ed11cc4517dba702f3cb01bc0a8",
+    "transport_diagnostics/call-0019.json": "75b6f49ee717924e58f6c2238c40cfa8f092e80721c1cece7d0ac228d6ce0e37",
+    "transport_diagnostics/call-0020.json": "eb3ed5aa2d03efea4f64067e9c2783857d981a21c4f9acf907e09c89582fb6fa",
+    "transport_diagnostics/call-0021.json": "66579ffea21bc9b4eea886bb860b0d840d350d1c586824f5f8c202c8849c5dc8"
+  },
+  "replacements": 0,
+  "retry_count": 0,
+  "schema_version": 1,
+  "unstarted_ordinary_cases": [
+    "engagement-ordinary-s0",
+    "engagement-ordinary-s1",
+    "engagement-ordinary-s2",
+    "engagement-ordinary-s3",
+    "engagement-ordinary-s4",
+    "engagement-ordinary-s5"
+  ]
+}

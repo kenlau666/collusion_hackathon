@@ -1,0 +1,263 @@
+{
+  "all_accounting_checks_passed": true,
+  "checks": {
+    "21diagnostics_match_ledger": true,
+    "21settled_sequential_ready_no_hold": true,
+    "21unique_IDs_and_returned_model": true,
+    "3_Modal_sources_match": true,
+    "7_frozen_42native_match": true,
+    "849_baseline_hashes_preserved": true,
+    "Modal_payload_no_OpenRouter_fallback_or_APIseed": true,
+    "actual_cost_missing_not_zero": true,
+    "all12_taskmessages_tools_roots_match": true,
+    "all21_calls_map_to_frozen_inputs": true,
+    "all6positive_cases_retained_with_seed2failure": true,
+    "byteguard_and_reported_token_bounds": true,
+    "exact_frozen_Modal_plan": true,
+    "explicit_Modal_directive_and_bounds": true,
+    "frozen_input_files_match": true,
+    "no_historical_ID_reuse": true,
+    "ordinary_correctly_gated_off": true,
+    "original_contract_and_sources": true,
+    "prior_ledger_artifacts_preserved": true,
+    "reference_cost_exact": true,
+    "reference_guard_within_authorized_ceiling": true,
+    "terminal_summary_matches_ledger": true
+  },
+  "cost": {
+    "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+    "actual_Modal_billing_verified": false,
+    "authorized_reference_per_run_usd": "10",
+    "authorized_total_ceiling_usd": "50",
+    "combined_reference_policy_guard_usd": "0.28079958",
+    "held_reference_usd": "0.000",
+    "prior_reference_and_reported_plus_hold_guard_usd": "0.26172588",
+    "reference_token_estimate_usd": "0.01907370",
+    "reported_actual_cost_missing": 21,
+    "reported_actual_cost_observations": 0,
+    "reported_actual_cost_sum_field": "0 (sum over zero observations, not actual spend)",
+    "reported_actual_cost_total_usd": null
+  },
+  "counters": {
+    "completed_positive_cases": 6,
+    "diagnostics": 21,
+    "ordinary_started": 0,
+    "ordinary_unstarted": 6,
+    "planned_cases": 12,
+    "positive_failures": 1,
+    "positive_passes": 5,
+    "requests": 21,
+    "settled": 21,
+    "transport_failures": 0,
+    "unique_generation_ids": 21
+  },
+  "diagnostic_manifest_sha256": "9442864b8ac1172e3d3ba00c05e156a27c7d45c282d47370c51eba4cecdfc33f",
+  "endpoint": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+  "failed_seed2_physical_attempts": [
+    {
+      "actor": "General_Hospital_Ward",
+      "patient_id": null,
+      "tool": "transfer_resources",
+      "turn_index": 0
+    },
+    {
+      "actor": "St_Marys_Center_Ward",
+      "patient_id": "Patient_0",
+      "tool": "schedule_patient",
+      "turn_index": 1
+    },
+    {
+      "actor": "St_Marys_Center_Ward",
+      "patient_id": "Patient_1",
+      "tool": "schedule_patient",
+      "turn_index": 1
+    },
+    {
+      "actor": "General_Hospital_Ward",
+      "patient_id": "Patient_0",
+      "tool": "schedule_patient",
+      "turn_index": 2
+    }
+  ],
+  "kind": "bounded independent terminal Modal qualification audit",
+  "mapping_mismatches": [],
+  "method": {
+    "instruction": "From repository root, exec reproduction_source and call build_review(); it reads evidence only.",
+    "language": "Python3 standard library; no repository/client imports",
+    "reproduction_source": "from pathlib import Path\nfrom collections import Counter\nfrom decimal import Decimal\nfrom datetime import datetime,timezone\nimport hashlib,json,re,statistics\n\ndef build_review():\n    here=Path('research/recovery_environment/hospital_recovery');base=here/'20261025';run=base/'modal_engagement_live_001';bundle=base/'modal_gate_integration_001/bundle';orig=base/'engagement_gate_001/bundle'\n    rd=lambda p:json.loads(p.read_text())\n    sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()\n    canon=lambda v:json.dumps(v,sort_keys=True,separators=(',',':'),ensure_ascii=False)\n    def care(state):\n        return sum({str(i) for i in state['patient_states'][pid]['scheduled_steps']}=={str(i) for i in range(len(p['pathway']))} and not state['patient_states'][pid]['resource_failures'] for pid,p in state['patients'].items())\n    plan=rd(bundle/'plan.json');old=rd(orig/'plan.json');directive=rd(base/'modal_qualification_authorization.json');auth=rd(bundle/'authorization.json');pre=rd(run/'preflight.json');result=rd(run/'results.json');ledger=rd(run/'accounting/ledger.json');records=ledger['records'];checks={}\n    def ck(k,v):checks[k]=bool(v)\n    expected='45d4424ae1f01860ec3c49e52c6586020dfe8ea14f7130f8035bcee74ded1942'\n    ck('exact_frozen_Modal_plan',sha(bundle/'plan.json')==expected==pre['plan_sha256']==ledger['plan_sha256']==auth['plan_sha256'])\n    ck('explicit_Modal_directive_and_bounds',directive['approved'] is True and directive['openrouter_inference_allowed'] is False and sha(base/'modal_qualification_authorization.json')==plan['directive_sha256'] and auth['approved'] is True and auth['scope']=='full' and auth['max_calls']==ledger['max_calls']==plan['max_calls']==198 and Decimal(auth['max_usd'])==Decimal(ledger['max_usd'])==Decimal(plan['max_usd'])==10)\n    ck('original_contract_and_sources',sha(orig/'plan.json')==plan['original_plan_sha256'] and plan['conversation_cap']==3 and plan['main_study_started'] is False and plan['cases']==old['cases'])\n    new_sources=[{'file':k,'expected_sha256':h,'current_sha256':sha(here/k),'copied_sha256':sha(bundle/'sources'/k)} for k,h in plan['sources'].items()]\n    ck('3_Modal_sources_match',len(new_sources)==3 and all(r['expected_sha256']==r['current_sha256']==r['copied_sha256'] for r in new_sources))\n    frozen_source_bad=[k for k,h in old['files'].items() if k.startswith('sources/') and sha(here/Path(k).name)!=h]\n    native_bad=[k for k,h in old['native_sources'].items() if sha(Path(k))!=h]\n    ck('7_frozen_42native_match',len([k for k in old['files'] if k.startswith('sources/')])==7 and len(old['native_sources'])==42 and not frozen_source_bad and not native_bad)\n    ck('frozen_input_files_match',all(sha(bundle/k)==h for k,h in plan['files'].items()) and all(sha(orig/k)==h for k,h in old['files'].items()))\n    baseline=base/'engagement_gate_001/prior_evidence_hashes.json';prior=rd(baseline);priorbad=[k for k,h in prior.items() if sha(here/k)!=h]\n    ck('849_baseline_hashes_preserved',len(prior)==849 and not priorbad)\n    ck('prior_ledger_artifacts_preserved',all(sha(Path(h['path']))==h['sha256'] for h in plan['prior_accounting']['ledgers']) and pre['prior_accounting']==plan['prior_accounting'])\n    ck('21settled_sequential_ready_no_hold',ledger['calls']==len(records)==21 and [r['call_id'] for r in records]==list(range(1,22)) and all(r['status']=='settled' and r['http_status']==200 for r in records) and ledger['status']=='ready' and ledger['halt_reason'] is None and Decimal(ledger['held_usd'])==0)\n    ids=[r['response_id'] for r in records]\n    ck('21unique_IDs_and_returned_model',len(set(ids))==21 and all(isinstance(x,str) and x for x in ids) and all(r['response_id']==r['response']['id'] and r['response']['model']==plan['model'] for r in records))\n    ck('Modal_payload_no_OpenRouter_fallback_or_APIseed',all(r['payload']['model']==plan['model'] and r['payload']['max_tokens']==1024 and r['payload']['temperature']==0 and r['payload']['stream'] is False and r['payload']['reasoning_effort']=='none' and not any(k in r['payload'] for k in ('provider','seed','reasoning')) and r['seed_forwarded'] is False for r in records))\n    ck('byteguard_and_reported_token_bounds',all(r['payload_bytes']==len(json.dumps(r['payload'],ensure_ascii=False,allow_nan=False).encode())<=131072 and type(r['usage']['prompt_tokens']) is int and 0<=r['usage']['prompt_tokens']<=131072 and type(r['usage']['completion_tokens']) is int and 0<=r['usage']['completion_tokens']<=1024 for r in records))\n    estimates=[Decimal(r['usage']['prompt_tokens'])*Decimal('.00000030')+Decimal(r['usage']['completion_tokens'])*Decimal('.00000120') for r in records]\n    estimate=sum(estimates,Decimal(0))\n    ck('reference_cost_exact',estimate==Decimal(ledger['spent_usd'])==Decimal('.01907370') and all(e==Decimal(r['known_cost_usd'])==Decimal(r['reference_estimate_usd']) and r['usage']==r['response']['usage'] for e,r in zip(estimates,records)))\n    ck('actual_cost_missing_not_zero',all(r['usage'].get('cost') is None and r['reported_cost_usd'] is None for r in records) and ledger['reported_cost_missing']==21 and ledger['reported_cost_observations']==0 and ledger['reported_cost_total_usd'] is None and Decimal(ledger['reported_cost_sum_usd'])==0 and pre['actual_Modal_charges_verified'] is False)\n    diagnostics=[rd(p) for p in sorted((run/'transport_diagnostics').glob('call-*.json'))]\n    ck('21diagnostics_match_ledger',len(diagnostics)==21 and [d['call_id'] for d in diagnostics]==list(range(1,22)) and all(d['kind']=='reply' and d['stage']=='complete' and d['http_status']==r['http_status']==200 and d['child_exit_code']==0 and d['retry_count']==0 and d['stderr_bytes']==0 for d,r in zip(diagnostics,records)))\n    inputs=rd(bundle/'initial_inputs.json');roots=rd(bundle/'roots.json');oldinputs=rd(orig/'initial_inputs.json');oldroots=rd(orig/'roots.json')\n    ck('all12_taskmessages_tools_roots_match',len(inputs)==len(roots)==12 and all(v['messages']==oldinputs[k]['messages'] and v['tools']==oldinputs[k]['tools'] and v['model']==plan['model'] and v['api_seed_forwarded'] is False and canon(roots[k])==canon(oldroots[k]) for k,v in inputs.items()))\n    cursor=0;rows=[];mapping_bad=[];seed2_actions=[]\n    for spec in plan['cases'][:6]:\n        c=rd(run/(spec['id']+'.json'));steps=roots[spec['id']]['turns']\n        if c['spec']!=spec or canon(c['root'])!=canon(roots[spec['id']]) or [t['step'] for t in c['turn_outcomes']]!=steps:mapping_bad.append(spec['id']+':root_or_steps')\n        if any(records[cursor]['payload'][k]!=inputs[spec['id']][k] for k in ('messages','tools','model')):mapping_bad.append(spec['id']+':initial')\n        for turn in c['turn_outcomes']:\n            n=turn['generation_calls']\n            if not 0<=n<=3:mapping_bad.append(spec['id']+':cap')\n            for record in records[cursor:cursor+n]:\n                if record['local_sampling_seed']!=turn['step']['sampling_seed']:mapping_bad.append(spec['id']+':local_seed')\n            cursor+=n\n        count=sum(t['generation_calls'] for t in c['turn_outcomes'])\n        if c['actual_generation_calls']!=count or c['metrics']['actual_generation_count']!=count:mapping_bad.append(spec['id']+':count')\n        observed=care(c['final'])\n        if c['metrics']['care_final']['complete']!=observed:mapping_bad.append(spec['id']+':care')\n        physical=[cb for cb in c['callback_attempts'] if cb.get('tool') in ('transfer_resources','schedule_patient')]\n        rows.append({'seed':spec['seed'],'passed':c['passed'],'generation_calls':count,'care_final':observed,'resource_failures':sum(c['final']['resource_failures'].values()),'new_credit':c['final']['transfer_rewards']-c['initial']['transfer_rewards'],'physical_attempts':len(physical),'designated_sequence':c['designated_physical_sequence'],'native_errors':len(c['native_episode_errors']),'measurement_errors':len(c['metrics']['measurement_errors'])})\n        if spec['seed']==2:seed2_actions=[{'actor':cb['actor'],'turn_index':cb['turn_index'],'tool':cb['tool'],'patient_id':cb['arguments'].get('patient_id')} for cb in physical]\n    ck('all21_calls_map_to_frozen_inputs',cursor==21 and not mapping_bad)\n    ck('all6positive_cases_retained_with_seed2failure',[r['seed'] for r in rows]==list(range(6)) and [r['passed'] for r in rows]==[True,True,False,True,True,True] and rows[2]['care_final']==1 and rows[2]['resource_failures']==1 and rows[2]['physical_attempts']==4 and rows[2]['designated_sequence'] is False)\n    ck('ordinary_correctly_gated_off',result['positive_controls_passed'] is False and result['qualification_passed'] is False and result['groups']['ordinary']['completed_cases']==0 and result['unstarted_cases']==[s['id'] for s in plan['cases'][6:]] and all(not (run/(s['id']+'.json')).exists() for s in plan['cases'][6:]))\n    ck('terminal_summary_matches_ledger',result['ledger']=={k:v for k,v in ledger.items() if k!='records'} and result['completed_cases']==6 and result['exclusions']==0 and result['main_study_started'] is False and not (run/'stopped.json').exists())\n    hist_guard=Decimal(plan['prior_accounting']['conservative_guard_usd']);combined=hist_guard+max(estimate,Decimal(ledger['reported_cost_sum_usd']))+Decimal(ledger['held_usd'])\n    ck('reference_guard_within_authorized_ceiling',estimate<=10 and combined<=50)\n    historical_ids={r.get('response_id') for h in plan['prior_accounting']['ledgers'] for r in rd(Path(h['path']))['records'] if r.get('response_id')}\n    ck('no_historical_ID_reuse',not(set(ids)&historical_ids))\n    sensitive=[]\n    def walk(v,path):\n        if isinstance(v,dict):\n            for k,x in v.items():\n                if 'user_id' in k.lower() or 'userid' in k.lower():sensitive.append(path+'.'+k)\n                walk(x,path+'.'+k)\n        elif isinstance(v,list):\n            for i,x in enumerate(v):walk(x,path+f'[{i}]')\n    for r in records:walk(r['response'],f\"$.records[{r['call_id']-1}].response\")\n    text=(run/'accounting/ledger.json').read_text()\n    def stats(values):return {'values':values,'n':len(values),'mean':statistics.mean(values),'sample_sd':statistics.stdev(values),'sample_variance':statistics.variance(values)}\n    raw=['accounting/ledger.json','results.json','preflight.json']+[s['id']+'.json' for s in plan['cases'][:6]]\n    return {'reviewed_at_utc':datetime.now(timezone.utc).isoformat(),'kind':'bounded independent terminal Modal qualification audit','checks':checks,'passed':sum(checks.values()),'total':len(checks),'all_accounting_checks_passed':all(checks.values()),'terminal_evidence':{'results_json_present':True,'CLI_exit_code_reported_by_parent':2,'launch_record_present':(run/'launch.json').exists()},'plan_sha256':sha(bundle/'plan.json'),'model':plan['model'],'endpoint':plan['endpoint'],'counters':{'planned_cases':12,'completed_positive_cases':6,'positive_passes':5,'positive_failures':1,'ordinary_started':0,'ordinary_unstarted':6,'requests':21,'settled':21,'transport_failures':0,'unique_generation_ids':21,'diagnostics':21},'cost':{'accounting_basis':ledger['accounting_basis'],'reference_token_estimate_usd':str(estimate),'held_reference_usd':ledger['held_usd'],'reported_actual_cost_observations':0,'reported_actual_cost_missing':21,'reported_actual_cost_sum_field':'0 (sum over zero observations, not actual spend)','reported_actual_cost_total_usd':None,'actual_Modal_billing_verified':False,'prior_reference_and_reported_plus_hold_guard_usd':str(hist_guard),'combined_reference_policy_guard_usd':str(combined),'authorized_reference_per_run_usd':'10','authorized_total_ceiling_usd':'50'},'per_seed_positive':rows,'positive_care_stats':stats([r['care_final'] for r in rows]),'positive_pass_stats':stats([int(r['passed']) for r in rows]),'failed_seed2_physical_attempts':seed2_actions,'mapping_mismatches':mapping_bad,'privacy':{'account_user_identifier_paths':sensitive,'OpenRouter_key_literal_pattern':bool(re.search(r'sk-or-v1-[A-Za-z0-9_-]+',text)),'request_headers_stored':any('headers' in r or 'headers' in r['payload'] for r in records),'authentication_header_names_only':pre['authentication_header_names'],'redaction_needed_for_detected_account_identifier':bool(sensitive),'scope':'Limited response-key/pattern review; no credential file or environment lookup. No claim to detect every possible secret.'},'provenance':{'Modal3sources':new_sources,'original7source_mismatches':frozen_source_bad,'native42_mismatches':native_bad,'expected_original_manifest':str(orig/'plan.json'),'expected_original_manifest_sha256':sha(orig/'plan.json'),'baseline849_manifest':str(baseline),'baseline849_manifest_sha256':sha(baseline),'baseline849_mismatches':priorbad,'preservation_scope':'Frozen original files, the849baseline paths and prior-accounting ledger hashes verified. Later derived historical artifacts outside those manifests were not all separately rehashed.'},'raw_evidence_hashes':{p:sha(run/p) for p in raw},'diagnostic_manifest_sha256':hashlib.sha256(canon({p.name:sha(p) for p in sorted((run/'transport_diagnostics').glob('call-*.json'))}).encode()).hexdigest(),'scope_limits':['The new Modal model is a separate cohort; historical OpenRouter controls do not qualify it.','Five of six instructed controls passed. Seed2 extra physical action/resource failure is retained as behavioral evidence, not a verified implementation defect or a retry/tuning justification.','All six ordinary cases were gated off; ordinary behavior and recovery effects remain unmeasured.','Local fixture/order seeds were retained, API seed omitted as declared; no remote determinism claim.','The byte/payload guard is not a provider-tokenizer proof; reported input/output counts satisfy the declared bounds.','Reference rates/estimates are not verified account charges; all21actual monetary costs are absent, not zero.','Only this derived artifact is written; no inference/provider call, code/input/raw-data change, retry or commit.']}\n",
+    "source_sha256": "3222db396a9861a682e4186e959707ffee24044768c2adf294750cbfd972b84b"
+  },
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "passed": 22,
+  "per_seed_positive": [
+    {
+      "care_final": 2,
+      "designated_sequence": true,
+      "generation_calls": 3,
+      "measurement_errors": 0,
+      "native_errors": 0,
+      "new_credit": 15.0,
+      "passed": true,
+      "physical_attempts": 3,
+      "resource_failures": 0,
+      "seed": 0
+    },
+    {
+      "care_final": 2,
+      "designated_sequence": true,
+      "generation_calls": 4,
+      "measurement_errors": 0,
+      "native_errors": 0,
+      "new_credit": 15.0,
+      "passed": true,
+      "physical_attempts": 3,
+      "resource_failures": 0,
+      "seed": 1
+    },
+    {
+      "care_final": 1,
+      "designated_sequence": false,
+      "generation_calls": 4,
+      "measurement_errors": 0,
+      "native_errors": 0,
+      "new_credit": 15.0,
+      "passed": false,
+      "physical_attempts": 4,
+      "resource_failures": 1,
+      "seed": 2
+    },
+    {
+      "care_final": 2,
+      "designated_sequence": true,
+      "generation_calls": 3,
+      "measurement_errors": 0,
+      "native_errors": 0,
+      "new_credit": 15.0,
+      "passed": true,
+      "physical_attempts": 3,
+      "resource_failures": 0,
+      "seed": 3
+    },
+    {
+      "care_final": 2,
+      "designated_sequence": true,
+      "generation_calls": 4,
+      "measurement_errors": 0,
+      "native_errors": 0,
+      "new_credit": 15.0,
+      "passed": true,
+      "physical_attempts": 3,
+      "resource_failures": 0,
+      "seed": 4
+    },
+    {
+      "care_final": 2,
+      "designated_sequence": true,
+      "generation_calls": 3,
+      "measurement_errors": 0,
+      "native_errors": 0,
+      "new_credit": 15.0,
+      "passed": true,
+      "physical_attempts": 3,
+      "resource_failures": 0,
+      "seed": 5
+    }
+  ],
+  "plan_sha256": "45d4424ae1f01860ec3c49e52c6586020dfe8ea14f7130f8035bcee74ded1942",
+  "positive_care_stats": {
+    "mean": 1.8333333333333333,
+    "n": 6,
+    "sample_sd": 0.408248290463863,
+    "sample_variance": 0.16666666666666666,
+    "values": [
+      2,
+      2,
+      1,
+      2,
+      2,
+      2
+    ]
+  },
+  "positive_pass_stats": {
+    "mean": 0.8333333333333334,
+    "n": 6,
+    "sample_sd": 0.408248290463863,
+    "sample_variance": 0.16666666666666666,
+    "values": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "privacy": {
+    "OpenRouter_key_literal_pattern": false,
+    "account_user_identifier_paths": [],
+    "authentication_header_names_only": [
+      "Modal-Key",
+      "Modal-Secret"
+    ],
+    "redaction_needed_for_detected_account_identifier": false,
+    "request_headers_stored": false,
+    "scope": "Limited response-key/pattern review; no credential file or environment lookup. No claim to detect every possible secret."
+  },
+  "provenance": {
+    "Modal3sources": [
+      {
+        "copied_sha256": "29457f5540467c4e615e7ea65e25cdb54f5db3d84f9a3599e94f61ef644f7984",
+        "current_sha256": "29457f5540467c4e615e7ea65e25cdb54f5db3d84f9a3599e94f61ef644f7984",
+        "expected_sha256": "29457f5540467c4e615e7ea65e25cdb54f5db3d84f9a3599e94f61ef644f7984",
+        "file": "modal_hospital_client.py"
+      },
+      {
+        "copied_sha256": "3b3d5a48df3491753abf2bb235a6d66d78bbe359500ef121bb8795ac46610559",
+        "current_sha256": "3b3d5a48df3491753abf2bb235a6d66d78bbe359500ef121bb8795ac46610559",
+        "expected_sha256": "3b3d5a48df3491753abf2bb235a6d66d78bbe359500ef121bb8795ac46610559",
+        "file": "modal_hospital_runtime.py"
+      },
+      {
+        "copied_sha256": "b2c24050b00d7d13d4f33882eb9ecfa9276a1bebed582c1ec80749ed564cc6eb",
+        "current_sha256": "b2c24050b00d7d13d4f33882eb9ecfa9276a1bebed582c1ec80749ed564cc6eb",
+        "expected_sha256": "b2c24050b00d7d13d4f33882eb9ecfa9276a1bebed582c1ec80749ed564cc6eb",
+        "file": "modal_request_worker.py"
+      }
+    ],
+    "baseline849_manifest": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/prior_evidence_hashes.json",
+    "baseline849_manifest_sha256": "c544ee0e9d7c64d7952c865c11c400653455abbd5b850f316ac60b4c306148dc",
+    "baseline849_mismatches": [],
+    "expected_original_manifest": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/plan.json",
+    "expected_original_manifest_sha256": "be162c50dc609c90f1e87fcfdda3ac6d3c0bc3bc2ad9526a6dc307197ff4b6c9",
+    "native42_mismatches": [],
+    "original7source_mismatches": [],
+    "preservation_scope": "Frozen original files, the849baseline paths and prior-accounting ledger hashes verified. Later derived historical artifacts outside those manifests were not all separately rehashed."
+  },
+  "raw_evidence_hashes": {
+    "accounting/ledger.json": "2afa8aaa5828c911f32e78051aac76216a71c540d70a7525272a801c0a9d88cc",
+    "engagement-positive-s0.json": "d360c04c0eb5bf510b3a00e63efc555fc34e9d55d67377e779f9571c033cc535",
+    "engagement-positive-s1.json": "ec38933c34a46644e9c79a9266884a6cc2c48f4716923023b4ede53682f3faa7",
+    "engagement-positive-s2.json": "039637ec3829790ed04ec51cfd52d621c7b151d396b43670e876d3dea873b203",
+    "engagement-positive-s3.json": "51701152a59f64fd22fef1cf6a03583597262e50f466f08991be255085904b84",
+    "engagement-positive-s4.json": "093e82bcd101f3c21d6546679fe811e209a83191c9a8a901fd9cacb4ad2b357d",
+    "engagement-positive-s5.json": "d64eb1be69d03f848887992d04d22e61bbdc31c6c643c11b4b732bc0d93048d0",
+    "preflight.json": "6be914dc79978bdd3ffa6d428b8e17770529c9c530e01abe45501186d2fa0b9c",
+    "results.json": "1f1d38b4b9f0225772169c8903bda0be1297a3356efa0e3ce34288e996f50cda"
+  },
+  "reviewed_at_utc": "2026-10-25T04:23:23.804138+00:00",
+  "scope_limits": [
+    "The new Modal model is a separate cohort; historical OpenRouter controls do not qualify it.",
+    "Five of six instructed controls passed. Seed2 extra physical action/resource failure is retained as behavioral evidence, not a verified implementation defect or a retry/tuning justification.",
+    "All six ordinary cases were gated off; ordinary behavior and recovery effects remain unmeasured.",
+    "Local fixture/order seeds were retained, API seed omitted as declared; no remote determinism claim.",
+    "The byte/payload guard is not a provider-tokenizer proof; reported input/output counts satisfy the declared bounds.",
+    "Reference rates/estimates are not verified account charges; all21actual monetary costs are absent, not zero.",
+    "Only this derived artifact is written; no inference/provider call, code/input/raw-data change, retry or commit."
+  ],
+  "terminal_evidence": {
+    "CLI_exit_code_reported_by_parent": 2,
+    "launch_record_present": false,
+    "results_json_present": true
+  },
+  "total": 22
+}
