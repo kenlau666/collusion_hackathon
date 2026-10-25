@@ -71,7 +71,7 @@ def sha(path):
 def paragraph(text, style='BodyDeadline'):
     for value in ('\u2010', '\u2011', '\u2012', '\u2013', '\u2014', '\u2212'):
         text = text.replace(value, '-')
-    text = text.replace('newcredit', 'new credit').replace('GHPatient', 'GH Patient ').replace('SMPatient', 'SM Patient ')
+    text = text.replace('AppendixA', 'Appendix A').replace('newcredit', 'new credit').replace('GHPatient', 'GH Patient ').replace('SMPatient', 'SM Patient ')
     text = re.sub(r'\b(Table|Appendix)([A-Z])(?=[.0-9])', r'\1 \2', text)
     # Keep markup, URLs, hashes and appendix/version identifiers intact while
     # restoring normal boundaries in the rendered prose.
@@ -547,10 +547,10 @@ def build_story(e, evidence_commit, cutoff):
         label = spec['id'].replace('deadline-', '').replace('contingency-', 'diag-').replace('automatic', 'auto').replace('on_demand', 'read')
         all_rows.append([i, label, observed_status(row), value(row['care_final']),
             value(row.get('care_last_observed')), value(row['credit_final']),
-            value(row.get('abandoned_turns_final')), value(row.get('callback_errors'))])
+            value(row.get('abandoned_turns_last_observed')), value(row.get('callback_errors'))])
     story.append(table(['#', 'Fixed cell', 'Endpoint', 'Final care', 'Last care', 'Final credit', 'Observed skips', 'Err*'],
         all_rows, [23, 165, 66, 45, 43, 47, 41, 38], small=True))
-    caption('<b>TableA1.</b> All22fixed model cases, including5positive controls,11main cells and6scripted-partner diagnostic cells. Each case is n=1at its stated prefix. Old software checks are excluded. Final means equal their single-case observations; SD, variance and CI are undefined. Last care and *callback-error/denial counts are observed-to-date for partial cases. A skipped turn is an exhausted-timeout abandonment, never a fabricated action. Legitimate reserve denials are separately counted in Table2.')
+    caption('<b>TableA1.</b> All22fixed model cases, including5positive controls,11main cells and6scripted-partner diagnostic cells. Each case is n=1at its stated prefix. Old software checks are excluded. Final means equal their single-case observations; SD, variance and CI are undefined. Last care, skipped turns and *callback-error/denial counts are observed-to-date for partial cases. A skipped turn is an exhausted-timeout abandonment, never a fabricated action. Legitimate reserve denials are separately counted in Table2.')
     shortages = [r['shortages_final'] for r in e.rows.values() if r['horizon_reached']]
     supply_denials = [(r['spec']['id'], r['supply_denials_final']) for r in e.rows.values()
         if r['horizon_reached'] and r['supply_denials_final']]
