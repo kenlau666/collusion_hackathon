@@ -1,27 +1,23 @@
-# Production review
+# Production review — complete capacity successor
 
 ## Creative decisions
 
-Selected the hospital handoff narrative, with the memo as the persistent object and the kit as a proposed action. The evidence-detective desk and first-person kit alternatives remain in STORYLINES.md. Clinical green and cobalt, hospital architecture, purposeful resource travel and measured charts replace a slide-by-slide abstract. The report's inconclusive recovery result is the ending.
+The hospital handoff story follows a public memo after its attributed author loses access. A cobalt IV kit illustrates only the proposed credit loop. Clinical green/white hospital façades, patient beds, a surviving memo and measured care/inventory bars carry the explanation. The evidence-detective and first-person-kit alternatives in STORYLINES.md were not built. All22successor outcomes are real saved model evidence; the animation supplies no experimental outcome. The old censored cohort remains separate.
 
-## Verified before render
+## Pre-render review
 
-- HyperFrames0.8.198: lint/runtime/layout/contrast all pass,29seek samples; no errors or layout/contrast warnings. Local fonts and GSAP are frozen in assets with license notices.
-- All14scene midpoints, both beat sheets, both360px phone sheets and26seam strips reviewed. An independent reviewer found the patient-icon stack and overlapping titles; both are fixed. All eight beds now occupy one horizontal row, and outgoing headings fade before incoming headings appear. Overlapping body reveals during a half-second wipe are intentional.
-- Late-state proof frames verify controls, all diagnostic values7/8,8/8,7/7, missing final endpoints versus last-observed8/8, returned memo reads9, post-care180credits, no-op self-transfers and the closing caveat. The proposed IV loop remains labeled proposed/not observed.
-- Root duration177.6seconds,5328frames at30fps. Local Whisper small.en transcribed the complete voice track through176.92seconds. The69cue SRT preserves the exact458word script, correcting ASR punctuation/number spellings and two substitutions. These are audio alignment operations, not experimental inference.
-- Final report SHA2562311ff993432a60aaef6d47071843227f28e6d497f41eb0be7842fc55e39c551 and closed lineage SHA256a93f60d13f8e4d96de6ae1c835f67fd003b1c807eed937e02a898e16b4a2a687 remain unchanged. No new Hospital requests.
+HyperFrames reports actual installed CLI0.8.199 (its remote latest-version field still says0.8.198); reproducible commands now pin the observed local version. Lint, runtime, layout and contrast pass with zero errors/warnings and no skipped browser. Two beat sheets, two360px phone sheets and all26seam strips were inspected by the producer and an independent fresh-eyes reviewer. Outgoing titles fade before incoming ones. The reviewer found oneP0:15touched the read label at115.417seconds. The label moved70px right with a530px wrapping box; the replacement full-frame snapshot shows a clear gap. No P0/P1 remains in the inspected stills.
 
-## Warnings retained on purpose
+The new stock chart clearly shows Original27/Zero bonus27/Care reserve0post-care units, scores5812/5812/6082and care8/8. Its note explicitly retains0guarddenials/post-hoc/n1. The diagnostic chart maps useful/exploit8/7,8/8,7/8for early/serve-only/late, separately from the main study. Explicit memo reads15and baseline180post-care credits are distinguished from collusion.
 
-Six dead-stretch warnings cover3.26–5.04second explanatory holds while narration explains a finished diagram or result. Landed type remains still. The weakest shot is the candidate-policy frame: more physical stock movement could teach reserve enforcement, but no actual reserve denial was observed, so the film avoids inventing one. A more compact next version could split policy and delivery into separate shots.
+The exact455word script uses free local Kokoro af_heart at1.08with pitch-preserving atempo1.14. Narration timing gives178.8seconds/5364frames. Local Whisper small.en transcribes the complete voice track through178.24seconds. The68cue SRT preserves the exact script; alignment records number spelling and variance/variants correction, not invented audio. All synthesis is free/local; video authoring performs no Hospital inference.
 
-One line_unread warning for THE MAIN COMPARISON reports0.78seconds. Pixel proof at29.5seconds shows the header still present more than5seconds after entry; it remains readable across the scene and is hidden only for the seam. This warning is inconsistent with the inspected pixels; it is not waived by hiding a defect.
+## Warnings retained deliberately
 
-Keyframes' static parser cannot resolve the registry-adapted onUpdate path coordinates. A focused shot and actual temporal frames are used instead; final encoded travel must be inspected before delivery. No claim of a parsed MotionPath assertion is made.
+Eleven craft warnings: ten3.28–5.97second post-landing diagram/chart holds allow the narration and first-time viewer to read the evidence; landed type stays still. One line_unread reports THE MAIN COMPARISON visible0.76seconds. The29.383second midpoint proves that header remains visible roughly6seconds after entry; it disappears only at the seam. This warning is inconsistent with the inspected pixels. No defect is waived by declaring these warnings.
 
-## Audio and final file
+The weakest shot is still the candidate-policy diagram. A physical blocking animation might explain reserve enforcement, but no guard denial was observed, so it would misrepresent the study. The stock chart instead presents the measured trajectory without manufacturing an enforced recovery.
 
-Narration is free local synthetic Kokoro speech, with a quiet licensed instrumental and restrained whooshes. The actual MP4 measures177.6seconds,1920×1080,30fps,H.264/AAC,9,965,933bytes; integrated loudness−14.40LUFS, true peak−1.52dBTP. All20decoded proof frames, including14late states, the opening/final frame and four distinct kit positions, were inspected by the producer and the independent reviewer with no remaining P0/P1 observed. This verifies rendered kit movement despite the static parser's unresolved callback coordinates. The69cue SRT matches the exact script and stays within the audio/video window. All55report evidence hashes were rechecked and match.
+## Export verification
 
-The producer cannot hear the audio in this tool workflow; subjective voice/music quality is not claimed as listened to. Continuous playback was not assessed. The complete narration was transcribed locally, and final audio presence/levels/duration were measured. Exact media hashes and limits are recorded in qa/final_qa.json. No paid media calls or new Hospital inference occurred. The Studio preview answersHTTP200 and remains available for editing. Framey can continue editing in the HyperFrames desktop app: https://hyperframes.dev/studio/download .
+Final encode, decoded-frame QA and measured encoded audio are pending. The producer cannot hear audio through this workflow; subjective listening and continuous playback are not claimed. The report has passed ten-page visual QA and its complete manifest will be rechecked after export. No external publication is authorized or claimed.

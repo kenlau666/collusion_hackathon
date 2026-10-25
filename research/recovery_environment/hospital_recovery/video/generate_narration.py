@@ -15,20 +15,32 @@ cursor = 0
 for line in lines:
     name, text = line["id"], line["text"]
     src = RAW / f"{name}.txt"
-    if "--reuse-raw" in sys.argv:
+    raw = RAW / f"{name}.wav"
+    metadata_path = RAW / f"{name}.json"
+    cached = json.loads(metadata_path.read_text()) if metadata_path.exists() else {}
+    reuse_unchanged = ("--reuse-unchanged" in sys.argv and src.exists() and src.read_text() == text
+                       and raw.exists() and cached.get("_source_text_sha256") == hashlib.sha256(text.encode()).hexdigest()
+                       and cached.get("_raw_wav_sha256") == hashlib.sha256(raw.read_bytes()).hexdigest())
+    if "--reuse-raw" in sys.argv or reuse_unchanged:
         assert src.exists() and src.read_text() == text, f"Raw text changed: {name}"
         meta = json.loads((RAW / f"{name}.json").read_text())
         assert meta["speed"] == 1.08 and meta["voice"] == "af_heart"
-    else:
-        src.write_text(text)
-    raw = RAW / f"{name}.wav"
     print(f"Preparing {name} locally", flush=True)
-    if "--reuse-raw" not in sys.argv:
+    if "--reuse-raw" not in sys.argv and not reuse_unchanged:
+        request_text = RAW / f"{name}.request.txt"
+        request_text.write_text(text)
+        pending_audio = RAW / f"{name}.pending.wav"
         result = subprocess.run([
-        "npx", "--yes", "hyperframes", "tts", "--text-file", str(src),
-        "--voice", "af_heart", "--speed", "1.08", "--output", str(raw), "--json",
+        "npx", "--yes", "hyperframes", "tts", "--text-file", str(request_text),
+        "--voice", "af_heart", "--speed", "1.08", "--output", str(pending_audio), "--json",
         ], check=True, text=True, capture_output=True)
-        (RAW / f"{name}.json").write_text(result.stdout)
+        metadata = json.loads(result.stdout)
+        assert metadata["voice"] == "af_heart" and metadata["speed"] == 1.08
+        pending_audio.replace(raw)
+        metadata.update(outputPath=str(raw), _source_text_sha256=hashlib.sha256(text.encode()).hexdigest(),
+                        _raw_wav_sha256=hashlib.sha256(raw.read_bytes()).hexdigest())
+        metadata_path.write_text(json.dumps(metadata, indent=2) + "\n")
+        src.write_text(text)
     dest = OUT / f"{name}.wav"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(raw), "-af",
                     "atempo=1.14,loudnorm=I=-16:TP=-1:LRA=11", "-ar", "48000", "-ac", "1",
@@ -47,7 +59,7 @@ for line in lines:
     records.append(record)
     cursor += frames
     print(f"{name}: {duration:.2f}s voice; {frames/30:.2f}s scene", flush=True)
-payload = {"provider": "local Kokoro-82M via HyperFrames 0.8.198",
+payload = {"provider": "local Kokoro-82M via HyperFrames 0.8.199",
            "paid_api_calls": 0, "api_cost_usd": 0,
            "fps": 30, "duration": cursor / 30, "frames": cursor, "scenes": records}
 (ROOT / "audio_timing.json").write_text(json.dumps(payload, indent=2) + "\n")

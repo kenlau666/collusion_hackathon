@@ -1,15 +1,16 @@
 {
   "kind": "derived video; not experimental evidence",
-  "source_cutoff": "b7d4f46f90ca866c451e2ce111ed9be9d4e64512",
-  "source_lineage_sha256": "a93f60d13f8e4d96de6ae1c835f67fd003b1c807eed937e02a898e16b4a2a687",
-  "report_path": "output/pdf/hospital_deadline_recovery_report.pdf",
-  "report_sha256": "2311ff993432a60aaef6d47071843227f28e6d497f41eb0be7842fc55e39c551",
-  "cli_version": "0.8.198",
-  "duration": 177.6,
+  "source_cutoff": "201413a4570462129bfedffce3d542641b77939a",
+  "source_lineage_sha256": "c0aec9a609040182aeaa11e7dce2e2f63ece90923138189c195823562d029728",
+  "report_path": "output/pdf/hospital_capacity_recovery_report.pdf",
+  "report_sha256": "76b12bcb5907388f9d95500498a70d5d2c8d58efd9928a854886f22fd23cb31c",
+  "cli_version": "0.8.199",
+  "duration": 178.8,
   "fps": 30,
-  "frames": 5328,
+  "frames": 5364,
   "paid_media_api_calls": 0,
-  "new_experiment_calls": 0,
+  "video_authoring_hospital_calls": 0,
+  "experiment_attempts_in_source": 813,
   "narration": "local Kokoro-82M af_heart, generation1.08; pitch-preserving atempo1.14",
   "music_source": "https://www.scottbuckley.com.au/library/signal-to-noise/",
   "music_license": "CC BY 4.0; attribution in CREDITS.md and final frame; include in publication description",
@@ -19,21 +20,38 @@
     "controls_passed": 5,
     "diagnostic_cells": 6,
     "complete_nonexploit_main": 6,
-    "missing_exploit_endpoints": 5,
-    "exploit_retrieved_reads": 9,
+    "complete_exploit_endpoints": 5,
+    "missing_exploit_endpoints": 0,
+    "exploit_retrieved_reads": 15,
+    "main_precompletion_roundtrips": 0,
     "useful_diagnostic": [
-      7,
+      8,
       8,
       7
     ],
     "exploit_diagnostic": [
+      7,
       8,
-      8,
-      7
+      8
     ],
+    "diagnostic_pain_donated": 0,
+    "diagnostic_partner_return_events": 0,
+    "excluded_exploit_postcare_credit": 0.0,
+    "baseline_postcare_credit": 180.0,
+    "repair_postcare_supply_units": [
+      27,
+      27,
+      0
+    ],
+    "repair_scores": [
+      5812.0,
+      5812.0,
+      6082.0
+    ],
+    "qualitative_source_sha256": "5003739d975a139d32023dbabf8b3464ad3279c098fc0452e08c29d7c3cab735",
     "n_per_cell": 1,
     "sample_variance": null,
-    "source_sha256": "a93f60d13f8e4d96de6ae1c835f67fd003b1c807eed937e02a898e16b4a2a687"
+    "source_sha256": "c0aec9a609040182aeaa11e7dce2e2f63ece90923138189c195823562d029728"
   },
   "files": {
     "assets/audio/care.wav": {
@@ -41,36 +59,36 @@
       "bytes": 1087982
     },
     "assets/audio/close.wav": {
-      "sha256": "80e5005dccd66b748668b810e0be9d19d425f6f09a01a08f6e3361479d750332",
-      "bytes": 1350962
+      "sha256": "f46a9a954bc4ca27bedbdb29dabc4ba03380ef45851c18228271dc8ffb8e3089",
+      "bytes": 1217166
     },
     "assets/audio/controls.wav": {
       "sha256": "e50b981c3b9bb1bb94330930c9ea834dd654760d8648991411658feb3a20f99c",
       "bytes": 1049614
     },
     "assets/audio/diagnostic.wav": {
-      "sha256": "39f2d8add2b7a15824387340f22867bcd303f96bc22bd45737cb5ed78c6f2b34",
-      "bytes": 1264114
+      "sha256": "f3851524692802b895473d6ac4418f40f4fee2c693cd324c5080d60a6e09488f",
+      "bytes": 1222222
     },
     "assets/audio/grounding.wav": {
-      "sha256": "16e05e07baf15e36a86823b4d0aa92b296c25f2cc3e1103cda645553a14a8053",
-      "bytes": 1266190
+      "sha256": "fe4add23ea54b2a8bf20ea629b5160f47671574157a027850b7860b16b2af02d",
+      "bytes": 1312138
     },
     "assets/audio/handoff.wav": {
       "sha256": "505da3a4812e9ca3824c2ba8599aa205081ae43e1adfcd75e9647ab1f1c1c4b4",
       "bytes": 974126
     },
     "assets/audio/limits.wav": {
-      "sha256": "67234ded673e8c0593f21cfe44c36575a7de09abba700eb7fd5f48ddeb074864",
-      "bytes": 1068318
+      "sha256": "a8956f936a3f9c5dc7d17d364f2d5d42ab9241605df1ea368e9ea86c0ada0ff5",
+      "bytes": 1341482
     },
     "assets/audio/missing.wav": {
-      "sha256": "5cbeb490831ce215e1d75169a55727a56ace55a5d2bf7c48aeccb4300c076cd3",
-      "bytes": 1152082
+      "sha256": "24824fb1fc0dd2e85a7951347776fb75492be2cfb8c40158fb7c0a8dc25505f0",
+      "bytes": 1077934
     },
     "assets/audio/ordinary.wav": {
-      "sha256": "3aed4471d98e77ac9f0edce0eeefa0fa1e1ef9ec431e7bb670b52b6f81bfd4cd",
-      "bytes": 1014646
+      "sha256": "0febcbc47241ad7df9148b12daeb9edd8f02eaa50db4817ae96edab99b196365",
+      "bytes": 1082866
     },
     "assets/audio/persist.wav": {
       "sha256": "fed75ddf8c11b2246870d8d2f62250b6eebc11929683ba7e4d0aadf2b462f041",
@@ -85,8 +103,8 @@
       "bytes": 1170722
     },
     "assets/audio/retrieval.wav": {
-      "sha256": "e69b668b40767fbcab182db3e42ca16bed537232c67f031b0f72d189e8416348",
-      "bytes": 1190198
+      "sha256": "76520a4bad2a8b1478006870d64372df6c0301d35247d17477e0b5efc8bfb290",
+      "bytes": 1169782
     },
     "assets/audio/temptation.wav": {
       "sha256": "64d71319f5b2b400ff2fec0c8ba43f1d73e4e4473c1ef97dba84687e5a062421",
@@ -131,37 +149,6 @@
     "assets/style.css": {
       "sha256": "691bf22d5b2dac5f6c0e2dfe47501c7cece16d87837ed64ebd00b5280e4cc77d",
       "bytes": 5251
-    }
-  },
-  "video_path": "output/video/hospital_research_explainer.mp4",
-  "video_sha256": "76adaa9750af0dfc45e57d26c4cf84b8860f2410649f56739a00151f4b3c21c8",
-  "video_bytes": 9965933,
-  "video_source_commit": "e4010679",
-  "report_evidence_files_rechecked": 55,
-  "skill_sources": {
-    "/Users/kenlau/.agents/skills/hyperframes/SKILL.md": {
-      "sha256_at_final_production": "180ce4eea5f33f1617105c92e2690a5a2320abf624c263186ec0cb1a78a919ef"
-    },
-    "/Users/kenlau/.agents/skills/hyperframes-cli/SKILL.md": {
-      "sha256_at_final_production": "44a48ccfa4cbd4f4234f8306c96268a4be56a0f2376abedbf31d2167b3c21286"
-    },
-    "/Users/kenlau/.agents/skills/hyperframes-registry/SKILL.md": {
-      "sha256_at_final_production": "1c7b27632c9ea9febaafc2d9af073b377029f46be4bee70d75b5e713eb698423"
-    },
-    "/Users/kenlau/.agents/skills/media-use/SKILL.md": {
-      "sha256_at_final_production": "ef3976a02ff516d8e5ed0b7fff19d4bbf9358264233bace33fdacaa3aa7f37de"
-    },
-    "/Users/kenlau/.agents/skills/hyperframes-core/SKILL.md": {
-      "sha256_at_final_production": "18ac7784765cc29af5a4d88f2a63a15deaf5395985009af188b5e3718edcfe3d"
-    },
-    "/Users/kenlau/.agents/skills/hyperframes-animation/SKILL.md": {
-      "sha256_at_final_production": "b35f1f8eff68e9ff480a5d5d343a1bf5a40ebb7d0d9be20b0b980cfdb36047f3"
-    },
-    "/Users/kenlau/.agents/skills/hyperframes-creative/SKILL.md": {
-      "sha256_at_final_production": "9da7b7ac84c8d884b54125887ecca1a645a38337013082b96af2fdc0259c945a"
-    },
-    "/Users/kenlau/.agents/skills/hyperframes-keyframes/SKILL.md": {
-      "sha256_at_final_production": "d6484e8367ed522f2a89af9ec30ae3cd86ae243b5a23c5ab00a7a682e3d1a791"
     }
   }
 }

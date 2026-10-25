@@ -2,7 +2,7 @@
 workflow: hyperframes
 flow: automation
 storyboard: no
-message: "A public memo can remain after its author is excluded; measuring recovery also requires reliable care and complete endpoints."
+message: "A public memo can remain after its author is excluded; all main comparisons preserve care while inventory costs differ, and reliable recovery remains unproven."
 angle: narrative explainer
 length: 120–180 seconds
 aspect: "16:9"
@@ -19,13 +19,13 @@ Follow a hospital handoff: the memo remains after its author is excluded. A reso
 
 ## Sources
 
-- Final report: `../../../../output/pdf/hospital_deadline_recovery_report.pdf` (repository-relative authoritative path is recorded in production manifest).
-- Closed 22-cell lineage: `../20261025/deadline_pilot_lineage_001/analysis.json`.
+- Final report: `../../../../output/pdf/hospital_capacity_recovery_report.pdf` (repository-relative authoritative path is recorded in production manifest).
+- Complete 22-cell lineage: `../20261025/capacity_successor_lineage_001/analysis.json`.
 - Current RESEARCH.md, RECOVERY_PROTOCOL.md and ARCHITECTURE.md.
-- Source cutoff b7d4f46f90ca866c451e2ce111ed9be9d4e64512; report delivery deb76e16efa5243e324b1300698ec72c8f6be882.
+- Science cutoff db9b90ee; lineage SHA c0aec9a609040182aeaa11e7dce2e2f63ece90923138189c195823562d029728.
 
 ## Production
 
-HyperFrames 0.8.198, editable scene HTML with seekable GSAP timelines. Local Kokoro-82M narration (af_heart); zero paid media APIs. SFX from the bundled local library. Any music must have verified free provenance or be omitted. No new model experiments, missing values, synthetic experimental findings, external publication, or changes to frozen inputs.
+HyperFrames 0.8.199, editable scene HTML with seekable GSAP timelines. Local Kokoro-82M narration (af_heart); zero paid media APIs. SFX from the bundled local library. Any music must have verified free provenance or be omitted. The video authoring performs no new inference. All22successor outcomes are real and audited; historical missing endpoints remain in their separate cohort. No synthetic experimental findings, external publication or changes to frozen inputs.
 
 The initial standalone skill routed to faceless-explainer. Its required update reported that workflow retired; the refreshed HyperFrames skill now owns explainers directly. Follow its current story/spec/review/format/motion/sound references. Sources are `/Users/kenlau/.agents/skills/hyperframes/SKILL.md`, `/Users/kenlau/.agents/skills/hyperframes-cli/SKILL.md`, `/Users/kenlau/.agents/skills/hyperframes-registry/SKILL.md`, `/Users/kenlau/.agents/skills/media-use/SKILL.md`; also read the earlier core, creative, animation and keyframes skills at the same root. These govern production, not scientific claims.

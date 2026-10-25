@@ -8,6 +8,6 @@ Sound effects: `whoosh.mp3` and `whoosh-short.mp3`, bundled with the HyperFrames
 
 Graphics: original schematic illustrations authored for this report companion; they are not screenshots, patient records, or new experimental evidence. Registry source recipes from https://github.com/heygen-com/hyperframes: offset-path-traveler, animated-bar-chart, count-up, directional-wipe. Their downloaded source remains in `compositions/components/`; adapted scene HTML is editable.
 
-Research evidence: the closed lineage and final report named in production_manifest.json. Proposed actions are explicitly marked as illustrative, and missing final endpoints are not filled in.
+Research evidence: the complete capacity-successor lineage, hash-linked post-hoc review and final report named in production_manifest.json. The historical censored cohort stays separate. Proposed actions are explicitly marked as illustrative, and missing final endpoints are not filled in.
 
 Fonts: Outfit (variable WOFF2) and Archivo Black (TTF), from Google Fonts; SIL Open Font License copies in assets/licenses/. HyperFrames source distribution is Apache2.0 (license copy included); source recipes and bundled effects are retained with that distribution provenance. GSAP3.14.2 is copied with its embedded license notice and link.
