@@ -44,6 +44,9 @@ def main():
     assert sha(source) == data['source_sha256']
     assert sha(source.with_name('qualitative_capacity_review.json')) == data['qualitative_source_sha256']
     assert lineage['mode']=='real_model_only' and not lineage['issues']
+    encoded_audio_audit=load(P/'qa/capacity-corrections/encoded_audio_audit.json')
+    final_audio_sha=Path('/tmp/hospital-capacity-final-encoded-audio.sha256').read_text().strip().split('=')[-1]
+    assert final_audio_sha==encoded_audio_audit['encoded_audio_sha256']
     report_manifest = load(P/'../submission/capacity_evidence_manifest.json')['sha256']
     assert all(sha(path)==expected for path,expected in report_manifest.items())
     report_qa = load(P/'../submission/capacity_report_qa.json')
@@ -66,6 +69,7 @@ def main():
         shutil.copy2(source_file,P/'qa'/target)
     (P/'qa/capacity_final_loudness.json').write_text(json.dumps(loudness,indent=2)+'\n')
     manifest = load(P/'production_manifest.json')
+    assert all(sha(P/path) == expected['sha256'] for path,expected in manifest['files'].items())
     manifest.update(video_path=str(video.relative_to(R)),video_sha256=sha(video),
                     video_bytes=video.stat().st_size,video_source_commit=args.source_commit,
                     report_evidence_files_rechecked=len(report_manifest))
@@ -95,7 +99,9 @@ def main():
         'craft_warnings_retained':check['craft']['warningCount'],
         'integrated_lufs':float(loudness['input_i']),'true_peak_dbtp':float(loudness['input_tp']),
         'audio_listened_subjectively':False,'continuous_playback_assessed':False,
-        'audio_validation':'Complete free local ASR alignment and measured encoded levels; not listened',
+        'audio_validation':'Complete free local ASR of the encoded audio and raw-voice caption alignment; measured levels, not listened',
+        'encoded_audio_sha256':final_audio_sha,'encoded_asr_words':encoded_audio_audit['asr_words'],
+        'encoded_asr_through_seconds':encoded_audio_audit['through_seconds'],
         'subtitle_cues':len(blocks),'subtitle_exact_script_match':True,
         'caption_timing':'local Whisper small.en with documented exact-script correction/interpolation',
         'external_submission_or_publication':False,'known_remaining_blockers':[]}

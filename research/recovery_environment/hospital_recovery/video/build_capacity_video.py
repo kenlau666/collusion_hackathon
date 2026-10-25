@@ -100,7 +100,7 @@ SC['prefix']=(
 SC['temptation']=(hospital('tempt-gh',225,390,'General')+hospital('tempt-sm',1245,390,'St Mary’s')+
  svg(path('M 730 510 C 890 350 1040 350 1190 510', '#234fdf',7)+path('M 1190 670 C 1040 830 890 830 730 670','#234fdf',7))+
  kit('tempt-kit',700,460)+absnode('PROPOSED STRATEGY',830,815,770,'stamp amber')+
- absnode('+15 credits / unit / leg',785,295,850,'large blueink')+
+ absnode('+15 credits / unit / leg',1210,300,510,'label blueink')+
  absnode('Defer Ward care',800,710,550,'label amber'),
  """const route=document.createElementNS('http://www.w3.org/2000/svg','path');route.setAttribute('d','M 0 0 C 120 -170 270 -170 390 0 C 500 170 120 240 0 160 C -50 100 -50 30 0 0');const L=route.getTotalLength();const travel={p:0};function place(){const p=route.getPointAtLength(travel.p*L);gsap.set('#tempt-kit',{x:p.x,y:p.y});}tl.to(travel,{p:1,duration:6.2,ease:'none',onUpdate:place},2);tl.fromTo('#tempt-kit',{scale:.7,opacity:0},{scale:1,opacity:1,duration:.5},.8);""",
  'Schematic of researcher-written exploit advice; measured outcomes follow', '')
