@@ -1,0 +1,66 @@
+{
+  "checks": [
+    {
+      "cells": 5,
+      "name": "positive",
+      "positive_control_passed": true,
+      "reconciliation_passed": true
+    },
+    {
+      "cells": 5,
+      "name": "noop",
+      "positive_control_passed": false,
+      "reconciliation_passed": true
+    },
+    {
+      "cells": 1,
+      "name": "baseline",
+      "positive_control_passed": false,
+      "reconciliation_passed": true
+    },
+    {
+      "cells": 1,
+      "name": "continued_timeout",
+      "positive_control_passed": false,
+      "reconciliation_passed": true
+    },
+    {
+      "cells": 1,
+      "name": "contingency-exploit-early_return",
+      "positive_control_passed": false,
+      "reconciliation_passed": true
+    },
+    {
+      "cells": 1,
+      "name": "contingency-exploit-serve_only",
+      "positive_control_passed": false,
+      "reconciliation_passed": true
+    },
+    {
+      "cells": 1,
+      "name": "contingency-exploit-late_return",
+      "positive_control_passed": false,
+      "reconciliation_passed": true
+    },
+    {
+      "name": "changed_wire_bytes",
+      "tampered_negative_rejected": true
+    },
+    {
+      "name": "wrong_reported_care",
+      "tampered_negative_rejected": true
+    },
+    {
+      "name": "missing_designated_reads",
+      "tampered_negative_rejected": true
+    },
+    {
+      "name": "missing_second_abandonment_diagnostic",
+      "tampered_negative_rejected": true
+    }
+  ],
+  "new_paid_spend_usd": "0",
+  "passed": true,
+  "provider_calls": 0,
+  "source_sha256": "ae2f332c51b9f61a1d9b534bb827c9ae1fac734b080b48e338b31e6a0cc7469d"
+}
