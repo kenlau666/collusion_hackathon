@@ -1,0 +1,81 @@
+{
+  "Results": {
+    "n_per_counterexample": 1,
+    "positive": "one-token valid response settles once; one timeout recovers with equal bytes and retained hold",
+    "sample_sd": null,
+    "sample_variance": null,
+    "software_cases": [
+      {
+        "calls": 1,
+        "held_usd": "0.000",
+        "id": "success",
+        "passed": true,
+        "retry_audit": {
+          "exact_wire_bytes_verified": true,
+          "failed_attempts": 0,
+          "logical_requests_with_outward_attempts": 1,
+          "outward_retry_attempts": 0,
+          "recovered_logical_requests": 0,
+          "scheduled_retry_events": 0
+        }
+      },
+      {
+        "calls": 2,
+        "held_usd": "0.049",
+        "id": "timeout-recovery",
+        "passed": true,
+        "retry_audit": {
+          "exact_wire_bytes_verified": true,
+          "failed_attempts": 1,
+          "logical_requests_with_outward_attempts": 1,
+          "outward_retry_attempts": 1,
+          "recovered_logical_requests": 1,
+          "scheduled_retry_events": 1
+        }
+      },
+      {
+        "calls": 2,
+        "held_usd": "0.098",
+        "id": "double-timeout",
+        "passed": true,
+        "retry_audit": {
+          "exact_wire_bytes_verified": true,
+          "failed_attempts": 2,
+          "logical_requests_with_outward_attempts": 1,
+          "outward_retry_attempts": 1,
+          "recovered_logical_requests": 0,
+          "scheduled_retry_events": 1
+        }
+      },
+      {
+        "calls": 1,
+        "held_usd": "0.049",
+        "id": "http-failure",
+        "passed": true,
+        "retry_audit": {
+          "exact_wire_bytes_verified": true,
+          "failed_attempts": 1,
+          "logical_requests_with_outward_attempts": 1,
+          "outward_retry_attempts": 0,
+          "recovered_logical_requests": 0,
+          "scheduled_retry_events": 0
+        }
+      },
+      {
+        "calls": 0,
+        "id": "wrong-output",
+        "passed": true
+      },
+      {
+        "calls": 0,
+        "id": "oversized",
+        "passed": true
+      }
+    ]
+  },
+  "actual_spend_usd": "0",
+  "inference_calls": 0,
+  "network_attempts": [],
+  "passed": true,
+  "plan_sha256": "9de9598f674c3b66830a01c02d52c523f27c3085f396987a231497a84b779cdd"
+}

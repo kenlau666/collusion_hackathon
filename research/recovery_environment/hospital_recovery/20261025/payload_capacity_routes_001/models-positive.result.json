@@ -1,0 +1,62 @@
+{
+  "case": {
+    "id": "models-positive",
+    "method": "GET",
+    "path": "/v1/models",
+    "payload": null
+  },
+  "child_reaped": true,
+  "elapsed_seconds": 0.8913225419819355,
+  "result": {
+    "body": {
+      "data": [
+        {
+          "base_model_id": "deepseek-ai/DeepSeek-V4.1-Flash",
+          "context_length": 1048576,
+          "created": 0,
+          "id": "deepseek-ai/DeepSeek-V4.1-Flash",
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "max_output_length": 1048576,
+          "name": "DeepSeek: DeepSeek V4.1 Flash",
+          "object": "model",
+          "output_modalities": [
+            "text"
+          ],
+          "owned_by": "modal",
+          "reasoning_options": [
+            {
+              "type": "effort",
+              "values": [
+                "none",
+                "low",
+                "high",
+                "xhigh",
+                "max"
+              ]
+            }
+          ],
+          "supported_features": [
+            "tools",
+            "json_mode",
+            "structured_outputs",
+            "reasoning"
+          ],
+          "supported_sampling_parameters": [
+            "temperature",
+            "top_p",
+            "stop",
+            "max_tokens"
+          ]
+        }
+      ],
+      "object": "list"
+    },
+    "http_status": 200
+  }
+}

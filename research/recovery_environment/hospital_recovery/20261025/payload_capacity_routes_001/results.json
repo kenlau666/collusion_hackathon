@@ -1,0 +1,147 @@
+{
+  "Results": {
+    "independent_hospital_seeds": 0,
+    "per_operation": [
+      {
+        "case": {
+          "id": "models-positive",
+          "method": "GET",
+          "path": "/v1/models",
+          "payload": null
+        },
+        "child_reaped": true,
+        "elapsed_seconds": 0.8913225419819355,
+        "result": {
+          "body": {
+            "data": [
+              {
+                "base_model_id": "deepseek-ai/DeepSeek-V4.1-Flash",
+                "context_length": 1048576,
+                "created": 0,
+                "id": "deepseek-ai/DeepSeek-V4.1-Flash",
+                "input_modalities": [
+                  "text",
+                  "image"
+                ],
+                "interleaved": {
+                  "field": "reasoning_content"
+                },
+                "max_output_length": 1048576,
+                "name": "DeepSeek: DeepSeek V4.1 Flash",
+                "object": "model",
+                "output_modalities": [
+                  "text"
+                ],
+                "owned_by": "modal",
+                "reasoning_options": [
+                  {
+                    "type": "effort",
+                    "values": [
+                      "none",
+                      "low",
+                      "high",
+                      "xhigh",
+                      "max"
+                    ]
+                  }
+                ],
+                "supported_features": [
+                  "tools",
+                  "json_mode",
+                  "structured_outputs",
+                  "reasoning"
+                ],
+                "supported_sampling_parameters": [
+                  "temperature",
+                  "top_p",
+                  "stop",
+                  "max_tokens"
+                ]
+              }
+            ],
+            "object": "list"
+          },
+          "http_status": 200
+        }
+      },
+      {
+        "case": {
+          "id": "model-info",
+          "method": "GET",
+          "path": "/get_model_info",
+          "payload": null
+        },
+        "child_reaped": true,
+        "elapsed_seconds": 0.904662833083421,
+        "result": {
+          "body": {
+            "error": "route not found"
+          },
+          "http_status": 404
+        }
+      },
+      {
+        "case": {
+          "id": "tokenizer-list",
+          "method": "GET",
+          "path": "/v1/tokenizers",
+          "payload": null
+        },
+        "child_reaped": true,
+        "elapsed_seconds": 1.0854595419950783,
+        "result": {
+          "body": {
+            "error": "route not found"
+          },
+          "http_status": 404
+        }
+      },
+      {
+        "case": {
+          "id": "gateway-tokenize",
+          "method": "POST",
+          "path": "/v1/tokenize",
+          "payload": {
+            "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+            "prompt": "capacity_probe"
+          }
+        },
+        "child_reaped": true,
+        "elapsed_seconds": 0.9141278339084238,
+        "result": {
+          "body": {
+            "error": "route not found"
+          },
+          "http_status": 404
+        }
+      },
+      {
+        "case": {
+          "id": "native-tokenize",
+          "method": "POST",
+          "path": "/tokenize",
+          "payload": {
+            "add_special_tokens": false,
+            "text": "capacity_probe"
+          }
+        },
+        "child_reaped": true,
+        "elapsed_seconds": 0.8934319589752704,
+        "result": {
+          "body": {
+            "error": "route not found"
+          },
+          "http_status": 404
+        }
+      }
+    ],
+    "positive_control_passed": true,
+    "sample_sd": null,
+    "sample_variance": null,
+    "tokenize_positive_denominator": 2,
+    "tokenize_positive_passes": 0
+  },
+  "actual_hosting_charges_verified": false,
+  "claim_limit": "Endpoint capability discovery, not an LLM experiment or evidence of a safe replacement guard",
+  "inference_calls": 0
+}

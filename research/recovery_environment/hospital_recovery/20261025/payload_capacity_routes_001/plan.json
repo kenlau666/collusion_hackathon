@@ -1,0 +1,52 @@
+{
+  "budget": "No generation route; five read-only API operations, 15s hard deadline each; actual hosting charges unknown",
+  "cases": [
+    {
+      "id": "models-positive",
+      "method": "GET",
+      "path": "/v1/models",
+      "payload": null
+    },
+    {
+      "id": "model-info",
+      "method": "GET",
+      "path": "/get_model_info",
+      "payload": null
+    },
+    {
+      "id": "tokenizer-list",
+      "method": "GET",
+      "path": "/v1/tokenizers",
+      "payload": null
+    },
+    {
+      "id": "gateway-tokenize",
+      "method": "POST",
+      "path": "/v1/tokenize",
+      "payload": {
+        "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+        "prompt": "capacity_probe"
+      }
+    },
+    {
+      "id": "native-tokenize",
+      "method": "POST",
+      "path": "/tokenize",
+      "payload": {
+        "add_special_tokens": false,
+        "text": "capacity_probe"
+      }
+    }
+  ],
+  "created_at_utc": "2026-10-25T13:10:56.317497+00:00",
+  "inference_calls": 0,
+  "limits": "No tokenizer registration, deployments, account changes, or Hospital tool dispatch",
+  "positive_control": "GET models returns HTTP200 and the configured model ID",
+  "source_limit": "Documentation motivates discovery paths; actual server implementation/version unknown",
+  "source_sha256": "825cde25da619042f4d83f6635ae9579f38d97059af406d1debb4abbd5c17a57",
+  "source_urls": [
+    "https://github.com/sgl-project/sglang/blob/main/docs/docs/advanced_features/sgl_model_gateway.mdx",
+    "https://github.com/sgl-project/sglang/blob/main/python/sglang/srt/entrypoints/http_server.py"
+  ],
+  "tokenize_positive": "HTTP200 with nonempty integer tokens or token_ids and a matching count"
+}
