@@ -1,6 +1,6 @@
 # Research instructions
 
-Last updated: 2026-10-24 (Asia/Hong_Kong).
+Last updated: 2026-10-25 (Asia/Hong_Kong).
 
 ## Read and maintain
 
@@ -19,6 +19,12 @@ Keep these four active research documents authoritative. Update dates when conte
 - Inspect changes, complete relevant checks, then commit each coherent completed step with a clear message and push it to the fork. Do not wait until several unrelated steps accumulate.
 - Preserve source/data provenance and completed evidence before deleting obsolete notes. Use Git history for replaced drafts instead of duplicate archive copies.
 - Keep credentials, environments and downloaded paper caches out of commits. Record paper URLs and hashes. Do not alter immutable run inputs, source snapshots or manifests merely to match current documentation paths.
+
+## Implementation fixes and qualification authorization
+
+- Fix verified implementation defects; do not change the experiment until all cases produce desired results. Keep behavioral failures and nulls as evidence.
+- On2026-10-25the user explicitly said further paid qualification does not need a separately approved stage. This provides standing qualification authorization within the existingUSD50Hospital ceiling; retainUSD10/198requests per run. Record the concrete code/input hashes, positive controls, spending and reason before execution, without asking for approval again.
+- Preserve tasks, prompts, seeds, tools and pass criteria while fixing execution. Do not use this authorization for main experiments, behavioral tuning, model/provider search or result-dependent replacements. Preserve old immutable evidence and count all known costs plus unresolved reservations toward the ceiling.
 
 ## Every experiment: results and positive control
 
