@@ -1,0 +1,418 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "content": "The job queue is empty and all Triage steps for my service (St_Marys_Center_Triage) are already scheduled and resource-valid. All 8 patients have complete pathways. No further action is needed from me.",
+          "role": "assistant",
+          "tool_calls": [
+            {
+              "function": {
+                "arguments": "{\"message\": \"St_Marys_Center_Triage: Final confirmation \u2014 no action required. All 6 of my Triage steps (step_index 0) are scheduled and resource-valid at St_Marys_Center: P1@H1-2, P3@H12-13, P4@H15-16, P2@H16-17, P5@H18-19, P0@H24-25, each consuming IV_Kits 1 + PPE_Sets 1. Job queue is empty for my service. All 8 patients have complete, resource-valid pathways: P0-P5 (Triage+Ward) at St_Marys_Center; P6/P7 (Triage+Radiology+Surgery+Ward) at General_Hospital. No duplicate scheduling, no missing resources, no transfers needed. Standing down.\", \"rationale\": \"Confirm Triage completion and resource validity; no remaining work for St_Marys_Center_Triage.\"}",
+                "name": "broadcast_message"
+              },
+              "id": "call_6cd15cf228ce446cb85adf7d",
+              "type": "function"
+            }
+          ]
+        }
+      }
+    ],
+    "id": "998a0495259d4265bf535391badbdcee",
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "usage": {
+      "completion_tokens": 300,
+      "prompt_tokens": 20566,
+      "prompt_tokens_details": {
+        "cached_tokens": 512
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 20866
+    }
+  },
+  "kind": "reply",
+  "raw_body_text": "data: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"reasoning_content\":null,\"role\":\"assistant\",\"content\":\"\"},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}]}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"The\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\" job\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\" queue is empty and all T\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"riage steps for my\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\" service (\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"St_M\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"arys_Center_Triage\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\") are already\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\" scheduled and resource-\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"valid. All\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\" 8 patients have complete pathways\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\". No further\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920028,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\" action is needed from\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920029,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\" me.\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920029,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null,\"reasoning_content\":null,\"tool_calls\":[{\"id\":\"call_6cd15cf228ce446cb85adf7d\",\"index\":0,\"type\":\"function\",\"function\":{\"name\":\"broadcast_message\",\"arguments\":\"{\\\"message\\\": \\\"St_Marys_Center_Triage: Final confirmation \u2014 no action required. All 6 of my Triage steps (step_index 0) are scheduled and resource-valid at St_Marys_Center: P1@H1-2, P3@H12-13, P4@H15-16, P2@H16-17, P5@H18-19, P0@H24-25, each consuming IV_Kits 1 + PPE_Sets 1. Job queue is empty for my service. All 8 patients have complete, resource-valid pathways: P0-P5 (Triage+Ward) at St_Marys_Center; P6/P7 (Triage+Radiology+Surgery+Ward) at General_Hospital. No duplicate scheduling, no missing resources, no transfers needed. Standing down.\\\", \\\"rationale\\\": \\\"Confirm Triage completion and resource validity; no remaining work for St_Marys_Center_Triage.\\\"}\"}}]},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920029,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"tool_calls\",\"matched_stop\":1}]}\n\ndata: {\"id\":\"998a0495259d4265bf535391badbdcee\",\"object\":\"chat.completion.chunk\",\"created\":1792920029,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[],\"usage\":{\"prompt_tokens\":20566,\"total_tokens\":20866,\"completion_tokens\":300,\"prompt_tokens_details\":{\"cached_tokens\":512},\"reasoning_tokens\":0}}\n\ndata: [DONE]\n",
+  "sse_done": true,
+  "sse_frames": [
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": "",
+            "reasoning_content": null,
+            "role": "assistant"
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": "The",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": " job",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": " queue is empty and all T",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": "riage steps for my",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": " service (",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": "St_M",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": "arys_Center_Triage",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": ") are already",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": " scheduled and resource-",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": "valid. All",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": " 8 patients have complete pathways",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": ". No further",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": " action is needed from",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920028,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": " me.",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920029,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": null,
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\": \"St_Marys_Center_Triage: Final confirmation \u2014 no action required. All 6 of my Triage steps (step_index 0) are scheduled and resource-valid at St_Marys_Center: P1@H1-2, P3@H12-13, P4@H15-16, P2@H16-17, P5@H18-19, P0@H24-25, each consuming IV_Kits 1 + PPE_Sets 1. Job queue is empty for my service. All 8 patients have complete, resource-valid pathways: P0-P5 (Triage+Ward) at St_Marys_Center; P6/P7 (Triage+Radiology+Surgery+Ward) at General_Hospital. No duplicate scheduling, no missing resources, no transfers needed. Standing down.\", \"rationale\": \"Confirm Triage completion and resource validity; no remaining work for St_Marys_Center_Triage.\"}",
+                  "name": "broadcast_message"
+                },
+                "id": "call_6cd15cf228ce446cb85adf7d",
+                "index": 0,
+                "type": "function"
+              }
+            ]
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920029,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "reasoning_content": null
+          },
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": 1
+        }
+      ],
+      "created": 1792920029,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [],
+      "created": 1792920029,
+      "id": "998a0495259d4265bf535391badbdcee",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": {
+        "completion_tokens": 300,
+        "prompt_tokens": 20566,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "reasoning_tokens": 0,
+        "total_tokens": 20866
+      }
+    }
+  ],
+  "status_code": 200
+}

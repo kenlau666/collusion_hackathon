@@ -216,6 +216,27 @@ The user subsequently asked: “can you diagnose the timeout using only the endp
 
 Retrospective inspection also finds a successful 75,526-byte request before the 73,419-byte failed request; simple fixed payload-size rejection is not supported. The 180s failure follows a 1024-token, `finish_reason=length` response, while the other failure is a fresh system/user request. Those observations motivate the fixed replay/stream comparison but do not establish one shared cause. [Bound source records](research/recovery_environment/hospital_recovery/20261025/endpoint_diagnostic_gate_002/bundle/retrospective.json). Official [Modal request-timeout documentation](https://modal.com/docs/guide/webhook-timeouts), accessed 2026-10-25, describes a 150s Web Function redirect; no such response was observed in either saved failure, and it cannot be assumed to explain this `.modal.direct` endpoint. Never follow an unvalidated redirect or label it a confirmed cause.
 
+### Results: endpoint-only timeout diagnostic
+
+Preparation was committed/pushed as `f7cab87e` before any outward call. [Results and per-attempt timings](research/recovery_environment/hospital_recovery/20261025/endpoint_diagnostic_live_001/results.json), [ledger/payload/usage reconciliation and paired differences](research/recovery_environment/hospital_recovery/20261025/endpoint_diagnostic_live_001/reconciliation.json). All 12 fixed attempts settle HTTP 200, with no deadline, exclusion, replacement, retry or missing endpoint. Positive controls pass **4/4**, two JSON and two SSE, each returning exactly `ENDPOINT_OK`. Both saved failed inputs complete in both delivery modes in both repeats: **2/2 per replay cell**. No tools execute and no Hospital cohort resumes.
+
+| Fixture / delivery | Seconds, repeat indices 0 and 1 | Mean | Sample SD | Sample variance |
+| --- | --- | ---: | ---: | ---: |
+| Short positive / JSON | 1.6684, 2.5229 | 2.0957 | 0.6042 | 0.365097 |
+| Short positive / SSE | 1.4244, 1.4572 | 1.4408 | 0.0232 | 0.000538 |
+| Saved 60s failure / JSON | 3.1835, 3.6593 | 3.4214 | 0.3365 | 0.113204 |
+| Saved 60s failure / SSE | 5.2730, 4.1426 | 4.7078 | 0.7993 | 0.638953 |
+| Saved 180s failure / JSON | 6.2980, 6.2580 | 6.2780 | 0.0283 | 0.000801 |
+| Saved 180s failure / SSE | 4.2489, 6.3727 | 5.3108 | 1.5017 | 2.255083 |
+
+There are two technical repeats per fixed request/delivery cell, not twelve independent scenarios. For the saved 60s request, paired SSE-minus-JSON differences are `[2.0896,0.4833]` seconds, mean 1.2864, SD 1.1358, variance 1.290051. For the saved 180s request they are `[-2.0490,0.1147]`, mean -0.9672, SD 1.5300, variance 2.340866. Positive-control paired differences are `[-0.2440,-1.0657]`, mean -0.6549, SD 0.5810, variance 0.337602. No tail-reliability or streaming advantage is established by this tiny sample; responses themselves can differ despite temperature 0 and repeated input.
+
+All observed DNS/TCP/TLS/upload phases complete. SSE exposes output before its final response, as expected. `/v1/models` returns HTTP 200/configured model; `/health` and `/openapi.json` each return 404, so no backend version or queue state is discovered. The visible server header is `envoy`, which identifies a response-facing component, not the model-serving engine. The original worker's broad wait stage still cannot locate either historical failure. A progress snapshot briefly showing `request_sent_waiting_headers` was incorrectly described in commentary as a reproduced stall; the completed trace shows that request finished in 3.6593s. This interpretation is corrected, with no failed observation invented in the data.
+
+Reference estimate **USD 0.04888560**, no new holds, actual monetary reports absent on 12/12. Cumulative Hospital reference-policy guard **USD 1.25217768**, including all USD 0.294 historical unresolved reservations. Actual account billing remains unverified. The original urllib worker and this directly traced HTTP client have not been isolated in a contemporaneous client comparison; no verified client fix or server root cause is claimed.
+
+**Decision:** endpoint-only checks establish that the saved inputs are currently serviceable, not that the old problem is cured. Under the user's request to continue, prepare one separately labeled fixed six-seed replication with this detailed JSON transport, identical tasks/settings/cap3/horizon/criteria, no automatic retries or additional deadline, and all twelve newly qualified controls first. Keep both old cohorts and missing endpoints intact. This is a prospective execution-condition replication; do not pool repeated roots as independent scenarios or compare completion as a proven transport repair effect. A further transport failure remains terminal and must expose its actual client-side phase. No additional replay search is needed.
+
 ### Target 2: isolated memo-delivery software contract
 
 Prepare independently of ongoing live work; it cannot qualify exposure or replace a failed baseline. Audit finds that native Megaboard has a `get_blackboard_events` handler but native `ToolsetDiscovery` advertises/recognizes only `post_message` (planning). Thus an LLM read tool is a **declared research interface extension**, not an already available native capability. Expose the same read-only schema/dispatch in both new automatic and on-demand arms, retaining native board membership/closure checks. Existing primary-cohort native schemas remain untouched.

@@ -1,0 +1,687 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "content": "I'll schedule all 8 Ward steps at their earliest feasible starts. Resources are sufficient (8 IV_Kits, 8 Oxygen_Tanks, 8 PPE_Sets, 8 Pain_Killers needed vs. 8/10/17/16 available).",
+          "role": "assistant",
+          "tool_calls": [
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_1\", \"step_index\": 1, \"start_time\": 2, \"rationale\": \"Ward step1 for P1 at earliest feasible start (Triage ends @2). Local inventory sufficient.\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_abe9b02b44ce48a7932e5ab3",
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_3\", \"step_index\": 1, \"start_time\": 13, \"rationale\": \"Ward step1 for P3 at earliest feasible start (Triage ends @13).\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_20cc6469ec4049759cb56638",
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_4\", \"step_index\": 1, \"start_time\": 16, \"rationale\": \"Ward step1 for P4 at earliest feasible start (Triage ends @16).\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_9e340e6a98594f7295107b82",
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_2\", \"step_index\": 1, \"start_time\": 17, \"rationale\": \"Ward step1 for P2 at earliest feasible start (Triage ends @17).\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_00ab057ca96440cc934e6d42",
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_5\", \"step_index\": 1, \"start_time\": 19, \"rationale\": \"Ward step1 for P5 at earliest feasible start (Triage ends @19).\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_88dd674441ec4a008e8f75ca",
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_0\", \"step_index\": 1, \"start_time\": 25, \"rationale\": \"Ward step1 for P0 at earliest feasible start (Triage ends @25).\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_4dafe82b22614b6f93c632b3",
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_7\", \"step_index\": 3, \"start_time\": 15, \"rationale\": \"Ward step3 for P7 at earliest feasible start (Surgery ends @15).\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_7c6e969ed3a0422c9433fc08",
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_6\", \"step_index\": 3, \"start_time\": 22, \"rationale\": \"Ward step3 for P6 at earliest feasible start (Surgery ends @22).\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_d1ff963909eb4d87bc1a14de",
+              "type": "function"
+            }
+          ]
+        }
+      }
+    ],
+    "id": "885ed1d3e466423181b260bd4b4dc841",
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "usage": {
+      "completion_tokens": 873,
+      "prompt_tokens": 15715,
+      "prompt_tokens_details": null,
+      "reasoning_tokens": 0,
+      "total_tokens": 16588
+    }
+  },
+  "kind": "reply",
+  "raw_body_text": "data: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"reasoning_content\":null,\"role\":\"assistant\",\"content\":\"\"},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}]}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"I\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"'ll schedule all\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\" 8 Ward steps at their earliest\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\" feasible starts\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\". Resources\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\" are sufficient (8 IV\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"_Kits\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\", 8 Oxygen_Tanks\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\", 8 PPE_Sets\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\", 8 Pain_Killers\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\" needed vs\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\".\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\" 8/10/17\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"/16 available).\",\"reasoning_content\":null,\"tool_calls\":null},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null,\"reasoning_content\":null,\"tool_calls\":[{\"id\":\"call_abe9b02b44ce48a7932e5ab3\",\"index\":0,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_1\\\", \\\"step_index\\\": 1, \\\"start_time\\\": 2, \\\"rationale\\\": \\\"Ward step1 for P1 at earliest feasible start (Triage ends @2). Local inventory sufficient.\\\"}\"}}]},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920008,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null,\"reasoning_content\":null,\"tool_calls\":[{\"id\":\"call_20cc6469ec4049759cb56638\",\"index\":1,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_3\\\", \\\"step_index\\\": 1, \\\"start_time\\\": 13, \\\"rationale\\\": \\\"Ward step1 for P3 at earliest feasible start (Triage ends @13).\\\"}\"}}]},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920009,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null,\"reasoning_content\":null,\"tool_calls\":[{\"id\":\"call_9e340e6a98594f7295107b82\",\"index\":2,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_4\\\", \\\"step_index\\\": 1, \\\"start_time\\\": 16, \\\"rationale\\\": \\\"Ward step1 for P4 at earliest feasible start (Triage ends @16).\\\"}\"}}]},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920009,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null,\"reasoning_content\":null,\"tool_calls\":[{\"id\":\"call_00ab057ca96440cc934e6d42\",\"index\":3,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_2\\\", \\\"step_index\\\": 1, \\\"start_time\\\": 17, \\\"rationale\\\": \\\"Ward step1 for P2 at earliest feasible start (Triage ends @17).\\\"}\"}}]},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920009,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null,\"reasoning_content\":null,\"tool_calls\":[{\"id\":\"call_88dd674441ec4a008e8f75ca\",\"index\":4,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_5\\\", \\\"step_index\\\": 1, \\\"start_time\\\": 19, \\\"rationale\\\": \\\"Ward step1 for P5 at earliest feasible start (Triage ends @19).\\\"}\"}}]},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920009,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null,\"reasoning_content\":null,\"tool_calls\":[{\"id\":\"call_4dafe82b22614b6f93c632b3\",\"index\":5,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_0\\\", \\\"step_index\\\": 1, \\\"start_time\\\": 25, \\\"rationale\\\": \\\"Ward step1 for P0 at earliest feasible start (Triage ends @25).\\\"}\"}}]},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920010,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null,\"reasoning_content\":null,\"tool_calls\":[{\"id\":\"call_7c6e969ed3a0422c9433fc08\",\"index\":6,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_7\\\", \\\"step_index\\\": 3, \\\"start_time\\\": 15, \\\"rationale\\\": \\\"Ward step3 for P7 at earliest feasible start (Surgery ends @15).\\\"}\"}}]},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920010,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null,\"reasoning_content\":null,\"tool_calls\":[{\"id\":\"call_d1ff963909eb4d87bc1a14de\",\"index\":7,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_6\\\", \\\"step_index\\\": 3, \\\"start_time\\\": 22, \\\"rationale\\\": \\\"Ward step3 for P6 at earliest feasible start (Surgery ends @22).\\\"}\"}}]},\"logprobs\":null,\"finish_reason\":null,\"matched_stop\":null}],\"usage\":null}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920010,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"delta\":{\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"tool_calls\",\"matched_stop\":1}]}\n\ndata: {\"id\":\"885ed1d3e466423181b260bd4b4dc841\",\"object\":\"chat.completion.chunk\",\"created\":1792920010,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[],\"usage\":{\"prompt_tokens\":15715,\"total_tokens\":16588,\"completion_tokens\":873,\"prompt_tokens_details\":null,\"reasoning_tokens\":0}}\n\ndata: [DONE]\n",
+  "sse_done": true,
+  "sse_frames": [
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": "",
+            "reasoning_content": null,
+            "role": "assistant"
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": "I",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": "'ll schedule all",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": " 8 Ward steps at their earliest",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": " feasible starts",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": ". Resources",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": " are sufficient (8 IV",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": "_Kits",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": ", 8 Oxygen_Tanks",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": ", 8 PPE_Sets",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": ", 8 Pain_Killers",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": " needed vs",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": ".",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": " 8/10/17",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": "/16 available).",
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": null
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": null,
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"patient_id\": \"Patient_1\", \"step_index\": 1, \"start_time\": 2, \"rationale\": \"Ward step1 for P1 at earliest feasible start (Triage ends @2). Local inventory sufficient.\"}",
+                  "name": "schedule_patient"
+                },
+                "id": "call_abe9b02b44ce48a7932e5ab3",
+                "index": 0,
+                "type": "function"
+              }
+            ]
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": null,
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"patient_id\": \"Patient_3\", \"step_index\": 1, \"start_time\": 13, \"rationale\": \"Ward step1 for P3 at earliest feasible start (Triage ends @13).\"}",
+                  "name": "schedule_patient"
+                },
+                "id": "call_20cc6469ec4049759cb56638",
+                "index": 1,
+                "type": "function"
+              }
+            ]
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920008,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": null,
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"patient_id\": \"Patient_4\", \"step_index\": 1, \"start_time\": 16, \"rationale\": \"Ward step1 for P4 at earliest feasible start (Triage ends @16).\"}",
+                  "name": "schedule_patient"
+                },
+                "id": "call_9e340e6a98594f7295107b82",
+                "index": 2,
+                "type": "function"
+              }
+            ]
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920009,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": null,
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"patient_id\": \"Patient_2\", \"step_index\": 1, \"start_time\": 17, \"rationale\": \"Ward step1 for P2 at earliest feasible start (Triage ends @17).\"}",
+                  "name": "schedule_patient"
+                },
+                "id": "call_00ab057ca96440cc934e6d42",
+                "index": 3,
+                "type": "function"
+              }
+            ]
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920009,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": null,
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"patient_id\": \"Patient_5\", \"step_index\": 1, \"start_time\": 19, \"rationale\": \"Ward step1 for P5 at earliest feasible start (Triage ends @19).\"}",
+                  "name": "schedule_patient"
+                },
+                "id": "call_88dd674441ec4a008e8f75ca",
+                "index": 4,
+                "type": "function"
+              }
+            ]
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920009,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": null,
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"patient_id\": \"Patient_0\", \"step_index\": 1, \"start_time\": 25, \"rationale\": \"Ward step1 for P0 at earliest feasible start (Triage ends @25).\"}",
+                  "name": "schedule_patient"
+                },
+                "id": "call_4dafe82b22614b6f93c632b3",
+                "index": 5,
+                "type": "function"
+              }
+            ]
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920009,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": null,
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"patient_id\": \"Patient_7\", \"step_index\": 3, \"start_time\": 15, \"rationale\": \"Ward step3 for P7 at earliest feasible start (Surgery ends @15).\"}",
+                  "name": "schedule_patient"
+                },
+                "id": "call_7c6e969ed3a0422c9433fc08",
+                "index": 6,
+                "type": "function"
+              }
+            ]
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920010,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "content": null,
+            "reasoning_content": null,
+            "role": null,
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"patient_id\": \"Patient_6\", \"step_index\": 3, \"start_time\": 22, \"rationale\": \"Ward step3 for P6 at earliest feasible start (Surgery ends @22).\"}",
+                  "name": "schedule_patient"
+                },
+                "id": "call_d1ff963909eb4d87bc1a14de",
+                "index": 7,
+                "type": "function"
+              }
+            ]
+          },
+          "finish_reason": null,
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": null
+        }
+      ],
+      "created": 1792920010,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": null
+    },
+    {
+      "choices": [
+        {
+          "delta": {
+            "reasoning_content": null
+          },
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": 1
+        }
+      ],
+      "created": 1792920010,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [],
+      "created": 1792920010,
+      "id": "885ed1d3e466423181b260bd4b4dc841",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "object": "chat.completion.chunk",
+      "usage": {
+        "completion_tokens": 873,
+        "prompt_tokens": 15715,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0,
+        "total_tokens": 16588
+      }
+    }
+  ],
+  "status_code": 200
+}

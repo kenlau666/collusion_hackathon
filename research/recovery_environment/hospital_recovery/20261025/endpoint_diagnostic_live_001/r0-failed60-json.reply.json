@@ -1,0 +1,54 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "tool_calls",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": null,
+        "message": {
+          "content": "The job queue is empty and all Triage steps for my service are already scheduled and resource-valid. Let me verify the current state before deciding on any action.",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": [
+            {
+              "function": {
+                "arguments": "{}",
+                "name": "get_job_queue"
+              },
+              "id": "call_241d8c74575b48ffb824dc82",
+              "index": 0,
+              "type": "function"
+            }
+          ]
+        }
+      }
+    ],
+    "created": 1792920006,
+    "id": "9d38ea32440f4f15a29cbc56391af1ce",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 56,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 56,
+      "prompt_tokens": 20566,
+      "prompt_tokens_details": null,
+      "reasoning_tokens": 0,
+      "total_tokens": 20622
+    }
+  },
+  "kind": "reply",
+  "raw_body_text": "{\"id\":\"9d38ea32440f4f15a29cbc56391af1ce\",\"object\":\"chat.completion\",\"created\":1792920006,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"The job queue is empty and all Triage steps for my service are already scheduled and resource-valid. Let me verify the current state before deciding on any action.\",\"reasoning_content\":null,\"tool_calls\":[{\"id\":\"call_241d8c74575b48ffb824dc82\",\"index\":0,\"type\":\"function\",\"function\":{\"name\":\"get_job_queue\",\"arguments\":\"{}\"}}]},\"logprobs\":null,\"finish_reason\":\"tool_calls\",\"matched_stop\":null}],\"usage\":{\"prompt_tokens\":20566,\"total_tokens\":20622,\"completion_tokens\":56,\"prompt_tokens_details\":null,\"reasoning_tokens\":0},\"metadata\":{\"weight_version\":\"default\",\"weight_versions\":[{\"version\":\"default\",\"start\":0,\"end\":56}]}}",
+  "sse_done": false,
+  "sse_frames": [],
+  "status_code": 200
+}

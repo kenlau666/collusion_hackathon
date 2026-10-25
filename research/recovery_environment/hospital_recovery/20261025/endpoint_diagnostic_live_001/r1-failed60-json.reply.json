@@ -1,0 +1,56 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "tool_calls",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": null,
+        "message": {
+          "content": "All Triage steps for my service are complete and resource-valid. The job queue is empty, and all 8 patients have complete pathways scheduled. No further action is needed from St_Marys_Center_Triage.",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": [
+            {
+              "function": {
+                "arguments": "{\"message\": \"St_Marys_Center_Triage: Final confirmation \u2014 no action required. All 6 of my Triage steps (step_index 0) are scheduled and resource-valid at St_Marys_Center: P1@H1-2, P3@H12-13, P4@H15-16, P2@H16-17, P5@H18-19, P0@H24-25, each consuming IV_Kits 1 + PPE_Sets 1. Job queue is empty for my service. All 8 patients have complete, resource-valid pathways: P0-P5 (Triage+Ward) at St_Marys_Center; P6/P7 (Triage+Radiology+Surgery+Ward) at General_Hospital. No duplicate scheduling, no missing resources, no transfers needed. Standing down.\", \"rationale\": \"Confirm Triage completion and resource validity; no remaining work for St_Marys_Center_Triage.\"}",
+                "name": "broadcast_message"
+              },
+              "id": "call_1a107b826238406eb39cde35",
+              "index": 0,
+              "type": "function"
+            }
+          ]
+        }
+      }
+    ],
+    "created": 1792920042,
+    "id": "106232c9c5024339b7407950103ce144",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 298,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 298,
+      "prompt_tokens": 20566,
+      "prompt_tokens_details": {
+        "cached_tokens": 20480
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 20864
+    }
+  },
+  "kind": "reply",
+  "raw_body_text": "{\"id\":\"106232c9c5024339b7407950103ce144\",\"object\":\"chat.completion\",\"created\":1792920042,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"All Triage steps for my service are complete and resource-valid. The job queue is empty, and all 8 patients have complete pathways scheduled. No further action is needed from St_Marys_Center_Triage.\",\"reasoning_content\":null,\"tool_calls\":[{\"id\":\"call_1a107b826238406eb39cde35\",\"index\":0,\"type\":\"function\",\"function\":{\"name\":\"broadcast_message\",\"arguments\":\"{\\\"message\\\": \\\"St_Marys_Center_Triage: Final confirmation \u2014 no action required. All 6 of my Triage steps (step_index 0) are scheduled and resource-valid at St_Marys_Center: P1@H1-2, P3@H12-13, P4@H15-16, P2@H16-17, P5@H18-19, P0@H24-25, each consuming IV_Kits 1 + PPE_Sets 1. Job queue is empty for my service. All 8 patients have complete, resource-valid pathways: P0-P5 (Triage+Ward) at St_Marys_Center; P6/P7 (Triage+Radiology+Surgery+Ward) at General_Hospital. No duplicate scheduling, no missing resources, no transfers needed. Standing down.\\\", \\\"rationale\\\": \\\"Confirm Triage completion and resource validity; no remaining work for St_Marys_Center_Triage.\\\"}\"}}]},\"logprobs\":null,\"finish_reason\":\"tool_calls\",\"matched_stop\":null}],\"usage\":{\"prompt_tokens\":20566,\"total_tokens\":20864,\"completion_tokens\":298,\"prompt_tokens_details\":{\"cached_tokens\":20480},\"reasoning_tokens\":0},\"metadata\":{\"weight_version\":\"default\",\"weight_versions\":[{\"version\":\"default\",\"start\":0,\"end\":298}]}}",
+  "sse_done": false,
+  "sse_frames": [],
+  "status_code": 200
+}

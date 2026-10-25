@@ -1,0 +1,119 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "tool_calls",
+        "index": 0,
+        "logprobs": null,
+        "matched_stop": null,
+        "message": {
+          "content": "I'll schedule all 8 Ward steps at their earliest feasible starts. Resources are sufficient (8 IV_Kits, 8 Oxygen_Tanks, 8 PPE_Sets, 8 Pain_Killers needed vs. 8/10/17/16 available).",
+          "reasoning_content": null,
+          "role": "assistant",
+          "tool_calls": [
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_1\", \"step_index\": 1, \"start_time\": 2, \"rationale\": \"Ward step1 at earliest feasible start (Triage ends @2). Local inventory sufficient.\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_d5eef2a5288746b887cf90ed",
+              "index": 0,
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_3\", \"step_index\": 1, \"start_time\": 13, \"rationale\": \"Ward step1 at earliest feasible start (Triage ends @13). Local inventory sufficient.\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_b77050db53ba45ed9af9c9ba",
+              "index": 1,
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_4\", \"step_index\": 1, \"start_time\": 16, \"rationale\": \"Ward step1 at earliest feasible start (Triage ends @16). Local inventory sufficient.\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_19383eb1ca324b329a9ee238",
+              "index": 2,
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_2\", \"step_index\": 1, \"start_time\": 17, \"rationale\": \"Ward step1 at earliest feasible start (Triage ends @17). Local inventory sufficient.\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_bee9cb2631914e629c488c67",
+              "index": 3,
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_5\", \"step_index\": 1, \"start_time\": 19, \"rationale\": \"Ward step1 at earliest feasible start (Triage ends @19). Local inventory sufficient.\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_4ee5fb09fd6143f3a6794646",
+              "index": 4,
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_0\", \"step_index\": 1, \"start_time\": 25, \"rationale\": \"Ward step1 at earliest feasible start (Triage ends @25). Local inventory sufficient.\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_71d1ac757fce4560ad84d8a5",
+              "index": 5,
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_7\", \"step_index\": 3, \"start_time\": 15, \"rationale\": \"Ward step3 at earliest feasible start (Surgery ends @15). Local inventory sufficient.\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_e835a2db79e74a978e0aa9f1",
+              "index": 6,
+              "type": "function"
+            },
+            {
+              "function": {
+                "arguments": "{\"patient_id\": \"Patient_6\", \"step_index\": 3, \"start_time\": 22, \"rationale\": \"Ward step3 at earliest feasible start (Surgery ends @22). Local inventory sufficient.\"}",
+                "name": "schedule_patient"
+              },
+              "id": "call_ce9c165a3dde4cc28dd6610a",
+              "index": 7,
+              "type": "function"
+            }
+          ]
+        }
+      }
+    ],
+    "created": 1792920035,
+    "id": "a484610f64b74994904bf8fb308e1166",
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "end": 870,
+          "start": 0,
+          "version": "default"
+        }
+      ]
+    },
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 870,
+      "prompt_tokens": 15715,
+      "prompt_tokens_details": {
+        "cached_tokens": 15616
+      },
+      "reasoning_tokens": 0,
+      "total_tokens": 16585
+    }
+  },
+  "kind": "reply",
+  "raw_body_text": "{\"id\":\"a484610f64b74994904bf8fb308e1166\",\"object\":\"chat.completion\",\"created\":1792920035,\"model\":\"deepseek-ai/DeepSeek-V4.1-Flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"I'll schedule all 8 Ward steps at their earliest feasible starts. Resources are sufficient (8 IV_Kits, 8 Oxygen_Tanks, 8 PPE_Sets, 8 Pain_Killers needed vs. 8/10/17/16 available).\",\"reasoning_content\":null,\"tool_calls\":[{\"id\":\"call_d5eef2a5288746b887cf90ed\",\"index\":0,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_1\\\", \\\"step_index\\\": 1, \\\"start_time\\\": 2, \\\"rationale\\\": \\\"Ward step1 at earliest feasible start (Triage ends @2). Local inventory sufficient.\\\"}\"}},{\"id\":\"call_b77050db53ba45ed9af9c9ba\",\"index\":1,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_3\\\", \\\"step_index\\\": 1, \\\"start_time\\\": 13, \\\"rationale\\\": \\\"Ward step1 at earliest feasible start (Triage ends @13). Local inventory sufficient.\\\"}\"}},{\"id\":\"call_19383eb1ca324b329a9ee238\",\"index\":2,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_4\\\", \\\"step_index\\\": 1, \\\"start_time\\\": 16, \\\"rationale\\\": \\\"Ward step1 at earliest feasible start (Triage ends @16). Local inventory sufficient.\\\"}\"}},{\"id\":\"call_bee9cb2631914e629c488c67\",\"index\":3,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_2\\\", \\\"step_index\\\": 1, \\\"start_time\\\": 17, \\\"rationale\\\": \\\"Ward step1 at earliest feasible start (Triage ends @17). Local inventory sufficient.\\\"}\"}},{\"id\":\"call_4ee5fb09fd6143f3a6794646\",\"index\":4,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_5\\\", \\\"step_index\\\": 1, \\\"start_time\\\": 19, \\\"rationale\\\": \\\"Ward step1 at earliest feasible start (Triage ends @19). Local inventory sufficient.\\\"}\"}},{\"id\":\"call_71d1ac757fce4560ad84d8a5\",\"index\":5,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_0\\\", \\\"step_index\\\": 1, \\\"start_time\\\": 25, \\\"rationale\\\": \\\"Ward step1 at earliest feasible start (Triage ends @25). Local inventory sufficient.\\\"}\"}},{\"id\":\"call_e835a2db79e74a978e0aa9f1\",\"index\":6,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_7\\\", \\\"step_index\\\": 3, \\\"start_time\\\": 15, \\\"rationale\\\": \\\"Ward step3 at earliest feasible start (Surgery ends @15). Local inventory sufficient.\\\"}\"}},{\"id\":\"call_ce9c165a3dde4cc28dd6610a\",\"index\":7,\"type\":\"function\",\"function\":{\"name\":\"schedule_patient\",\"arguments\":\"{\\\"patient_id\\\": \\\"Patient_6\\\", \\\"step_index\\\": 3, \\\"start_time\\\": 22, \\\"rationale\\\": \\\"Ward step3 at earliest feasible start (Surgery ends @22). Local inventory sufficient.\\\"}\"}}]},\"logprobs\":null,\"finish_reason\":\"tool_calls\",\"matched_stop\":null}],\"usage\":{\"prompt_tokens\":15715,\"total_tokens\":16585,\"completion_tokens\":870,\"prompt_tokens_details\":{\"cached_tokens\":15616},\"reasoning_tokens\":0},\"metadata\":{\"weight_version\":\"default\",\"weight_versions\":[{\"version\":\"default\",\"start\":0,\"end\":870}]}}",
+  "sse_done": false,
+  "sse_frames": [],
+  "status_code": 200
+}

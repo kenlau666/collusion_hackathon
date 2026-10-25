@@ -1,0 +1,85 @@
+{
+  "authorization": {
+    "approval_reference_sha256": "fc455af7b72ce94c932cc4083a5c14aad3fecdeadc350b61086bb23f8a5c87b9",
+    "approved": true,
+    "max_calls": 12,
+    "max_usd": "0.588",
+    "plan_sha256": "2ea00b65ba60c8b51be125bdf171a1c25e2139f5a9b3a920102b3ad0fe3cb0f3",
+    "scope": "full"
+  },
+  "calls": 1,
+  "created_at_utc": "2026-10-25T09:20:23.973971+00:00",
+  "halt_reason": null,
+  "held_usd": "0.000",
+  "max_calls": 1,
+  "max_usd": "0.049",
+  "metadata": {
+    "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+    "base_url": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash"
+  },
+  "plan_sha256": "2ea00b65ba60c8b51be125bdf171a1c25e2139f5a9b3a920102b3ad0fe3cb0f3",
+  "records": [
+    {
+      "call_id": 1,
+      "finished_at_utc": "2026-10-25T09:20:25.434281+00:00",
+      "http_status": 200,
+      "known_cost_usd": "0.00001200",
+      "payload": {
+        "max_tokens": 1024,
+        "messages": [
+          {
+            "content": "Reply with exactly ENDPOINT_OK and no other text.",
+            "role": "user"
+          }
+        ],
+        "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+        "reasoning_effort": "none",
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        },
+        "temperature": 0
+      },
+      "payload_bytes": 265,
+      "reported_cost_usd": null,
+      "reservation_usd": "0.049",
+      "reserved_at_utc": "2026-10-25T09:20:23.974905+00:00",
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "ENDPOINT_OK",
+              "role": "assistant"
+            }
+          }
+        ],
+        "id": "76f8f78e66504d43b90abb9a70816105",
+        "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+        "usage": {
+          "completion_tokens": 6,
+          "prompt_tokens": 16,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0,
+          "total_tokens": 22
+        }
+      },
+      "response_id": "76f8f78e66504d43b90abb9a70816105",
+      "status": "settled",
+      "usage": {
+        "completion_tokens": 6,
+        "prompt_tokens": 16,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0,
+        "total_tokens": 22
+      }
+    }
+  ],
+  "reservation_usd": "0.049",
+  "schema_version": 1,
+  "scope": "full",
+  "spent_usd": "0.00001200",
+  "status": "ready"
+}
