@@ -42,6 +42,7 @@ try:
     from budget_client import BudgetError, BudgetLedger, TransportReply
     from modal_hospital_client import ModalHospitalClient, MODEL, BASE_URL, WORKER
     from modal_hospital_runtime import config as modal_config, history as old_history
+    from traced_modal_client import TracedModalClient
     from llm_server.clients.together_client import _convert_tools
 finally:
     socket.has_ipv6 = ipv6
@@ -73,6 +74,7 @@ def all_history():
         preflight = json.loads((path.parent.parent / "preflight.json").read_text())
         rows.append({"path": str(path), "sha256": sha(path), "status": data["status"],
             "request_deadline_seconds": preflight.get("request_deadline_seconds", 60),
+            "transport": preflight.get("transport", "original-json"),
             "guard_usd": str(max(Decimal(data["spent_usd"]),
                                   Decimal(data.get("reported_cost_sum_usd", "0"))) +
                              Decimal(data["held_usd"]))})
@@ -151,7 +153,7 @@ def verify_software():
     return plan
 
 
-async def prepare(stage, out, deadline=60):
+async def prepare(stage, out, deadline=60, transport="original-json"):
     if deadline not in (60, 180):
         raise BudgetError("only the predeclared 60s and 180s profiles are allowed")
     native = verify_software()
@@ -163,6 +165,10 @@ async def prepare(stage, out, deadline=60):
     save(out / "initial_inputs.json", inputs)
     names = ("run_full_workflow.py", "full_workflow.py", "branch_runtime.py", "budget_client.py",
              "modal_hospital_client.py", "modal_request_worker.py", "modal_hospital_runtime.py")
+    if transport == "trace-json":
+        if deadline != 60:
+            raise BudgetError("the predeclared traced replication uses 60s, without escalation")
+        names += ("traced_modal_client.py", "endpoint_probe_worker.py")
     (out / "sources").mkdir()
     for name in names:
         shutil.copyfile(HERE / name, out / "sources" / name)
@@ -180,7 +186,9 @@ async def prepare(stage, out, deadline=60):
     plan = {"stage": stage, "cases": specs(stage), "model": MODEL, "route": BASE_URL,
         "conversation_cap": 3, "max_output_tokens": 1024, "temperature": 0,
         "reasoning_effort": "none", "api_seed_forwarded": False, "request_deadline_seconds": deadline,
-        "qualification_run": "full_workflow_live_controls_001" if deadline == 60 else "full_workflow_live_controls_180_001",
+        "transport": transport,
+        "qualification_run": ("full_workflow_live_controls_trace_001" if transport == "trace-json" else
+            ("full_workflow_live_controls_001" if deadline == 60 else "full_workflow_live_controls_180_001")),
         "original_task_inputs_sha256": sha(original_bundle / "initial_inputs.json"),
         "max_calls_per_run": 198 if stage == "controls" else 162, "max_usd_per_run": "10",
         "cumulative_hospital_ceiling_usd": "50", "reservation_usd": ".049",
@@ -381,12 +389,14 @@ async def execute(bundle, out, *, mock=None, seed=None):
         if (not qualified_data.get("all_passed") or qualified_data.get("mode") != "live_model" or
             [row["spec"] for row in qualified_data.get("cases", [])] != specs("controls") or
             not all(row["complete"] and row["passed"] for row in qualified_data["cases"]) or
+            qualified_data.get("transport", "original-json") != plan.get("transport", "original-json") or
             qualified_data.get("request_deadline_seconds", 60) != plan["request_deadline_seconds"]):
             raise BudgetError("new-model full-workflow positive controls not qualified")
         if type(seed) is not int or seed not in range(6):
             raise BudgetError("one fixed ordinary seed per run is required")
     prior = all_history() if mock is None else None
     if mock is None and any(row["status"] == "halted" and
+                            row["transport"] == plan.get("transport", "original-json") and
                             row["request_deadline_seconds"] == plan["request_deadline_seconds"] for row in prior["new"]):
         raise BudgetError("a prior halt in this execution profile is terminal")
     if mock is None and (out.parent.resolve() != BASE.resolve() or
@@ -398,12 +408,15 @@ async def execute(bundle, out, *, mock=None, seed=None):
     out.mkdir(parents=True, exist_ok=False)
     save(out / "preflight.json", {"plan_sha256": sha(bundle / "plan.json"), "prior": prior,
                                  "request_deadline_seconds": plan["request_deadline_seconds"],
+                                 "transport": plan.get("transport", "original-json"),
                                  "mode": "scripted_software" if mock else "live_model"})
     cls = BudgetLedger if mock else CumulativeLedger
     ledger = cls(out / "accounting", scope="full", max_calls=plan["max_calls_per_run"],
         max_usd="10", plan_sha256=sha(bundle / "plan.json"), authorization=authorization)
-    client = ModalHospitalClient(ledger=ledger, base_url=base, model=MODEL, headers=headers,
-        diagnostics=out / "transport_diagnostics", worker_sha256=plan["sources"]["modal_request_worker.py"],
+    client_type = TracedModalClient if plan.get("transport") == "trace-json" else ModalHospitalClient
+    worker_name = "endpoint_probe_worker.py" if plan.get("transport") == "trace-json" else "modal_request_worker.py"
+    client = client_type(ledger=ledger, base_url=base, model=MODEL, headers=headers,
+        diagnostics=out / "transport_diagnostics", worker_sha256=plan["sources"][worker_name],
         batch_deadline_monotonic=time.monotonic() + 1800,
         request_timeout=plan["request_deadline_seconds"], max_request_timeout=plan["request_deadline_seconds"])
     if mock:
@@ -415,6 +428,7 @@ async def execute(bundle, out, *, mock=None, seed=None):
         cases.append(result)
         report = {"stage": plan["stage"], "mode": "scripted_software" if mock else "live_model",
             "request_deadline_seconds": plan["request_deadline_seconds"],
+            "transport": plan.get("transport", "original-json"),
             "plan_sha256": sha(bundle / "plan.json"), "cases": cases,
             "all_passed": len(cases) == len(selected) and all(c["passed"] for c in cases),
             "planned_cases": selected, "ledger": ledger.summary(), "network_attempts": NETWORK,
@@ -471,9 +485,11 @@ async def validate(bundle, out):
     local.mkdir()
     ledger = BudgetLedger(local / "accounting", scope="full", max_calls=plan["max_calls_per_run"],
         max_usd="10", plan_sha256=sha(bundle / "plan.json"), authorization=authorization)
-    client = ModalHospitalClient(ledger=ledger, base_url=BASE_URL, model=MODEL,
+    client_type = TracedModalClient if plan.get("transport") == "trace-json" else ModalHospitalClient
+    worker_name = "endpoint_probe_worker.py" if plan.get("transport") == "trace-json" else "modal_request_worker.py"
+    client = client_type(ledger=ledger, base_url=BASE_URL, model=MODEL,
         headers={"Modal-Key": "OFFLINE_TEST_ID", "Modal-Secret": "OFFLINE_TEST_SECRET"},
-        diagnostics=local / "diagnostics", worker_sha256=plan["sources"]["modal_request_worker.py"],
+        diagnostics=local / "diagnostics", worker_sha256=plan["sources"][worker_name],
         request_timeout=1, max_request_timeout=plan["request_deadline_seconds"])
     real_popen = subprocess.Popen
     def sleeping(*args, **kwargs):
@@ -516,9 +532,10 @@ def main():
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--seed", type=int)
     parser.add_argument("--deadline", type=int, choices=(60, 180), default=60)
+    parser.add_argument("--transport", choices=("original-json", "trace-json"), default="original-json")
     args = parser.parse_args()
     if args.command == "prepare":
-        result = asyncio.run(prepare(args.stage, args.out, args.deadline))
+        result = asyncio.run(prepare(args.stage, args.out, args.deadline, args.transport))
     elif args.command == "validate":
         result = asyncio.run(validate(args.bundle, args.out))
     else:

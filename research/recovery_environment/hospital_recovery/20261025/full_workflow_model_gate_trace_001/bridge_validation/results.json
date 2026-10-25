@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "calls": 1,
+      "ledger_status": "ready",
+      "mode": "positive",
+      "passed": true
+    },
+    {
+      "calls": 1,
+      "ledger_status": "halted",
+      "mode": "malformed",
+      "passed": true
+    }
+  ],
+  "exact_first_payload": true,
+  "inference_calls": 0,
+  "limit": "single scripted positive/malformed counterexamples; no LLM competence or reliability estimate",
+  "n": 1,
+  "network_attempts": [],
+  "passed": true,
+  "plan_sha256": "e526c94f01c0e803241ed3d9599103644ff2147f42ba7ac93fc585dfcdf2f945",
+  "sample_sd": null,
+  "sample_variance": null,
+  "source_hashes": {
+    "traced_modal_client.py": "fe317d77e458ca95801c2ebad8c16eec5eb5c317a5df446d4d9ec5fc4832c58e",
+    "validate_traced_bridge.py": "699b21a63416539bb8dffde07396b3a48c3d3b63a21f5d27f9b52ef45eb632fa"
+  }
+}
