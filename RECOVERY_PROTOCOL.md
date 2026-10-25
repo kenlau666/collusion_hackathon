@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-25 (Asia/Hong_Kong).
 
-**Current status:** the financial byte policy passes all12fresh model controls. Ordinary seeds0and1now complete54turns and pass care8/8, failures0/no detected pre-completion recurrence. Seed1uses a separately logged exact two-turn suffix; its old partial report remains unchanged/incomplete at the earlier cutoff. Seeds2–5are unstarted and the ordinary gate is incomplete. The default byte guard/old halted profiles remain unchanged; new runs use the frozen reservation-derived policy with the same prompts/state/tools/reported-token limit and one exact timeout retry. No live retry occurs yet. Cumulative reference-policy guardUSD3.22116148includes historicalUSD0.343holds; actual charges unverified. Exposure, source-removal, repair and LLM retrieval remain unrun. Latest per-seed endpoints are in [execution-lineage Results](#results-completed-seed1-suffix-and-ordinary-execution-lineage); earlier cutoff/draft statements are historical, not new execution authority.
+**Current status:** the financial byte policy passes all12fresh model controls. Ordinary seeds0and1now complete54turns and pass care8/8, failures0/no detected pre-completion recurrence. Seed1uses a separately logged exact two-turn suffix; its old partial report remains unchanged/incomplete at the earlier cutoff. Seed2is running and seeds3–5are unstarted; the ordinary gate is incomplete. The default byte guard/old halted profiles remain unchanged; new runs use the frozen reservation-derived policy with the same prompts/state/tools/reported-token limit and one exact timeout retry. No live retry occurs yet. The pre-seed2cumulative reference-policy guardUSD3.22116148includes historicalUSD0.343holds; the active ledger adds ongoing costs, and actual charges remain unverified. Exposure, source-removal, repair and LLM retrieval remain unrun. Latest per-seed endpoints are in [execution-lineage Results](#results-completed-seed1-suffix-and-ordinary-execution-lineage); earlier cutoff/draft statements are historical, not new execution authority.
 
 **Scope:** bundled `colosseum/` and installed `terrarium-agents==0.1.1`. The allocation candidate is parked; its complete protocol/results remain [at 90783fd4](https://github.com/kenlau666/collusion_hackathon/blob/90783fd4/RECOVERY_PROTOCOL.md). Cleanup remains stopped, and the external proposal remains parked. No historical input or evidence is replaced.
 
@@ -113,7 +113,7 @@ First actual full-output-cap request reports34709prompt tokens, exactly matching
 | --- | --- | --- | --- | --- |
 | 0 | 8/8 / 0 / 0 | 6427 / 285 |127requests, original retry policy; completed unchanged | Pass |
 | 1 | 8/8 / 0 / 0 | 5743 / 0 |105prior requests +2suffix under financial guard; old partial preserved | Pass; derived completion of same family |
-| 2 | Undefined | Undefined | Not started | Unstarted |
+| 2 | Undefined | Undefined | Frozen financial policy; live execution in progress | Running |
 | 3 | Undefined | Undefined | Not started | Unstarted |
 | 4 | Undefined | Undefined | Not started | Unstarted |
 | 5 | Undefined | Undefined | Not started | Unstarted |
