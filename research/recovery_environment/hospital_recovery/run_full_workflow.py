@@ -76,8 +76,16 @@ def all_history():
             "guard_usd": str(max(Decimal(data["spent_usd"]),
                                   Decimal(data.get("reported_cost_sum_usd", "0"))) +
                              Decimal(data["held_usd"]))})
-    return {"old": old, "new": rows, "guard_usd": str(Decimal(old["conservative_guard_usd"]) +
-            sum((Decimal(r["guard_usd"]) for r in rows), Decimal(0)))}
+    diagnostics = []
+    for path in sorted(BASE.glob("endpoint_diagnostic_live_*/accounting/*/ledger.json")):
+        data = json.loads(path.read_text())
+        diagnostics.append({"path": str(path), "sha256": sha(path), "status": data["status"],
+            "guard_usd": str(max(Decimal(data["spent_usd"]),
+                                  Decimal(data.get("reported_cost_sum_usd", "0"))) +
+                             Decimal(data["held_usd"]))})
+    return {"old": old, "new": rows, "diagnostics": diagnostics,
+            "guard_usd": str(Decimal(old["conservative_guard_usd"]) +
+            sum((Decimal(r["guard_usd"]) for r in rows + diagnostics), Decimal(0)))}
 
 
 def specs(stage):
