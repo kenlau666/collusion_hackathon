@@ -84,7 +84,7 @@ Combined earlier controls, interrupted main and this qualification: **176attempt
 
 ## Decision and next action
 
-**Latest decision:** the user has now explicitly adopted one logged exact-request timeout retry and continuing the experiment, preserving all costs within USD50. Implement/freeze/qualify that opt-in completion policy, then run the fixed ordinary cohort; all previous halted cohorts remain closed and reported. Software controls pass, but no server repair or new behavioral effect is claimed. The following paragraphs retain the earlier smaller pilot's decision and do not supersede the current status above.
+**Latest decision:** the authorized retry policy is implemented/qualified, and ordinary seed0 passes. Continue fixed seeds1–5 once each; keep every behavioral failure and stop only on the declared execution/budget limits. All earlier halted cohorts and costs stay preserved. No server repair, exploit influence or recovery effect is claimed. The following paragraphs retain the earlier smaller pilot's decision and do not supersede the current status above.
 
 The user's rule is to fix verified problems, **not change the experiment until every case gives the desired result**. The explicitly requested positive-control correction is implemented separately from the old frozen sources and now passes its six live controls. It changes positive-control user instructions only; ordinary/system/tool inputs and strict criteria remain intact. Preserve the old failure and distinguish the new instructed success from ordinary care behavior.
 
