@@ -86,6 +86,7 @@ def audit_ledger(ledger, run, plan):
     assert ledger["timeout_retry_policy"] == plan["timeout_retry_policy"]
     logical, reference, held, reported = defaultdict(list), Decimal(0), Decimal(0), Decimal(0)
     actual_costs, retries = 0, []
+    failed_no_reply, failed_with_reply, failed_reference = [], [], Decimal(0)
     by_id = {r["call_id"]: r for r in records}
     for record in records:
         wire = record["wire_payload_json"].encode()
@@ -118,7 +119,16 @@ def audit_ledger(ledger, run, plan):
             assert estimate == Decimal(record["reference_estimate_usd"])
             reference += estimate
         else:
-            assert record.get("response") is None
+            assert record.get("failure"), "Failed attempt needs a retained failure classification"
+            if record.get("response") is None:
+                failed_no_reply.append(record["call_id"])
+            else:
+                # HTTP/model/accounting rejection retains the received body;
+                # only settled replies are ever eligible for native dispatch.
+                failed_with_reply.append({"call_id": record["call_id"],
+                    "failure": record["failure"], "http_status": record.get("http_status")})
+                if record.get("reference_estimate_usd") is not None:
+                    failed_reference += Decimal(record["reference_estimate_usd"])
             held += Decimal(record["reservation_usd"])
         if record.get("reported_cost_usd") is not None:
             actual_costs += 1
@@ -152,6 +162,9 @@ def audit_ledger(ledger, run, plan):
     assert max(reference, reported) + held <= Decimal(plan["max_usd_per_run"])
     return {"outward_attempts": len(records), "settled": sum(r["status"] == "settled" for r in records),
         "failed_attempts": sum(r["status"] == "failed" for r in records),
+        "failed_without_reply_call_ids": failed_no_reply,
+        "failed_with_preserved_reply": failed_with_reply,
+        "failed_reply_reference_estimates_usd": str(failed_reference),
         "logical_requests_with_attempts": len(logical), "retry_attempts": len(retries),
         "abandoned_generations": len(abandoned_ids), "exact_retry_wire_bytes_verified": True,
         "reference_estimate_usd": str(reference), "unknown_held_usd": str(held),
@@ -273,6 +286,22 @@ def audit_case(case, brief, records, expected, plan):
             user = next(m["content"] for m in record["payload"]["messages"] if m["role"] == "user")
             context, _ = json.JSONDecoder().raw_decode(user)
             assert context["actor"] == turn["actor"]
+        if turn["outcome"] != "scripted_partner":
+            eligible = []
+            for record in turn_records:
+                if record["status"] != "settled":
+                    continue
+                message = record["response"]["choices"][0].get("message") or {}
+                for tool in message.get("tool_calls") or []:
+                    function = tool.get("function") or {}
+                    try:
+                        args = json.loads(function.get("arguments") or "{}")
+                    except json.JSONDecodeError:
+                        args = {}  # Match the frozen native parser's fallback.
+                    eligible.append([turn["actor"], function.get("name", "unknown_tool"), args])
+            executed = [[c["actor"], c["tool"], c["arguments"]] for c in case["callbacks"]
+                        if c["turn_index"] == turn["turn_index"]]
+            assert executed == eligible, "Native callbacks must come only from settled replies"
         if turn["actor"] in excluded:
             assert turn["outward_attempts"] == turn["logical_generation_requests"] == turn["scripted_generation_requests"] == 0
             excluded_positions += 1

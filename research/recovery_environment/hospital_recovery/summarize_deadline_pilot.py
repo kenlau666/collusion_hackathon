@@ -158,10 +158,17 @@ def reconcile_archive(run, brief, spec, analysis, plan_hash):
         raise ValueError("independent analysis is stale for results")
     if "raw_ledger_sha256" in analysis and analysis["raw_ledger_sha256"] != sha(run / "accounting/ledger.json"):
         raise ValueError("independent analysis is stale for ledger")
-    return case, archive
+    analyzed = [v for v in analysis["Results"]["per_cell"] if v["id"] == spec["id"]]
+    if len(analyzed) != 1 or analyzed[0]["spec"] != spec:
+        raise ValueError("independent analysis does not identify this exact cell")
+    analyzed = analyzed[0]
+    if (analyzed["archive_sha256"] != brief["archive_sha256"]
+            or analyzed["raw_sha256"] != brief["raw_sha256"]):
+        raise ValueError("independent cell analysis refers to another archive")
+    return case, archive, analyzed
 
 
-def finalized_row(row, run, case, archive):
+def finalized_row(row, run, case, archive, analyzed):
     metrics, complete = case["metrics"], case["complete"]
     proposal_counts = Counter(v["tool"] for v in case["callbacks"])
     trips = metrics["physical_roundtrips"]
@@ -177,6 +184,8 @@ def finalized_row(row, run, case, archive):
                endpoint_finalized=True, horizon_reached=bool(case["horizon_reached"]),
                all_turns_successful=bool(case["all_turns_successful"]),
                runner_case_pass=bool(case["passed"]), strict_control_pass=strict_control(case),
+               independent_analysis_cell_pass=analyzed["clinical_or_control_passed"],
+               all_designated_control_callbacks_exact=analyzed.get("all_designated_control_callbacks_exact"),
                **{name + "_final": value if complete else None for name, value in observed.items()},
                **{name + "_last_observed": value for name, value in observed.items()},
                physical_roundtrip_details=trips, proposal_counts=dict(proposal_counts),
@@ -194,6 +203,10 @@ def finalized_row(row, run, case, archive):
                archive_path=str(archive), archive_sha256=sha(archive),
                analysis_path=str(run / "analysis.json"), analysis_sha256=sha(run / "analysis.json"),
                error=case["error"])
+    if case["spec"]["stage"] == "controls":
+        row["strict_control_pass"] = bool(row["strict_control_pass"]
+            and analyzed["clinical_or_control_passed"]
+            and analyzed["all_designated_control_callbacks_exact"])
     if row["spec"]["id"].startswith("contingency-"):
         row["diagnostic_behavior"] = diagnostic_observations(case)
     return row
@@ -294,8 +307,8 @@ def summarize(bundle=BUNDLE, base=BASE, out=None):
             continue
         try:
             analysis = load(analysis_path)
-            case, archive = reconcile_archive(run, brief, expected[name], analysis, plan_hash)
-            finalized_row(row, run, case, archive)
+            case, archive, analyzed = reconcile_archive(run, brief, expected[name], analysis, plan_hash)
+            finalized_row(row, run, case, archive, analyzed)
             provenance[str(analysis_path)] = sha(analysis_path)
             provenance[str(archive)] = sha(archive)
         except (OSError, ValueError, KeyError, TypeError) as exc:
