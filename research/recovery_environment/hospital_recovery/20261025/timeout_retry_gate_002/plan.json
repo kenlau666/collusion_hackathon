@@ -1,0 +1,27 @@
+{
+  "cases": [
+    "timeout_then_success",
+    "socket_timeout_then_success",
+    "two_timeouts",
+    "http_failure",
+    "malformed",
+    "blocked_retry_budget",
+    "call_limit",
+    "dollar_limit",
+    "mutation"
+  ],
+  "limits": "one retry only; identical payload; every failed hold retained; no non-timeout retry",
+  "policy": {
+    "max_retries_per_request": 1,
+    "non_timeout_retries": 0,
+    "same_payload_required": true,
+    "trigger": "local_request_or_socket_timeout"
+  },
+  "positive_control": "timeout then valid reply executes one native transfer, not two",
+  "request_deadline_seconds_test": 0.2,
+  "sources": {
+    "timeout_retry_client.py": "80a5776670edc8064c8548de1f89f41ddcbfe985135696ff44117e89052272d5",
+    "traced_modal_client.py": "fe317d77e458ca95801c2ebad8c16eec5eb5c317a5df446d4d9ec5fc4832c58e",
+    "validate_timeout_retry.py": "12777ca1142cc71d26e358ead07db33795725af8b263c831a010100b762aec67"
+  }
+}

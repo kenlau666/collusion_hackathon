@@ -31,6 +31,12 @@ Keep these four active research documents authoritative. Update dates when conte
 - On 2026-10-25 the user explicitly asked to set and execute two targets: the controlled Hospital mechanism/repair study and one relevant architecture variation, then said not to ask further approval for paid tests and authorized USD 50 credit. This scope authorization supersedes the earlier implementation-only restriction for these targets. Conservatively use USD 50 as the cumulative Hospital ceiling, including historical known/reference costs and unresolved reservations; retain USD 10/198 requests per serial run/ledger.
 - Prepare and validate exact sources, inputs, positive controls, sample and accounting before each paid stage, then proceed within that authorization. Retain failures/nulls, do not tune until all seeds succeed, and do not transfer old control passes. Use only the configured Modal route. RESEARCH.md and RECOVERY_PROTOCOL.md record the active goal and dependent gates.
 
+## Exact-request timeout retry authorization (subsequent human instruction)
+
+- On 2026-10-25 the user explicitly authorized one logged retry of the exact same request on timeout, continuing the experiment while preserving every failed attempt/cost within the cumulative USD 50 ceiling. This supersedes the old no-retry rule only for the new opt-in timeout-retry condition; all old halted runs remain immutable and closed.
+- Permit at most two provider attempts per logical generation, only after a local whole-request/socket timeout and a killed/reaped worker. Require byte-equal serialized POST bodies, linked attempt IDs/hashes and a separate durable reservation for each attempt. Keep the first failure/reservation, apply the budget and request caps again before retry, and execute no tools from incomplete replies. Non-timeout errors and a second timeout remain terminal.
+- Retain USD 10/198 outward attempts per run, the native cap of three logical generations per turn, all task inputs/criteria and the configured Modal model. Count retries and unresolved reservations in the cumulative ceiling. Qualify the opt-in condition with explicit software recovery controls and current-model care/cycle controls before ordinary cases; report the changed completion policy and all failures.
+
 ## Current provider selection
 
 - The user states they have no OpenRouter credit and explicitly selected **the configured Modal endpoint** on2026-10-25. Do not make further OpenRouter inference or silently fall back to it.

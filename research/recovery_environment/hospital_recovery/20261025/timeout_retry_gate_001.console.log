@@ -1,0 +1,109 @@
+Can't get LLM response: Modal request failed; unknown reservation retained
+Traceback (most recent call last):
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/agents/base.py", line 299, in generate_response
+    return await self._multi_step_response_generation(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        system_prompt=system_prompt, user_prompt=user_prompt
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/agents/base.py", line 340, in _multi_step_response_generation
+    response, response_str = await run_blocking(
+                             ^^^^^^^^^^^^^^^^^^^
+        self.client.generate_response, input=context, params=params
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/async_utils.py", line 27, in run_blocking
+    return fut.result()
+           ~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/research/recovery_environment/hospital_recovery/modal_hospital_client.py", line 115, in generate_response
+    return super().generate_response(input=input, params=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/llm_server/clients/together_client.py", line 164, in generate_response
+    response = self.session.post(
+        f"{self.base_url}/chat/completions",
+    ...<2 lines>...
+        timeout=self.request_timeout,
+    )
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/research/recovery_environment/hospital_recovery/timeout_retry_client.py", line 135, in _native_post
+    return super()._native_post(url, headers=headers, data=original_data, timeout=timeout)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/research/recovery_environment/hospital_recovery/modal_hospital_client.py", line 148, in _native_post
+    raise BudgetError('Modal request failed; unknown reservation retained') from None
+budget_client.BudgetError: Modal request failed; unknown reservation retained
+Traceback (most recent call last):
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/research/recovery_environment/hospital_recovery/validate_timeout_retry.py", line 133, in <module>
+    asyncio.run(main(parser.parse_args().out))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 720, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/research/recovery_environment/hospital_recovery/validate_timeout_retry.py", line 96, in main
+    await f.native_turn(branch, {'actor':actor,'phase':'planning','iteration':1,'turn_index':0}, client, model=MODEL)
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/research/recovery_environment/hospital_recovery/full_workflow.py", line 186, in native_turn
+    return await b.protocol.agent_planning_turn(agent, step["actor"], context, b.env,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                               step["iteration"], 1)
+                                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/research/recovery_environment/hospital_recovery/branch_runtime.py", line 232, in agent_planning_turn
+    return await super().agent_planning_turn(agent, agent_name, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/experiments/common/local_protocol.py", line 303, in agent_planning_turn
+    return await agent.generate_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/agents/base.py", line 299, in generate_response
+    return await self._multi_step_response_generation(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        system_prompt=system_prompt, user_prompt=user_prompt
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/agents/base.py", line 340, in _multi_step_response_generation
+    response, response_str = await run_blocking(
+                             ^^^^^^^^^^^^^^^^^^^
+        self.client.generate_response, input=context, params=params
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/async_utils.py", line 27, in run_blocking
+    return fut.result()
+           ~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/research/recovery_environment/hospital_recovery/modal_hospital_client.py", line 115, in generate_response
+    return super().generate_response(input=input, params=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/llm_server/clients/together_client.py", line 164, in generate_response
+    response = self.session.post(
+        f"{self.base_url}/chat/completions",
+    ...<2 lines>...
+        timeout=self.request_timeout,
+    )
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/research/recovery_environment/hospital_recovery/timeout_retry_client.py", line 135, in _native_post
+    return super()._native_post(url, headers=headers, data=original_data, timeout=timeout)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/research/recovery_environment/hospital_recovery/modal_hospital_client.py", line 148, in _native_post
+    raise BudgetError('Modal request failed; unknown reservation retained') from None
+budget_client.BudgetError: Modal request failed; unknown reservation retained

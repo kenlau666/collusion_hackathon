@@ -1,0 +1,95 @@
+{
+  "cases": [
+    {
+      "held_simulated_usd": "0.049",
+      "ledger_status": "ready",
+      "logical_generations": 1,
+      "mode": "timeout_then_success",
+      "native_transfers": 1,
+      "outward_attempts": 2,
+      "passed": true
+    },
+    {
+      "held_simulated_usd": "0.049",
+      "ledger_status": "ready",
+      "logical_generations": 1,
+      "mode": "socket_timeout_then_success",
+      "native_transfers": 1,
+      "outward_attempts": 2,
+      "passed": true
+    },
+    {
+      "held_simulated_usd": "0.098",
+      "ledger_status": "halted",
+      "logical_generations": 1,
+      "mode": "two_timeouts",
+      "native_transfers": 0,
+      "outward_attempts": 2,
+      "passed": true
+    },
+    {
+      "held_simulated_usd": "0.049",
+      "ledger_status": "halted",
+      "logical_generations": 1,
+      "mode": "http_failure",
+      "native_transfers": 0,
+      "outward_attempts": 1,
+      "passed": true
+    },
+    {
+      "held_simulated_usd": "0.049",
+      "ledger_status": "halted",
+      "logical_generations": 1,
+      "mode": "malformed",
+      "native_transfers": 0,
+      "outward_attempts": 1,
+      "passed": true
+    },
+    {
+      "held_simulated_usd": "0.049",
+      "ledger_status": "halted",
+      "logical_generations": 1,
+      "mode": "blocked_retry_budget",
+      "native_transfers": 0,
+      "outward_attempts": 1,
+      "passed": true
+    },
+    {
+      "held_simulated_usd": "0.049",
+      "ledger_status": "halted",
+      "logical_generations": 1,
+      "mode": "call_limit",
+      "native_transfers": 0,
+      "outward_attempts": 1,
+      "passed": true
+    },
+    {
+      "held_simulated_usd": "0.049",
+      "ledger_status": "halted",
+      "logical_generations": 1,
+      "mode": "dollar_limit",
+      "native_transfers": 0,
+      "outward_attempts": 1,
+      "passed": true
+    },
+    {
+      "held_simulated_usd": "0.049",
+      "ledger_status": "halted",
+      "logical_generations": 1,
+      "mode": "mutation",
+      "native_transfers": 0,
+      "outward_attempts": 1,
+      "passed": true
+    }
+  ],
+  "inference_calls": 0,
+  "llm_behavior_established": false,
+  "n_per_counterexample": 1,
+  "network_attempts": [],
+  "passed": true,
+  "plan_sha256": "87cfd88d86e4c451445da23aa4766b9ff39503d10bafe49ed2aee07673740566",
+  "positive_controls": "whole-request and socket timeout then exact retry produce one native transfer each",
+  "real_spend_usd": "0",
+  "sample_sd": null,
+  "sample_variance": null
+}

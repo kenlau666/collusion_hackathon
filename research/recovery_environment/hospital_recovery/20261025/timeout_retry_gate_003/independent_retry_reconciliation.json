@@ -1,0 +1,98 @@
+{
+  "analyzer_sha256": "7fd541b3163c71035b10abf0c71d4575dffcd0f91949519f23d3965f606dccee",
+  "cases": [
+    {
+      "exact_wire_bytes_verified": true,
+      "failed_attempts": 1,
+      "logical_requests_with_outward_attempts": 1,
+      "mode": "timeout_then_success",
+      "outward_retry_attempts": 1,
+      "recovered_logical_requests": 1,
+      "scheduled_retry_events": 1
+    },
+    {
+      "exact_wire_bytes_verified": true,
+      "failed_attempts": 1,
+      "logical_requests_with_outward_attempts": 1,
+      "mode": "socket_timeout_then_success",
+      "outward_retry_attempts": 1,
+      "recovered_logical_requests": 1,
+      "scheduled_retry_events": 1
+    },
+    {
+      "exact_wire_bytes_verified": true,
+      "failed_attempts": 2,
+      "logical_requests_with_outward_attempts": 1,
+      "mode": "two_timeouts",
+      "outward_retry_attempts": 1,
+      "recovered_logical_requests": 0,
+      "scheduled_retry_events": 1
+    },
+    {
+      "exact_wire_bytes_verified": true,
+      "failed_attempts": 1,
+      "logical_requests_with_outward_attempts": 1,
+      "mode": "http_failure",
+      "outward_retry_attempts": 0,
+      "recovered_logical_requests": 0,
+      "scheduled_retry_events": 0
+    },
+    {
+      "exact_wire_bytes_verified": true,
+      "failed_attempts": 1,
+      "logical_requests_with_outward_attempts": 1,
+      "mode": "malformed",
+      "outward_retry_attempts": 0,
+      "recovered_logical_requests": 0,
+      "scheduled_retry_events": 0
+    },
+    {
+      "exact_wire_bytes_verified": true,
+      "failed_attempts": 1,
+      "logical_requests_with_outward_attempts": 1,
+      "mode": "blocked_retry_budget",
+      "outward_retry_attempts": 0,
+      "recovered_logical_requests": 0,
+      "scheduled_retry_events": 1
+    },
+    {
+      "exact_wire_bytes_verified": true,
+      "failed_attempts": 1,
+      "logical_requests_with_outward_attempts": 1,
+      "mode": "call_limit",
+      "outward_retry_attempts": 0,
+      "recovered_logical_requests": 0,
+      "scheduled_retry_events": 1
+    },
+    {
+      "exact_wire_bytes_verified": true,
+      "failed_attempts": 1,
+      "logical_requests_with_outward_attempts": 1,
+      "mode": "dollar_limit",
+      "outward_retry_attempts": 0,
+      "recovered_logical_requests": 0,
+      "scheduled_retry_events": 1
+    },
+    {
+      "exact_wire_bytes_verified": true,
+      "failed_attempts": 1,
+      "logical_requests_with_outward_attempts": 1,
+      "mode": "mutation",
+      "outward_retry_attempts": 0,
+      "recovered_logical_requests": 0,
+      "scheduled_retry_events": 1
+    },
+    {
+      "exact_wire_bytes_verified": true,
+      "failed_attempts": 1,
+      "logical_requests_with_outward_attempts": 1,
+      "mode": "wire_order_mutation",
+      "outward_retry_attempts": 0,
+      "recovered_logical_requests": 0,
+      "scheduled_retry_events": 1
+    }
+  ],
+  "inference_calls": 0,
+  "mutated_wire_rejected": true,
+  "passed": true
+}

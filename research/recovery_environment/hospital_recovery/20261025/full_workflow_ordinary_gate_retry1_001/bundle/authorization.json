@@ -1,0 +1,15 @@
+{
+  "approval_reference": "Human instruction 2026-10-25: set the two target in your goal then start it. dont ask my approval for paid test. i got $50 free credit. feel free to spend them",
+  "approved": true,
+  "max_calls": 198,
+  "max_usd": "10",
+  "plan_sha256": "236b6039bfabdc6984d7d0877fda10f921a820e60444569053e1aeb2a4339392",
+  "retry_approval_reference": "Human instruction 2026-10-25: yes, add one logged retry for the exact same request on timeout and continue the experiment. preserve all failed attempts and costs, and stay within the $50 budget",
+  "scope": "full",
+  "timeout_retry_policy": {
+    "max_retries_per_request": 1,
+    "non_timeout_retries": 0,
+    "same_payload_required": true,
+    "trigger": "local_request_or_socket_timeout"
+  }
+}

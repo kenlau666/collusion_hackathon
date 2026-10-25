@@ -26,6 +26,54 @@ def canonical(record):
     return [record["actor"], record["tool"], {k: v for k, v in record["arguments"].items() if k != "rationale"}]
 
 
+def audit_retry_ledger(ledger, run):
+    """Independently check raw POST bytes, timeout evidence and one-retry links."""
+    if not ledger.get('timeout_retry_policy'):
+        return {'outward_retry_attempts': 0, 'logical_requests_with_outward_attempts': ledger['calls']}
+    assert ledger['timeout_retry_policy']['max_retries_per_request'] == 1
+    by_id = {r['call_id']: r for r in ledger['records']}
+    logical = {}
+    retries = []
+    for record in ledger['records']:
+        wire = record['wire_payload_json'].encode()
+        assert len(wire) == record['payload_bytes'] and sha(wire) == record['wire_payload_sha256']
+        assert json.loads(wire) == record['payload']
+        canonical_bytes = json.dumps(record['payload'], sort_keys=True, ensure_ascii=False, allow_nan=False).encode()
+        assert sha(canonical_bytes) == record['payload_sha256']
+        group = logical.setdefault(record['logical_request_id'], [])
+        assert record['attempt_index'] == len(group) and len(group) < 2
+        if group:
+            original = group[0]
+            assert record['retry_of_call_id'] == original['call_id']
+            assert original['status'] == 'failed' and original['failure'] == 'transport_failure'
+            assert record['wire_payload_json'] == original['wire_payload_json']
+            assert record['wire_payload_sha256'] == original['wire_payload_sha256']
+            retries.append(record)
+        else:
+            assert record['retry_of_call_id'] is None
+        group.append(record)
+    linked = []
+    for event in ledger['retry_events']:
+        original = by_id[event['failed_call_id']]
+        assert original['attempt_index'] == 0 and original['status'] == 'failed'
+        assert event['wire_payload_sha256'] == original['wire_payload_sha256']
+        path = run / 'transport_diagnostics' / f"call-{original['call_id']:04d}.json"
+        if not path.exists():
+            path = run / 'diagnostics' / f"call-{original['call_id']:04d}.json"
+        assert sha(path.read_bytes()) == event['diagnostic_sha256']
+        diagnostic = json.loads(path.read_text())
+        assert diagnostic['kind'] == 'transport_error' and diagnostic['child_reaped']
+        assert diagnostic.get('category') == 'whole_request_deadline' or diagnostic.get('exception_type') == 'TimeoutError'
+        if event['retry_call_id'] is not None:
+            assert by_id[event['retry_call_id']]['retry_of_call_id'] == original['call_id']
+            linked.append(event['retry_call_id'])
+    assert sorted(linked) == sorted(r['call_id'] for r in retries)
+    return {'outward_retry_attempts': len(retries), 'logical_requests_with_outward_attempts': len(logical),
+        'scheduled_retry_events': len(ledger['retry_events']), 'exact_wire_bytes_verified': True,
+        'failed_attempts': sum(r['status'] == 'failed' for r in ledger['records']),
+        'recovered_logical_requests': sum(len(g) == 2 and g[-1]['status'] == 'settled' for g in logical.values())}
+
+
 def main(bundle, run, out):
     plan = json.loads((bundle / "plan.json").read_text())
     results = json.loads((run / "results.json").read_text())
@@ -125,7 +173,9 @@ def main(bundle, run, out):
             "care": stats([lookup.get(s, {}).get("care_final") for s in range(6)], 6),
             "credit": stats([lookup[s]["credit"] if s in lookup and lookup[s]["complete"] else None for s in range(6)], 6),
             "native_score": stats([lookup[s]["native_score"] if s in lookup and lookup[s]["complete"] else None for s in range(6)], 6)}
+    retry_audit = audit_retry_ledger(ledger, run)
     analysis = {"mode": results["mode"], "stage": plan["stage"], "plan_sha256": results["plan_sha256"],
+        "retry_audit": retry_audit,
         "raw_ledger_sha256": sha(ledger_bytes), "cases": cases, "summaries": summaries,
         "positive_control_passed": plan["stage"] == "controls" and len(cases) == 12 and all(c["passed"] for c in cases),
         "unit": "six fixed scenario families; controls paired within seed, no seed replacements",

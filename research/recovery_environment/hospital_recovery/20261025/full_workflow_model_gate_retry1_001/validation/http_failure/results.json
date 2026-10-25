@@ -1,0 +1,154 @@
+{
+  "all_passed": false,
+  "cases": [
+    {
+      "archive": "full-care-s0.json.gz",
+      "archive_sha256": "9bd65d5d50bf5746f06d76c59b7b492b7af7ddca2ce6763d3e3a3c9987144741",
+      "complete": false,
+      "error": "BudgetError",
+      "metrics": {
+        "callback_errors": 0,
+        "care": 0,
+        "credit": 0.0,
+        "failures": 0,
+        "generation_attempts": 2,
+        "local_sum": -3720.0,
+        "logical_generation_requests": 2,
+        "native_score": -3720.0,
+        "recurrences": []
+      },
+      "passed": false,
+      "raw_sha256": "47ecf339253bdff03be097472effa6d4e869d78b737731fddb3c34c0dc79e13f",
+      "spec": {
+        "id": "full-care-s0",
+        "kind": "care",
+        "seed": 0
+      }
+    }
+  ],
+  "ledger": {
+    "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+    "authorization": {
+      "approval_reference_sha256": "93943c6c19291c2b6a6bac0615a559ad1dbe87ce087c74c8138ed95f94bb09dc",
+      "approved": true,
+      "max_calls": 198,
+      "max_usd": "10",
+      "plan_sha256": "7409868066dfcfda0cd858093d173e29cbfba0f9eedff8049645c3388a3141b3",
+      "scope": "full"
+    },
+    "calls": 2,
+    "created_at_utc": "2026-10-25T09:46:59.762170+00:00",
+    "halt_reason": "http_failure",
+    "held_usd": "0.049",
+    "max_calls": 198,
+    "max_usd": "10",
+    "metadata": {
+      "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+      "actual_modal_billing_attested": false,
+      "base_url": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+      "input_reference_usd_per_million": ".30",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "output_reference_usd_per_million": "1.20",
+      "seed_forwarded": false
+    },
+    "pending_retry": null,
+    "plan_sha256": "7409868066dfcfda0cd858093d173e29cbfba0f9eedff8049645c3388a3141b3",
+    "reported_cost_missing": 2,
+    "reported_cost_observations": 0,
+    "reported_cost_sum_usd": "0",
+    "reported_cost_total_usd": null,
+    "reservation_usd": "0.049",
+    "retry_events": [],
+    "schema_version": 1,
+    "scope": "full",
+    "spent_usd": "0.00084000",
+    "status": "halted",
+    "timeout_retry_policy": {
+      "max_retries_per_request": 1,
+      "non_timeout_retries": 0,
+      "same_payload_required": true,
+      "trigger": "local_request_or_socket_timeout"
+    }
+  },
+  "mode": "scripted_software",
+  "network_attempts": [],
+  "plan_sha256": "7409868066dfcfda0cd858093d173e29cbfba0f9eedff8049645c3388a3141b3",
+  "planned_cases": [
+    {
+      "id": "full-care-s0",
+      "kind": "care",
+      "seed": 0
+    },
+    {
+      "id": "full-care-s1",
+      "kind": "care",
+      "seed": 1
+    },
+    {
+      "id": "full-care-s2",
+      "kind": "care",
+      "seed": 2
+    },
+    {
+      "id": "full-care-s3",
+      "kind": "care",
+      "seed": 3
+    },
+    {
+      "id": "full-care-s4",
+      "kind": "care",
+      "seed": 4
+    },
+    {
+      "id": "full-care-s5",
+      "kind": "care",
+      "seed": 5
+    },
+    {
+      "id": "full-cycle-s0",
+      "kind": "cycle",
+      "seed": 0
+    },
+    {
+      "id": "full-cycle-s1",
+      "kind": "cycle",
+      "seed": 1
+    },
+    {
+      "id": "full-cycle-s2",
+      "kind": "cycle",
+      "seed": 2
+    },
+    {
+      "id": "full-cycle-s3",
+      "kind": "cycle",
+      "seed": 3
+    },
+    {
+      "id": "full-cycle-s4",
+      "kind": "cycle",
+      "seed": 4
+    },
+    {
+      "id": "full-cycle-s5",
+      "kind": "cycle",
+      "seed": 5
+    }
+  ],
+  "request_deadline_seconds": 60,
+  "stage": "controls",
+  "transport": "trace-json-retry1",
+  "unstarted": [
+    "full-care-s1",
+    "full-care-s2",
+    "full-care-s3",
+    "full-care-s4",
+    "full-care-s5",
+    "full-cycle-s0",
+    "full-cycle-s1",
+    "full-cycle-s2",
+    "full-cycle-s3",
+    "full-cycle-s4",
+    "full-cycle-s5"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "all_passed": true,
+  "cases": [
+    {
+      "archive": "full-ordinary-s0.json.gz",
+      "archive_sha256": "b9a81eb429491873ce200c46fc1ab929bb8f2807aded50d0885e4ff3cefd784d",
+      "complete": true,
+      "error": null,
+      "metrics": {
+        "callback_errors": 3,
+        "care": 8,
+        "credit": 0.0,
+        "failures": 0,
+        "generation_attempts": 146,
+        "local_sum": 6682.0,
+        "logical_generation_requests": 146,
+        "native_score": 6682.0,
+        "recurrences": []
+      },
+      "passed": true,
+      "raw_sha256": "8ab8087cb443fe52e879262c3f13bd2425cacf9f44a472717808ab8967b24eb4",
+      "spec": {
+        "id": "full-ordinary-s0",
+        "kind": "ordinary",
+        "seed": 0
+      }
+    }
+  ],
+  "ledger": {
+    "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+    "authorization": {
+      "approval_reference_sha256": "93943c6c19291c2b6a6bac0615a559ad1dbe87ce087c74c8138ed95f94bb09dc",
+      "approved": true,
+      "max_calls": 198,
+      "max_usd": "10",
+      "plan_sha256": "236b6039bfabdc6984d7d0877fda10f921a820e60444569053e1aeb2a4339392",
+      "scope": "full"
+    },
+    "calls": 146,
+    "created_at_utc": "2026-10-25T09:47:00.422013+00:00",
+    "halt_reason": null,
+    "held_usd": "0.000",
+    "max_calls": 198,
+    "max_usd": "10",
+    "metadata": {
+      "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+      "actual_modal_billing_attested": false,
+      "base_url": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+      "input_reference_usd_per_million": ".30",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "output_reference_usd_per_million": "1.20",
+      "seed_forwarded": false
+    },
+    "pending_retry": null,
+    "plan_sha256": "236b6039bfabdc6984d7d0877fda10f921a820e60444569053e1aeb2a4339392",
+    "reported_cost_missing": 146,
+    "reported_cost_observations": 0,
+    "reported_cost_sum_usd": "0",
+    "reported_cost_total_usd": null,
+    "reservation_usd": "0.049",
+    "retry_events": [],
+    "schema_version": 1,
+    "scope": "full",
+    "spent_usd": "0.12264000",
+    "status": "ready",
+    "timeout_retry_policy": {
+      "max_retries_per_request": 1,
+      "non_timeout_retries": 0,
+      "same_payload_required": true,
+      "trigger": "local_request_or_socket_timeout"
+    }
+  },
+  "mode": "scripted_software",
+  "network_attempts": [],
+  "plan_sha256": "236b6039bfabdc6984d7d0877fda10f921a820e60444569053e1aeb2a4339392",
+  "planned_cases": [
+    {
+      "id": "full-ordinary-s0",
+      "kind": "ordinary",
+      "seed": 0
+    }
+  ],
+  "request_deadline_seconds": 60,
+  "stage": "ordinary",
+  "transport": "trace-json-retry1",
+  "unstarted": []
+}
