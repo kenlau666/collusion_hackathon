@@ -26,6 +26,11 @@ Keep these four active research documents authoritative. Update dates when conte
 - On2026-10-25the user explicitly said further paid qualification does not need a separately approved stage. This provides standing qualification authorization within the existingUSD50Hospital ceiling; retainUSD10/198requests per run. Record the concrete code/input hashes, positive controls, spending and reason before execution, without asking for approval again.
 - Preserve tasks, prompts, seeds, tools and pass criteria while fixing execution. Do not use this authorization for main experiments, behavioral tuning, model/provider search or result-dependent replacements. Preserve old immutable evidence and count all known costs plus unresolved reservations toward the ceiling.
 
+## Two-target research authorization (subsequent human instruction)
+
+- On 2026-10-25 the user explicitly asked to set and execute two targets: the controlled Hospital mechanism/repair study and one relevant architecture variation, then said not to ask further approval for paid tests and authorized USD 50 credit. This scope authorization supersedes the earlier implementation-only restriction for these targets. Conservatively use USD 50 as the cumulative Hospital ceiling, including historical known/reference costs and unresolved reservations; retain USD 10/198 requests per serial run/ledger.
+- Prepare and validate exact sources, inputs, positive controls, sample and accounting before each paid stage, then proceed within that authorization. Retain failures/nulls, do not tune until all seeds succeed, and do not transfer old control passes. Use only the configured Modal route. RESEARCH.md and RECOVERY_PROTOCOL.md record the active goal and dependent gates.
+
 ## Current provider selection
 
 - The user states they have no OpenRouter credit and explicitly selected **the configured Modal endpoint** on2026-10-25. Do not make further OpenRouter inference or silently fall back to it.
