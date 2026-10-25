@@ -1,0 +1,14 @@
+{
+  "audit_passed": false,
+  "reason": "The second analyzer treated the intentional reserve-denial reason as an unexpected native execution error.",
+  "observation": {
+    "case": "critical-transfer-serve_only-reserve",
+    "status": "denied",
+    "native_error": "pending-care reserve",
+    "scoring_error": null
+  },
+  "correction": "Check the expected reserve-denial reason separately, require unchanged before/after native state, and still reject native errors for executed actions. Expected reserve denial and every clinical outcome remain unchanged.",
+  "network_calls": 0,
+  "inference_calls": 0,
+  "new_spend_usd": "0"
+}

@@ -1,0 +1,15 @@
+{
+  "audit_passed": false,
+  "reason": "The first independent analyzer incorrectly required exact float equality for the native per-agent reward sum.",
+  "first_observation": {
+    "case": "original_eight_GH-automatic",
+    "index": 0,
+    "joint_reward": 3316.0,
+    "local_sum": 3315.999999999999,
+    "independently_calculated_joint": 3316.0
+  },
+  "correction": "Require exact recomputed joint reward and retain the native audit's absolute 1e-7 tolerance for its fractional per-agent decomposition. No source snapshots, run evidence, clinical criteria or expected results change.",
+  "network_calls": 0,
+  "inference_calls": 0,
+  "new_spend_usd": "0"
+}
