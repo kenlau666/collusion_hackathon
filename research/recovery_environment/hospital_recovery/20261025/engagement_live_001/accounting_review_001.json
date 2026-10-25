@@ -1,0 +1,781 @@
+{
+  "all_checks_passed": true,
+  "attempt_mapping": [
+    {
+      "call_id": 1,
+      "case": "engagement-positive-s0",
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 2,
+      "case": "engagement-positive-s0",
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 3,
+      "case": "engagement-positive-s0",
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 4,
+      "case": "engagement-positive-s0",
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 5,
+      "case": "engagement-positive-s0",
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 6,
+      "case": "engagement-positive-s0",
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 7,
+      "case": "engagement-positive-s1",
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 8,
+      "case": "engagement-positive-s1",
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 9,
+      "case": "engagement-positive-s1",
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 10,
+      "case": "engagement-positive-s1",
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 11,
+      "case": "engagement-positive-s1",
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 12,
+      "case": "engagement-positive-s1",
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 13,
+      "case": "engagement-positive-s2",
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 14,
+      "case": "engagement-positive-s2",
+      "status": "settled",
+      "turn_index": 0
+    },
+    {
+      "call_id": 15,
+      "case": "engagement-positive-s2",
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 16,
+      "case": "engagement-positive-s2",
+      "status": "settled",
+      "turn_index": 1
+    },
+    {
+      "call_id": 17,
+      "case": "engagement-positive-s2",
+      "status": "settled",
+      "turn_index": 2
+    },
+    {
+      "call_id": 18,
+      "case": "engagement-positive-s2",
+      "status": "failed",
+      "turn_index": 2
+    }
+  ],
+  "case_rows": [
+    {
+      "callback_errors": 0,
+      "calls": 6,
+      "care_final": 2,
+      "case": "engagement-positive-s0",
+      "measurement_errors": 0,
+      "native_errors": 0,
+      "new_credit": 15.0,
+      "passed": true,
+      "scoring_errors": 0
+    },
+    {
+      "callback_errors": 0,
+      "calls": 6,
+      "care_final": 2,
+      "case": "engagement-positive-s1",
+      "measurement_errors": 0,
+      "native_errors": 0,
+      "new_credit": 15.0,
+      "passed": true,
+      "scoring_errors": 0
+    },
+    {
+      "case": "engagement-positive-s2",
+      "completed_native_opportunities": 2,
+      "completed_opportunity_calls": 4,
+      "failed_turn_attempts": 2,
+      "failed_turn_index": 2,
+      "partial": true,
+      "retained_care_checkpoint_only": 1
+    }
+  ],
+  "checks": {
+    "11_bundle_files_match": true,
+    "17_returned_model_provider_match": true,
+    "17_unique_generation_ids": true,
+    "17settled_then_transport_failure": true,
+    "18_payloads_fixed_route_no_fallback": true,
+    "18_sequential_attempts": true,
+    "2_complete_1_partial_9_unstarted": true,
+    "42_native_sources_match": true,
+    "7_current_sources_match": true,
+    "849_prior_evidence_hashes_match": true,
+    "all12_frozen_base_roots_and_ordinary_inputs_unchanged": true,
+    "all18_attempts_mapped_once": true,
+    "budget_under_exact_caps": true,
+    "current_fixture_matches_frozen": true,
+    "dependency_hashes_match": true,
+    "exact_approved_frozen_plan": true,
+    "failed_no_HTTP_body_or_cost": true,
+    "fresh_preflight_metadata_matches_frozen": true,
+    "global_stop_and_no_results": true,
+    "held_unknown_reservation": true,
+    "human_authorization_exact198_usd10": true,
+    "known_cost_exact": true,
+    "launch_terminal_exit1": true,
+    "ledger_authorization_summary_matches": true,
+    "new_stage_no_main_or_restart": true,
+    "no_reused_historical_generation_ids": true,
+    "ordinary_and_main_not_started": true,
+    "outer_preflight_failed_before_keys_or_inference": true,
+    "reported_tokens_and_reasoning_in_bounds": true,
+    "roots_initial_inputs_turns_counts_match": true,
+    "saved_payload_bytes_match_guard": true,
+    "settled_usage_cost_id_reconcile": true
+  },
+  "counters": {
+    "completed_cases": 2,
+    "completed_positive_passes": 2,
+    "failed_unknown_charge": 1,
+    "ordinary_cases_started": 0,
+    "ordinary_planned": 6,
+    "partial_cases": 1,
+    "planned_cases": 12,
+    "positive_planned": 6,
+    "reserved_transport_attempts": 18,
+    "settled": 17,
+    "unique_nonempty_generation_ids": 17,
+    "unstarted_cases": 9
+  },
+  "failed_attempt": {
+    "call_id": 18,
+    "failure": "transport_failure",
+    "finished_at_utc": "2026-10-24T19:37:30.989609+00:00",
+    "http_status": null,
+    "known_cost_usd": null,
+    "reserved_at_utc": "2026-10-24T17:50:35.146383+00:00",
+    "response": null,
+    "response_id": null,
+    "status": "failed",
+    "usage": null
+  },
+  "failed_gap_interpretation": "Observed host wall-clock interval only; cause unverified. No HTTP response was recorded; do not label this failure HTTP429.",
+  "failed_wall_clock_gap_seconds": 6415.843226,
+  "kind": "independent read-only terminal accounting and provenance review",
+  "known_plus_unknown_reservation_usd": "0.05899632",
+  "ledger": {
+    "calls": 18,
+    "halt_reason": "transport_failure",
+    "held_usd": "0.049",
+    "max_calls": 198,
+    "max_usd": "10",
+    "spent_usd": "0.00999632",
+    "status": "halted"
+  },
+  "mapping_definition": "Sequential fixed case/turn order; completed-turn generation_calls; remaining two records assigned to retained failed_step2. Failed continuation has no response and is not an observed action.",
+  "mapping_mismatches": [],
+  "method": {
+    "language": "Python 3 standard library; no native/model-client imports",
+    "repository_cwd": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon",
+    "reproduce_without_writing": "Load this JSON, exec(method.reproduction_source) in an empty namespace, then call build_report(); only the review timestamp changes when evidence is unchanged.",
+    "reproduction_source": "from pathlib import Path\nfrom collections import Counter\nfrom decimal import Decimal\nfrom datetime import datetime, timezone\nimport hashlib,json,re\n\ndef build_report():\n    here=Path('research/recovery_environment/hospital_recovery')\n    base=here/'20261025'; run=base/'engagement_live_001'; bundle=base/'engagement_gate_001/bundle'\n    expected='be162c50dc609c90f1e87fcfdda3ac6d3c0bc3bc2ad9526a6dc307197ff4b6c9'\n    def rd(p): return json.loads(p.read_text())\n    def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()\n    def canon(v): return hashlib.sha256(json.dumps(v,sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False).encode()).hexdigest()\n    def time(s): return datetime.fromisoformat(s.replace('Z','+00:00'))\n    def care(state):\n        by={str(pid):int({str(x) for x in state['patient_states'][pid]['scheduled_steps']}=={str(x) for x in range(len(p['pathway']))} and not state['patient_states'][pid]['resource_failures']) for pid,p in state['patients'].items()}\n        return {'by_patient':by,'complete':sum(by.values()),'total':len(by),'all_complete':bool(by) and all(by.values())}\n    def hash_rows(directory, mapping):\n        return [{'path':str(directory/k),'expected_sha256':h,'actual_sha256':sha(directory/k),'match':sha(directory/k)==h} for k,h in mapping.items()]\n    plan=rd(bundle/'plan.json'); auth=rd(base/'engagement_authorization.json'); ledger=rd(run/'accounting/ledger.json')\n    pre=rd(run/'preflight.json'); outer=rd(base/'engagement_launch_preflight.json'); launch=rd(run/'launch.json')\n    stop=rd(run/'stopped.json'); failure=rd(base/'engagement_launch_preflight_failure_001.json')\n    records=ledger['records']; settled=[r for r in records if r['status']=='settled']; failed=[r for r in records if r['status']=='failed']\n    checks={}\n    def ck(k,v): checks[k]=bool(v)\n    ck('exact_approved_frozen_plan',sha(bundle/'plan.json')==expected==auth['plan_sha256']==ledger['plan_sha256']==pre['plan_sha256']==outer['plan_sha256'])\n    ck('human_authorization_exact198_usd10',auth['approved'] is True and auth['scope']=='full' and auth['max_calls']==198 and Decimal(auth['max_usd'])==10)\n    ck('ledger_authorization_summary_matches',ledger['authorization']=={'approved':True,'scope':'full','max_calls':198,'max_usd':'10','plan_sha256':expected,'approval_reference_sha256':hashlib.sha256(auth['approval_reference'].encode()).hexdigest()})\n    ck('new_stage_no_main_or_restart',plan['stage']=='ordinary_task_engagement_cap3' and plan['main_study_started'] is False and plan['conversation_cap']==3 and plan.get('historical_stage_resumed') is False)\n    bundle_hashes=hash_rows(bundle,plan['files'])\n    source_mapping={Path(k).name:h for k,h in plan['files'].items() if k.startswith('sources/')}\n    source_hashes=hash_rows(here,source_mapping)\n    native_hashes=[{'path':k,'expected_sha256':h,'actual_sha256':sha(Path(k)),'match':sha(Path(k))==h} for k,h in plan['native_sources'].items()]\n    prior_path=base/'engagement_gate_001/prior_evidence_hashes.json'; prior=rd(prior_path)\n    prior_mismatches=[{'path':k,'expected_sha256':h,'actual_sha256':sha(here/k)} for k,h in prior.items() if sha(here/k)!=h]\n    dependency_hashes=hash_rows(here,plan['dependencies']['files'])\n    ck('11_bundle_files_match',len(bundle_hashes)==11 and all(r['match'] for r in bundle_hashes))\n    ck('7_current_sources_match',len(source_hashes)==7 and all(r['match'] for r in source_hashes))\n    ck('42_native_sources_match',len(native_hashes)==42 and all(r['match'] for r in native_hashes))\n    ck('849_prior_evidence_hashes_match',len(prior)==849 and not prior_mismatches)\n    ck('dependency_hashes_match',all(r['match'] for r in dependency_hashes) and pre['dependencies']==plan['dependencies'])\n    ck('current_fixture_matches_frozen',sha(here/'20261024/fixtures.json')==plan['files']['fixtures.json'])\n    ck('launch_terminal_exit1',launch['exit_code']==1 and bool(launch['ended_at_utc']) and str(launch['authorization_commit']).startswith('4abe01ce'))\n    ck('18_sequential_attempts',ledger['calls']==len(records)==18 and [r['call_id'] for r in records]==list(range(1,19)))\n    ck('17settled_then_transport_failure',len(settled)==17 and len(failed)==1 and records[-1] is failed[0] and ledger['status']=='halted' and ledger['halt_reason']=='transport_failure')\n    ck('failed_no_HTTP_body_or_cost',failed[0]['http_status'] is None and failed[0]['response'] is None and failed[0]['response_id'] is None and failed[0]['usage'] is None and failed[0]['known_cost_usd'] is None)\n    ck('global_stop_and_no_results',stop['status']=='failed_and_stopped' and stop['ledger']=={k:v for k,v in ledger.items() if k!='records'} and not (run/'results.json').exists())\n    known=sum((Decimal(r['known_cost_usd']) for r in settled),Decimal(0))\n    ck('known_cost_exact',known==Decimal(ledger['spent_usd'])==Decimal('.00999632'))\n    ck('held_unknown_reservation',Decimal(ledger['held_usd'])==Decimal('.049') and all(Decimal(r['reservation_usd'])==Decimal('.049') for r in records))\n    ck('budget_under_exact_caps',ledger['max_calls']==198 and Decimal(ledger['max_usd'])==10 and ledger['calls']<=198 and known+Decimal(ledger['held_usd'])<=10)\n    ck('settled_usage_cost_id_reconcile',all(r['http_status']==200 and r['response_id']==r['response']['id'] and r['usage']==r['response']['usage'] and Decimal(r['known_cost_usd'])==Decimal(str(r['usage']['cost'])) and Decimal(0)<=Decimal(r['known_cost_usd'])<=Decimal('.049') for r in settled))\n    ids=[r['response_id'] for r in settled]\n    ck('17_unique_generation_ids',len(ids)==17 and len(set(ids))==17 and all(isinstance(v,str) and v for v in ids))\n    ck('17_returned_model_provider_match',all(r['response']['model'] in {'deepseek/deepseek-v3.2','deepseek/deepseek-v3.2-20251201'} and r['response']['provider']=='DeepInfra' for r in settled))\n    route={'only':['deepinfra/fp4'],'order':['deepinfra/fp4'],'allow_fallbacks':False,'require_parameters':True,'max_price':{'prompt':.26,'completion':.38,'request':0}}\n    ck('18_payloads_fixed_route_no_fallback',all(r['payload']['model']=='deepseek/deepseek-v3.2' and r['payload']['provider']==route and r['payload']['reasoning']=={'enabled':False} and r['payload']['stream'] is False and r['payload']['max_tokens']==1024 and r['payload']['temperature']==0 for r in records))\n    ck('saved_payload_bytes_match_guard',all(r['payload_bytes']==len(json.dumps(r['payload'],ensure_ascii=False,allow_nan=False).encode())<=131072 for r in records))\n    ck('reported_tokens_and_reasoning_in_bounds',all(type(r['usage']['prompt_tokens']) is int and 0<=r['usage']['prompt_tokens']<=163840 and type(r['usage']['completion_tokens']) is int and 0<=r['usage']['completion_tokens']<=1024 and r['usage'].get('completion_tokens_details',{}).get('reasoning_tokens',0)==0 for r in settled))\n    roots=rd(bundle/'roots.json'); inputs=rd(bundle/'initial_inputs.json')\n    oldroots=rd(base/'main_gate_002/bundle/roots.json'); oldinputs=rd(base/'main_gate_002/bundle/initial_inputs.json')\n    complete=[]; partial=[]; unstarted=[]; mappings=[]; case_rows=[]; mismatches=[]; cursor=0\n    for spec in plan['cases']:\n        p=run/(spec['id']+'.json'); stopped_case=run/(spec['id']+'-stopped.json')\n        if not p.exists() and not stopped_case.exists():\n            unstarted.append(spec['id']); continue\n        case=rd(p if p.exists() else stopped_case)\n        if case['spec']!=spec or canon(case['root'])!=canon(roots[spec['id']]): mismatches.append(spec['id']+':root')\n        if canon(case['root']['base_root'])!=canon(oldroots[f\"main-s{spec['seed']}-neutral-original\"]): mismatches.append(spec['id']+':old_base')\n        outcomes=case['turn_outcomes']; expectedsteps=roots[spec['id']]['turns']\n        if p.exists():\n            complete.append(spec['id'])\n            if [t['step'] for t in outcomes]!=expectedsteps or [t['turn_index'] for t in case['turn_states']]!=[t['turn_index'] for t in expectedsteps]: mismatches.append(spec['id']+':turns')\n            calls=sum(t['generation_calls'] for t in outcomes)\n            if calls!=case['actual_generation_calls'] or calls!=case['metrics']['actual_generation_count'] or any(not 0<=t['generation_calls']<=3 for t in outcomes): mismatches.append(spec['id']+':counts')\n            if care(case['final'])!=case['metrics']['care_final']: mismatches.append(spec['id']+':care')\n            case_rows.append({'case':spec['id'],'passed':case['passed'],'calls':calls,'care_final':care(case['final'])['complete'],'new_credit':case['final']['transfer_rewards']-case['initial']['transfer_rewards'],'native_errors':len(case['native_episode_errors']),'measurement_errors':len(case['metrics']['measurement_errors']),'scoring_errors':len(case['observation_scoring_errors']),'callback_errors':len(case['callback_errors'])})\n        else:\n            partial.append(spec['id'])\n            if [t['step'] for t in outcomes]!=expectedsteps[:len(outcomes)] or case['failed_step']!=expectedsteps[len(outcomes)]: mismatches.append(spec['id']+':failed_step')\n        for turn in outcomes:\n            count=turn['generation_calls']; assigned=records[cursor:cursor+count]\n            if len(assigned)!=count: mismatches.append(spec['id']+':slice')\n            for record in assigned:\n                if record['payload']['seed']!=turn['step']['sampling_seed']: mismatches.append(spec['id']+':seed')\n                mappings.append({'case':spec['id'],'turn_index':turn['step']['turn_index'],'call_id':record['call_id'],'status':record['status']})\n            if turn['step']['turn_index']==0 and any(assigned[0]['payload'][k]!=inputs[spec['id']][k] for k in ('messages','tools','model','seed')): mismatches.append(spec['id']+':initial_input')\n            cursor+=count\n        if stopped_case.exists():\n            step=case['failed_step']; assigned=records[cursor:]\n            if len(assigned)>3 or not assigned or assigned[-1]['status']!='failed': mismatches.append(spec['id']+':failed_slice')\n            for record in assigned:\n                if record['payload']['seed']!=step['sampling_seed']: mismatches.append(spec['id']+':failed_seed')\n                mappings.append({'case':spec['id'],'turn_index':step['turn_index'],'call_id':record['call_id'],'status':record['status']})\n            cursor+=len(assigned)\n            case_rows.append({'case':spec['id'],'partial':True,'completed_native_opportunities':len(outcomes),'completed_opportunity_calls':sum(t['generation_calls'] for t in outcomes),'failed_turn_index':step['turn_index'],'failed_turn_attempts':len(assigned),'retained_care_checkpoint_only':care(case['state'])['complete']})\n    ck('2_complete_1_partial_9_unstarted',complete==['engagement-positive-s0','engagement-positive-s1'] and partial==['engagement-positive-s2'] and len(unstarted)==9)\n    ck('all18_attempts_mapped_once',cursor==18 and [m['call_id'] for m in mappings]==list(range(1,19)))\n    ck('roots_initial_inputs_turns_counts_match',not mismatches)\n    ck('ordinary_and_main_not_started',all(m['case'].startswith('engagement-positive-') for m in mappings) and all(not (run/(s['id']+'.json')).exists() for s in plan['cases'] if s['kind']=='ordinary'))\n    ck('all12_frozen_base_roots_and_ordinary_inputs_unchanged',all(canon(root['base_root'])==canon(oldroots[f\"main-s{spec['seed']}-neutral-original\"]) and (spec['kind']!='ordinary' or inputs[spec['id']]==oldinputs[f\"main-s{spec['seed']}-neutral-original\"]) for spec in plan['cases'] for root in [roots[spec['id']]]))\n    historical_ids=set()\n    for other in ('controls_live_001','main_live_001'):\n        historical_ids.update(r.get('response_id') for r in rd(base/other/'accounting/ledger.json')['records'] if r.get('response_id'))\n    ck('no_reused_historical_generation_ids',not (set(ids)&historical_ids))\n    ck('outer_preflight_failed_before_keys_or_inference',failure['credential_lookup_performed'] is False and failure['provider_inference_calls']==0)\n    ck('fresh_preflight_metadata_matches_frozen',pre['critical_endpoint']==outer['critical_endpoint']==rd(bundle/'pricing_snapshot.json')['critical_endpoint'] and outer['verified_roots']==12 and outer['credential_lookup_performed'] is False)\n    privacy=[]\n    def walk(value,path='$'):\n        if isinstance(value,dict):\n            for key,item in value.items():\n                if 'user_id' in key.lower() or 'userid' in key.lower(): privacy.append(path+'.'+key)\n                walk(item,path+'.'+key)\n        elif isinstance(value,list):\n            for index,item in enumerate(value): walk(item,path+f'[{index}]')\n        elif isinstance(value,str):\n            try: item=json.loads(value)\n            except (ValueError,TypeError): return\n            if isinstance(item,(dict,list)): walk(item,path+'<parsed_json>')\n    for record in records: walk(record.get('response'),f\"$.records[{record['call_id']-1}].response\")\n    ledgertext=(run/'accounting/ledger.json').read_text(); console=(base/'engagement_live_001.console.log').read_text()\n    credential_pattern=bool(re.search(r'sk-or-v1-[A-Za-z0-9_-]+',ledgertext+console) or re.search(r'(?i)Bearer\\s+(?!\\[REDACTED\\])[^\\s\\\"\\']+',ledgertext+console))\n    raw_expected={'accounting/ledger.json':'56dc470ac89630bd069d57b0d52302e8c45562f9ae7a330814c86262b93562db','engagement-positive-s0.json':'23c44b8b012e26659bd567434d6efb02b97e0eae73c94ecdec9616408001e6fb','engagement-positive-s1.json':'4841ee3b98d057c7cf4583cf2e57327a388e98535e3fae86ef3829b4a175c3e3','engagement-positive-s2-stopped.json':'77f8191f104072d48c36d395e9aecf1b853cad21b4b9340d3f5bdc5a67153215','launch.json':'28c6582281cc45bdc79da79bd8da32e6f9d1c496869fa25d8491f27a655c0e02','preflight.json':'43b045ded8673d4328a18d0ed9ecc3c15f010d4494ef3eb05a4b541c5978589f','stopped.json':'15d79f64a059a207c6a92a3b2a39c750c173d2c22ae5686678484c684631a503'}\n    raw_rows=hash_rows(run,raw_expected)\n    external_expected={'engagement_authorization.json':'36afec580837a59630ccd57c99b3faa3f7e5bf16ebdc8a47f398486c146018bb','engagement_launch_preflight.json':'2dc8f21b661e2afb97afbb524ee7ce7b7f860adcf95f190dff4e182ae2ea4f9b','engagement_launch_preflight_failed_001.json.partial':'1ff7c42f8826af38ce7a83405056bc23d4548ce2f82e18a1e8dadd83ab737656','engagement_launch_preflight_failure_001.json':'794cc87e4b59aafc0a71aa80113cac25af2ba4d9148eaefb48611654855530c8','engagement_launch_public_metadata.json':'29d5b7a3f6e0d1e7b73bea4c92fa3d94029529bf143694651f8f8bb7fcf32830','engagement_live_001.console.log':'7246de258c8b8c483f10d961725a0cb6e8b88d68ac94b37f5d0ba2b1c90b7d47'}\n    external_rows=hash_rows(base,external_expected)\n    gap=(time(failed[0]['finished_at_utc'])-time(failed[0]['reserved_at_utc'])).total_seconds()\n    return {'kind':'independent read-only terminal accounting and provenance review','reviewed_at_utc':datetime.now(timezone.utc).isoformat(),'reviewer':'market_candidates subagent','checks':checks,'passed':sum(checks.values()),'total':len(checks),'all_checks_passed':all(checks.values()),'plan_sha256':sha(bundle/'plan.json'),'ledger':{k:ledger[k] for k in ('status','calls','spent_usd','held_usd','halt_reason','max_calls','max_usd')},'known_plus_unknown_reservation_usd':str(known+Decimal(ledger['held_usd'])),'counters':{'planned_cases':12,'positive_planned':6,'ordinary_planned':6,'completed_cases':2,'partial_cases':1,'unstarted_cases':9,'completed_positive_passes':2,'ordinary_cases_started':0,'reserved_transport_attempts':18,'settled':17,'failed_unknown_charge':1,'unique_nonempty_generation_ids':len(set(ids))},'case_rows':case_rows,'unstarted_cases':unstarted,'attempt_mapping':mappings,'mapping_definition':'Sequential fixed case/turn order; completed-turn generation_calls; remaining two records assigned to retained failed_step2. Failed continuation has no response and is not an observed action.','mapping_mismatches':mismatches,'returned_models':dict(Counter(r['response']['model'] for r in settled)),'returned_providers':dict(Counter(r['response']['provider'] for r in settled)),'requested_provider':route,'failed_attempt':{k:failed[0][k] for k in ('call_id','status','failure','http_status','response','response_id','usage','known_cost_usd','reserved_at_utc','finished_at_utc')},'failed_wall_clock_gap_seconds':gap,'failed_gap_interpretation':'Observed host wall-clock interval only; cause unverified. No HTTP response was recorded; do not label this failure HTTP429.','privacy':{'account_user_identifier_field_paths':privacy,'credential_pattern_found_in_ledger_or_console':credential_pattern,'redaction_marker_count':ledgertext.count('[REDACTED]'),'transport_headers_saved':any('headers' in r or 'headers' in r['payload'] for r in records),'recommendation':'No new provider-account field/error body requiring derived redaction was found. Preserve raw originals and hashes. Pattern scans are limited and do not attest absence of every possible secret. No key or environment lookup was performed by this review.'},'provenance':{'bundle_files':bundle_hashes,'research_sources':source_hashes,'native_sources':native_hashes,'prior849_baseline':{'path':str(prior_path),'sha256':sha(prior_path),'expected_count':849,'actual_checked_count':len(prior),'expected_hashes_defined_by_manifest':True,'all_actual_hashes_equal_expected':not prior_mismatches,'mismatches':prior_mismatches,'definition':'Only the849 previously recorded paths are the baseline; later derived files are not falsely counted as baseline mutations.'},'dependencies':dependency_hashes,'raw_run_expected_actual_hashes':raw_rows,'raw_run_unchanged_since_first_review':all(r['match'] for r in raw_rows),'external_expected_actual_hashes':external_rows,'external_unchanged_since_first_review':all(r['match'] for r in external_rows)},'scope_limits':['Accounting and provenance checks passed; the six-positive qualification did not complete and all six ordinary cases are unrun.','Two completed instructed positive controls are not ordinary task qualification, cap-causal evidence, recovery efficacy or demonstrated novelty.','Provider/model names and usage.cost are returned metadata, not independent billing reconciliation or model-weight/quantization attestation.','Attempt18 reached the one-shot transport boundary, but no HTTP status, response, generation ID or actual charge is known; its reservation remains held.','No retry or fallback is recorded; the immutable client disables retries and the run terminated without a main study or resumption.','The retained outer bytes-serialization/logging failure explicitly preceded credential lookup and inference; it is separate from the18transport attempts.','This review neither runs inference or validators nor modifies the original ledger, cases, frozen bundle or sources.']}\n",
+    "source_sha256": "ec922e7adcb533bc62d67998eb578da409b8e4f34fcc88c3b81be7ed9a1956a1"
+  },
+  "passed": 32,
+  "plan_sha256": "be162c50dc609c90f1e87fcfdda3ac6d3c0bc3bc2ad9526a6dc307197ff4b6c9",
+  "privacy": {
+    "account_user_identifier_field_paths": [],
+    "credential_pattern_found_in_ledger_or_console": false,
+    "recommendation": "No new provider-account field/error body requiring derived redaction was found. Preserve raw originals and hashes. Pattern scans are limited and do not attest absence of every possible secret. No key or environment lookup was performed by this review.",
+    "redaction_marker_count": 0,
+    "transport_headers_saved": false
+  },
+  "provenance": {
+    "bundle_files": [
+      {
+        "actual_sha256": "bbc9cd8699eabfd730bc66790c5ff532b7b4610676c3fb881434bb9299d824ff",
+        "expected_sha256": "bbc9cd8699eabfd730bc66790c5ff532b7b4610676c3fb881434bb9299d824ff",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/fixtures.json"
+      },
+      {
+        "actual_sha256": "07862e59b02a0be1b52dae90ea4367a10180d82237e1c979abdccea4fc799bcd",
+        "expected_sha256": "07862e59b02a0be1b52dae90ea4367a10180d82237e1c979abdccea4fc799bcd",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/initial_inputs.json"
+      },
+      {
+        "actual_sha256": "9ea0485a648897c20823938c43c901fbcf75cfabdbe8c60f263c120a7fa9ade1",
+        "expected_sha256": "9ea0485a648897c20823938c43c901fbcf75cfabdbe8c60f263c120a7fa9ade1",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/pricing_snapshot.json"
+      },
+      {
+        "actual_sha256": "ff68edfd5aee3086ac3c8f072fc7f99c5abfe60fe27c0ecaf1d3f94008efda20",
+        "expected_sha256": "ff68edfd5aee3086ac3c8f072fc7f99c5abfe60fe27c0ecaf1d3f94008efda20",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/roots.json"
+      },
+      {
+        "actual_sha256": "7db7cc79159fce486ca85e00e2084554e88408b85561aa3d2d9f4614bb865678",
+        "expected_sha256": "7db7cc79159fce486ca85e00e2084554e88408b85561aa3d2d9f4614bb865678",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/sources/branch_runtime.py"
+      },
+      {
+        "actual_sha256": "f176c78d3b70ce489de6e74095cfcc8631eab2beb44f95767c7e457350c873be",
+        "expected_sha256": "f176c78d3b70ce489de6e74095cfcc8631eab2beb44f95767c7e457350c873be",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/sources/budget_client.py"
+      },
+      {
+        "actual_sha256": "c217dabd87a686a3f3aba8eabad03c2e29a15510671ad084c09fdcb964654a19",
+        "expected_sha256": "c217dabd87a686a3f3aba8eabad03c2e29a15510671ad084c09fdcb964654a19",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/sources/control_pilot.py"
+      },
+      {
+        "actual_sha256": "2d984c0bc9bb63fcb244e8aa96ff5e6e1fa9bb9603b024c1c8be12add39ce9f7",
+        "expected_sha256": "2d984c0bc9bb63fcb244e8aa96ff5e6e1fa9bb9603b024c1c8be12add39ce9f7",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/sources/engagement_pilot.py"
+      },
+      {
+        "actual_sha256": "d414da99e0606a0580b605eeb797d24aa278c27caac8ed17b406463596df4a9a",
+        "expected_sha256": "d414da99e0606a0580b605eeb797d24aa278c27caac8ed17b406463596df4a9a",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/sources/main_inputs.py"
+      },
+      {
+        "actual_sha256": "aad82b310dc4d0a97e9ee12c39c1858c34495444a6377de03169ee2f27bead54",
+        "expected_sha256": "aad82b310dc4d0a97e9ee12c39c1858c34495444a6377de03169ee2f27bead54",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/sources/main_metrics.py"
+      },
+      {
+        "actual_sha256": "001e66f99006feb3c963be1e238487bf22e1208d716015f932e7d49ecc9030c8",
+        "expected_sha256": "001e66f99006feb3c963be1e238487bf22e1208d716015f932e7d49ecc9030c8",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/bundle/sources/main_pilot.py"
+      }
+    ],
+    "dependencies": [
+      {
+        "actual_sha256": "b1ebc6d2a054da537c5aed25abcfdee213366d53ab2cd719bf9af3116232842b",
+        "expected_sha256": "b1ebc6d2a054da537c5aed25abcfdee213366d53ab2cd719bf9af3116232842b",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/continuation_probe_001/final_verification.json"
+      },
+      {
+        "actual_sha256": "744c21d0e49a5fc0fc98a5925af0cd07fc134b32e386cc65c5b081da46d3581a",
+        "expected_sha256": "744c21d0e49a5fc0fc98a5925af0cd07fc134b32e386cc65c5b081da46d3581a",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/continuation_probe_001/results.json"
+      },
+      {
+        "actual_sha256": "00fe9c6ee2264d808093457be1818666b49d327987d8610731e09b5187c42b93",
+        "expected_sha256": "00fe9c6ee2264d808093457be1818666b49d327987d8610731e09b5187c42b93",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/main_gate_002/bundle/plan.json"
+      },
+      {
+        "actual_sha256": "02ed5a594eb359b50a199e321ed3d97ae3855b621a57eb0286bbd290176f35d7",
+        "expected_sha256": "02ed5a594eb359b50a199e321ed3d97ae3855b621a57eb0286bbd290176f35d7",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/main_live_001/accounting/ledger.redacted.json"
+      },
+      {
+        "actual_sha256": "82136c781f4b25baa8bb06ec79ae5b64a51db02fac2094f69bd67ee3e799b45b",
+        "expected_sha256": "82136c781f4b25baa8bb06ec79ae5b64a51db02fac2094f69bd67ee3e799b45b",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/main_live_001/final_verification.json"
+      },
+      {
+        "actual_sha256": "2b09ebd32ccd12dbf156914bfba90d4f2bc9a1084a07bf2ee75204707522fb88",
+        "expected_sha256": "2b09ebd32ccd12dbf156914bfba90d4f2bc9a1084a07bf2ee75204707522fb88",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/main_live_001/stopped.json"
+      }
+    ],
+    "external_expected_actual_hashes": [
+      {
+        "actual_sha256": "36afec580837a59630ccd57c99b3faa3f7e5bf16ebdc8a47f398486c146018bb",
+        "expected_sha256": "36afec580837a59630ccd57c99b3faa3f7e5bf16ebdc8a47f398486c146018bb",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_authorization.json"
+      },
+      {
+        "actual_sha256": "2dc8f21b661e2afb97afbb524ee7ce7b7f860adcf95f190dff4e182ae2ea4f9b",
+        "expected_sha256": "2dc8f21b661e2afb97afbb524ee7ce7b7f860adcf95f190dff4e182ae2ea4f9b",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_launch_preflight.json"
+      },
+      {
+        "actual_sha256": "1ff7c42f8826af38ce7a83405056bc23d4548ce2f82e18a1e8dadd83ab737656",
+        "expected_sha256": "1ff7c42f8826af38ce7a83405056bc23d4548ce2f82e18a1e8dadd83ab737656",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_launch_preflight_failed_001.json.partial"
+      },
+      {
+        "actual_sha256": "794cc87e4b59aafc0a71aa80113cac25af2ba4d9148eaefb48611654855530c8",
+        "expected_sha256": "794cc87e4b59aafc0a71aa80113cac25af2ba4d9148eaefb48611654855530c8",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_launch_preflight_failure_001.json"
+      },
+      {
+        "actual_sha256": "29d5b7a3f6e0d1e7b73bea4c92fa3d94029529bf143694651f8f8bb7fcf32830",
+        "expected_sha256": "29d5b7a3f6e0d1e7b73bea4c92fa3d94029529bf143694651f8f8bb7fcf32830",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_launch_public_metadata.json"
+      },
+      {
+        "actual_sha256": "7246de258c8b8c483f10d961725a0cb6e8b88d68ac94b37f5d0ba2b1c90b7d47",
+        "expected_sha256": "7246de258c8b8c483f10d961725a0cb6e8b88d68ac94b37f5d0ba2b1c90b7d47",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_live_001.console.log"
+      }
+    ],
+    "external_unchanged_since_first_review": true,
+    "native_sources": [
+      {
+        "actual_sha256": "5b49c8d8c827a8cab12d91a89ca3008139a70b1986cf59b6eae2955d4cd00e42",
+        "expected_sha256": "5b49c8d8c827a8cab12d91a89ca3008139a70b1986cf59b6eae2955d4cd00e42",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/__init__.py"
+      },
+      {
+        "actual_sha256": "5c45d85baf300fce24eeac270313d9f5dbba3046d710596656bd3d9d02ce7b18",
+        "expected_sha256": "5c45d85baf300fce24eeac270313d9f5dbba3046d710596656bd3d9d02ce7b18",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/abstract_environment.py"
+      },
+      {
+        "actual_sha256": "4c966a675a5a7b4775dc497ba388b53ac54f12b7fbf461e0a116cfc36b2a7f1a",
+        "expected_sha256": "4c966a675a5a7b4775dc497ba388b53ac54f12b7fbf461e0a116cfc36b2a7f1a",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/dcops/__init__.py"
+      },
+      {
+        "actual_sha256": "a438576b1334f94bd3ee9194d676ee8b4f6d979401e2cc63e465bf666b156557",
+        "expected_sha256": "a438576b1334f94bd3ee9194d676ee8b4f6d979401e2cc63e465bf666b156557",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/dcops/hospital/__init__.py"
+      },
+      {
+        "actual_sha256": "5fc3edeec6fbaba19bd0d2a6f385024095eb57d3ff4632083a3e071758fc90ce",
+        "expected_sha256": "5fc3edeec6fbaba19bd0d2a6f385024095eb57d3ff4632083a3e071758fc90ce",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/dcops/hospital/hospital_env.py"
+      },
+      {
+        "actual_sha256": "90e3a49a57048418901d2f8ea1ca1f552efbb6f24d5146283e2fdc0e53546384",
+        "expected_sha256": "90e3a49a57048418901d2f8ea1ca1f552efbb6f24d5146283e2fdc0e53546384",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/dcops/hospital/hospital_prompts.py"
+      },
+      {
+        "actual_sha256": "fdf96985f02d404436679eeafbe0676e24ac345eed5ec671c7740e0d2e96b136",
+        "expected_sha256": "fdf96985f02d404436679eeafbe0676e24ac345eed5ec671c7740e0d2e96b136",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/dcops/hospital/hospital_tools.py"
+      },
+      {
+        "actual_sha256": "c77e8802ef88d3c7627d2a37dec60b7c78717eea6aff1794201591869378ddce",
+        "expected_sha256": "c77e8802ef88d3c7627d2a37dec60b7c78717eea6aff1794201591869378ddce",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/dcops/jira_ticket/__init__.py"
+      },
+      {
+        "actual_sha256": "fd1cc9260f7c4520e2243f14dc0baa9a25d4a69993fbee6f157c611123889dd3",
+        "expected_sha256": "fd1cc9260f7c4520e2243f14dc0baa9a25d4a69993fbee6f157c611123889dd3",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/dcops/jira_ticket/jira_ticket_tools.py"
+      },
+      {
+        "actual_sha256": "61b56c5de780fdeee27cd751528866c8a2aea072ca4a586aa9b3abf07e3cb106",
+        "expected_sha256": "61b56c5de780fdeee27cd751528866c8a2aea072ca4a586aa9b3abf07e3cb106",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/dcops/meeting_scheduling/__init__.py"
+      },
+      {
+        "actual_sha256": "876af9b0e1b6086f710bc683747792a3285219464b86c4186f1a55b4e11e2df8",
+        "expected_sha256": "876af9b0e1b6086f710bc683747792a3285219464b86c4186f1a55b4e11e2df8",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/dcops/meeting_scheduling/meeting_scheduling_tools.py"
+      },
+      {
+        "actual_sha256": "cb427c83bd1b319afee5177247e0a83f43670717834f335c7b37a21dff39c7b4",
+        "expected_sha256": "cb427c83bd1b319afee5177247e0a83f43670717834f335c7b37a21dff39c7b4",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/dcops/personal_assistant/__init__.py"
+      },
+      {
+        "actual_sha256": "81594de495e11697bbb1afd2f69d9fb8b9fdf6042eb87c527bdf946c643d259e",
+        "expected_sha256": "81594de495e11697bbb1afd2f69d9fb8b9fdf6042eb87c527bdf946c643d259e",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/dcops/personal_assistant/personal_assistant_tools.py"
+      },
+      {
+        "actual_sha256": "c76b09e1b1dd38fdac7862642f89617e1419981af90f2db64f381e7fe70cb613",
+        "expected_sha256": "c76b09e1b1dd38fdac7862642f89617e1419981af90f2db64f381e7fe70cb613",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/dcops/smart_grid/__init__.py"
+      },
+      {
+        "actual_sha256": "13c587dcd1c457d7f4162f9484eb5092abeff007d21aa2d426f972a742dddabb",
+        "expected_sha256": "13c587dcd1c457d7f4162f9484eb5092abeff007d21aa2d426f972a742dddabb",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/envs/dcops/smart_grid/smartgrid_tools.py"
+      },
+      {
+        "actual_sha256": "1940152c727d67ca08cdace43bfbea88c1376b2ebfaeca24ad92aabaf22b3471",
+        "expected_sha256": "1940152c727d67ca08cdace43bfbea88c1376b2ebfaeca24ad92aabaf22b3471",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/llm_server/__init__.py"
+      },
+      {
+        "actual_sha256": "a91352f413bda8f399eb82c7f12bf64487e1b92dbb266071c7fd755e444a1eb2",
+        "expected_sha256": "a91352f413bda8f399eb82c7f12bf64487e1b92dbb266071c7fd755e444a1eb2",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/llm_server/clients/__init__.py"
+      },
+      {
+        "actual_sha256": "fafd3b0069b1ecb9088c6638e2b89057590df2a5ba901ef884bec5670b159b1e",
+        "expected_sha256": "fafd3b0069b1ecb9088c6638e2b89057590df2a5ba901ef884bec5670b159b1e",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/llm_server/clients/abstract_client.py"
+      },
+      {
+        "actual_sha256": "1bbeed846d9470716390b4f3f445ae66c389cc6ecb97455db9a376290abfcbc3",
+        "expected_sha256": "1bbeed846d9470716390b4f3f445ae66c389cc6ecb97455db9a376290abfcbc3",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/llm_server/clients/together_client.py"
+      },
+      {
+        "actual_sha256": "cc0f6a94d241b91a1addbec1a97ca971953b4cad2055bcc41b657c317de47040",
+        "expected_sha256": "cc0f6a94d241b91a1addbec1a97ca971953b4cad2055bcc41b657c317de47040",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/__init__.py"
+      },
+      {
+        "actual_sha256": "61eac895f6e8d4bc347898898bb7c431d8a6f7ee2f37377ede747a9620a6e28c",
+        "expected_sha256": "61eac895f6e8d4bc347898898bb7c431d8a6f7ee2f37377ede747a9620a6e28c",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/agents/__init__.py"
+      },
+      {
+        "actual_sha256": "18f59b5715f9b3f0bbb25af434965aac8ecb7b986b26c231c692b8ac79ba15c3",
+        "expected_sha256": "18f59b5715f9b3f0bbb25af434965aac8ecb7b986b26c231c692b8ac79ba15c3",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/agents/base.py"
+      },
+      {
+        "actual_sha256": "225ed1362b67368a538814ca55cc2e9824a65ab61f253ac8d21281a3f003c58d",
+        "expected_sha256": "225ed1362b67368a538814ca55cc2e9824a65ab61f253ac8d21281a3f003c58d",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/async_utils.py"
+      },
+      {
+        "actual_sha256": "f172f8277ea04b196efbd6995ea0a7b50006ff5e84c9d463353ebf359aa7dd04",
+        "expected_sha256": "f172f8277ea04b196efbd6995ea0a7b50006ff5e84c9d463353ebf359aa7dd04",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/blackboard.py"
+      },
+      {
+        "actual_sha256": "4adbadcfaa3b223f41dd43db5fb64349f2eb5e2236f88091bf8e3d16ada45ada",
+        "expected_sha256": "4adbadcfaa3b223f41dd43db5fb64349f2eb5e2236f88091bf8e3d16ada45ada",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/communication_protocols/__init__.py"
+      },
+      {
+        "actual_sha256": "3f019376b299fa4558d41020677f6e0c223ae4f431364f6e5e733f60386f185f",
+        "expected_sha256": "3f019376b299fa4558d41020677f6e0c223ae4f431364f6e5e733f60386f185f",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/communication_protocols/base.py"
+      },
+      {
+        "actual_sha256": "2e2d0661433145dbe871321726dd5b40352f22383e960aab0b4821354a9d232d",
+        "expected_sha256": "2e2d0661433145dbe871321726dd5b40352f22383e960aab0b4821354a9d232d",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/communication_protocols/sequential.py"
+      },
+      {
+        "actual_sha256": "fb8ff6556df679b68c781fc9de4a289c00f7dbcbee7d399bc7842dff211d4cdc",
+        "expected_sha256": "fb8ff6556df679b68c781fc9de4a289c00f7dbcbee7d399bc7842dff211d4cdc",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/environment_tools.py"
+      },
+      {
+        "actual_sha256": "f76d0c2786baa6e272d79acc0c6dc9016494036efe1e4d2d0a8493cfc43220c5",
+        "expected_sha256": "f76d0c2786baa6e272d79acc0c6dc9016494036efe1e4d2d0a8493cfc43220c5",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/logger.py"
+      },
+      {
+        "actual_sha256": "01e854b025bfa59da5b747641c06d078090f510f3b8141d60b9ec9ed05524bf0",
+        "expected_sha256": "01e854b025bfa59da5b747641c06d078090f510f3b8141d60b9ec9ed05524bf0",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/networks/__init__.py"
+      },
+      {
+        "actual_sha256": "04f1eeda4e3e9234d00a2fb9be3dad7b960bb9d5a659868eacdb94b26aa0fa07",
+        "expected_sha256": "04f1eeda4e3e9234d00a2fb9be3dad7b960bb9d5a659868eacdb94b26aa0fa07",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/networks/barabasi_albert.py"
+      },
+      {
+        "actual_sha256": "c60edfcf4ca99231b0cb4a4120bddba32b6bf361092a35dcf4c93ed3613eb4fb",
+        "expected_sha256": "c60edfcf4ca99231b0cb4a4120bddba32b6bf361092a35dcf4c93ed3613eb4fb",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/networks/base.py"
+      },
+      {
+        "actual_sha256": "1c46585ed4ce166c00b269cffc748ef43230827282fb3a2386aa2c0b6e206fd3",
+        "expected_sha256": "1c46585ed4ce166c00b269cffc748ef43230827282fb3a2386aa2c0b6e206fd3",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/networks/complete.py"
+      },
+      {
+        "actual_sha256": "8dbfae3294ce311a3c8ed1a6604a939af651ae64efed7213ca29358feec4ce09",
+        "expected_sha256": "8dbfae3294ce311a3c8ed1a6604a939af651ae64efed7213ca29358feec4ce09",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/networks/erdos_renyi.py"
+      },
+      {
+        "actual_sha256": "dcaad4a5fcdc656f8c4efd2463fa0d1fba0edac883b2b259f0380aa668ebd573",
+        "expected_sha256": "dcaad4a5fcdc656f8c4efd2463fa0d1fba0edac883b2b259f0380aa668ebd573",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/networks/factory.py"
+      },
+      {
+        "actual_sha256": "37d6a04f1a6ccc3b4c11f1bd98d66d4bd949294a29727e5c0bf97b13f5e51417",
+        "expected_sha256": "37d6a04f1a6ccc3b4c11f1bd98d66d4bd949294a29727e5c0bf97b13f5e51417",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/networks/path.py"
+      },
+      {
+        "actual_sha256": "ca4527acd7f8e9be9ee70f520c07fcec35e4b54a7d8dedc4fbbd0f4332247b4f",
+        "expected_sha256": "ca4527acd7f8e9be9ee70f520c07fcec35e4b54a7d8dedc4fbbd0f4332247b4f",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/networks/star.py"
+      },
+      {
+        "actual_sha256": "099be570016565b905f8ffe926cbaf0bbf9abad3855f968199517bc21ab1c894",
+        "expected_sha256": "099be570016565b905f8ffe926cbaf0bbf9abad3855f968199517bc21ab1c894",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/networks/watts_strogatz.py"
+      },
+      {
+        "actual_sha256": "7ddae8c3f4429ddda5381ee3c9c8e02d104a3a7b4589277b27418b8d58022cef",
+        "expected_sha256": "7ddae8c3f4429ddda5381ee3c9c8e02d104a3a7b4589277b27418b8d58022cef",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/toolset_discovery.py"
+      },
+      {
+        "actual_sha256": "12c4a5d8baa01720b822be5ab2c3eabf4d9376e7d7c78ea07794314c5d9071ec",
+        "expected_sha256": "12c4a5d8baa01720b822be5ab2c3eabf4d9376e7d7c78ea07794314c5d9071ec",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/.venv/lib/python3.13/site-packages/terrarium/utils.py"
+      },
+      {
+        "actual_sha256": "a40376ad1b09ed90dd402bd628e8af676770f66bf0d6393eeee6ede71fc04bd4",
+        "expected_sha256": "a40376ad1b09ed90dd402bd628e8af676770f66bf0d6393eeee6ede71fc04bd4",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/experiments/common/__init__.py"
+      },
+      {
+        "actual_sha256": "ad2a2bb55d0aa94e8dc3a040c46c8e0380ab3f668270487d6bd1e59ed3c550d5",
+        "expected_sha256": "ad2a2bb55d0aa94e8dc3a040c46c8e0380ab3f668270487d6bd1e59ed3c550d5",
+        "match": true,
+        "path": "/Users/kenlau/Documents/hackathon/apart research/collusion_hackathon/colosseum/experiments/common/local_protocol.py"
+      }
+    ],
+    "prior849_baseline": {
+      "actual_checked_count": 849,
+      "all_actual_hashes_equal_expected": true,
+      "definition": "Only the849 previously recorded paths are the baseline; later derived files are not falsely counted as baseline mutations.",
+      "expected_count": 849,
+      "expected_hashes_defined_by_manifest": true,
+      "mismatches": [],
+      "path": "research/recovery_environment/hospital_recovery/20261025/engagement_gate_001/prior_evidence_hashes.json",
+      "sha256": "c544ee0e9d7c64d7952c865c11c400653455abbd5b850f316ac60b4c306148dc"
+    },
+    "raw_run_expected_actual_hashes": [
+      {
+        "actual_sha256": "56dc470ac89630bd069d57b0d52302e8c45562f9ae7a330814c86262b93562db",
+        "expected_sha256": "56dc470ac89630bd069d57b0d52302e8c45562f9ae7a330814c86262b93562db",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_live_001/accounting/ledger.json"
+      },
+      {
+        "actual_sha256": "23c44b8b012e26659bd567434d6efb02b97e0eae73c94ecdec9616408001e6fb",
+        "expected_sha256": "23c44b8b012e26659bd567434d6efb02b97e0eae73c94ecdec9616408001e6fb",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_live_001/engagement-positive-s0.json"
+      },
+      {
+        "actual_sha256": "4841ee3b98d057c7cf4583cf2e57327a388e98535e3fae86ef3829b4a175c3e3",
+        "expected_sha256": "4841ee3b98d057c7cf4583cf2e57327a388e98535e3fae86ef3829b4a175c3e3",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_live_001/engagement-positive-s1.json"
+      },
+      {
+        "actual_sha256": "77f8191f104072d48c36d395e9aecf1b853cad21b4b9340d3f5bdc5a67153215",
+        "expected_sha256": "77f8191f104072d48c36d395e9aecf1b853cad21b4b9340d3f5bdc5a67153215",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_live_001/engagement-positive-s2-stopped.json"
+      },
+      {
+        "actual_sha256": "28c6582281cc45bdc79da79bd8da32e6f9d1c496869fa25d8491f27a655c0e02",
+        "expected_sha256": "28c6582281cc45bdc79da79bd8da32e6f9d1c496869fa25d8491f27a655c0e02",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_live_001/launch.json"
+      },
+      {
+        "actual_sha256": "43b045ded8673d4328a18d0ed9ecc3c15f010d4494ef3eb05a4b541c5978589f",
+        "expected_sha256": "43b045ded8673d4328a18d0ed9ecc3c15f010d4494ef3eb05a4b541c5978589f",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_live_001/preflight.json"
+      },
+      {
+        "actual_sha256": "15d79f64a059a207c6a92a3b2a39c750c173d2c22ae5686678484c684631a503",
+        "expected_sha256": "15d79f64a059a207c6a92a3b2a39c750c173d2c22ae5686678484c684631a503",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/20261025/engagement_live_001/stopped.json"
+      }
+    ],
+    "raw_run_unchanged_since_first_review": true,
+    "research_sources": [
+      {
+        "actual_sha256": "7db7cc79159fce486ca85e00e2084554e88408b85561aa3d2d9f4614bb865678",
+        "expected_sha256": "7db7cc79159fce486ca85e00e2084554e88408b85561aa3d2d9f4614bb865678",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/branch_runtime.py"
+      },
+      {
+        "actual_sha256": "f176c78d3b70ce489de6e74095cfcc8631eab2beb44f95767c7e457350c873be",
+        "expected_sha256": "f176c78d3b70ce489de6e74095cfcc8631eab2beb44f95767c7e457350c873be",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/budget_client.py"
+      },
+      {
+        "actual_sha256": "c217dabd87a686a3f3aba8eabad03c2e29a15510671ad084c09fdcb964654a19",
+        "expected_sha256": "c217dabd87a686a3f3aba8eabad03c2e29a15510671ad084c09fdcb964654a19",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/control_pilot.py"
+      },
+      {
+        "actual_sha256": "2d984c0bc9bb63fcb244e8aa96ff5e6e1fa9bb9603b024c1c8be12add39ce9f7",
+        "expected_sha256": "2d984c0bc9bb63fcb244e8aa96ff5e6e1fa9bb9603b024c1c8be12add39ce9f7",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/engagement_pilot.py"
+      },
+      {
+        "actual_sha256": "d414da99e0606a0580b605eeb797d24aa278c27caac8ed17b406463596df4a9a",
+        "expected_sha256": "d414da99e0606a0580b605eeb797d24aa278c27caac8ed17b406463596df4a9a",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/main_inputs.py"
+      },
+      {
+        "actual_sha256": "aad82b310dc4d0a97e9ee12c39c1858c34495444a6377de03169ee2f27bead54",
+        "expected_sha256": "aad82b310dc4d0a97e9ee12c39c1858c34495444a6377de03169ee2f27bead54",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/main_metrics.py"
+      },
+      {
+        "actual_sha256": "001e66f99006feb3c963be1e238487bf22e1208d716015f932e7d49ecc9030c8",
+        "expected_sha256": "001e66f99006feb3c963be1e238487bf22e1208d716015f932e7d49ecc9030c8",
+        "match": true,
+        "path": "research/recovery_environment/hospital_recovery/main_pilot.py"
+      }
+    ]
+  },
+  "requested_provider": {
+    "allow_fallbacks": false,
+    "max_price": {
+      "completion": 0.38,
+      "prompt": 0.26,
+      "request": 0
+    },
+    "only": [
+      "deepinfra/fp4"
+    ],
+    "order": [
+      "deepinfra/fp4"
+    ],
+    "require_parameters": true
+  },
+  "returned_models": {
+    "deepseek/deepseek-v3.2": 17
+  },
+  "returned_providers": {
+    "DeepInfra": 17
+  },
+  "reviewed_at_utc": "2026-10-25T00:14:21.470914+00:00",
+  "reviewer": "market_candidates subagent",
+  "scope_limits": [
+    "Accounting and provenance checks passed; the six-positive qualification did not complete and all six ordinary cases are unrun.",
+    "Two completed instructed positive controls are not ordinary task qualification, cap-causal evidence, recovery efficacy or demonstrated novelty.",
+    "Provider/model names and usage.cost are returned metadata, not independent billing reconciliation or model-weight/quantization attestation.",
+    "Attempt18 reached the one-shot transport boundary, but no HTTP status, response, generation ID or actual charge is known; its reservation remains held.",
+    "No retry or fallback is recorded; the immutable client disables retries and the run terminated without a main study or resumption.",
+    "The retained outer bytes-serialization/logging failure explicitly preceded credential lookup and inference; it is separate from the18transport attempts.",
+    "This review neither runs inference or validators nor modifies the original ledger, cases, frozen bundle or sources."
+  ],
+  "total": 32,
+  "unstarted_cases": [
+    "engagement-positive-s3",
+    "engagement-positive-s4",
+    "engagement-positive-s5",
+    "engagement-ordinary-s0",
+    "engagement-ordinary-s1",
+    "engagement-ordinary-s2",
+    "engagement-ordinary-s3",
+    "engagement-ordinary-s4",
+    "engagement-ordinary-s5"
+  ]
+}

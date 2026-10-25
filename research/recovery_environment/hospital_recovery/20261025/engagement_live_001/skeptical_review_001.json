@@ -1,0 +1,78 @@
+{
+  "kind": "independent skeptical review of retained interrupted qualification evidence",
+  "review_date_hkt": "2026-10-25",
+  "reviewer_task": "novelty_challenger",
+  "new_inference_calls": 0,
+  "new_tests": 0,
+  "raw_evidence_or_frozen_source_edits": false,
+  "inspected_artifacts": [
+    "engagement-positive-s0.json",
+    "engagement-positive-s1.json",
+    "engagement-positive-s2-stopped.json",
+    "accounting/ledger.json",
+    "stopped.json",
+    "../../../../../RELATED_WORK.md"
+  ],
+  "observations": {
+    "planned_positive_cases": 6,
+    "completed_positive_cases": 2,
+    "completed_positive_passes": 2,
+    "partial_positive_cases": 1,
+    "unstarted_positive_cases": 3,
+    "planned_ordinary_cases": 6,
+    "started_ordinary_cases": 0,
+    "per_seed_positive": [
+      {"seed": 0, "status": "complete_pass", "generation_calls": 6, "designated_turns": 3, "care_complete": 2, "care_denominator": 2, "resource_failures": 0, "native_errors": 0},
+      {"seed": 1, "status": "complete_pass", "generation_calls": 6, "designated_turns": 3, "care_complete": 2, "care_denominator": 2, "resource_failures": 0, "native_errors": 0},
+      {"seed": 2, "status": "partial_transport_stop", "settled_generation_calls": 5, "last_observed_care_complete": 1, "care_denominator": 2, "final_care_endpoint": null},
+      {"seed": 3, "status": "unstarted", "final_care_endpoint": null},
+      {"seed": 4, "status": "unstarted", "final_care_endpoint": null},
+      {"seed": 5, "status": "unstarted", "final_care_endpoint": null}
+    ],
+    "completed_cases_behavior": "Both complete instructed cases use query-then-designated-action continuation: one donation followed by two canonical Ward care actions, with two generations per turn.",
+    "qualification_status": "incomplete due terminal transport stop; not a completed six-case pass or behavioral disqualification",
+    "attempts": 18,
+    "settled_attempts": 17,
+    "known_cost_usd": "0.00999632",
+    "held_unknown_cost_reservation_usd": "0.049",
+    "terminal_failure": "transport_failure",
+    "failed_http_status": null,
+    "failed_response": null,
+    "transport_cause": "unknown"
+  },
+  "six_dimension_ratings": {
+    "operator_problem": 8,
+    "architecture_audit_and_evidence_discipline": 8,
+    "conditional_causal_design": 7,
+    "behavioral_readiness": 5,
+    "useful_cooperation_construct": 8,
+    "demonstrated_novelty": 3
+  },
+  "rating_rationale": {
+    "operator_problem": "The source-containment versus useful-work recovery decision remains concrete, with synthetic-task external-validity limits.",
+    "architecture_audit_and_evidence_discipline": "Actual callbacks, native state, settled and failed requests, missing cases and unresolved cost remain inspectable and retained.",
+    "conditional_causal_design": "The prior main study had an ordinary-task inactivity floor. The revised ordinary cap3 engagement gate has no observations, so that limitation remains unresolved.",
+    "behavioral_readiness": "Two cases establish instructed query-to-action continuation, supplementing earlier instructed competence. Ordinary task execution under cap3 is still untested; no readiness increase follows.",
+    "useful_cooperation_construct": "Canonical completed care and resource failures distinguish success, incomplete care and missing endpoints without substituting reward credit.",
+    "demonstrated_novelty": "No inherited-exposure, repair, unilateral or partner-contingency result has been established. The inspected primary-source overlap is unchanged."
+  },
+  "question_novelty_potential": {
+    "score": 8,
+    "qualification": "Lower-edge proposal judgment only; not demonstrated evidence or completion of the all-8 objective."
+  },
+  "limits": [
+    "Two completed positive cases are two of six planned cases, not a six-case qualification pass.",
+    "The partial last-observed 1/2 care is not a measured final endpoint; unstarted cases are missing, not zero outcomes.",
+    "No ordinary cap3 episode started. No ordinary-engagement, causal cap1-to-cap3 repair or recovery claim is supported.",
+    "Real query-to-designated-action continuation does not establish unguided task engagement or strategy adoption.",
+    "HTTP status and response are absent for the failed attempt. Wall-clock gaps do not identify timeout, provider overload or another transport cause.",
+    "The held USD0.049 is an unresolved conservative reservation, not an asserted actual charge or a free failed request."
+  ],
+  "next_action": {
+    "authorized_remaining_work": "Finish the retained partial Results, accounting and provenance report, then stop with the latest status.",
+    "justified_new_paid_stage": false,
+    "resume_or_retry_current_stage": false,
+    "reason": "The qualification-only run reached its global terminal transport stop. Current approval does not authorize resumption, retries, replacement cases, provider/model changes or paid search. Ordinary cap3 evidence remains absent.",
+    "future_paid_work_requirement": "A separately reviewed and frozen plan plus fresh explicit human authorization; no further experiment should be commissioned merely to chase a score."
+  }
+}

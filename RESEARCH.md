@@ -17,7 +17,7 @@ The selected question remains: after original exploiters lose access, can their 
 | Useful-cooperation construct | 8 | Canonical care, resource failures, fixed4/8turn horizons and useful-transfer references distinguish inactivity from recovery; missing endpoints remain undefined. |
 | Demonstrated novelty | 3 | No inherited-plan continuation, repair effect, unilateral result or partner-contingency finding has been demonstrated. |
 
-These ratings are judgments, not measurements. They remain **8,8,7,5,8,3**. Proposal potential does not substitute for actual results. [Bounded contribution and source overlap](RELATED_WORK.md).
+These ratings are judgments, not measurements. Independent review agrees: **8,8,7,5,8,3**. Proposal potential does not substitute for actual results. [Bounded contribution and source overlap](RELATED_WORK.md).
 
 ## Results: cap3 qualification
 
@@ -33,7 +33,7 @@ Combined earlier controls, interrupted main and this qualification: **176attempt
 
 ## Decision and next action
 
-**Keep both interrupted runs stopped.** This approval authorized only the new qualification, and its transport stop rule has fired. It does not authorize a restart, retry, replacement, fallback, model search or revised main experiment. The cap3ordinary engagement question remains unanswered; two instructed successes cannot qualify ordinary cooperation or raise novelty. Preserve and finish the read-only evidence review, then stop with this status. A further paid step would require a justified, concretely frozen new stage and separate authorization; no paid tuning is proposed merely to raise scores.
+**Keep both interrupted runs stopped.** This approval authorized only the new qualification, and its transport stop rule has fired. It does not authorize a restart, retry, replacement, fallback, model search or revised main experiment. The cap3ordinary engagement question remains unanswered; two instructed successes cannot qualify ordinary cooperation or raise novelty. The read-only evidence review is complete: [32/32 accounting/provenance checks](research/recovery_environment/hospital_recovery/20261025/engagement_live_001/accounting_review_001.json) pass, and [independent reviews](research/recovery_environment/hospital_recovery/20261025/engagement_live_001/independent_review.json) agree with the unchanged ratings. Stop with this status. A further paid step would require a justified, concretely frozen new stage and separate authorization; no paid tuning is proposed merely to raise scores.
 
 The old main retains15complete inactive cases, one partial and68unstarted after request128HTTP429; its all-zero care/cycle outcomes establish inactivity, not recovery. Earlier6/6cycle and6/6care LLM controls establish prescribed tool competence only. The unpaid continuation probe's24scripted cases establish a conditional software path: cap3permits query-result continuation, cap1batching can already act, and cap3always-query remains inactive. The8/8new offline gate and all failed attempts remain linked in [the protocol](RECOVERY_PROTOCOL.md); none substitutes for the unrun ordinary LLM sample. [Old main analysis](research/recovery_environment/hospital_recovery/20261025/main_live_001/analysis_003.json), [architecture](ARCHITECTURE.md).
 
