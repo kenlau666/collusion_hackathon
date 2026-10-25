@@ -199,6 +199,7 @@ def finalized_row(row, run, case, archive, analyzed):
                scripted_partner_generation_requests=len(case["scripted_partner_requests"]),
                explicit_memo_reads=len(case["memo_reads"]),
                reads_returning_target_memo=sum(bool(v["memo_returned"]) for v in case["memo_reads"]),
+               independent_memo_delivery_audit=analyzed["memo"],
                reserve_provisioner_exemptions=len(case["reserve_provisioner_exemptions"]),
                archive_path=str(archive), archive_sha256=sha(archive),
                analysis_path=str(run / "analysis.json"), analysis_sha256=sha(run / "analysis.json"),
