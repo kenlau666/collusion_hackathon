@@ -1,0 +1,42 @@
+{
+  "actual_spend_usd": "0",
+  "behavioral_criteria_changed": false,
+  "corrected_validation": {
+    "fake_attempts": 221,
+    "passed": 9,
+    "total": 9
+  },
+  "findings": [
+    {
+      "correction": "validate_output enforces fresh direct BASE/engagement_live_NNN before metadata/key/output; validation002 rejects outside/nonmatching/existing paths.",
+      "issue": "Only engagement_live_* ledgers counted while arbitrary --out accepted",
+      "status": "corrected before paid launch"
+    },
+    {
+      "correction": "Describe60s child deadline plus bounded cleanup; host scheduling/suspension and parent work remain limits.",
+      "issue": "Overbroad absolute wall-deadline wording",
+      "status": "corrected"
+    }
+  ],
+  "initial_validation": {
+    "fake_attempts": 221,
+    "limit": "Passing checks did not cover cumulative output path namespace; independent review identified the gap.",
+    "passed": 8,
+    "total": 8
+  },
+  "kind": "Independent implementation review and correction record",
+  "original_seven_sources_changed": false,
+  "other_concrete_launch_blockers_found": false,
+  "pre_review_bundle_and_authorization_status": "bundle/plan.json and engagement_runtime_authorization_001.json superseded before any live execution; preserved unchanged. Use bundle_002/plan.json and authorization002.",
+  "reviewed_sources": [
+    "request_worker.py",
+    "deadline_transport.py",
+    "qualification_runtime.py"
+  ],
+  "reviewer": "market_candidates",
+  "sources_after_correction": {
+    "deadline_transport.py": "46b7a9645953101c95dcb5927b2e14d1772089e8f5e99b89328d10ab52da5788",
+    "qualification_runtime.py": "4f30189fc385dd0554a0d52482a61114cc57fe2452da59e3565b092d8553a24d",
+    "request_worker.py": "0b875ed78ed763946f78a541f9ce22547694bd8ed3a3db99450e2c848c88a675"
+  }
+}

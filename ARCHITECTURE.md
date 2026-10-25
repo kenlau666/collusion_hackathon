@@ -41,6 +41,8 @@ flowchart TB
   SCRIPT --> PROBE
   ENGAGE["Cap3 qualification stopped at request18<br/>2positive pass;1partial;9unstarted<br/>ordinary n=0; no recovery result"]
   PROBE -. "software witness only" .-> ENGAGE
+  RUNTIME["Verified transport corrections<br/>typed diagnostics and60s child deadline<br/>same12cases/criteria; standing approval"]
+  ENGAGE -. "new repetition; old evidence retained" .-> RUNTIME
 ```
 
 Editable source: [mermaid-diagram.mmd](mermaid-diagram.mmd), equal to the block above. The PNG remains historical and unchanged. No new render/layout verification is claimed.
@@ -167,3 +169,12 @@ The separately approved [engagement_live_001](research/recovery_environment/hosp
 Positive seeds0/1pass with6calls/3turns each, care2/2, newcredit15and no observed errors. Seed2has two completed turns and a failed third, care1/2at its partial checkpoint, not a final endpoint. Positive seeds3–5and all six ordinary cases are unstarted. The6/6positive gate is incomplete; ordinary behavior remains unqualified. There was no retry/fallback/replacement/main dispatch. A separate outer preflight bytes-serialization failure preceded all credential lookup/inference; its retained partial file and failure record distinguish it from the18outward attempts. Frozen sources and prior evidence are preserved. [Full Results and limits](RECOVERY_PROTOCOL.md#results-interrupted-cap3-qualification). Current ratings remain8,8,7,5,8,3.
 
 The terminal [independent review](research/recovery_environment/hospital_recovery/20261025/engagement_live_001/independent_review.json) finds no additional measurement blocker;32/32accounting/provenance checks pass, including frozen7/42sources and849unchanged prior files. Evidence integrity does not establish qualification completion.
+
+
+## Verified transport corrections under standing qualification approval
+
+The user's2026-10-25instruction authorizes further paid qualification after verified implementation fixes, without another approval stage; it does not authorize tuning until all cases succeed. The local timeout probe confirms urllib's socket timeout can be exceeded by an incremental response. Exception-type/stage loss is also verified; the old interruption's cause remains unknown.
+
+New separate `request_worker.py`/`deadline_transport.py` supervise the same one-shot verifiedTLSOpenRouter call in a killable child, with a60s child deadline plus bounded cleanup and typed credential-safe diagnostics before the frozen ledger catches exceptions. Unknown costs remain reserved; HTTPstatus/body handling and no-retry/no-fallback remain. `qualification_runtime.py` verifies the unchanged original7/42sources, all12roots/inputs, three new source hashes, standing authorization, prior ledger hashes, totalUSD50and per-run198/USD10limits before key lookup. A real OSadvisory lock serializes corrected-runtime runs. The exact old native runner/metrics/criteria execute unchanged. Host suspension can delay the supervisor; no claim that this explains the prior wall-clock gap. [Correction Results and limits](RECOVERY_PROTOCOL.md#results-verified-implementation-corrections).
+
+The initial unpaid gate passed8/8with221fake attempts; independent review then found an output-path accounting gap. Enforcing fresh direct `engagement_live_NNN` output paths before key lookup now passes9/9in validation002with another221fake attempts, including162identical old pipeline payloads, retained no-op behavioral failures, typed exception/HTTP429stops and three killed/reaped real child controls. This is software validation only. A new full12-case qualification is recorded under standing approval; it retains all previous observations and uses repeated-family accounting. No PR; PNG unchanged.

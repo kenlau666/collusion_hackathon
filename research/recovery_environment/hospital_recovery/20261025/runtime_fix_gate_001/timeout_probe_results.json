@@ -1,0 +1,69 @@
+{
+  "actual_spend_usd": "0",
+  "credential_lookups": 0,
+  "kind": "local software timeout probe",
+  "limit": "Loopback repeat indices are not independent behavioral seeds; this does not identify the old live failure cause.",
+  "positive_controls_passed": 3,
+  "provider_calls": 0,
+  "rows": [
+    {
+      "body_matches": true,
+      "elapsed_seconds": 0.010402625077404082,
+      "http_status": 200,
+      "kind": "fast",
+      "trial": 0
+    },
+    {
+      "body_matches": true,
+      "elapsed_seconds": 0.38324208406265825,
+      "http_status": 200,
+      "kind": "slow",
+      "trial": 0
+    },
+    {
+      "body_matches": true,
+      "elapsed_seconds": 0.000663875020109117,
+      "http_status": 200,
+      "kind": "fast",
+      "trial": 1
+    },
+    {
+      "body_matches": true,
+      "elapsed_seconds": 0.38302183290943503,
+      "http_status": 200,
+      "kind": "slow",
+      "trial": 1
+    },
+    {
+      "body_matches": true,
+      "elapsed_seconds": 0.0007474588928744197,
+      "http_status": 200,
+      "kind": "fast",
+      "trial": 2
+    },
+    {
+      "body_matches": true,
+      "elapsed_seconds": 0.3844727500109002,
+      "http_status": 200,
+      "kind": "slow",
+      "trial": 2
+    }
+  ],
+  "socket_timeout_seconds": 0.15,
+  "source_sha256": "be6428ab37bee4895e56cdacea27c256a65e08851e0a29bbe0af6a294a9d7e63",
+  "summaries": {
+    "fast": {
+      "mean": 0.003937986330129206,
+      "n": 3,
+      "sample_sd": 0.005598697363273207,
+      "sample_variance": 3.134541216552237e-05
+    },
+    "slow": {
+      "mean": 0.3835788889943312,
+      "n": 3,
+      "sample_sd": 0.0007819004286547073,
+      "sample_variance": 6.113682803304151e-07
+    }
+  },
+  "verified_per_operation_timeout_limitation": true
+}
