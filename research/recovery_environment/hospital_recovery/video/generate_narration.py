@@ -15,9 +15,14 @@ cursor = 0
 for line in lines:
     name, text = line["id"], line["text"]
     src = RAW / f"{name}.txt"
-    src.write_text(text)
+    if "--reuse-raw" in sys.argv:
+        assert src.exists() and src.read_text() == text, f"Raw text changed: {name}"
+        meta = json.loads((RAW / f"{name}.json").read_text())
+        assert meta["speed"] == 1.08 and meta["voice"] == "af_heart"
+    else:
+        src.write_text(text)
     raw = RAW / f"{name}.wav"
-    print(f"Generating {name} locally", flush=True)
+    print(f"Preparing {name} locally", flush=True)
     if "--reuse-raw" not in sys.argv:
         result = subprocess.run([
         "npx", "--yes", "hyperframes", "tts", "--text-file", str(src),
