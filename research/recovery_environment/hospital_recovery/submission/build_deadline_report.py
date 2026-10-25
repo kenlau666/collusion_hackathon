@@ -567,7 +567,14 @@ def build_story(e, evidence_commit, cutoff):
     outward = sum(v['outward_attempts'] for v in ledgers)
     new_ref = sum((Decimal(v['reference_estimate_usd']) for v in ledgers), Decimal(0))
     new_holds = sum((Decimal(v['unknown_held_usd']) for v in ledgers), Decimal(0))
-    p(f'The deadline outputs contain{outward}outward attempts in{len(ledgers)}durable ledgers. Their new token-reference estimates sum to USD{new_ref}, with USD{new_holds}unresolved reservations. The baseline prior guard is USD{a["baseline_prior_guard_usd"]}, including USD{a["baseline_includes_unresolved_holds_usd"]}historical unresolved holds. The cumulative reference-policy guard at this closed snapshot is USD{a["cumulative_reference_guard_usd"]}. Actual Modal account charges remain unverified. Capacity envelopes are admission capacity, not charges.')
+    unique_accounts = {row['run_paths'][0]: e.case_accounting[name]
+        for name, row in e.rows.items() if name in e.case_accounting}
+    settled = sum(v['settled'] for v in unique_accounts.values())
+    failed = sum(v['failed_attempts'] for v in unique_accounts.values())
+    logical_with_attempts = sum(v['logical_requests_with_attempts'] for v in unique_accounts.values())
+    logical_invocations = sum(row['logical_generation_requests'] for row in e.rows.values())
+    historical_holds = Decimal(a['baseline_includes_unresolved_holds_usd'])
+    p(f'The deadline outputs contain {outward} outward attempts in {len(ledgers)} durable ledgers: {settled} settled and {failed} failed. There are {logical_with_attempts} logical requests with outward attempts and {logical_invocations-logical_with_attempts} additional invocations blocked before dispatch. New token-reference usage is USD {new_ref}, with USD {new_holds} unresolved reservations. The prior guard is USD {a["baseline_prior_guard_usd"]}, including USD {historical_holds} historical holds. Total unresolved holds are USD {historical_holds+new_holds}; the cumulative reference-policy guard is USD {a["cumulative_reference_guard_usd"]}. Actual Modal bills remain unverified. Capacity envelopes are admission capacity, not charges.')
     p('The budget includes failed/unfinalized and other-plan live deadline outputs, even when those outputs are excluded from model result tables. A snapshot containing an active reservation is a budget observation, not evidence of an active process. Model-only case inclusion additionally requires the active plan, real-model mode and independent saved-state reconciliation. Software mock ledgers use fabricated token usage and add zero paid spend.')
     rows = []
     for row in e.rows.values():
