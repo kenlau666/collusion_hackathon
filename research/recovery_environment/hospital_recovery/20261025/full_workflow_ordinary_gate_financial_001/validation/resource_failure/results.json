@@ -1,0 +1,97 @@
+{
+  "all_passed": false,
+  "cases": [
+    {
+      "archive": "full-ordinary-s0.json.gz",
+      "archive_sha256": "784e154cad713fba8ce40346893c5f04155bc64f94bd2bc6b5569497d4f319e5",
+      "complete": true,
+      "error": null,
+      "metrics": {
+        "callback_errors": 0,
+        "care": 4,
+        "credit": 300.0,
+        "failures": 10,
+        "generation_attempts": 144,
+        "local_sum": 3882.0,
+        "logical_generation_requests": 144,
+        "native_score": 3882.0,
+        "recurrences": []
+      },
+      "passed": false,
+      "raw_sha256": "c48e988baaae18163ec260ebc8172a31c1e960ed9494f2bce47249a3468f492a",
+      "spec": {
+        "id": "full-ordinary-s0",
+        "kind": "ordinary",
+        "seed": 0
+      }
+    }
+  ],
+  "ledger": {
+    "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+    "authorization": {
+      "approval_reference_sha256": "93943c6c19291c2b6a6bac0615a559ad1dbe87ce087c74c8138ed95f94bb09dc",
+      "approved": true,
+      "max_calls": 198,
+      "max_usd": "10",
+      "plan_sha256": "3f6ef3b462c1cacbafa1fae4c82cdb581bb70141f8723b78c26761ace19d39c8",
+      "scope": "full"
+    },
+    "calls": 144,
+    "capacity_guard_policy": {
+      "input_reference_usd_per_token": "3.0E-7",
+      "max_padded_bytes": 159237,
+      "name": "serialized_bytes_with_reservation_bound_v1",
+      "output_reference_usd_per_token": "0.00000120",
+      "output_tokens": 1024,
+      "padding_per_message_tool_and_envelope": 512,
+      "reported_input_limit": 131072,
+      "reservation_usd": "0.049"
+    },
+    "created_at_utc": "2026-10-25T13:24:32.434424+00:00",
+    "halt_reason": null,
+    "held_usd": "0.000",
+    "max_calls": 198,
+    "max_usd": "10",
+    "metadata": {
+      "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+      "actual_modal_billing_attested": false,
+      "base_url": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+      "input_reference_usd_per_million": ".30",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "output_reference_usd_per_million": "1.20",
+      "seed_forwarded": false
+    },
+    "pending_retry": null,
+    "plan_sha256": "3f6ef3b462c1cacbafa1fae4c82cdb581bb70141f8723b78c26761ace19d39c8",
+    "reported_cost_missing": 144,
+    "reported_cost_observations": 0,
+    "reported_cost_sum_usd": "0",
+    "reported_cost_total_usd": null,
+    "reservation_usd": "0.049",
+    "retry_events": [],
+    "schema_version": 1,
+    "scope": "full",
+    "spent_usd": "0.12096000",
+    "status": "ready",
+    "timeout_retry_policy": {
+      "max_retries_per_request": 1,
+      "non_timeout_retries": 0,
+      "same_payload_required": true,
+      "trigger": "local_request_or_socket_timeout"
+    }
+  },
+  "mode": "scripted_software",
+  "network_attempts": [],
+  "plan_sha256": "3f6ef3b462c1cacbafa1fae4c82cdb581bb70141f8723b78c26761ace19d39c8",
+  "planned_cases": [
+    {
+      "id": "full-ordinary-s0",
+      "kind": "ordinary",
+      "seed": 0
+    }
+  ],
+  "request_deadline_seconds": 60,
+  "stage": "ordinary",
+  "transport": "trace-json-retry1-financial",
+  "unstarted": []
+}

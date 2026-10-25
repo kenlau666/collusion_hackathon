@@ -128,7 +128,10 @@ def request(case, ledger, headers, directory, call_probe=probe):
     wire, padded, maximum = bound(payload)
     diagnostics = directory/'diagnostics'; diagnostics.mkdir()
     ledger.state.update(accounting_basis=BASIS, reported_cost_sum_usd='0',
-        reported_cost_observations=0, reported_cost_missing=0, reported_cost_total_usd=None)
+        reported_cost_observations=0, reported_cost_missing=0, reported_cost_total_usd=None,
+        metadata={'base_url':BASE_URL,'model':MODEL,'accounting_basis':BASIS,
+            'actual_modal_billing_attested':False,'input_reference_usd_per_million':'.30',
+            'output_reference_usd_per_million':'1.20','diagnostic_output_limit':1})
     ledger._persist()
     for index in (0, 1):
         ledger.attempt_context = {'logical_request_id': 1, 'attempt_index': index}

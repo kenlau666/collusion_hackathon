@@ -1,0 +1,23 @@
+{
+  "inference_allowed": false,
+  "negative": "legacy guard still rejects blocked body; financial byte boundary+1 and input token131073 rejected",
+  "paid_calls": 0,
+  "policy": {
+    "input_reference_usd_per_token": "3.0E-7",
+    "max_padded_bytes": 159237,
+    "name": "serialized_bytes_with_reservation_bound_v1",
+    "output_reference_usd_per_token": "0.00000120",
+    "output_tokens": 1024,
+    "padding_per_message_tool_and_envelope": 512,
+    "reported_input_limit": 131072,
+    "reservation_usd": "0.049"
+  },
+  "positive": "all316 prior native request bodies accepted identically; rejected body accepted within reservation",
+  "sources": {
+    "capacity_guard_client.py": "a75b25fdcf26e0033a0083a52f74f409bdc534373d6dadced1cea82d5f7dfa5c",
+    "diagnose_prompt_capacity.py": "c360ce9f1e827434d1b348ea5687527302a609bcd0fd07cea07ddd0bd511b770",
+    "modal_hospital_client.py": "fb88abb23fe8a405912dfaa82e3b9048e06534fc900a9af37a1d537227b51b6d",
+    "timeout_retry_client.py": "16ed202af38ac7d02ce949b29683c12f1d83107029267c8fb87778e788ab3bfc",
+    "validate_capacity_guard.py": "3095dd0087fb0fcb07b20e6f9113514766ade72a60637947a2ac0ce01e4b78a6"
+  }
+}

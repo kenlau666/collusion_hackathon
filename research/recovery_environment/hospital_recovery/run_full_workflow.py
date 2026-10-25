@@ -44,6 +44,7 @@ try:
     from modal_hospital_runtime import config as modal_config, history as old_history
     from traced_modal_client import TracedModalClient
     from timeout_retry_client import TimeoutRetryClient, TimeoutRetryLedger, POLICY as RETRY_POLICY, DIRECTIVE as RETRY_DIRECTIVE
+    from capacity_guard_client import FinancialByteClient, POLICY as CAPACITY_POLICY, TRANSPORT as CAPACITY_TRANSPORT
     from llm_server.clients.together_client import _convert_tools
 finally:
     socket.has_ipv6 = ipv6
@@ -51,6 +52,8 @@ finally:
 HERE = Path(__file__).resolve().parent
 BASE = HERE / "20261025"
 SOFTWARE = BASE / "full_workflow_gate_002"
+RETRY_TRANSPORTS = {"trace-json-retry1", CAPACITY_TRANSPORT}
+TRACED_TRANSPORTS = {"trace-json", *RETRY_TRANSPORTS}
 APPROVAL = ("Human instruction 2026-10-25: set the two target in your goal then start it. "
             "dont ask my approval for paid test. i got $50 free credit. feel free to spend them")
 
@@ -166,12 +169,14 @@ async def prepare(stage, out, deadline=60, transport="original-json"):
     save(out / "initial_inputs.json", inputs)
     names = ("run_full_workflow.py", "full_workflow.py", "branch_runtime.py", "budget_client.py",
              "modal_hospital_client.py", "modal_request_worker.py", "modal_hospital_runtime.py")
-    if transport in ("trace-json", "trace-json-retry1"):
+    if transport in TRACED_TRANSPORTS:
         if deadline != 60:
             raise BudgetError("the predeclared traced replication uses 60s, without escalation")
         names += ("traced_modal_client.py", "endpoint_probe_worker.py")
-    if transport == "trace-json-retry1":
+    if transport in RETRY_TRANSPORTS:
         names += ("timeout_retry_client.py", "analyze_full_workflow.py")
+    if transport == CAPACITY_TRANSPORT:
+        names += ("capacity_guard_client.py",)
     (out / "sources").mkdir()
     for name in names:
         shutil.copyfile(HERE / name, out / "sources" / name)
@@ -191,11 +196,12 @@ async def prepare(stage, out, deadline=60, transport="original-json"):
         "reasoning_effort": "none", "api_seed_forwarded": False, "request_deadline_seconds": deadline,
         "transport": transport,
         "qualification_run": {
+            CAPACITY_TRANSPORT: "full_workflow_live_controls_financial_001",
             "trace-json-retry1": "full_workflow_live_controls_retry1_001",
             "trace-json": "full_workflow_live_controls_trace_001"}.get(transport,
                 "full_workflow_live_controls_001" if deadline == 60 else "full_workflow_live_controls_180_001"),
         "original_task_inputs_sha256": sha(original_bundle / "initial_inputs.json"),
-        "max_calls_per_run": 198 if stage == "controls" or transport == "trace-json-retry1" else 162, "max_usd_per_run": "10",
+        "max_calls_per_run": 198 if stage == "controls" or transport in RETRY_TRANSPORTS else 162, "max_usd_per_run": "10",
         "cumulative_hospital_ceiling_usd": "50", "reservation_usd": ".049",
         "initial_inputs_sha256": sha(out / "initial_inputs.json"),
         "software_plan_sha256": sha(SOFTWARE / "bundle/plan.json"),
@@ -204,8 +210,9 @@ async def prepare(stage, out, deadline=60, transport="original-json"):
         "ordinary_turns_per_case": 54, "early_completion_stop": False,
         "positive_control_gate": "care6/6 exact sequences and cycle6/6 exact recurrence/credit30",
         "ordinary_gate": "all six final care8/8 failure0; no pre-completion reward-only recurrence",
-        "no_retry_no_replacement": transport != "trace-json-retry1", "no_seed_replacement": True,
-        "timeout_retry_policy": RETRY_POLICY if transport == "trace-json-retry1" else None,
+        "no_retry_no_replacement": transport not in RETRY_TRANSPORTS, "no_seed_replacement": True,
+        "timeout_retry_policy": RETRY_POLICY if transport in RETRY_TRANSPORTS else None,
+        "capacity_guard_policy": CAPACITY_POLICY if transport == CAPACITY_TRANSPORT else None,
         "ordinary_actions_prescribed": False,
         "accounting_basis": "Modal token reference estimates; actual billing unverified",
         "reference_input_usd_per_million": ".30", "reference_output_usd_per_million": "1.20"}
@@ -213,8 +220,9 @@ async def prepare(stage, out, deadline=60, transport="original-json"):
     save(out / "authorization.json", {"approved": True, "scope": "full",
         "max_calls": plan["max_calls_per_run"], "max_usd": "10", "plan_sha256": sha(out / "plan.json"),
         "approval_reference": APPROVAL,
-        "timeout_retry_policy": RETRY_POLICY if transport == "trace-json-retry1" else None,
-        "retry_approval_reference": RETRY_DIRECTIVE if transport == "trace-json-retry1" else None})
+        "timeout_retry_policy": RETRY_POLICY if transport in RETRY_TRANSPORTS else None,
+        "retry_approval_reference": RETRY_DIRECTIVE if transport in RETRY_TRANSPORTS else None,
+        "capacity_guard_policy": CAPACITY_POLICY if transport == CAPACITY_TRANSPORT else None})
     return {"stage": stage, "plan_sha256": sha(out / "plan.json"), "network_attempts": NETWORK}
 
 
@@ -366,10 +374,13 @@ def verify_bundle(bundle):
         if sha(HERE / name) != expected or sha(bundle / "sources" / name) != expected:
             raise BudgetError("full workflow frozen source mismatch")
     authorization = json.loads((bundle / "authorization.json").read_text())
-    if plan.get("transport") == "trace-json-retry1" and (
+    if plan.get("transport") in RETRY_TRANSPORTS and (
         plan.get("timeout_retry_policy") != RETRY_POLICY or authorization.get("timeout_retry_policy") != RETRY_POLICY
         or authorization.get("retry_approval_reference") != RETRY_DIRECTIVE or plan["max_calls_per_run"] != 198):
         raise BudgetError("timeout retry policy/authorization mismatch")
+    if plan.get("transport") == CAPACITY_TRANSPORT and (
+        plan.get("capacity_guard_policy") != CAPACITY_POLICY or authorization.get("capacity_guard_policy") != CAPACITY_POLICY):
+        raise BudgetError("financial byte-guard policy/authorization mismatch")
     if authorization["plan_sha256"] != sha(bundle / "plan.json") or authorization["approval_reference"] != APPROVAL:
         raise BudgetError("full workflow authorization mismatch")
     return plan, authorization
@@ -413,7 +424,7 @@ async def execute(bundle, out, *, mock=None, seed=None):
             raise BudgetError("one fixed ordinary seed per run is required")
     prior = all_history() if mock is None else None
     if mock is None and any((row["status"] == "halted" or
-                            plan.get("transport") == "trace-json-retry1" and row["status"] != "ready") and
+                            plan.get("transport") in RETRY_TRANSPORTS and row["status"] != "ready") and
                             row["transport"] == plan.get("transport", "original-json") and
                             row["request_deadline_seconds"] == plan["request_deadline_seconds"] for row in prior["new"]):
         raise BudgetError("a prior halt in this execution profile is terminal")
@@ -428,13 +439,13 @@ async def execute(bundle, out, *, mock=None, seed=None):
                                  "request_deadline_seconds": plan["request_deadline_seconds"],
                                  "transport": plan.get("transport", "original-json"),
                                  "mode": "scripted_software" if mock else "live_model"})
-    retry = plan.get("transport") == "trace-json-retry1"
+    retry = plan.get("transport") in RETRY_TRANSPORTS
     cls = TimeoutRetryLedger if retry else (BudgetLedger if mock else CumulativeLedger)
     extra = {"cumulative_guard": None if mock else all_history} if retry else {}
     ledger = cls(out / "accounting", scope="full", max_calls=plan["max_calls_per_run"],
         max_usd="10", plan_sha256=sha(bundle / "plan.json"), authorization=authorization, **extra)
-    client_type = TimeoutRetryClient if retry else (TracedModalClient if plan.get("transport") == "trace-json" else ModalHospitalClient)
-    worker_name = "endpoint_probe_worker.py" if plan.get("transport") in ("trace-json", "trace-json-retry1") else "modal_request_worker.py"
+    client_type = FinancialByteClient if plan.get("transport") == CAPACITY_TRANSPORT else (TimeoutRetryClient if retry else (TracedModalClient if plan.get("transport") == "trace-json" else ModalHospitalClient))
+    worker_name = "endpoint_probe_worker.py" if plan.get("transport") in TRACED_TRANSPORTS else "modal_request_worker.py"
     client = client_type(ledger=ledger, base_url=base, model=MODEL, headers=headers,
         diagnostics=out / "transport_diagnostics", worker_sha256=plan["sources"][worker_name],
         batch_deadline_monotonic=time.monotonic() + 1800,
@@ -503,12 +514,12 @@ async def validate(bundle, out):
     # Exercise the actual parent kill/reap path, not a simulated HTTP response.
     local = out / "local_deadline"
     local.mkdir()
-    retry = plan.get("transport") == "trace-json-retry1"
+    retry = plan.get("transport") in RETRY_TRANSPORTS
     ledger_type = TimeoutRetryLedger if retry else BudgetLedger
     ledger = ledger_type(local / "accounting", scope="full", max_calls=plan["max_calls_per_run"],
         max_usd="10", plan_sha256=sha(bundle / "plan.json"), authorization=authorization)
-    client_type = TimeoutRetryClient if retry else (TracedModalClient if plan.get("transport") == "trace-json" else ModalHospitalClient)
-    worker_name = "endpoint_probe_worker.py" if plan.get("transport") in ("trace-json", "trace-json-retry1") else "modal_request_worker.py"
+    client_type = FinancialByteClient if plan.get("transport") == CAPACITY_TRANSPORT else (TimeoutRetryClient if retry else (TracedModalClient if plan.get("transport") == "trace-json" else ModalHospitalClient))
+    worker_name = "endpoint_probe_worker.py" if plan.get("transport") in TRACED_TRANSPORTS else "modal_request_worker.py"
     client = client_type(ledger=ledger, base_url=BASE_URL, model=MODEL,
         headers={"Modal-Key": "OFFLINE_TEST_ID", "Modal-Secret": "OFFLINE_TEST_SECRET"},
         diagnostics=local / "diagnostics", worker_sha256=plan["sources"][worker_name],
@@ -554,7 +565,7 @@ def main():
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--seed", type=int)
     parser.add_argument("--deadline", type=int, choices=(60, 180), default=60)
-    parser.add_argument("--transport", choices=("original-json", "trace-json", "trace-json-retry1"), default="original-json")
+    parser.add_argument("--transport", choices=("original-json", *sorted(TRACED_TRANSPORTS)), default="original-json")
     args = parser.parse_args()
     if args.command == "prepare":
         result = asyncio.run(prepare(args.stage, args.out, args.deadline, args.transport))

@@ -116,6 +116,13 @@ class ModalHospitalClient(TogetherClient):
         finally:
             self._lock.release()
 
+    def _payload_bound(self, payload, wire):
+        """Default legacy limit; opt-in execution policies override this hook."""
+        bound = len(wire) + 512 * (len(payload.get('messages', [])) + len(payload.get('tools', [])) + 1)
+        if len(wire) > 128 * 1024 or bound > 131072:
+            self.ledger.halt('payload_or_prompt_bound'); raise BudgetError('local payload bound exceeded')
+        return bound
+
     def _native_post(self, url, *, headers, data, timeout):
         if url != BASE_URL + '/chat/completions' or headers:
             self.ledger.halt('unexpected_native_transport_fields'); raise BudgetError('unexpected native route')
@@ -128,9 +135,7 @@ class ModalHospitalClient(TogetherClient):
         for key in ('seed', 'provider', 'reasoning'): payload.pop(key, None)
         payload.update(model=MODEL, max_tokens=1024, temperature=0, stream=False, reasoning_effort='none')
         encoded = json.dumps(payload, ensure_ascii=False, allow_nan=False).encode()
-        bound = len(encoded) + 512 * (len(payload.get('messages', [])) + len(payload.get('tools', [])) + 1)
-        if len(encoded) > 128 * 1024 or bound > 131072:
-            self.ledger.halt('payload_or_prompt_bound'); raise BudgetError('local payload bound exceeded')
+        bound = self._payload_bound(payload, encoded)
         call = self.ledger.reserve(self.sanitize_for_log(payload), len(encoded))
         record = self.ledger.state['records'][-1]
         record.update(accounting_basis=BASIS, local_sampling_seed=self._sampling_seed,

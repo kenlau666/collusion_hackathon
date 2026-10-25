@@ -1,0 +1,25 @@
+{
+  "approval_reference": "Human instruction 2026-10-25: set the two target in your goal then start it. dont ask my approval for paid test. i got $50 free credit. feel free to spend them",
+  "approved": true,
+  "capacity_guard_policy": {
+    "input_reference_usd_per_token": "3.0E-7",
+    "max_padded_bytes": 159237,
+    "name": "serialized_bytes_with_reservation_bound_v1",
+    "output_reference_usd_per_token": "0.00000120",
+    "output_tokens": 1024,
+    "padding_per_message_tool_and_envelope": 512,
+    "reported_input_limit": 131072,
+    "reservation_usd": "0.049"
+  },
+  "max_calls": 198,
+  "max_usd": "10",
+  "plan_sha256": "af9cd31080d2de0a1a7b1de844c8e4b25b433f6a96476d537a5c193b4e83e819",
+  "retry_approval_reference": "Human instruction 2026-10-25: yes, add one logged retry for the exact same request on timeout and continue the experiment. preserve all failed attempts and costs, and stay within the $50 budget",
+  "scope": "full",
+  "timeout_retry_policy": {
+    "max_retries_per_request": 1,
+    "non_timeout_retries": 0,
+    "same_payload_required": true,
+    "trigger": "local_request_or_socket_timeout"
+  }
+}
