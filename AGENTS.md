@@ -60,6 +60,10 @@ Keep these four active research documents authoritative. Update dates when conte
 
 On2026-10-26the user explicitly authorized continuing exploit influence and recovery, resolving the request-size stop, and updating both report and video without further approval within the cumulative USD50Hospital ceiling. Run a separately frozen successor with the same scientific inputs; retain all stopped evidence and costs. A consistent opt-in larger per-attempt financial reservation may correct the local pre-dispatch byte stop, while every ledger retains USD10/198attempts and all shared accounting/exact-retry rules. This does not authorize behavioral tuning, fake results or repeated seeds until a desired effect appears.
 
+## New study authorization — 2026-10-26
+
+The user explicitly authorized a new harmful-baseline-first Hospital study, followed conditionally by useful/exploit advice crossed with reserve off/on, retaining all failures/nulls within the cumulative USD50 ceiling and without approval/direction questions. This supersedes older no-new-inference wording only for that frozen study. Read its prospective contract in RECOVERY_PROTOCOL.md. Five fresh instructed model controls must pass before development; a verified harmful development baseline must pass before held-out repair. Do not tune prompts/state or replace failed cases to force gates. Preserve every older cohort and the completed report/video.
+
 ## Current provider selection
 
 - The user states they have no OpenRouter credit and explicitly selected **the configured Modal endpoint** on2026-10-25. Do not make further OpenRouter inference or silently fall back to it.

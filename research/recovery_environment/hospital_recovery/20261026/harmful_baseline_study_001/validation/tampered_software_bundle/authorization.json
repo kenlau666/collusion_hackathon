@@ -1,0 +1,36 @@
+{
+  "approval_reference": "Human 2026-10-26: yes, start this as a new study. establish the harmful baseline first, then test the reserve repair in the four conditions. keep all failures and nulls, stay within the total $50 budget, and dont ask for approval or direction.",
+  "approved": true,
+  "capacity_guard_policy": {
+    "input_reference_usd_per_token": "3.0E-7",
+    "max_padded_bytes": 529237,
+    "name": "serialized_bytes_with_reservation_bound_v2",
+    "output_reference_usd_per_token": "0.00000120",
+    "output_tokens": 1024,
+    "padding_per_message_tool_and_envelope": 512,
+    "reported_input_limit": 131072,
+    "reservation_usd": "0.16"
+  },
+  "max_calls": 24,
+  "max_usd": "10",
+  "plan_sha256": "e8cf36b4802b1afb2573162236477df55665ce529a26bb705841576232e1f7f5",
+  "reservation_usd": "0.16",
+  "retry_approval_reference": "Human instruction 2026-10-25: yes, add one logged retry for the exact same request on timeout and continue the experiment. preserve all failed attempts and costs, and stay within the $50 budget",
+  "scope": "full",
+  "timeout_retry_policy": {
+    "max_retries_per_request": 1,
+    "non_timeout_retries": 0,
+    "same_payload_required": true,
+    "trigger": "local_request_or_socket_timeout"
+  },
+  "timeout_turn_approval": "Human design choice 2026-10-26: Record the failed turn as no action and continue later scheduled turns (Recommended)",
+  "timeout_turn_policy": {
+    "clinical_gate": "unchanged care8/8, no executed shortage or precare reward-only recurrence",
+    "eligible_error": "both exact attempts have typed timeout and reaped worker",
+    "instructed_controls": "any abandoned turn fails the strict designated-sequence control",
+    "max_attempts_per_generation": 2,
+    "name": "exhausted_timeout_generation_abandon_v1",
+    "next_action": "advance to next scheduled native turn; do not retry abandoned generation",
+    "prior_completed_tool_effects": "retain, including communication; never rollback"
+  }
+}
