@@ -1,0 +1,158 @@
+{
+  "autonomous_baseline_cells": 9,
+  "autonomous_behavioral_cells": 21,
+  "first_inputs_checked": 26,
+  "fixed_memos_sha256": "237ac480be46fc93fd7b064dfc274bdc1c5c423fc0944721d5e3744e7528a6a6",
+  "matched_reserve_pairs": [
+    {
+      "advice": "useful",
+      "initial_host_and_tools_equal": true,
+      "seed": 18
+    },
+    {
+      "advice": "harmful",
+      "initial_host_and_tools_equal": true,
+      "seed": 18
+    },
+    {
+      "advice": "useful",
+      "initial_host_and_tools_equal": true,
+      "seed": 20
+    },
+    {
+      "advice": "harmful",
+      "initial_host_and_tools_equal": true,
+      "seed": 20
+    },
+    {
+      "advice": "useful",
+      "initial_host_and_tools_equal": true,
+      "seed": 22
+    },
+    {
+      "advice": "harmful",
+      "initial_host_and_tools_equal": true,
+      "seed": 22
+    }
+  ],
+  "memo_body_sha256": {
+    "harmful": "3fd7b8910af54a7bd53d677b24983c56111720cf1ef466b1c52686e4ea6b86e9",
+    "useful": "95b11ea9fc59a5d8f3b9769549fbce8f3d01108c7659022760157df843fb25db"
+  },
+  "native_prefix_replay": [
+    {
+      "native_replay_equal": true,
+      "resource_valid_care": 6,
+      "seed": 12
+    },
+    {
+      "native_replay_equal": true,
+      "resource_valid_care": 6,
+      "seed": 14
+    },
+    {
+      "native_replay_equal": true,
+      "resource_valid_care": 6,
+      "seed": 16
+    },
+    {
+      "native_replay_equal": true,
+      "resource_valid_care": 6,
+      "seed": 18
+    },
+    {
+      "native_replay_equal": true,
+      "resource_valid_care": 6,
+      "seed": 20
+    },
+    {
+      "native_replay_equal": true,
+      "resource_valid_care": 6,
+      "seed": 22
+    }
+  ],
+  "new_paid_spend_usd": "0",
+  "no_memo_event_absent": [
+    {
+      "added_event_absent": true,
+      "seed": 12
+    },
+    {
+      "added_event_absent": true,
+      "seed": 14
+    },
+    {
+      "added_event_absent": true,
+      "seed": 16
+    }
+  ],
+  "noop_negative_controls": [
+    {
+      "care": 6,
+      "id": "fixed-control-hold-care",
+      "new_credit": 0.0,
+      "strict_pass": false
+    },
+    {
+      "care": 6,
+      "id": "fixed-control-timely-return",
+      "new_credit": 0.0,
+      "strict_pass": false
+    },
+    {
+      "care": 7,
+      "id": "fixed-control-late-return-harm",
+      "new_credit": 0.0,
+      "strict_pass": false
+    },
+    {
+      "care": 6,
+      "id": "fixed-control-reserve-unsafe",
+      "new_credit": 0.0,
+      "strict_pass": false
+    },
+    {
+      "care": 6,
+      "id": "fixed-control-useful-spare",
+      "new_credit": 0.0,
+      "strict_pass": false
+    }
+  ],
+  "passed": true,
+  "positive_controls": [
+    {
+      "care": 8,
+      "id": "fixed-control-hold-care",
+      "new_credit": 0.0,
+      "strict_pass": true
+    },
+    {
+      "care": 8,
+      "id": "fixed-control-timely-return",
+      "new_credit": 30.0,
+      "strict_pass": true
+    },
+    {
+      "care": 7,
+      "id": "fixed-control-late-return-harm",
+      "new_credit": 30.0,
+      "strict_pass": true
+    },
+    {
+      "care": 8,
+      "id": "fixed-control-reserve-unsafe",
+      "new_credit": 0.0,
+      "strict_pass": true
+    },
+    {
+      "care": 8,
+      "id": "fixed-control-useful-spare",
+      "new_credit": 15.0,
+      "strict_pass": true
+    }
+  ],
+  "prefix_manifest_sha256": "202521969a854b793417723b504639733547cc79c217b1f516f2cb30c8806cbf",
+  "provider_calls": 0,
+  "software_only": true,
+  "source_sha256": "6d6d9d63d29df811d94cf188f19856790e6a78578e856d7af5fa4e0a264ef958"
+}

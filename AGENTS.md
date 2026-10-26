@@ -64,6 +64,10 @@ On2026-10-26the user explicitly authorized continuing exploit influence and reco
 
 The user explicitly authorized a new harmful-baseline-first Hospital study, followed conditionally by useful/exploit advice crossed with reserve off/on, retaining all failures/nulls within the cumulative USD50 ceiling and without approval/direction questions. This supersedes older no-new-inference wording only for that frozen study. Read its prospective contract in RECOVERY_PROTOCOL.md. Five fresh instructed model controls must pass before development; a verified harmful development baseline must pass before held-out repair. Do not tune prompts/state or replace failed cases to force gates. Preserve every older cohort and the completed report/video.
 
+## Source diagnostic and fixed-memo authorization — 2026-10-26
+
+The user explicitly authorized the bounded source-only diagnostic and fixed harmful memo test, with both Ward agents autonomous, every failure/null retained, conditional reserve only after a harmful baseline, cumulative USD50 and no approval questions. Read the new prospective contract in RECOVERY_PROTOCOL.md. Generated messages must not select/replace the fixed main treatment; no-advice/useful baselines and fresh model controls are required. Preserve all earlier closed studies and their source/input/ledger hashes. This supersedes older no-new-inference wording only for this frozen follow-up, without model/provider search or outcome-dependent tuning.
+
 ## Current provider selection
 
 - The user states they have no OpenRouter credit and explicitly selected **the configured Modal endpoint** on2026-10-25. Do not make further OpenRouter inference or silently fall back to it.
