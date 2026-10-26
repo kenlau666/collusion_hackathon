@@ -1,185 +1,210 @@
 {
-  "kind": "derived video; not experimental evidence",
-  "source_cutoff": "efe5b7f556305f3352dfeeb524a8ea0fbf2172ba",
-  "source_lineage_sha256": "c0aec9a609040182aeaa11e7dce2e2f63ece90923138189c195823562d029728",
-  "report_path": "output/pdf/hospital_capacity_recovery_report.pdf",
-  "report_sha256": "76b12bcb5907388f9d95500498a70d5d2c8d58efd9928a854886f22fd23cb31c",
+  "kind": "Derived video; not experimental evidence",
+  "science_evidence_commit": "faeade21",
+  "report_source_commit": "01e02fd0",
+  "source_cutoff": "01e02fd0644e07dd0689babb288512163ae1d3bc",
+  "source_lineage_sha256": "a1b802a032d850d8d2c9ce824657343c4248b8a1bf06380b3653dc66b5193719",
+  "report_path": "output/pdf/hospital_reserve_incident_report.pdf",
+  "report_sha256": "9e48bd6affc98a9c7ef25cb7ba8e1dc497e85b92eb7f9f817dab65c82fe656ca",
+  "report_reference_audit_sha256": "3352ebcd30ab0f7648cb234ad1316f9c51cef639025f0598b9daca7e8a2a18d9",
+  "report_evidence_files_rechecked": 642,
   "cli_version": "0.8.199",
-  "duration": 178.8,
+  "duration": 143.6,
   "fps": 30,
-  "frames": 5364,
+  "frames": 4308,
   "paid_media_api_calls": 0,
   "video_authoring_hospital_calls": 0,
-  "experiment_attempts_in_source": 813,
-  "narration": "local Kokoro-82M af_heart, generation1.08; pitch-preserving atempo1.14",
+  "experiment_attempts_in_source": 26,
+  "narration": "Local Kokoro-82M af_heart; generation 1.08; pitch-preserving atempo 1.14",
   "music_source": "https://www.scottbuckley.com.au/library/signal-to-noise/",
-  "music_license": "CC BY 4.0; attribution in CREDITS.md and final frame; include in publication description",
+  "music_license": "CC BY 4.0; credit in final frame and CREDITS.md; include credit in any publication description",
   "metrics": {
-    "fixed_cases": 22,
-    "main_cells": 11,
-    "controls_passed": 5,
-    "diagnostic_cells": 6,
-    "complete_nonexploit_main": 6,
-    "complete_exploit_endpoints": 5,
-    "missing_exploit_endpoints": 0,
-    "exploit_retrieved_reads": 15,
-    "main_precompletion_roundtrips": 0,
-    "useful_diagnostic": [
-      8,
-      8,
-      7
+    "science_commit": "faeade21",
+    "report_commit": "01e02fd0",
+    "independent_worlds": [
+      18,
+      20,
+      22
     ],
-    "exploit_diagnostic": [
-      7,
+    "cases": 14,
+    "main_cases": 12,
+    "controls_passed": 2,
+    "arms": {
+      "benign_off": [
+        8,
+        8,
+        8
+      ],
+      "attack_off": [
+        7,
+        7,
+        7
+      ],
+      "benign_on": [
+        8,
+        8,
+        8
+      ],
+      "attack_on": [
+        8,
+        8,
+        8
+      ]
+    },
+    "paired_attack_care_gain": [
+      1,
+      1,
+      1
+    ],
+    "paired_benign_care_gain": [
+      0,
+      0,
+      0
+    ],
+    "paired_care_mean": 1,
+    "paired_care_sample_sd": 0,
+    "paired_care_sample_variance": 0,
+    "attack_off_new_credit": [
+      30,
+      30,
+      30
+    ],
+    "attack_on_reserve_denials": [
+      1,
+      1,
+      1
+    ],
+    "prior_harmful_memo_care": [
+      8,
       8,
       8
     ],
-    "diagnostic_pain_donated": 0,
-    "diagnostic_partner_return_events": 0,
-    "excluded_exploit_postcare_credit": 0.0,
-    "baseline_postcare_credit": 180.0,
-    "repair_postcare_supply_units": [
-      27,
-      27,
-      0
-    ],
-    "repair_scores": [
-      5812.0,
-      5812.0,
-      6082.0
-    ],
-    "qualitative_source_sha256": "5003739d975a139d32023dbabf8b3464ad3279c098fc0452e08c29d7c3cab735",
-    "n_per_cell": 1,
-    "sample_variance": null,
-    "source_sha256": "c0aec9a609040182aeaa11e7dce2e2f63ece90923138189c195823562d029728"
+    "prior_harmful_baseline_passed": false,
+    "real_model_requests": 26,
+    "scripted_native_positions": 42,
+    "real_care_turns": 14,
+    "reported_reference_usage_usd": "0.09173310",
+    "cumulative_reference_guard_usd": "18.90709568",
+    "actual_modal_charges_verified": false,
+    "source_sha256": "a1b802a032d850d8d2c9ce824657343c4248b8a1bf06380b3653dc66b5193719",
+    "report_sha256": "9e48bd6affc98a9c7ef25cb7ba8e1dc497e85b92eb7f9f817dab65c82fe656ca",
+    "reference_audit_sha256": "3352ebcd30ab0f7648cb234ad1316f9c51cef639025f0598b9daca7e8a2a18d9",
+    "external_references": 8,
+    "new_experimental_calls": 0
   },
   "files": {
-    "assets/audio/care.wav": {
-      "sha256": "8d4556b1c69dfba5f980fcaf286147cbc9c746fbc7f51d0c7e5a932ff116a327",
-      "bytes": 1087982
+    "assets/audio/opening.wav": {
+      "sha256": "0a9a9a158e18c4dea914483f40a2a8874ad72f968dcde4ab2d84455510086b54",
+      "bytes": 556502
     },
-    "assets/audio/close.wav": {
-      "sha256": "f46a9a954bc4ca27bedbdb29dabc4ba03380ef45851c18228271dc8ffb8e3089",
-      "bytes": 1217166
+    "assets/audio/worlds.wav": {
+      "sha256": "e79cf967a7b0cc20a1b2dc6b044fcb23bb5e1e9021c8abbcb752bd3e892c83c5",
+      "bytes": 716722
+    },
+    "assets/audio/advice.wav": {
+      "sha256": "b0f8b3bbdb4442b4c1a3b676bb55e16067a5a8bcd1763bf0a6e0b178d68002e3",
+      "bytes": 662270
+    },
+    "assets/audio/roles.wav": {
+      "sha256": "ade49bee3f25bf08f235d0890000ab2d869cab0d231298a96173ce64519a9899",
+      "bytes": 895530
+    },
+    "assets/audio/transfer.wav": {
+      "sha256": "721f12e24835fd58f4c66ba813b04ec62d927c96e371a3e4feef8a61ea1fc1e5",
+      "bytes": 822558
+    },
+    "assets/audio/late.wav": {
+      "sha256": "8804b44db878195a6e288c68fa12860ca9ab030ee780d106bd3060ac61686993",
+      "bytes": 867106
+    },
+    "assets/audio/rule.wav": {
+      "sha256": "f9973dc1660d4f56b5d54083758d6a61ab96b37a295feba22f967c1265360d69",
+      "bytes": 831394
+    },
+    "assets/audio/blocked.wav": {
+      "sha256": "197d9a8ebd2eb09b993a2d1c4ce1696957df1c96107541d5327c3ce9566fdeca",
+      "bytes": 693362
+    },
+    "assets/audio/care-restored.wav": {
+      "sha256": "2401809789455680cd802cca0fe94bd0e13c60a1c5a400ceda14d89eecc950da",
+      "bytes": 696222
+    },
+    "assets/audio/results.wav": {
+      "sha256": "4e9655607832c389acfae9372d2bdb4cf8e092f9ff9844e4cb119f02117b8f9b",
+      "bytes": 825230
     },
     "assets/audio/controls.wav": {
-      "sha256": "e50b981c3b9bb1bb94330930c9ea834dd654760d8648991411658feb3a20f99c",
-      "bytes": 1049614
+      "sha256": "bce16169cc6a1c36b3be29e007956f4d03472839c7369ee5a39b339e930916d2",
+      "bytes": 847070
     },
-    "assets/audio/diagnostic.wav": {
-      "sha256": "f3851524692802b895473d6ac4418f40f4fee2c693cd324c5080d60a6e09488f",
-      "bytes": 1222222
+    "assets/audio/paired.wav": {
+      "sha256": "d8cb32cb20d026c14042fa2f3952ec7a91a903bee76061487131b382ac24b875",
+      "bytes": 834558
     },
-    "assets/audio/grounding.wav": {
-      "sha256": "fe4add23ea54b2a8bf20ea629b5160f47671574157a027850b7860b16b2af02d",
-      "bytes": 1312138
-    },
-    "assets/audio/handoff.wav": {
-      "sha256": "505da3a4812e9ca3824c2ba8599aa205081ae43e1adfcd75e9647ab1f1c1c4b4",
-      "bytes": 974126
+    "assets/audio/credits.wav": {
+      "sha256": "9ac5e07d4dd2318e84baf71c6089f7a09cbe2fbe285a24d1fd98c4930b35f5d5",
+      "bytes": 821774
     },
     "assets/audio/limits.wav": {
-      "sha256": "a8956f936a3f9c5dc7d17d364f2d5d42ab9241605df1ea368e9ea86c0ada0ff5",
-      "bytes": 1341482
+      "sha256": "d34bb47781eb44a074735328436e67519b3ba23bec0f67e18b23c7450b498ed6",
+      "bytes": 861430
     },
-    "assets/audio/missing.wav": {
-      "sha256": "24824fb1fc0dd2e85a7951347776fb75492be2cfb8c40158fb7c0a8dc25505f0",
-      "bytes": 1077934
+    "assets/audio/related.wav": {
+      "sha256": "46d6c8ab7ca3be8b94bc522520274bd609a10f52ac2995c187aa65804942a5d6",
+      "bytes": 1084614
     },
-    "assets/audio/ordinary.wav": {
-      "sha256": "0febcbc47241ad7df9148b12daeb9edd8f02eaa50db4817ae96edab99b196365",
-      "bytes": 1082866
+    "assets/audio/close.wav": {
+      "sha256": "7a06f19e379a503d25e3389be1c150acbbbc31ce3dd7882efe1722d4d45aa08e",
+      "bytes": 689334
     },
-    "assets/audio/persist.wav": {
-      "sha256": "fed75ddf8c11b2246870d8d2f62250b6eebc11929683ba7e4d0aadf2b462f041",
-      "bytes": 992450
+    "assets/style.css": {
+      "sha256": "691bf22d5b2dac5f6c0e2dfe47501c7cece16d87837ed64ebd00b5280e4cc77d",
+      "bytes": 5251
     },
-    "assets/audio/prefix.wav": {
-      "sha256": "cec09e26f7f661471a343e843f352f7042787d49421688628cf561d59452c10a",
-      "bytes": 991106
-    },
-    "assets/audio/repair.wav": {
-      "sha256": "fab2323c1f0d8ab72da55295d79e6256679b1e147b17f6ae6adf5f85aebbf13b",
-      "bytes": 1170722
-    },
-    "assets/audio/retrieval.wav": {
-      "sha256": "76520a4bad2a8b1478006870d64372df6c0301d35247d17477e0b5efc8bfb290",
-      "bytes": 1169782
-    },
-    "assets/audio/temptation.wav": {
-      "sha256": "64d71319f5b2b400ff2fec0c8ba43f1d73e4e4473c1ef97dba84687e5a062421",
-      "bytes": 1132338
-    },
-    "assets/fonts/archivo-black.ttf": {
-      "sha256": "355b89d43e95edd50a58dad2029689c56027ef19cf9f2f03c9d3605e87ee182e",
-      "bytes": 87996
-    },
-    "assets/fonts/outfit.woff2": {
-      "sha256": "8cde583a22a2afd7ac9486aae12c10d0ba94bb2aa6b48f3f7832ee23277df278",
-      "bytes": 24128
+    "assets/incident.css": {
+      "sha256": "1e3c61e4def0316e37268587cde8212fb8529a1f2f6c7e44d6dc6a820af97586",
+      "bytes": 2610
     },
     "assets/gsap.min.js": {
       "sha256": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
       "bytes": 72779
     },
-    "assets/licenses/Archivo-Black-OFL.txt": {
-      "sha256": "3173acd82f8c6159b5b1037b539fcbd4edff68e65c2ea8b9412b5a5ca97b08ff",
-      "bytes": 4492
+    "assets/fonts/outfit.woff2": {
+      "sha256": "8cde583a22a2afd7ac9486aae12c10d0ba94bb2aa6b48f3f7832ee23277df278",
+      "bytes": 24128
     },
-    "assets/licenses/HyperFrames-LICENSE.txt": {
-      "sha256": "4259155fb06f127687ee7b0a8a3682d45132db0f2da26cbc0b7a2d1e796436b8",
-      "bytes": 10763
-    },
-    "assets/licenses/Outfit-OFL.txt": {
-      "sha256": "c676351bf8576b9aba743cd5eaa8c0e7ee0d51f805d720447b4df4ddb6a2e416",
-      "bytes": 4389
+    "assets/fonts/archivo-black.ttf": {
+      "sha256": "355b89d43e95edd50a58dad2029689c56027ef19cf9f2f03c9d3605e87ee182e",
+      "bytes": 87996
     },
     "assets/music/signal-to-noise-nomelody.mp3": {
       "sha256": "8e20b496b0614053565d4f43c80f469c84abd2aefb3ba01e29dfa813f49b9594",
       "bytes": 14178456
     },
-    "assets/sfx/whoosh-short.mp3": {
-      "sha256": "c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30",
-      "bytes": 18390
-    },
     "assets/sfx/whoosh.mp3": {
       "sha256": "c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30",
       "bytes": 18390
     },
-    "assets/style.css": {
-      "sha256": "691bf22d5b2dac5f6c0e2dfe47501c7cece16d87837ed64ebd00b5280e4cc77d",
-      "bytes": 5251
+    "assets/sfx/whoosh-short.mp3": {
+      "sha256": "c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30",
+      "bytes": 18390
     }
   },
-  "science_evidence_commit": "db9b90ee",
-  "video_path": "output/video/hospital_capacity_research_explainer.mp4",
-  "video_sha256": "34fe11a3329c75e01c9d0876bee2d7862290af4bf5653bacaae3ae8c7bc9c9c4",
-  "video_bytes": 9896503,
-  "video_source_commit": "efe5b7f556305f3352dfeeb524a8ea0fbf2172ba",
-  "report_evidence_files_rechecked": 59,
-  "skill_sources": {
-    "/Users/kenlau/.agents/skills/hyperframes/SKILL.md": {
-      "sha256_at_final_production": "180ce4eea5f33f1617105c92e2690a5a2320abf624c263186ec0cb1a78a919ef"
-    },
-    "/Users/kenlau/.agents/skills/hyperframes-cli/SKILL.md": {
-      "sha256_at_final_production": "44a48ccfa4cbd4f4234f8306c96268a4be56a0f2376abedbf31d2167b3c21286"
-    },
-    "/Users/kenlau/.agents/skills/hyperframes-registry/SKILL.md": {
-      "sha256_at_final_production": "1c7b27632c9ea9febaafc2d9af073b377029f46be4bee70d75b5e713eb698423"
-    },
-    "/Users/kenlau/.agents/skills/media-use/SKILL.md": {
-      "sha256_at_final_production": "ef3976a02ff516d8e5ed0b7fff19d4bbf9358264233bace33fdacaa3aa7f37de"
-    }
-  },
-  "authoring_files": {
-    "build_capacity_video.py": "8615e162bcfa2e2b8fee6dcbf0d4945060b3c66502c7b16996ca133f2ae079cf",
-    "generate_narration.py": "3e8b36b0c800a8ce040054ad1aa440325f9b7c4fc6f12285c60c5a2d1ab045df",
-    "narration.json": "969c624f9928daa24670757ce70e2290b2874c057996894984e52a11a9aa9ab1",
-    "make_capacity_subtitles.py": "e9dc80f717d43ed7848771ebab27caf46923a3f398da6c17885d56ae74671710",
-    "finalize_capacity_delivery.py": "d9a9142e03cd4f25938531e82c50e677962b08bc9aebfd1a14591a60a01f3c98",
-    "extract_capacity_review.py": "9c620e5327c736ac7a28349a246480a183ad7a6cf1ee0416224a4bfd91acbcd7",
-    "STORYBOARD.md": "a252a0c2724fbbee3324cf875c3ad1d809e3c47531fc82879d7dec3e3f8cedf5",
-    "SPEC.md": "5e86f9fcefe3eb88687e8e06b119aece7b567fd4ebfa1cf3e7c2bf69b7a1dc4d",
-    "REVIEW.md": "e7f587d4e901151db4c4236ba26be25e00f2fae68d4e53c99361450503f5b6e4"
+  "motion_review_times": {
+    "transfer": [
+      34.664,
+      35.374,
+      36.084
+    ],
+    "late": [
+      44.8,
+      45.618,
+      46.436
+    ],
+    "blocked": [
+      61.667,
+      64.633,
+      67.8
+    ]
   }
 }

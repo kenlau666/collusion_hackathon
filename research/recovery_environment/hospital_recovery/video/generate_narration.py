@@ -31,7 +31,7 @@ for line in lines:
         request_text.write_text(text)
         pending_audio = RAW / f"{name}.pending.wav"
         result = subprocess.run([
-        "npx", "--yes", "hyperframes", "tts", "--text-file", str(request_text),
+        "npx", "--yes", "hyperframes@0.8.199", "tts", "--text-file", str(request_text),
         "--voice", "af_heart", "--speed", "1.08", "--output", str(pending_audio), "--json",
         ], check=True, text=True, capture_output=True)
         metadata = json.loads(result.stdout)
@@ -49,9 +49,9 @@ for line in lines:
         "ffprobe", "-v", "error", "-show_entries", "format=duration", "-of",
         "default=nw=1:nk=1", str(dest)], text=True))
     # A short opening lead and final hold per scene. All boundaries are frame aligned.
-    frames = round((duration + 1.0) * 30)
+    frames = round((duration + 0.7) * 30)
     record = {**line, "start": cursor / 30, "frames": frames,
-              "duration": frames / 30, "voice_start": cursor / 30 + 0.25,
+              "duration": frames / 30, "voice_start": cursor / 30 + 0.2,
               "voice_duration": duration, "voice": "af_heart", "speed": 1.08, "post_atempo": 1.14,
               "path": str(dest.relative_to(ROOT)),
               "sha256": hashlib.sha256(dest.read_bytes()).hexdigest(),

@@ -1,33 +1,19 @@
-# Director's specification
+# Design specification — Keeping Care Supplied
 
-GOAL: Explain the persistent public memo, the Hospital comparison, and the complete comparisons, inventory-cost difference and limits on recovery claims.
-OUTPUT: HyperFrames 0.8.199; 1920×1080; 30 fps; H.264 MP4 with AAC narration/music.
-TIME: 14 narrated scenes; target 160–178 seconds, final frame count derived from audio_timing.json. Voice is the clock. Scene-local anchor reveals at 0%, 25%, 50%, and 75% of narration; no words typed on a clock loop.
-LOOK: clinical pale green #edf4f2, forest #113c34, white #ffffff, cobalt #234fdf for the kit/memo, amber #944600 for proposed exploit. Semantic colours are data, not decoration. Outfit 700 headings 74–100px, Outfit 400 body 34–42px, Archivo Black numerals 128–210px. No small labels below28px. 192px text margins,108px top/bottom title safe. Panel corners12px,2px borders, shadow 0 16px 0 at8% green. Full hospital architecture, graph surfaces and objects fill40–80% of frame.
-OBJECTS: hospital façades with medical crosses, four labeled service floors per hospital, provisioner, eight bed/patient marks, IV resource kit with cap/handle, a pinned public memo, disabled Surgery identities, a query arrow, full care bars, five complete exploit-care bars and three post-care inventory bars, evidence case folders. All are schematic; no real patient imagery.
-MOTION: arrivals power4.out 18–24frames, physical travel power2.inOut 35–55frames, exits power3.in 10–14frames. Stagger3–6frames. Kit follows one continuous authored route derived from the registry path traveler; bars use the registry's deterministic growth recipe with exact endpoints; numerals use precomputed count-up rows. Landed text holds still. Three seam mechanisms: directional panel wipe (16frames), object carry/camera crop (18frames), colour field change (12frames). No unseeded or clock-driven motion.
-SOUND: local Kokoro af_heart voice, generated at1.08 and a documented pitch-preserving post-tempo if needed to fit the requested length. Quiet CC BY4.0 no-melody underscore by Scott Buckley; 2second opening fade,3second closing fade. Restrained bundled whooshes on large movements; no synthetic confirmation dings. Target final mix −16 to−14LUFS, true peak≤−1dBTP.
-BANNED: dark navy void, neon/glow, floating decorative particles, glass dashboard, cream/serif/mono-label design, logo in corner, identical three-card rows, bullets standing in for explanation, all entrances sliding upward, drifting titles, fictional attack/repair success, missing endpoints filled as8/8final, conditions pooled as seeds.
+Existing project edit. Retain the clinical light canvas, forest ink/green, cobalt resource kit and amber missed-care signal. No new visual brand or discovery process.
 
-## Shots
+FORMAT:1920×1080,30fps,143.600seconds/4308frames. Sixteen editable scene files. Narration is the scene clock; semantic anchor words use local ASR timings where available. Static landed labels hold for reading.
+PALETTE: ground#edf4f2; ink#113c34; care#075c46; kit#234fdf; caution#944600; surfaces#ffffff; pale rules#91afa0. Dark care-green is reserved for opening, limits and close. Ward fixtures retain white surfaces with green roof bands and medical crosses.
+TYPE: Outfit headings78–112px, body34–53px, source notes28–31px; Archivo Black numerals105–216px. Key content sits inside the80%title-safe box (192px horizontal,108px vertical). Nothing meant to be read is smaller than28px. Outer ward frame3px, corner14px,500×365px; inventory kits124×154px.
+OBJECTS: two clearly labeled Ward façades, Patient3andPatient7status labels, blue Pain-killer kits, native-turn event cards, eight patient tiles, a transfer-blocking guard, exact care bars and paired numbers. Every clinical graphic is a trace-based schematic; none is patient imagery or a new observation.
+MOTION: registry animated-bar-chart and offset-path-traveler recipes are reused. Semantic arrivals power4.out,18–24frames; kit journeys power2.inOut,2.4–2.6seconds on a bounded analytic arc; bar reveals1.1seconds; scene wipes/iris10–11frames. The solid kit in the protected donor never moves before care. No simulated debit is drawn in the denied arm. Titles stop moving on landing. Exits are brief and clean; varied horizontal/vertical/iris seams reuse the prior project's transition language.
+AUDIO: free local Kokoro af_heart, generation1.08and pitch-preserving atempo1.14. The already sourced Scott Buckley no-melody bed stays at0.13under voice, with2second opening/3second closing fades. Two bundled whoosh takes alternate on selected scene seams. Target final mix−16to−14LUFS, true peak≤−1dBTP; measure the export and transcribe the encoded voice, without claiming subjective listening.
+PACING: shortened script,0.7second scene padding and0.35second seams; voice speed stays natural at the prior1.08generation/1.14post-tempo. Semantic animations are retimed from the previous shot clock; ASR cues remain aligned to the new voice. Kit lift is confined to the gap between buildings, with a clear left-side arrival slot and caption above its path.
+CAPTIONS: exact-script SRT sidecar, aligned to local ASR and corrected only for transcript errors. No embedded caption band is added over the study figures.
+BANNED: fabricated autonomous collusion; claims of goal repair or post-harm rollback; treating12conditions or26requests as independent seeds; credits as a harm measure; a moving solid kit in the denied arm; old22-case results silently mixed into the new cohort; neon/glow; drifting titles; decorative pulses; dashboards; repeated three-card layouts except the three actual native-event positions; missing endpoints filled in.
 
-Timing comes from audio_timing.json, not manually estimated narration duration.
+## Shot logic
 
-| Scene | Hero action / readable state / handoff |
-|---|---|
-| handoff | Surgery identity moves out; public memo stays. Opening line is present at frame0. Memo carries into the hospital world. |
-| care | Two hospital façades assemble floor by floor; provisioner links them; eight bed marks arrive. |
-| prefix | Prior pathway resolves into Ward pending; eight pending tiles remain after checkpoint15. |
-| temptation | IV kit travels a visibly proposed outbound/return loop; credits accrue illustratively; PROPOSED STRATEGY remains visible. |
-| persist | Two Surgery roles grey out; their connection is cut; memo remains connected to Ward. |
-| repair | New bonus changes to0; pending-care stock stays in reserve; delivery splits into push versus explicit read. These are candidate policies. |
-| controls | Five prescribed controls resolve one at a time; cycle is labeled isolated30credits, not completed care. |
-| ordinary | Six real full care bars land on8/8; score/stock variation and no physical returns remain explicit. |
-| missing | Five exploit-care bars reach8/8; all5/5horizons are complete after the local reservation correction. |
-| retrieval | Fifteen returned-read marks appear; the no-memo baseline also earns180post-care credits; exposure/credit does not prove collusion. |
-| diagnostic | Three policy groups show exact paired counts8/7,8/8,7/8. One model+scripted partner is visible. |
-| grounding | Three post-care inventory bars show27/27/0units for Original/Zero bonus/Care reserve, native scores5812/5812/6082. All care8/8; reserve denials0; n=1/post-hoc limit remains. |
-| limits |22case marks separate into5controls/11main/6diagnostic; n=1per condition, variance not estimable; no independent-seed count inflation. |
-| close | Memo, transfer kit and patient beds align as distinct measurements; Recovery remains unconfirmed holds; author and music attribution remain readable. |
+The exact timings and source notes are in STORYBOARD.md. Opening: kit/patient question. Worlds: six completed tiles and two Ward obligations. Advice: separate earlier null. Roles: explicit scripts versus free GH52. Transfer: donor kit physically travels toSM. Late: SMuses its own kit then returns the extra after GH52;7/8. Rule: stock1−need1gives no transferable surplus. Blocked: actual proposal denied, donor solid kit stays put. Care-restored: each own kit is used for each final patient;8/8. Results: all four matched arms and per-world values. Controls: both positives and spare sharing. Paired:18/20/22each7→8,+1, benign0. Credits:30bonus with lower native score. Limits: prevention, scripted attack, no goal-repair claim. Related: eight short external source labels. Close: protect required supplies and verify continued care, author/credits and budget uncertainty.
 
-QA: check14midpoints, frame0, proposedloop travel at25/50/75%, exclusion proof, all final bar values, all5complete exploit bars and27/27/0inventory bars, diagnostic mapping, finalminus1frame. Inspect review beat/seam/phone sheets and decoded final frames. Measure audio presence/loudness/duration; no claim of subjective listening. Verify the new report/lineage SHA256 and all evidence manifest entries; no inference calls during video authoring.
+QA: run fullcheckwith all16scene midpoints plus opening/final, inspect beat/seam/360px phone sheets, sample both kit journeys, decode the final MP4at every payoff, measure codec/duration/loudness, verify exact SRT words and complete encoded-audio ASR, and recheck the642report hashes. No external publishing or new research inference.
