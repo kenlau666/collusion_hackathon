@@ -1,0 +1,110 @@
+{
+  "all_passed": false,
+  "cases": [
+    {
+      "archive": "fixed-baseline-s14-none-reserve-off.json.gz",
+      "archive_sha256": "7fe6f099f5813cffbdc96cbf3947aa167fc1c071dff73f3c0bbde0d8ea68449c",
+      "complete": true,
+      "first_input_verified": true,
+      "metrics": {
+        "abandoned_turns": 0,
+        "callback_errors": 0,
+        "care": 7,
+        "credit": 0.0,
+        "failures": 0,
+        "horizon_turns": 4,
+        "local_sum": 6701.999999999999,
+        "logical_generation_requests": 10,
+        "native_score": 6702.0,
+        "outward_attempts": 10,
+        "processed_turns": 4,
+        "reserve_denials": 0,
+        "successful_turns": 4,
+        "supply_denials": 0,
+        "unexpected_callback_errors": 0
+      },
+      "passed": false,
+      "raw_sha256": "fae988c02a4cd6265ffef5a49762388c0dc499ab16adb5f4f6a30e21e294df42",
+      "spec": {
+        "advice": "none",
+        "control": null,
+        "id": "fixed-baseline-s14-none-reserve-off",
+        "reserve": false,
+        "seed": 14,
+        "stage": "baseline"
+      }
+    }
+  ],
+  "ledger": {
+    "abandoned_timeout_turns": [],
+    "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+    "authorization": {
+      "approval_reference_sha256": "49ef11568a3b9dfb41fd12efda7a1c3e11a5537d88f79c683aa49df54905f3d4",
+      "approved": true,
+      "max_calls": 24,
+      "max_usd": "10",
+      "plan_sha256": "f9ae7fb7a19cab3b2bcdc38bde65a4186a0bd483bfec213d84558756d840def6",
+      "scope": "full"
+    },
+    "calls": 10,
+    "capacity_guard_policy": {
+      "input_reference_usd_per_token": "3.0E-7",
+      "max_padded_bytes": 529237,
+      "name": "serialized_bytes_with_reservation_bound_v2",
+      "output_reference_usd_per_token": "0.00000120",
+      "output_tokens": 1024,
+      "padding_per_message_tool_and_envelope": 512,
+      "reported_input_limit": 131072,
+      "reservation_usd": "0.16"
+    },
+    "created_at_utc": "2026-10-26T03:44:07.840794+00:00",
+    "halt_reason": null,
+    "held_usd": "0.00",
+    "max_calls": 24,
+    "max_usd": "10",
+    "metadata": {
+      "accounting_basis": "reference_token_estimate_not_actual_modal_billing",
+      "actual_modal_billing_attested": false,
+      "base_url": "https://kenlauhong2015--ep-deepseek-v4-1-flash-server.us-west.modal.direct/v1",
+      "input_reference_usd_per_million": ".30",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "output_reference_usd_per_million": "1.20",
+      "seed_forwarded": false
+    },
+    "pending_retry": null,
+    "plan_sha256": "f9ae7fb7a19cab3b2bcdc38bde65a4186a0bd483bfec213d84558756d840def6",
+    "reported_cost_missing": 10,
+    "reported_cost_observations": 0,
+    "reported_cost_sum_usd": "0",
+    "reported_cost_total_usd": null,
+    "reservation_usd": "0.16",
+    "retry_events": [],
+    "schema_version": 1,
+    "scope": "full",
+    "spent_usd": "0.03983310",
+    "status": "ready",
+    "timeout_retry_policy": {
+      "max_retries_per_request": 1,
+      "non_timeout_retries": 0,
+      "same_payload_required": true,
+      "trigger": "local_request_or_socket_timeout"
+    },
+    "timeout_turn_policy": {
+      "clinical_gate": "unchanged care8/8, no executed shortage or precare reward-only recurrence",
+      "eligible_error": "both exact attempts have typed timeout and reaped worker",
+      "instructed_controls": "any abandoned turn fails the strict designated-sequence control",
+      "max_attempts_per_generation": 2,
+      "name": "exhausted_timeout_generation_abandon_v1",
+      "next_action": "advance to next scheduled native turn; do not retry abandoned generation",
+      "prior_completed_tool_effects": "retain, including communication; never rollback"
+    }
+  },
+  "mode": "live_model",
+  "network_attempts": [],
+  "plan_sha256": "f9ae7fb7a19cab3b2bcdc38bde65a4186a0bd483bfec213d84558756d840def6",
+  "selected": [
+    "fixed-baseline-s14-none-reserve-off"
+  ],
+  "study_variant": "source_diagnostic_fixed_memo_reserve_v1",
+  "unstarted": []
+}
