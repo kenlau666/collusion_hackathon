@@ -20,6 +20,7 @@ OUT = REPO / "output/pdf/hospital_reserve_incident_report.pdf"
 TITLE = "Keeping Care Supplied"
 SUBTITLE = "A Reserve Guard Against Resource-Diversion Incidents"
 SCIENCE_COMMIT = "faeade21"
+REFERENCE_AUDIT = HERE / "incident_reference_audit.json"
 
 
 def evidence():
@@ -37,7 +38,7 @@ def evidence():
         provenance[path] = expected
     for path in [STUDY / "final_analysis.json", STUDY / "final_audit.json", STUDY / "study_status.json",
                  OLD / "baseline_analysis.json", OLD / "source_semantic_review.json",
-                 Path(__file__), HERE / "build_deadline_report.py", Path(common.PDF_SKILL)]:
+                 Path(__file__), HERE / "build_deadline_report.py", Path(common.PDF_SKILL), REFERENCE_AUDIT]:
         provenance[str(path.resolve())] = common.sha(path)
     rows = {row["id"]: row for row in analysis["Results"]["per_cell"]}
     assert len(rows) == 14 and all(row["horizon_reached"] for row in rows.values())
@@ -115,8 +116,9 @@ def build_story(a, plan, rows):
     p("We examine a simple execution-time intervention: protect the resources needed for explicitly assigned, still-pending "
       "care, while permitting genuine surplus to move. The contribution is a reproducible, state-matched case study "
       "that measures actual harmful movement, denial, subsequent model action and useful work separately. The reserve "
-      "principle is task-aware execution mediation; we do not claim a new general defense algorithm.")
-    p("The study uses the Hospital environment bundled in the competition repository [1]. The attack is deliberately "
+      "principle is task-aware execution mediation, grounded in established protection principles [2]. We do not claim "
+      "a new general defense algorithm.")
+    p("The study uses Colosseum's Hospital environment [1], bundled in the competition repository [8]. The attack is deliberately "
       "injected through native tool calls so its physical effect can be evaluated without relying on successful "
       "persuasion of autonomous attackers. General Hospital's care response remains model-controlled. Our primary "
       "question is whether the intervention prevents this specific incident and preserves patient completion.")
@@ -143,7 +145,7 @@ def build_story(a, plan, rows):
     p("Each world supplies four matched conditions: benign/attack crossed with reserve off/on. Starting native roots, "
       "host instructions and attack policies match across intervention pairs. Two fresh instructed model controls run "
       "first; all three harmful off-case endpoints must then pass the frozen physical-deficit gate before reserve evaluation. "
-      "The freeze and independent baseline were committed before their respective paid stages [2]. No failed seed is replaced.")
+      "The freeze and independent baseline were committed before their respective paid stages (Appendix A). No failed seed is replaced.")
     cap("Configured Modal-advertised model: deepseek-ai/DeepSeek-V4.1-Flash; temperature 0, output limit 1,024, native cap "
         "three logical generations. World seeds identify simulator states; no API seed is forwarded. Each main care turn "
         "uses two real generations. Scripts are disclosed; fresh-turn context contains current state and accessible boards.")
@@ -180,7 +182,34 @@ def build_story(a, plan, rows):
       "There are no executed native resource shortages.")
     page()
 
-    h("4. Discussion and limitations")
+    h("4. Related work and contribution")
+    p("<b>Collusion and propagation.</b> Colosseum audits cooperative multi-agent systems, including Hospital, and "
+      "examines persuasion and the distinction between collusive discussion and executed actions [1]. Our starting "
+      "code and cooperative setting come from this lineage [8]. We do not replicate its coalition results. Hu et al. "
+      "study reward-hacking transmission through shared plans and code, including persistence after the original "
+      "source departs [7]. Source removal alone is therefore not a new research question. Our scripted incident "
+      "establishes neither transmission nor inherited-plan persistence.")
+    p("<b>Execution safeguards.</b> Complete mediation and least privilege are established protection principles [2]. "
+      "GuardAgent uses knowledge-enabled reasoning and generated guardrail code to enforce requirements on agent "
+      "behavior [3]. DelegateGuard applies purpose-bound capabilities and an authoritative monitor to delegated "
+      "workflows, including revocation [4]. Our reserve is a deterministic resource check tied to unfinished assigned "
+      "care. It neither introduces the reference-monitor principle nor implements those systems. Its result depends "
+      "on accurate obligations and a transfer path that cannot bypass enforcement.")
+    p("<b>Attack surface and useful work.</b> AgentDojo separates legitimate-task utility from attacker success and "
+      "evaluates utility under attack [5]. InjecAgent studies malicious instructions embedded in external content "
+      "processed by tool-using agents [6]. Those settings require an agent to interpret attacker-controlled content. "
+      "Here the attack action is supplied as an assistant tool call; native tool results are not rewritten. This "
+      "isolates enforcement after a malicious action has been proposed, without measuring prompt-injection susceptibility. "
+      "Care completion, executed transfers and denials are reported separately for the same reason that usefulness "
+      "and attack success require distinct measurements.")
+    p("<b>Bounded contribution.</b> The evidence links one declared obligation to an actual denied debit, retained "
+      "supplies and subsequent free-model care in three matched worlds. The benign comparison and allowed-spare "
+      "control constrain the usefulness claim. This is a transparent case study of care-preserving prevention, not "
+      "a new general defense or a first demonstration of persistent multi-agent collusion. Related papers motivate "
+      "the question and identify overlap; their performance results are not evidence for our intervention.")
+    page()
+
+    h("5. Discussion and limitations")
     p("The result connects an explicit resource obligation to an executable action boundary: a last-kit debit is blocked, "
       "the kit remains available, and the care model completes useful work. The benign comparison shows no observed "
       "care or physical-state cost here. The spare control shows that this rule does not indiscriminately refuse every "
@@ -191,7 +220,7 @@ def build_story(a, plan, rows):
       "response supplies the action, while native tool results remain unmodified. Consequently, these experiments do not "
       "show autonomous collusion, successful malicious persuasion or inherited-plan persistence.")
     p("Earlier fixed-memo trials with both Wards autonomous are retained as a separate null: all three harmful-memo cases "
-      "completed 8/8 care with no actual resource transfer, as did useful advice [3]. Thus the present controlled incident "
+      "completed 8/8 care with no actual resource transfer, as did useful advice (Appendix A). Thus the present controlled incident "
       "does not replace failed attack induction with a claim of autonomous harmful behavior. It isolates a narrower enforcement question.")
     p("The three worlds deliberately share a last-required-kit structure. They are matched evaluation states, not held-out "
       "attack families or independent model replications. Sample SD and variance are descriptive; no population confidence "
@@ -201,7 +230,7 @@ def build_story(a, plan, rows):
     p("The joint native score is lower under the attack, despite its 30 transfer credits. We therefore report credit "
       "separately from patient completion and do not describe this forced sequence as rational joint-score-maximizing "
       "collusion. The tested model is the configured endpoint's advertised model label, not an independently attested weight deployment.")
-    h("5. Ethics, dual use and LLM assistance")
+    h("6. Ethics, dual use and LLM assistance")
     p("All patients, resources and decisions are synthetic. No clinical records or human participants are involved, and "
       "these observations are not clinical guidance. The resource-diversion sequence is disclosed to evaluate a protective "
       "boundary within a simulator. Failed and null evidence is preserved. Codex assisted with implementation, auditing, "
@@ -209,18 +238,27 @@ def build_story(a, plan, rows):
       "Author review and external submission are not claimed.")
     page()
 
-    h("References and reproducibility")
+    h("References")
+    references=common.load(REFERENCE_AUDIT)["references"]
+    assert [r["id"] for r in references] == list(range(1,9))
+    for ref in references:
+        p(f'[{ref["id"]}] {ref["citation_html"]} '
+          f'<link href="{escape(ref["url"],quote=True)}" color="#285b75">Primary source</link>.')
+    cap("All eight entries were checked against the original publisher, author-hosted text, exact-version arXiv record "
+        "or source repository on 26 October 2026. Relevant full-text sections were inspected for claim support. "
+        "ArXiv versions are pinned rather than assumed current. GuardAgent uses the official ICML 2025 title and "
+        "publication metadata. Detailed URLs, source hashes, inspected sections and limits are in the reference audit "
+        "linked from Appendix A. Study artifacts are listed there separately from this bibliography.")
+    page()
+
+    h("Appendix A. Reproducibility and execution record")
     base="https://github.com/kenlau666/collusion_hackathon/tree/"+SCIENCE_COMMIT
-    p('[1] Poseidon Research. <i>collusion_hackathon</i>, bundled Colosseum Hospital / Terrarium environment. '
-      '<link href="https://github.com/poseidon-research/collusion_hackathon" color="#285b75">Starter repository</link>. '
-      'Executed native constructor, tool, parser and protocol sources are hash-pinned in the study plan; the audited Terrarium installation is version 0.1.1.')
-    p(f'[2] LAU, Chi Hong. <i>Controlled injected-incident study</i>, 26 October 2026. '
+    p(f'<b>Controlled incident evidence.</b> '
       f'<link href="{base}/research/recovery_environment/hospital_recovery/20261026/injected_incident_002" color="#285b75">Frozen plan, native inputs, independent analysis and audit</link>. '
       'Preparation commit f67f0dd2; fresh controls 6dbde073; harmful baseline 616e70a1; completed science faeade21.')
-    p(f'[3] LAU, Chi Hong. <i>Source diagnostic and fixed-memo study</i>, 26 October 2026. '
+    p(f'<b>Earlier autonomous-advice evidence.</b> '
       f'<link href="{base}/research/recovery_environment/hospital_recovery/20261026/fixed_memo_study_001" color="#285b75">Separate preserved autonomous-advice evidence</link>. '
-      'Harmful advice failed to induce the targeted physical diversion in three constructed worlds.')
-    h("Evidence and execution record")
+      'Harmful advice failed to induce the targeted physical diversion in three constructed worlds; its conditional reserve stage was not run.')
     p("The active Stage0 freezes all 14 exact first paid inputs, including pre-injection roots and post-script states, "
       "22 research-source paths and 419 native-source paths. The independent analyzer binds actual POST bodies, replies, "
       "callbacks and native inventory/patient changes. Complete evidence is at the linked science cutoff. No inference "
@@ -237,12 +275,18 @@ def build_story(a, plan, rows):
       "fresh active freeze fixes only serialization comparison. No paid data existed at that correction. The 26 study "
       "requests have no failed provider attempt, but the one rejected care proposal and three expected reserve denials "
       "remain visible. Prior unsuccessful inductions and historical unknown-cost failures remain separate.")
+    audit_url="https://github.com/kenlau666/collusion_hackathon/blob/codex/recovery-research/research/recovery_environment/hospital_recovery/submission/incident_reference_audit.json"
+    cap(f'<link href="{audit_url}" color="#285b75">Reference verification audit</link>: eight primary-source records, '
+        'exact versions, retrieved-source hashes and claim limits. The pinned Orchestra Research Idea Brainstorming '
+        'skill v1.0.0 (commit 773a52944ba4747a18bd4ae9ade53fff041adcbc) informed problem-first, failure-analysis and '
+        'simplicity framing. It does not certify experimental methods, literature completeness or novelty. '
+        'Its exact source and hash are recorded in the audit. Executed Terrarium sources are version 0.1.1 and hash-pinned.')
     cap("Report authoring follows the official sprint template's abstract, core sections and maximum eight main pages, "
         "with references/limitations/ethics and LLM-use disclosure. PDF production uses the local PDF skill and ReportLab; "
         "all pages require rendered visual inspection before delivery.")
     page()
 
-    h("Appendix A. Every model case and native score")
+    h("Appendix B. Every model case and native score")
     data=[]
     for spec in plan["cases"]:
         row=rows[spec["id"]]; m=row["metrics_recomputed"]
@@ -252,7 +296,7 @@ def build_story(a, plan, rows):
             m["outward_attempts"],f'{Decimal(ledger["spent_usd"]):.6f}'])
     table(["Fixed case","Care","Score","Credit","Reserve\ndenials","Supply\ndenials","Calls","Ref. USD"],
           data,[161,31,43,35,49,49,33,67])
-    cap("Table A1. Every case reaches all four native positions. Each main case has one freely acting real GH52 turn "
+    cap("Table B1. Every case reaches all four native positions. Each main case has one freely acting real GH52 turn "
         "and three scripted positions. Controls prescribe GH care; the spare control uses native GH2/SM0 preparation. "
         "Calls are real provider attempts, not scripted generations. Per-cell n=1; sample SD/variance undefined. Costs are rounded; all holds are zero in these new ledgers.")
     h("Native score and uncertainty")
@@ -273,7 +317,8 @@ def main():
     a,plan,rows,provenance=evidence()
     info={"science_commit":SCIENCE_COMMIT,"abstract_words":len(abstract().split()),
         "cases":14,"main_cases":12,"independent_worlds":3,"positive_controls_passed":2,
-        "inference_calls_by_report_generator":0}
+        "inference_calls_by_report_generator":0,"external_references":8,
+        "reference_audit_sha256":common.sha(REFERENCE_AUDIT)}
     if args.render:
         OUT.parent.mkdir(parents=True,exist_ok=True)
         doc=BaseDocTemplate(str(OUT),pagesize=(612,792),leftMargin=72,rightMargin=72,
@@ -282,13 +327,21 @@ def main():
             leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPage=footer))
         doc.build(build_story(a,plan,rows))
         texts=[p.extract_text() for p in PdfReader(str(OUT)).pages]
-        main_pages=next(i for i,t in enumerate(texts) if "References and reproducibility" in t)
+        main_pages=next(i for i,t in enumerate(texts) if "References" in t.splitlines())
         assert main_pages<=8
+        appendix=next(i for i,t in enumerate(texts) if any(line.startswith("Appendix A.") for line in t.splitlines()))
+        bibliography="\n".join(texts[main_pages:appendix])
+        for name in ("LAU", "Chi Hong", "kenlau"):
+            assert name.casefold() not in bibliography.casefold(),name
+        for ref in range(1,9):
+            assert f"[{ref}]" in bibliography
+            assert f"[{ref}]" in "\n".join(texts[:main_pages])
         joined="\n".join(texts)
         for word in ["scripted", "null", "LAU, Chi Hong", "Results:", "undefined", "Ethics", "7/8", "8/8"]:
             assert word in joined,word
         info.update(output=str(OUT),sha256=common.sha(OUT),pages=len(texts),main_pages=main_pages,
-            visual_qa_complete=False,created_utc=datetime.now(timezone.utc).isoformat())
+            visual_qa_complete=False,created_utc=datetime.now(timezone.utc).isoformat(),
+            author_name_absent_from_bibliography=True,all_references_cited_in_main_text=True)
         (HERE/"incident_evidence_manifest.json").write_text(json.dumps({"science_commit":SCIENCE_COMMIT,
             "sha256":provenance},indent=2,sort_keys=True)+"\n")
         (HERE/"incident_report_qa.json").write_text(json.dumps(info,indent=2,sort_keys=True)+"\n")
