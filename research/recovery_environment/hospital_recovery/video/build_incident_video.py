@@ -134,8 +134,8 @@ SC['opening'] = dict(title='',kicker='KEEPING CARE SUPPLIED',mode='deep',
          text('One unfinished patient.',192,425,1510,'title',id='opening-patient',style='font-size:95px')+
          kit('opening-kit',1325,650)+text('Can protection preserve care?',200,750,1050,'large',id='opening-question'),
     js=show('#opening-patient',1.8,'left')+show('#opening-kit',.4)+show('#opening-question',5.2,'fade'),
-    note='A controlled Hospital incident · real model care response')
-SC['worlds'] = dict(title='Six finished. Two still need care.',kicker='THE NATIVE START',
+    note='Synthetic Hospital simulator · controlled incident · real model care response')
+SC['worlds'] = dict(title='Six finished. Two still need care.',kicker='THE HOSPITAL SIMULATOR',
     body=wards('worlds')+kit('worlds-kit-gh',380,460)+kit('worlds-kit-sm',1370,460)+patient_row('worlds',755,pending=True),
     js=show('#worlds-gh',.6,'left')+show('#worlds-sm',1.2,'right')+
        show('#worlds-kit-gh,#worlds-kit-sm',cue('worlds','each hold',5.9))+

@@ -4,7 +4,7 @@ One last kit moves through an actual denial-to-care comparison. All graphics are
 
 | Scene | Start | Duration | Visual and evidential purpose |
 |---|---:|---:|---|
-|opening|0.000s|6.500s|KEEPING CARE SUPPLIED; A controlled Hospital incident · real model care response|
+|opening|0.000s|6.500s|KEEPING CARE SUPPLIED; Synthetic Hospital simulator · controlled incident · real model care response|
 |worlds|6.500s|8.167s|Six finished. Two still need care.; Worlds 18 / 20 / 22 · one required Pain_Killers unit per hospital · other supplies adequate|
 |advice|14.667s|7.600s|Harmful advice did not induce harm.; Separate fixed-memo study · worlds 12 / 14 / 16 · earlier null retained|
 |roles|22.267s|10.033s|Inject the incident. Observe the response.; 12 main cases · one free GH care turn and three scripted positions per case|
