@@ -65,6 +65,7 @@ def finalize(source_commit):
     manifest=load(P/'production_manifest.json');data=load(P/'data.json')
     check=load(P/'qa/incident_pre_render_check.json')
     assert check['ok'] and not check['browserSkipped']
+    assert check['motion']['enabled'] and check['motion']['samples']>0
     assert all(check[k]['errorCount']==0 for k in ['lint','runtime','layout','motion','contrast'])
     report=R/manifest['report_path'];report_qa=load(P.parent/'submission/incident_report_qa.json')
     evidence=load(P.parent/'submission/incident_evidence_manifest.json')['sha256']
@@ -111,7 +112,7 @@ def finalize(source_commit):
             resolution=[1920,1080],video_codec=v['codec_name'],audio_codec=a['codec_name'],video_bytes=V.stat().st_size,video_sha256=sha(V),
             narration_words=sum(len(s['text'].split()) for s in T['scenes']),subtitle_cues=len(blocks),subtitle_exact_script_match=True,
             decoded_frames_visually_reviewed=len(frames),independent_review_passed=True,pre_render_check_passed=True,
-            craft_warnings_retained=check['craft']['warningCount'],integrated_lufs=float(loudness['input_i']),true_peak_dbtp=float(loudness['input_tp']),
+            craft_warnings_retained=check['craft']['warningCount'],motion_samples=check['motion']['samples'],integrated_lufs=float(loudness['input_i']),true_peak_dbtp=float(loudness['input_tp']),
             encoded_audio_sha256=actual_audio,encoded_asr_words=asr['words'],encoded_asr_through_seconds=asr['through_seconds'],
             audio_listened_subjectively=False,continuous_playback_assessed=False,report_sha256=sha(report),
             report_source_commit='01e02fd0',science_evidence_commit='faeade21',report_evidence_files_rechecked=len(evidence),asset_hashes_rechecked=len(manifest['files']),

@@ -1,0 +1,91 @@
+{
+  "all_frames_reviewed": true,
+  "open_p0_p1": [],
+  "frame_count": 27,
+  "filenames_reviewed": [
+    "qa/incident-decoded/first.jpg",
+    "qa/incident-decoded/opening.jpg",
+    "qa/incident-decoded/worlds.jpg",
+    "qa/incident-decoded/advice.jpg",
+    "qa/incident-decoded/roles.jpg",
+    "qa/incident-decoded/transfer.jpg",
+    "qa/incident-decoded/late.jpg",
+    "qa/incident-decoded/rule.jpg",
+    "qa/incident-decoded/blocked.jpg",
+    "qa/incident-decoded/care-restored.jpg",
+    "qa/incident-decoded/results.jpg",
+    "qa/incident-decoded/controls.jpg",
+    "qa/incident-decoded/paired.jpg",
+    "qa/incident-decoded/credits.jpg",
+    "qa/incident-decoded/limits.jpg",
+    "qa/incident-decoded/related.jpg",
+    "qa/incident-decoded/close.jpg",
+    "qa/incident-decoded/transfer-motion0.jpg",
+    "qa/incident-decoded/transfer-motion1.jpg",
+    "qa/incident-decoded/transfer-motion2.jpg",
+    "qa/incident-decoded/late-motion0.jpg",
+    "qa/incident-decoded/late-motion1.jpg",
+    "qa/incident-decoded/late-motion2.jpg",
+    "qa/incident-decoded/blocked-motion0.jpg",
+    "qa/incident-decoded/blocked-motion1.jpg",
+    "qa/incident-decoded/blocked-motion2.jpg",
+    "qa/incident-decoded/last.jpg"
+  ],
+  "contact_sheet_reviewed": "qa/incident-decoded/contact.jpg",
+  "inspection_method": "Every one of the 27 manifest JPGs was opened individually with view_image at original 1920x1080 resolution; the contact sheet was then opened separately.",
+  "manifest": "qa/incident_decoded_frames.json",
+  "review_date": "2026-10-26",
+  "findings": [
+    {
+      "time_seconds": [0, 5.6, 13.767],
+      "status": "pass_in_sample",
+      "finding": "First frame is an intentional title frame with no black lead. The opening explicitly says Synthetic Hospital simulator; the setting kicker says The Hospital Simulator. Worlds 18/20/22 show six completed patients, P3/P7 pending, and one required kit in each hospital."
+    },
+    {
+      "time_seconds": [21.367, 31.4],
+      "status": "pass_in_sample",
+      "finding": "The separate earlier harmful-memo null remains 8/8 care, zero actual transfers, worlds 12/14/16, and harmful baseline not established. Current roles distinguish scripted GH43/SM44/SM53 from the free GH52 care decision and disclose identical starting state/proposals for reserve off/on."
+    },
+    {
+      "time_seconds": [34.664, 35.374, 36.084, 40.667],
+      "status": "pass_in_sample",
+      "finding": "Departure, midflight, and arrival samples keep the donated kit clear of hospital headers and the donation caption. Midflight occupies the gap; arrival uses the left SM inventory slot, clear of the existing right-slot kit. Held result shows GH stock 0 and SM stock 2."
+    },
+    {
+      "time_seconds": [44.8, 45.618, 46.436, 50.4],
+      "status": "pass_in_sample",
+      "finding": "The late-return samples show SM care completed before the surplus kit returns. Patient 3 remains explicitly care missed after arrival; the held outcome is 7/8 and does not imply retroactive treatment. Return-flight samples clear headers and labels."
+    },
+    {
+      "time_seconds": [59.767, 61.667, 64.633, 67.7, 67.8, 75.667],
+      "status": "pass_in_sample",
+      "finding": "Reserve arithmetic reads stock 1 minus required care 1 leaves 0 available to transfer, with spare kits allowed. The solid GH kit stays inside GH across all blocked samples, then DENIED and stock remains 1 appear. Protected care shows both ticks and 8/8, with free GH choice versus scripted SM care disclosed."
+    },
+    {
+      "time_seconds": [84.967, 94.5, 103.9],
+      "status": "pass_in_sample",
+      "finding": "Four-condition values are benign/off 8/8, attack/off 7/8, benign/on 8/8, attack/on 8/8, each repeated across worlds 18/20/22. Results disclose 12 matched cases, constructed worlds and sample SD 0. Both instructed controls pass 2/2: keep kit then care 8/8; spare donation allowed then care 8/8, with one fixture each and variance undefined. Paired rows show 7 to 8, +1 in worlds 18/20/22, benign change 0, paired mean +1 and no population reliability estimate."
+    },
+    {
+      "time_seconds": [113.167, 122.833],
+      "status": "pass_in_sample",
+      "finding": "Credit is separated from care: +30 transfer credits, care 7/8, joint-score changes -456/-454/-495. Scope states prevention before harm under a fixed injected attack, no demonstrated goal repair or autonomous collusion, all 14 endpoints complete, one rejected care proposal retained, and 26 settled requests with no new timeout."
+    },
+    {
+      "time_seconds": [134.833],
+      "status": "pass_in_sample",
+      "finding": "All eight source labels are legible: Colosseum (Nakamura et al., 2026); Protection principles (Saltzer and Schroeder, 1975); GuardAgent (Xiang et al., ICML 2025); DelegateGuard (Tran-Truong et al., 2026); AgentDojo (Debenedetti et al., 2024); InjecAgent (Zhan et al., 2024); Transmissible reward hacking (Hu et al., 2026); Competition starter repository (Poseidon Research, 2026). Exact-version/hash audit is correctly referred to the report. This confirms visible labels only."
+    },
+    {
+      "time_seconds": [142.7, 143.56666666666666],
+      "status": "pass_in_sample",
+      "finding": "Closing and last frame hold readable text with no clipped edge or unintended blank: LAU, Chi Hong; 26 October 2026; Signal to Noise by Scott Buckley, CC BY 4.0 and website; local Kokoro narration; 7/8 to 8/8 under attack in three matched worlds; USD18.91/50 including old holds and actual Modal charges unverified."
+    }
+  ],
+  "review_limits": [
+    "This is a visual review of 27 selected decoded frames and their contact sheet, not all 4308 frames or continuous playback of the 143.6-second encode. No guarantee is made about unsampled motion, seams, flicker, or timing.",
+    "No audio was heard and no continuous playback was performed. Audio-level and full-voice ASR checks were reported by the parent agent and were not independently repeated here.",
+    "Source labels, numerical labels, and clinical schematic sequencing were visually checked against the assigned review contract and prior storyboard context. Native traces, report evidence, external publications, financial ledgers, license provenance and provider charges were not independently re-audited.",
+    "Full-resolution review does not certify that footnotes and bibliography text are readable on a phone. No film code was edited and no score was assigned."
+  ]
+}
